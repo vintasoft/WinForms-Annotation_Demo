@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A9818692-9D6C-4C29-A072-1BD1DBFA9F23}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AnnotationDemo</RootNamespace>
+    <AssemblyName>AnnotationDemo</AssemblyName>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+    <StartupObject>AnnotationDemo.Program</StartupObject>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE; DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE; DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE; DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Vintasoft.Imaging, Version=8.7.0.1, Culture=neutral, PublicKeyToken=153caf29a10d2e31, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vintasoft.Imaging.8.7.0.1\lib\net40\Vintasoft.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="Vintasoft.Imaging.Annotation, Version=8.7.0.1, Culture=neutral, PublicKeyToken=153caf29a10d2e31, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vintasoft.Imaging.Annotation.8.7.0.1\lib\net40\Vintasoft.Imaging.Annotation.dll</HintPath>
+    </Reference>
+    <Reference Include="Vintasoft.Imaging.Annotation.Pdf, Version=2.7.0.1, Culture=neutral, PublicKeyToken=153caf29a10d2e31, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vintasoft.Imaging.Annotation.Pdf.2.7.0.1\lib\net40\Vintasoft.Imaging.Annotation.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Vintasoft.Imaging.Pdf, Version=5.7.0.1, Culture=neutral, PublicKeyToken=153caf29a10d2e31, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vintasoft.Imaging.Pdf.5.7.0.1\lib\net40\Vintasoft.Imaging.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Vintasoft.Shared, Version=1.2.0.1, Culture=neutral, PublicKeyToken=153caf29a10d2e31, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vintasoft.Shared.1.2.0.1\lib\net40\Vintasoft.Shared.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnnotationEventHandler\AnnotationsEventsHandler.cs" />
+    <Compile Include="AnnotationEventHandler\AnnotationsLogger.cs" />
+    <Compile Include="AnnotationEventHandler\RulerAnnotationPropertyChangedEventHandler.cs" />
+    <Compile Include="AnnotationNameFactory.cs" />
+    <Compile Include="AnnotationType.cs" />
+    <Compile Include="CustomAnnotationViewerUndoMonitor.cs" />
+    <Compile Include="CustomAnnotationVisualToolUndoMonitor.cs" />
+    <Compile Include="Dialogs\AnnotationInteractionArea\AnnotationInteractionAreaAppearanceManager.cs" />
+    <Compile Include="AnnotationsToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomAnnotations\CustomAnnotationSerializationBinder.cs" />
+    <Compile Include="CustomAnnotations\MarkAnnotation\MarkAnnotationBuilder.cs" />
+    <Compile Include="CustomAnnotations\MarkAnnotation\MarkAnnotationData.cs" />
+    <Compile Include="CustomAnnotations\MarkAnnotation\MarkAnnotationType.cs" />
+    <Compile Include="CustomAnnotations\MarkAnnotation\MarkAnnotationView.cs" />
+    <Compile Include="CustomAnnotations\TriangleAnnotation\TriangleAnnotationInteractionPoint.cs" />
+    <Compile Include="CustomAnnotations\AnnotationsMath.cs" />
+    <Compile Include="CustomAnnotations\TriangleAnnotation\TriangleAnnotationData.cs" />
+    <Compile Include="CustomAnnotations\TriangleAnnotation\TriangleAnnotationView.cs" />
+    <Compile Include="Dialogs\AboutBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AboutBoxForm.Designer.cs">
+      <DependentUpon>AboutBoxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\RotateImageWithAnnotationsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\RotateImageWithAnnotationsForm.Designer.cs">
+      <DependentUpon>RotateImageWithAnnotationsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\AnnotationsInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AnnotationsInfoForm.Designer.cs">
+      <DependentUpon>AnnotationsInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\AnnotationsInfoForm.resx">
+      <DependentUpon>AnnotationsInfoForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AnnotationsToolStrip.resx">
+      <DependentUpon>AnnotationsToolStrip.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App.ico" />
+    <EmbeddedResource Include="Dialogs\AboutBoxForm.resx">
+      <DependentUpon>AboutBoxForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\RotateImageWithAnnotationsForm.resx">
+      <DependentUpon>RotateImageWithAnnotationsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\Angle.png" />
+    <EmbeddedResource Include="Icons\annotationSelection.png" />
+    <EmbeddedResource Include="Icons\ellipse.png" />
+    <EmbeddedResource Include="Icons\embeddedImage.png" />
+    <EmbeddedResource Include="Icons\FreehandLines.png" />
+    <EmbeddedResource Include="Icons\FreehandPolygon.png" />
+    <EmbeddedResource Include="Icons\FreeText.png" />
+    <EmbeddedResource Include="Icons\gears.bmp" />
+    <EmbeddedResource Include="Icons\highlight.png" />
+    <EmbeddedResource Include="Icons\Line.png" />
+    <EmbeddedResource Include="Icons\Lines.png" />
+    <EmbeddedResource Include="Icons\Link.png" />
+    <EmbeddedResource Include="Icons\Mark.png" />
+    <EmbeddedResource Include="Icons\Polygon.png" />
+    <EmbeddedResource Include="Icons\Rectangle.png" />
+    <EmbeddedResource Include="Icons\referencedImage.png" />
+    <EmbeddedResource Include="Icons\rubberstamp.png" />
+    <EmbeddedResource Include="Icons\Ruler.png" />
+    <EmbeddedResource Include="Icons\Rulers.png" />
+    <EmbeddedResource Include="Icons\selection.png" />
+    <EmbeddedResource Include="Icons\StickyNote.png" />
+    <EmbeddedResource Include="Icons\Text.png" />
+    <EmbeddedResource Include="Icons\TextHighlight.png" />
+    <EmbeddedResource Include="Icons\Triangle.png" />
+    <EmbeddedResource Include="Icons\DoubleArrow.png" />
+    <EmbeddedResource Include="Icons\Arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\CloudEllipse.png" />
+    <EmbeddedResource Include="Icons\CloudFreeText.png" />
+    <EmbeddedResource Include="Icons\CloudHighlight.png" />
+    <EmbeddedResource Include="Icons\CloudLines.png" />
+    <EmbeddedResource Include="Icons\CloudPolygon.png" />
+    <EmbeddedResource Include="Icons\CloudRectangle.png" />
+    <EmbeddedResource Include="Icons\CloudText.png" />
+    <EmbeddedResource Include="Icons\CloudTriangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\PolygonHighlight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\CloudPolygonWithInterpolation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\CloudLinesWithInterpolation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\TrianglePolygon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\TriangleLines.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\FreehandHighlight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\FreehandPolygonHighlight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ImagingDemosCommonCode\ImagingDemosCommonCode.VS2017.csproj">
+      <Project>{4DCED466-C905-434A-80BD-7F941E28E3B0}</Project>
+      <Name>ImagingDemosCommonCode</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PdfDemosCommonCode\PdfDemosCommonCode.VS2017.csproj">
+      <Project>{BE3E5057-D7D6-4F8F-A625-CB2B65FE3480}</Project>
+      <Name>PdfDemosCommonCode</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
