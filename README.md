@@ -2,7 +2,7 @@
 
 Demo application shows how to manipulate annotations: create, process, delete, merge with image, save or load to or from XML, JPEG, TIFF, PNG or PDF file. It contains an implementation of custom-created triangle and mark annotation, as well as AnnotationsToolStrip control. Source codes for C# and VB.NET are available.<br />
 <br />
-Demo uses functionality of <a href="http://www.vintasoft.com/vsimaging-dotnet-index.html">VintaSoft Imaging .NET SDK</a> and references to the <a href="https://github.com/vintasoft/Imaging-Demos-Common-Code">ImagingDemosCommonCode</a> and <a href="https://github.com/vintasoft/Pdf-Demos-Common-Code">PdfDemosCommonCode</a> projects.
+Demo uses functionality of <a href="http://www.vintasoft.com/vsimaging-dotnet-index.html">VintaSoft Imaging .NET SDK</a>.
 
 <h2>Screenshot</h2>
 <img src="http://www.vintasoft.com/images/screenshots/imaging/vintasoft-annotation-demo.png" alt="VintaSoft Annotation Demo">
