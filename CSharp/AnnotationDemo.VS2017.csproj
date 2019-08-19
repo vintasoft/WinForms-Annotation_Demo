@@ -105,8 +105,8 @@
     <Reference Include="Vintasoft.Imaging.Pdf.Mrc, Version=5.8.0.5, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
       <HintPath>packages\Vintasoft.Imaging.Pdf.Mrc.1.8.0.5\lib\net40\Vintasoft.Imaging.Pdf.Mrc.dll</HintPath>
     </Reference>
-    <Reference Include="Vintasoft.Shared, Version=1.3.1.1, Culture=neutral, PublicKeyToken=153caf29a10d2e31, processorArchitecture=MSIL">
-      <HintPath>packages\Vintasoft.Shared.1.3.1.1\lib\net40\Vintasoft.Shared.dll</HintPath>
+    <Reference Include="Vintasoft.Shared, Version=1.3.1.3, Culture=neutral, PublicKeyToken=153caf29a10d2e31, processorArchitecture=MSIL">
+      <HintPath>packages\Vintasoft.Shared.1.3.1.3\lib\net40\Vintasoft.Shared.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
