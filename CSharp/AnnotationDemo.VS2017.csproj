@@ -80,32 +80,32 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Vintasoft.Imaging, Version=8.8.0.11, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
-      <HintPath>packages\Vintasoft.Imaging.8.8.0.11\lib\net40\Vintasoft.Imaging.dll</HintPath>
+    <Reference Include="Vintasoft.Imaging, Version=8.8.0.13, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
+      <HintPath>packages\Vintasoft.Imaging.8.8.0.13\lib\net40\Vintasoft.Imaging.dll</HintPath>
     </Reference>
-    <Reference Include="Vintasoft.Imaging.Annotation, Version=8.8.0.11, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
-      <HintPath>packages\Vintasoft.Imaging.Annotation.8.8.0.11\lib\net40\Vintasoft.Imaging.Annotation.dll</HintPath>
+    <Reference Include="Vintasoft.Imaging.Annotation, Version=8.8.0.13, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
+      <HintPath>packages\Vintasoft.Imaging.Annotation.8.8.0.13\lib\net40\Vintasoft.Imaging.Annotation.dll</HintPath>
     </Reference>
-    <Reference Include="Vintasoft.Imaging.Annotation.Pdf, Version=2.8.0.11, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
-      <HintPath>packages\Vintasoft.Imaging.Annotation.Pdf.2.8.0.11\lib\net40\Vintasoft.Imaging.Annotation.Pdf.dll</HintPath>
+    <Reference Include="Vintasoft.Imaging.Annotation.Pdf, Version=2.8.0.13, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
+      <HintPath>packages\Vintasoft.Imaging.Annotation.Pdf.2.8.0.13\lib\net40\Vintasoft.Imaging.Annotation.Pdf.dll</HintPath>
     </Reference>
-    <Reference Include="Vintasoft.Imaging.Dicom, Version=1.8.0.11, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
-      <HintPath>packages\Vintasoft.Imaging.Dicom.1.8.0.11\lib\net40\Vintasoft.Imaging.Dicom.dll</HintPath>
+    <Reference Include="Vintasoft.Imaging.Dicom, Version=1.8.0.13, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
+      <HintPath>packages\Vintasoft.Imaging.Dicom.1.8.0.13\lib\net40\Vintasoft.Imaging.Dicom.dll</HintPath>
     </Reference>
-    <Reference Include="Vintasoft.Imaging.DocCleanup, Version=3.8.0.11, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
-      <HintPath>packages\Vintasoft.Imaging.DocCleanup.3.8.0.11\lib\net40\Vintasoft.Imaging.DocCleanup.dll</HintPath>
+    <Reference Include="Vintasoft.Imaging.DocCleanup, Version=3.8.0.13, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
+      <HintPath>packages\Vintasoft.Imaging.DocCleanup.3.8.0.13\lib\net40\Vintasoft.Imaging.DocCleanup.dll</HintPath>
     </Reference>
-    <Reference Include="Vintasoft.Imaging.Jbig2Codec, Version=5.8.0.11, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
-      <HintPath>packages\Vintasoft.Imaging.Jbig2Codec.5.8.0.11\lib\net40\Vintasoft.Imaging.Jbig2Codec.dll</HintPath>
+    <Reference Include="Vintasoft.Imaging.Jbig2Codec, Version=5.8.0.13, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
+      <HintPath>packages\Vintasoft.Imaging.Jbig2Codec.5.8.0.13\lib\net40\Vintasoft.Imaging.Jbig2Codec.dll</HintPath>
     </Reference>
-    <Reference Include="Vintasoft.Imaging.Jpeg2000Codec, Version=4.8.0.11, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
-      <HintPath>packages\Vintasoft.Imaging.Jpeg2000Codec.4.8.0.11\lib\net40\Vintasoft.Imaging.Jpeg2000Codec.dll</HintPath>
+    <Reference Include="Vintasoft.Imaging.Jpeg2000Codec, Version=4.8.0.13, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
+      <HintPath>packages\Vintasoft.Imaging.Jpeg2000Codec.4.8.0.13\lib\net40\Vintasoft.Imaging.Jpeg2000Codec.dll</HintPath>
     </Reference>
-    <Reference Include="Vintasoft.Imaging.Pdf, Version=5.8.0.11, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
-      <HintPath>packages\Vintasoft.Imaging.Pdf.5.8.0.11\lib\net40\Vintasoft.Imaging.Pdf.dll</HintPath>
+    <Reference Include="Vintasoft.Imaging.Pdf, Version=5.8.0.13, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
+      <HintPath>packages\Vintasoft.Imaging.Pdf.5.8.0.13\lib\net40\Vintasoft.Imaging.Pdf.dll</HintPath>
     </Reference>
-    <Reference Include="Vintasoft.Imaging.Pdf.Mrc, Version=5.8.0.11, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
-      <HintPath>packages\Vintasoft.Imaging.Pdf.Mrc.1.8.0.11\lib\net40\Vintasoft.Imaging.Pdf.Mrc.dll</HintPath>
+    <Reference Include="Vintasoft.Imaging.Pdf.Mrc, Version=5.8.0.13, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
+      <HintPath>packages\Vintasoft.Imaging.Pdf.Mrc.1.8.0.13\lib\net40\Vintasoft.Imaging.Pdf.Mrc.dll</HintPath>
     </Reference>
     <Reference Include="Vintasoft.Shared, Version=1.3.1.3, Culture=neutral, PublicKeyToken=153caf29a10d2e31, processorArchitecture=MSIL">
       <HintPath>packages\Vintasoft.Shared.1.3.1.3\lib\net40\Vintasoft.Shared.dll</HintPath>
