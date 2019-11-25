@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Forms;
@@ -22,7 +20,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Available zoom values.
         /// </summary>
-        int[] _zoomValues = new int[] { 1, 5, 10, 25, 50, 75, 100, 125, 150, 200, 400, 600, 800, 1000 };
+        int[] _zoomValues = new int[] { 1, 5, 10, 25, 50, 75, 100, 125, 150, 200, 400, 600, 800, 1000, 2000, 4000, 8000, 10000 };
 
         /// <summary>
         /// Current scale mode menu item.

@@ -18,7 +18,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// The activated region type action.
         /// </summary>
-        CustomSelectionRegionTypeAction _activatedRegionTypeAction = null;
+        CustomSelectionRegionTypeAction _activatedRegionTypeAction;
 
         #endregion
 
@@ -42,6 +42,7 @@ namespace DemosCommonCode.Imaging
             params VisualToolAction[] subActions)
             : base(visualTool, text, toolTip, icon, subActions)
         {
+            _activatedRegionTypeAction = null;
             if (subActions != null)
             {
                 foreach (VisualToolAction subaction in subActions)

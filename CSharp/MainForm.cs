@@ -42,6 +42,7 @@ using Vintasoft.Imaging.Annotation.UI.VisualTools;
 using Vintasoft.Imaging.Annotation.UI.VisualTools.UserInteraction;
 
 using DemosCommonCode;
+using DemosCommonCode.Annotation;
 using DemosCommonCode.Imaging;
 using DemosCommonCode.Imaging.Codecs;
 using DemosCommonCode.Imaging.Codecs.Dialogs;
@@ -58,6 +59,22 @@ namespace AnnotationDemo
     /// </summary>
     public partial class MainForm : Form
     {
+
+        #region Constants
+
+        /// <summary>
+        /// The value, in screen pixels, that defines how annotation position will be changed when user pressed arrow key.
+        /// </summary>
+        const int ANNOTATION_KEYBOARD_MOVE_DELTA = 2;
+
+        /// <summary>
+        /// The value, in screen pixels, that defines how annotation size will be changed when user pressed "+/-" key.
+        /// </summary>
+        const int ANNOTATION_KEYBOARD_RESIZE_DELTA = 4;
+
+        #endregion
+
+
 
         #region Fields
 
@@ -198,7 +215,7 @@ namespace AnnotationDemo
             twoContinuousColumnsToolStripMenuItem.Tag = ImageViewerDisplayMode.TwoContinuousColumns;
 
 
-            visualToolsToolStrip1.MandatoryVisualTool =  annotationViewer1.VisualTool;
+            visualToolsToolStrip1.MandatoryVisualTool = annotationViewer1.VisualTool;
             visualToolsToolStrip1.ImageViewer = annotationViewer1;
             _annotationVisualTool = annotationViewer1.VisualTool;
             annotationViewer1.MouseMove += new MouseEventHandler(annotationViewer1_MouseMove);
@@ -1184,40 +1201,9 @@ namespace AnnotationDemo
         /// </summary>
         private void loadAnnotationsFromFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            annotationViewer1.CancelAnnotationBuilding();
-
             IsFileOpening = true;
 
-            openFileDialog1.FileName = null;
-            openFileDialog1.Filter = "Binary Annotations(*.vsab)|*.vsab|XMP Annotations(*.xmp)|*.xmp|WANG Annotations(*.wng)|*.wng|All Formats(*.vsab;*.xmp;*.wng)|*.vsab;*.xmp;*.wng";
-            openFileDialog1.FilterIndex = 4;
-
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                // begin the composite undo action
-                _undoManager.BeginCompositeAction("Load annotations from file");
-                try
-                {
-                    using (FileStream fs = new FileStream(openFileDialog1.FileName, FileMode.Open, FileAccess.Read))
-                    {
-                        // get the annotation collection
-                        AnnotationDataCollection annotations = annotationViewer1.AnnotationDataCollection;
-                        // clear the annotation collection
-                        annotations.ClearAndDisposeItems();
-                        // add annotations from stream to the annotation collection
-                        annotations.AddFromStream(fs, annotationViewer1.Image.Resolution);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    DemosTools.ShowErrorMessage(ex);
-                }
-                finally
-                {
-                    // end the composite undo action
-                    _undoManager.EndCompositeAction();
-                }
-            }
+            AnnotationDemosTools.LoadAnnotationsFromFile(annotationViewer1, openFileDialog1, _undoManager);
 
             IsFileOpening = false;
         }
@@ -1227,50 +1213,9 @@ namespace AnnotationDemo
         /// </summary>
         private void saveAnnotationsToFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            annotationViewer1.CancelAnnotationBuilding();
-
             IsFileSaving = true;
 
-            saveFileDialog1.FileName = null;
-            saveFileDialog1.Filter = "Binary Annotations|*.vsab|XMP Annotations|*.xmp|WANG Annotations|*.wng";
-            saveFileDialog1.FilterIndex = 1;
-
-            if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                try
-                {
-                    using (FileStream fs = new FileStream(saveFileDialog1.FileName, FileMode.Create, FileAccess.ReadWrite))
-                    {
-                        IFormatter formatter = null;
-                        if (saveFileDialog1.FilterIndex == 1)
-                            formatter = new AnnotationVintasoftBinaryFormatter();
-                        else if (saveFileDialog1.FilterIndex == 2)
-                            formatter = new AnnotationVintasoftXmpFormatter();
-                        else if (saveFileDialog1.FilterIndex == 3)
-                        {
-                            if (MessageBox.Show(
-                                "Important: some data from annotations will be lost. Do you want to continue anyway?",
-                                "Warning",
-                                MessageBoxButtons.OKCancel,
-                                MessageBoxIcon.Warning) == DialogResult.Cancel)
-                            {
-                                return;
-                            }
-
-                            formatter = new AnnotationWangFormatter(annotationViewer1.Image.Resolution);
-                        }
-
-                        //
-                        AnnotationDataCollection annotations = annotationViewer1.AnnotationDataController[annotationViewer1.FocusedIndex];
-                        //
-                        formatter.Serialize(fs, annotations);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    DemosTools.ShowErrorMessage(ex);
-                }
-            }
+            AnnotationDemosTools.SaveAnnotationsToFile(annotationViewer1, saveFileDialog1);
 
             IsFileSaving = false;
         }
@@ -1617,62 +1562,7 @@ namespace AnnotationDemo
         /// </summary>
         private void groupSelectedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            annotationViewer1.CancelAnnotationBuilding();
-
-            Collection<AnnotationView> selectedAnnotations = annotationViewer1.AnnotationVisualTool.SelectedAnnotations;
-
-            if (selectedAnnotations.Count > 1)
-            {
-                _undoManager.BeginCompositeAction("Group annotations");
-
-                try
-                {
-                    // group annotations
-                    GroupAnnotationData group = new GroupAnnotationData();
-                    AnnotationView[] annotations = new AnnotationView[selectedAnnotations.Count];
-                    selectedAnnotations.CopyTo(annotations, 0);
-                    foreach (AnnotationView view in annotations)
-                    {
-                        group.Items.Add(view.Data);
-                        annotationViewer1.AnnotationDataCollection.Remove(view.Data);
-                    }
-                    annotationViewer1.AnnotationDataCollection.Add(group);
-                    annotationViewer1.FocusedAnnotationData = group;
-                    annotationViewer1.AnnotationVisualTool.SelectedAnnotations.Clear();
-                    annotationViewer1.AnnotationVisualTool.SelectedAnnotations.Add(annotationViewer1.FocusedAnnotationView);
-                }
-                finally
-                {
-                    _undoManager.EndCompositeAction();
-                }
-            }
-            else
-            {
-                GroupAnnotationView groupView = annotationViewer1.FocusedAnnotationView as GroupAnnotationView;
-                if (groupView != null)
-                {
-                    _undoManager.BeginCompositeAction("Ungroup annotations");
-
-                    try
-                    {
-                        // ungroup annotations
-                        selectedAnnotations.Clear();
-                        GroupAnnotationData data = (GroupAnnotationData)groupView.Data;
-                        annotationViewer1.AnnotationDataCollection.Remove(data);
-                        annotationViewer1.AnnotationDataCollection.AddRange(data.Items.ToArray());
-                        if (annotationViewer1.AnnotationMultiSelect)
-                            foreach (AnnotationData itemData in data.Items)
-                                selectedAnnotations.Add(annotationViewer1.AnnotationViewCollection.FindView(itemData));
-                        data.Items.Clear();
-                        data.Dispose();
-                    }
-                    finally
-                    {
-                        _undoManager.EndCompositeAction();
-                    }
-                }
-            }
-
+            AnnotationDemosTools.GroupUngroupSelectedAnnotations(annotationViewer1, _undoManager);
         }
 
         /// <summary>
@@ -1680,42 +1570,7 @@ namespace AnnotationDemo
         /// </summary>
         private void groupAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            annotationViewer1.CancelAnnotationBuilding();
-
-            // get reference to the annotation collection of focused image
-            AnnotationDataCollection annotationDataCollection = annotationViewer1.AnnotationDataController[annotationViewer1.FocusedIndex];
-            if (annotationDataCollection.Count == 0)
-                return;
-
-            _undoManager.BeginCompositeAction("Group all annotations");
-
-            try
-            {
-                // save the references to annotations in array
-                AnnotationData[] annotationDataArray = annotationDataCollection.ToArray();
-
-                // clear the annotation collection of focused image
-                annotationDataCollection.Clear();
-
-                // create the group annotation
-                GroupAnnotationData groupAnnotationData = new GroupAnnotationData();
-
-                // for each annotation in array
-                for (int i = 0; i < annotationDataArray.Length; i++)
-                {
-                    // add annotations from array to group annotation
-                    groupAnnotationData.Items.Add(annotationDataArray[i]);
-                }
-
-                // add the group annotation to the annotation collection of focused image
-                annotationDataCollection.Add(groupAnnotationData);
-
-                annotationViewer1.FocusedAnnotationData = groupAnnotationData;
-            }
-            finally
-            {
-                _undoManager.EndCompositeAction();
-            }
+            AnnotationDemosTools.GroupAllAnnotations(annotationViewer1, _undoManager);
         }
 
         #endregion
@@ -1728,70 +1583,7 @@ namespace AnnotationDemo
         /// </summary>
         private void rotateImageWithAnnotationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            annotationViewer1.CancelAnnotationBuilding();
-
-            using (RotateImageWithAnnotationsForm dlg = new RotateImageWithAnnotationsForm(annotationViewer1.Image.PixelFormat))
-            {
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    // if undo manager is enabled
-                    if (_undoManager.IsEnabled)
-                    {
-                        // begin the composite undo action
-                        _undoManager.BeginCompositeAction("Rotate image with annotations");
-
-                        if (!_undoManager.ContainsActionForSourceObject(annotationViewer1.Image))
-                        {
-                            ChangeImageUndoAction originalImageAction = new ChangeImageUndoAction(_dataStorage, annotationViewer1.Image);
-                            _undoManager.AddAction(originalImageAction, null);
-                        }
-                        try
-                        {
-                            // create change undo action
-                            ChangeImageUndoAction action = new ChangeImageUndoAction(_dataStorage, annotationViewer1.Image, "Rotate");
-                            // clone focused image
-                            using (VintasoftImage previousImage = (VintasoftImage)annotationViewer1.Image.Clone())
-                            {
-                                // rotate focused image with annotations
-                                RotateFocusedImageWithAnnotations((float)dlg.Angle, dlg.BorderColorType, dlg.SourceImagePixelFormat);
-
-                                // add action to the undo manager
-                                _undoManager.AddAction(action, previousImage);
-                            }
-                        }
-                        finally
-                        {
-                            // end the composite undo action
-                            _undoManager.EndCompositeAction();
-                        }
-                    }
-                    else
-                    {
-                        // rotate focused image with annotations
-                        RotateFocusedImageWithAnnotations((float)dlg.Angle, dlg.BorderColorType, dlg.SourceImagePixelFormat);
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Rotates focused image with annotations.
-        /// </summary>
-        /// <param name="rotationAngle">Rotation angle in degrees.</param>
-        /// <param name="borderColorType">Border color type.</param>
-        /// <param name="pixelFormat">New pixel format.</param>
-        private void RotateFocusedImageWithAnnotations(float rotationAngle, BorderColorType borderColorType, PixelFormat pixelFormat)
-        {
-            // if pixel formats are not equal
-            if (pixelFormat != annotationViewer1.Image.PixelFormat)
-            {
-                // change pixel format
-                ChangePixelFormatCommand command = new ChangePixelFormatCommand(pixelFormat);
-                command.ExecuteInPlace(annotationViewer1.Image);
-            }
-
-            // rotate the focused image with annotations
-            annotationViewer1.RotateImageWithAnnotations(rotationAngle, borderColorType);
+            AnnotationDemosTools.RotateImageWithAnnotations(annotationViewer1, _undoManager, _dataStorage);
         }
 
         /// <summary>
@@ -1799,9 +1591,27 @@ namespace AnnotationDemo
         /// </summary>
         private void burnAnnotationsOnImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            annotationViewer1.CancelAnnotationBuilding();
+            try
+            {
+                Cursor = Cursors.WaitCursor;
 
-            BurnAnnotationsOnImage(annotationViewer1.FocusedIndex);
+                AnnotationDemosTools.BurnAnnotationsOnImage(annotationViewer1, _undoManager, _dataStorage);
+
+                // update the UI
+                UpdateUI();
+
+            }
+            catch (ImageProcessingException ex)
+            {
+                Cursor = Cursors.Default;
+                MessageBox.Show(ex.Message, "Burn annotations on image", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception exc)
+            {
+                Cursor = Cursors.Default;
+                DemosTools.ShowErrorMessage(exc);
+            }
+            Cursor = Cursors.Default;
         }
 
         /// <summary>
@@ -1826,7 +1636,7 @@ namespace AnnotationDemo
         /// Shows the About dialog.
         /// </summary>
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {            
+        {
             AboutBoxForm dlg = new AboutBoxForm();
             dlg.ShowDialog();
         }
@@ -1845,11 +1655,11 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Copies focused image without annotations to clipboard.
+        /// Copies focused image with annotations to clipboard.
         /// </summary>
         private void copyImageToClipboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CopyImageToClipboard(annotationViewer1.FocusedIndex);
+            AnnotationDemosTools.CopyImageToClipboard(annotationViewer1);
         }
 
         /// <summary>
@@ -2049,10 +1859,57 @@ namespace AnnotationDemo
                 // update the UI
                 UpdateUI();
             }
+            else if (annotationViewer1.Focused &&
+                annotationViewer1.FocusedAnnotationView != null)
+            {
+                // get transformation from AnnotationViewer space to DIP space
+                AffineMatrix matrix = annotationViewer1.GetTransformFromControlToDip();
+                PointF deltaVector = PointFAffineTransform.TransformVector(matrix, new PointF(ANNOTATION_KEYBOARD_MOVE_DELTA, ANNOTATION_KEYBOARD_MOVE_DELTA));
+                PointF resizeVector = PointFAffineTransform.TransformVector(matrix, new PointF(ANNOTATION_KEYBOARD_RESIZE_DELTA, ANNOTATION_KEYBOARD_RESIZE_DELTA));
+
+                // current annotation properties 
+                PointF location = annotationViewer1.FocusedAnnotationView.Location;
+                SizeF size = annotationViewer1.FocusedAnnotationView.Size;
+
+                switch (e.KeyData)
+                {
+                    case Keys.Up:
+                        annotationViewer1.FocusedAnnotationView.Location = new PointF(location.X, location.Y - deltaVector.Y);
+                        e.Handled = true;
+                        break;
+                    case Keys.Down:
+                        annotationViewer1.FocusedAnnotationView.Location = new PointF(location.X, location.Y + deltaVector.Y);
+                        e.Handled = true;
+                        break;
+                    case Keys.Right:
+                        annotationViewer1.FocusedAnnotationView.Location = new PointF(location.X + deltaVector.X, location.Y);
+                        e.Handled = true;
+                        break;
+                    case Keys.Left:
+                        annotationViewer1.FocusedAnnotationView.Location = new PointF(location.X - deltaVector.X, location.Y);
+                        e.Handled = true;
+                        break;
+                    case Keys.Add:
+                        annotationViewer1.FocusedAnnotationView.Size = new SizeF(size.Width + resizeVector.X, size.Height + resizeVector.Y);
+                        e.Handled = true;
+                        break;
+                    case Keys.Subtract:
+                        if (size.Width > resizeVector.X)
+                            annotationViewer1.FocusedAnnotationView.Size = new SizeF(size.Width - resizeVector.X, size.Height);
+
+                        size = annotationViewer1.FocusedAnnotationView.Size;
+
+                        if (size.Height > resizeVector.Y)
+                            annotationViewer1.FocusedAnnotationView.Size = new SizeF(size.Width, size.Height - resizeVector.Y);
+                        e.Handled = true;
+                        break;
+                }
+                propertyGrid1.Refresh();
+            }
         }
 
         /// <summary>
-        /// Key pressed in viewer.
+        /// Key is pressed in viewer.
         /// </summary>
         private void annotationViewer1_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -2060,9 +1917,7 @@ namespace AnnotationDemo
             if (e.KeyChar == '\xD')
             {
                 if (annotationViewer1.IsAnnotationBuilding)
-                {
                     annotationViewer1.FinishAnnotationBuilding();
-                }
             }
             // if ESC key (27) pressed
             else if (e.KeyChar == '\x1B')
@@ -2286,20 +2141,6 @@ namespace AnnotationDemo
         #region Image manipulation
 
         /// <summary>
-        /// Checks that focused image is present and correct.
-        /// </summary>
-        /// <returns></returns>
-        private bool CheckImage()
-        {
-            if (annotationViewer1.Image.IsBad)
-            {
-                MessageBox.Show("Focused image is bad.");
-                return false;
-            }
-            return true;
-        }
-
-        /// <summary>
         /// Deletes selected images or focused image.
         /// </summary>
         private void DeleteImages()
@@ -2334,133 +2175,6 @@ namespace AnnotationDemo
             // dispose selected images
             for (int i = 0; i < selectedImages.Length; i++)
                 selectedImages[i].Dispose();
-        }
-
-        /// <summary>
-        /// Burns annotations on image.
-        /// </summary>
-        private void BurnAnnotationsOnImage(int index)
-        {
-            if (!CheckImage())
-                return;
-
-            try
-            {
-                VintasoftImage sourceImage = annotationViewer1.Image;
-#if !REMOVE_PDF_PLUGIN
-                if (sourceImage.IsVectorImage && sourceImage.SourceInfo.Decoder is PdfDecoder)
-                {
-                    PdfPage page = PdfDocumentController.GetPageAssociatedWithImage(sourceImage);
-                    if (!page.IsImageOnly)
-                    {
-                        DialogResult result = MessageBox.Show(string.Format("{0}\n\n{1}\n\n{2}\n\n{3}",
-                            "This page is a vector page of PDF document. How annotations should be drawn on the page?",
-                            "Press 'Yes' if you want convert annotations to PDF annotations and draw annotations on PDF page in a vector form.",
-                            "Press 'No' if you want rasterize PDF page and draw annotations on raster image in raster form.",
-                            "Press 'Cancel' to cancel burning."),
-                            "Burn Annotations", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
-                        if (result == DialogResult.Yes)
-                        {
-                            BurnPdfAnnotations(
-                                annotationViewer1.AnnotationDataCollection,
-                                sourceImage.Resolution,
-                                page);
-                            annotationViewer1.AnnotationDataCollection.ClearAndDisposeItems();
-                            sourceImage.Reload(true);
-                            return;
-                        }
-                        if (result == DialogResult.Cancel)
-                            return;
-                    }
-                }
-#endif
-
-                Cursor = Cursors.WaitCursor;
-
-                if (_undoManager.IsEnabled)
-                {
-                    using (VintasoftImage image = (VintasoftImage)sourceImage.Clone())
-                    {
-                        _undoManager.BeginCompositeAction("Burn annotations on image");
-
-                        if (!_undoManager.ContainsActionForSourceObject(sourceImage))
-                        {
-                            ChangeImageUndoAction originalImageAction = new ChangeImageUndoAction(_dataStorage, sourceImage);
-                            _undoManager.AddAction(originalImageAction, null);
-                        }
-                        try
-                        {
-                            annotationViewer1.AnnotationViewController.BurnAnnotationCollectionOnImage(index);
-                            ChangeImageUndoAction action = new ChangeImageUndoAction(_dataStorage, sourceImage, "Burn annotations on image");
-                            _undoManager.AddAction(action, image);
-                        }
-                        finally
-                        {
-                            _undoManager.EndCompositeAction();
-                        }
-                    }
-                }
-                else
-                {
-                    annotationViewer1.AnnotationViewController.BurnAnnotationCollectionOnImage(index);
-                }
-
-
-                // update the UI
-                UpdateUI();
-
-            }
-            catch (ImageProcessingException ex)
-            {
-                Cursor = Cursors.Default;
-                MessageBox.Show(ex.Message, "Burn annotations on image", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception e)
-            {
-                Cursor = Cursors.Default;
-                DemosTools.ShowErrorMessage(e);
-            }
-            Cursor = Cursors.Default;
-        }
-
-#if !REMOVE_PDF_PLUGIN
-        /// <summary>
-        /// Burns the annotations on PDF page use vector graphics.
-        /// </summary>
-        /// <param name="annotations">The annotations.</param>
-        /// <param name="resolution">The resolution.</param>
-        /// <param name="page">The page.</param>
-        private void BurnPdfAnnotations(
-            AnnotationDataCollection annotations,
-            Resolution resolution,
-            PdfPage page)
-        {
-            PdfAnnotation[] annots =
-                AnnotationConverter.ConvertToPdfAnnotations(annotations, resolution, page);
-
-            using (PdfGraphics g = page.GetGraphics())
-                foreach (PdfAnnotation annot in annots)
-                    g.DrawAnnotation(annot);
-        }
-#endif
-
-        /// <summary>
-        /// Copies image to clipboard.
-        /// </summary>
-        private void CopyImageToClipboard(int index)
-        {
-            if (!CheckImage())
-                return;
-
-            try
-            {
-                using (VintasoftImage image = annotationViewer1.AnnotationViewController.GetImageWithAnnotations(index))
-                    Clipboard.SetImage(image.GetAsBitmap());
-            }
-            catch (Exception ex)
-            {
-                DemosTools.ShowErrorMessage(ex);
-            }
         }
 
         #endregion
@@ -2558,33 +2272,7 @@ namespace AnnotationDemo
                         AnnotationData[] annotations = new AnnotationData[annotationViewer1.SelectedAnnotations.Count];
                         for (int i = 0; i < annotationViewer1.SelectedAnnotations.Count; i++)
                             annotations[i] = annotationViewer1.SelectedAnnotations[i].Data;
-                        ChangeLocation(locationDelta, annotations, (AnnotationData)sender);
-                    }
-                }
-            }
-        }
-
-        private void ChangeLocation(
-            System.Drawing.PointF locationDelta,
-            AnnotationData[] annotations,
-            AnnotationData source)
-        {
-            foreach (AnnotationData data in annotations)
-            {
-                if (data is CompositeAnnotationData)
-                {
-                    CompositeAnnotationData compositeData = (CompositeAnnotationData)data;
-                    List<AnnotationData> subAnnotations = new List<AnnotationData>();
-                    foreach (AnnotationData subAnnotation in compositeData)
-                        subAnnotations.Add(subAnnotation);
-                    ChangeLocation(locationDelta, subAnnotations.ToArray(), source);
-                }
-                else
-                {
-                    if (data != source)
-                    {
-                        System.Drawing.PointF location = data.Location;
-                        data.Location = new System.Drawing.PointF(location.X + locationDelta.X, location.Y + locationDelta.Y);
+                        AnnotationDemosTools.ChangeAnnotationsLocation(locationDelta, annotations, (AnnotationData)sender);
                     }
                 }
             }
@@ -2963,28 +2651,39 @@ namespace AnnotationDemo
         /// </summary>
         private void SaveImageCollectionToSourceFile()
         {
+            // cancel annotation building
             annotationViewer1.CancelAnnotationBuilding();
 
-            if (!CheckImage())
+            // if focused image is NOT correct
+            if (!AnnotationDemosTools.CheckImage(annotationViewer1))
                 return;
 
             EncoderBase encoder = null;
             try
             {
+                // specify that image file saving is started
                 IsFileSaving = true;
 
+                // if image collection contains several images
                 if (annotationViewer1.Images.Count > 1)
+                    // get multipage encoder
                     encoder = GetMultipageEncoder(_sourceFilename, true, false);
+                // if image collection contains single image
                 else
+                    // get single- or multipage encoder
                     encoder = GetEncoder(_sourceFilename, true);
-
+                // if encoder is found
                 if (encoder != null)
                 {
                     encoder.SaveAndSwitchSource = true;
+
+                    // save image collection to a file
                     annotationViewer1.Images.SaveAsync(_sourceFilename, encoder);
                 }
+                // if encoder is NOT found
                 else
-                    DemosTools.ShowErrorMessage("Image is not saved.");
+                    // open save file dialog and save image collection to the new multipage image file
+                    SaveImageCollectionToMultipageImageFile(true);
             }
             catch (Exception ex)
             {
@@ -2992,100 +2691,133 @@ namespace AnnotationDemo
             }
             finally
             {
+                // specify that image file saving is finished
                 IsFileSaving = false;
             }
         }
 
         /// <summary>
-        /// Saves image collection to new multipage image file.
+        /// Opens the save file dialog and saves image collection to the new multipage image file.
         /// </summary>
         private void SaveImageCollectionToMultipageImageFile(bool saveAs)
         {
+            // cancel annotation building
             annotationViewer1.CancelAnnotationBuilding();
 
-            if (!CheckImage())
+            // if focused image is NOT correct
+            if (!AnnotationDemosTools.CheckImage(annotationViewer1))
                 return;
 
+            // specify that image file saving is started
             IsFileSaving = true;
 
             bool multipage = annotationViewer1.Images.Count > 1;
 
+            // set file filters in file saving dialog
             CodecsFileFilters.SetFiltersWithAnnotations(saveFileDialog1, multipage);
+            // show the file saving dialog
             if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 EncoderBase encoder = null;
                 try
                 {
                     string saveFilename = Path.GetFullPath(saveFileDialog1.FileName);
+                    // if multiple images must be saved
                     if (multipage)
+                        // get image encoder for multi page image file
                         encoder = GetMultipageEncoder(saveFilename, true, saveAs);
+                    // if single image must be saved
                     else
+                        // get image encoder for single page image file
                         encoder = GetEncoder(saveFilename, true);
+                    // if encoder is found
                     if (encoder != null)
                     {
                         if (saveAs)
                             _saveFilename = saveFilename;
                         encoder.SaveAndSwitchSource = saveAs;
-                        // save the image
+
+                        // save images to an image file
                         annotationViewer1.Images.SaveAsync(saveFilename, encoder);
                     }
+                    else
+                        DemosTools.ShowErrorMessage("Image encoder is not found.");
+                }
+                catch (Exception ex)
+                {
+                    DemosTools.ShowErrorMessage(ex);
+                    // specify that image file saving is finished
+                    IsFileSaving = false;
+                }
+                if (!saveAs)
+                    // specify that image file saving is finished
+                    IsFileSaving = false;
+            }
+            else
+            {
+                // specify that image file saving is finished
+                IsFileSaving = false;
+            }
+        }
+
+        /// <summary>
+        /// Opens the save file dialog and saves focused image to the new image file.
+        /// </summary>
+        private void SaveFocusedImageToNewImageFile()
+        {
+            // cancel annotation building
+            annotationViewer1.CancelAnnotationBuilding();
+
+            // if focused image is NOT correct
+            if (!AnnotationDemosTools.CheckImage(annotationViewer1))
+                return;
+
+            // specify that image file saving is started
+            IsFileSaving = true;
+
+            // set file filters in file saving dialog
+            CodecsFileFilters.SetFiltersWithAnnotations(saveFileDialog1, false);
+            saveFileDialog1.FileName = "";
+            // show the file saving dialog
+            if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                try
+                {
+                    string fileName = Path.GetFullPath(saveFileDialog1.FileName);
+                    // set encoder parameters, if necessary
+                    EncoderBase encoder = GetEncoder(fileName, true);
+                    // if encoder is found
+                    if (encoder != null)
+                    {
+                        encoder.SaveAndSwitchSource = false;
+
+                        // save images to an image file
+                        annotationViewer1.Image.Save(fileName, encoder, SavingProgress);
+                    }
+                    else
+                        DemosTools.ShowErrorMessage("Image encoder is not found.");
                 }
                 catch (Exception ex)
                 {
                     DemosTools.ShowErrorMessage(ex);
                 }
-
-                if (!saveAs)
-                    IsFileSaving = false;
             }
-            else
-            {
-                IsFileSaving = false;
-            }
-        }
 
-        /// <summary>
-        /// Saves current image to new image file.
-        /// </summary>
-        private void SaveFocusedImageToNewImageFile()
-        {
-            annotationViewer1.CancelAnnotationBuilding();
-
-            if (CheckImage())
-            {
-                IsFileSaving = true;
-
-                CodecsFileFilters.SetFiltersWithAnnotations(saveFileDialog1, false);
-                saveFileDialog1.FileName = "";
-                if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    string fileName = Path.GetFullPath(saveFileDialog1.FileName);
-                    // set encoder parameters, if necessary
-                    EncoderBase encoder = GetEncoder(fileName, true);
-                    encoder.SaveAndSwitchSource = false;
-                    if (encoder == null)
-                        return;
-                    try
-                    {
-                        annotationViewer1.Image.Save(fileName, encoder, SavingProgress);
-                    }
-                    catch (Exception ex)
-                    {
-                        DemosTools.ShowErrorMessage(ex);
-                    }
-                }
-                IsFileSaving = false;
-            }
+            // specify that image file saving is finished
+            IsFileSaving = false;
         }
 
 
         /// <summary>
-        /// Gets the encoder for saving of single image.
+        /// Returns the encoder for saving of single image.
         /// </summary>
         private EncoderBase GetEncoder(string filename, bool showSettingsDialog)
         {
+            // get multipage encoder
             MultipageEncoderBase multipageEncoder = GetMultipageEncoder(filename, showSettingsDialog, false);
+            // if multipage encoder is found
             if (multipageEncoder != null)
+                // return multipage encoder
                 return multipageEncoder;
 
             switch (Path.GetExtension(filename).ToUpperInvariant())
@@ -3102,7 +2834,7 @@ namespace AnnotationDemo
                         jpegEncoderSettingsDlg.EditAnnotationSettings = true;
                         jpegEncoderSettingsDlg.EncoderSettings = jpegEncoder.Settings;
                         if (jpegEncoderSettingsDlg.ShowDialog() != DialogResult.OK)
-                            return null;
+                            throw new Exception("Saving canceled.");
                     }
 
                     return jpegEncoder;
@@ -3118,18 +2850,19 @@ namespace AnnotationDemo
                         pngEncoderSettingsDlg.EditAnnotationSettings = true;
                         pngEncoderSettingsDlg.EncoderSettings = pngEncoder.Settings;
                         if (pngEncoderSettingsDlg.ShowDialog() != DialogResult.OK)
-                            return null;
+                            throw new Exception("Saving canceled.");
                     }
 
                     return pngEncoder;
 
+                // if annotations are not supported
                 default:
-                    return AvailableEncoders.CreateEncoder(filename);
+                    return null;
             }
         }
 
         /// <summary>
-        /// Gets the encoder for saving of image collection.
+        /// Returns the multipage encoder for saving of image collection.
         /// </summary>
         private MultipageEncoderBase GetMultipageEncoder(
             string filename,
@@ -3152,7 +2885,7 @@ namespace AnnotationDemo
                         pdfEncoderSettingsDlg.CanEditAnnotationSettings = true;
                         pdfEncoderSettingsDlg.EncoderSettings = pdfEncoder.Settings;
                         if (pdfEncoderSettingsDlg.ShowDialog() != DialogResult.OK)
-                            return null;
+                            throw new Exception("Saving canceled.");
                     }
 
                     return (MultipageEncoderBase)pdfEncoder;
@@ -3171,7 +2904,7 @@ namespace AnnotationDemo
                         tiffEncoderSettingsDlg.EditAnnotationSettings = true;
                         tiffEncoderSettingsDlg.EncoderSettings = tiffEncoder.Settings;
                         if (tiffEncoderSettingsDlg.ShowDialog() != DialogResult.OK)
-                            return null;
+                            throw new Exception("Saving canceled.");
                     }
 
                     return tiffEncoder;
@@ -3180,11 +2913,10 @@ namespace AnnotationDemo
             return null;
         }
 
-        delegate void SavingProgressDelegate(object sender, ProgressEventArgs e);
         /// <summary>
         /// Image collection saving is in-progress.
         /// </summary>
-        void SavingProgress(object sender, ProgressEventArgs e)
+        private void SavingProgress(object sender, ProgressEventArgs e)
         {
             if (InvokeRequired)
             {
@@ -3234,6 +2966,8 @@ namespace AnnotationDemo
         private delegate void UpdateUIDelegate();
 
         private delegate void CloseCurrentFileDelegate();
+
+        private delegate void SavingProgressDelegate(object sender, ProgressEventArgs e);
 
         #endregion
 

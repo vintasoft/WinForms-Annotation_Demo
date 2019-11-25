@@ -97,10 +97,17 @@ namespace DemosCommonCode.Imaging
         /// </summary>
         public void Print()
         {
-            _printDialog.PrinterSettings.FromPage = 1;
-            _printDialog.PrinterSettings.ToPage = _imageViewer.Images.Count;
+            try
+            {
+                _printDialog.PrinterSettings.FromPage = 1;
+                _printDialog.PrinterSettings.ToPage = _imageViewer.Images.Count;
 
-            Print(true, false);
+                Print(true, false);
+            }
+            catch(Exception ex)
+            {
+                DemosTools.ShowErrorMessage(ex);
+            }
         }
 
         /// <summary>

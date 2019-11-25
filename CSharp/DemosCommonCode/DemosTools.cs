@@ -6,6 +6,7 @@ using System.Text;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging;
+using Vintasoft.Imaging.Codecs.Decoders;
 using Vintasoft.Imaging.UI;
 using Vintasoft.Imaging.UI.VisualTools;
 using Vintasoft.Imaging.UIActions;
@@ -187,6 +188,7 @@ namespace DemosCommonCode
                 string[] directories = new string[] {
                     @"..\..\..\Images\",
                     @"..\..\..\..\Images\",
+                    @"..\..\..\..\..\Images\"
                 };
                 string demoImagesFolder = Path.GetDirectoryName(
                     System.Reflection.Assembly.GetExecutingAssembly().ManifestModule.FullyQualifiedName);
@@ -203,7 +205,6 @@ namespace DemosCommonCode
 
             return "";
         }
-
 
         /// <summary>
         /// Reloads the images in the specified image viewer.
@@ -369,7 +370,7 @@ namespace DemosCommonCode
             return null;
         }
 
-        #endregion
+#endregion
 
     }
 }

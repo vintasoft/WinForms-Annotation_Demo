@@ -74,17 +74,6 @@ namespace DemosCommonCode.Imaging
             thumbnailAppearanceComboBox.Items.Add("Hovered");
             thumbnailAppearanceComboBox.Items.Add("Selected");
             thumbnailAppearanceComboBox.Items.Add("Not ready");
-
-            captionAnchorComboBox.Items.Add(AnchorType.Bottom);
-            captionAnchorComboBox.Items.Add(AnchorType.BottomLeft);
-            captionAnchorComboBox.Items.Add(AnchorType.BottomRight);
-            captionAnchorComboBox.Items.Add(AnchorType.Center);
-            captionAnchorComboBox.Items.Add(AnchorType.Left);
-            captionAnchorComboBox.Items.Add(AnchorType.None);
-            captionAnchorComboBox.Items.Add(AnchorType.Right);
-            captionAnchorComboBox.Items.Add(AnchorType.Top);
-            captionAnchorComboBox.Items.Add(AnchorType.TopLeft);
-            captionAnchorComboBox.Items.Add(AnchorType.TopRight);
         }
 
 
@@ -129,7 +118,7 @@ namespace DemosCommonCode.Imaging
             captionIsVisibleCheckBox.Checked = _viewer.ThumbnailCaption.IsVisible;
 
             captionPaddingFEditorControl.PaddingValue = _viewer.ThumbnailCaption.Padding;
-            captionAnchorComboBox.SelectedItem = _viewer.ThumbnailCaption.Anchor;
+            captionAnchorTypeEditor.SelectedAnchorType = _viewer.ThumbnailCaption.Anchor;
             captionFormatTextBox.Text = _viewer.ThumbnailCaption.CaptionFormat;
             captionTextColorPanelControl.Color = _viewer.ThumbnailCaption.TextColor;
             captionFontDialog.Font = _viewer.ThumbnailCaption.Font;
@@ -186,7 +175,7 @@ namespace DemosCommonCode.Imaging
             _viewer.ThumbnailCaption.Padding = captionPaddingFEditorControl.PaddingValue;
             _viewer.ThumbnailCaption.TextColor = captionTextColorPanelControl.Color;
             _viewer.ThumbnailCaption.CaptionFormat = captionFormatTextBox.Text;
-            _viewer.ThumbnailCaption.Anchor = (AnchorType)captionAnchorComboBox.SelectedItem;
+            _viewer.ThumbnailCaption.Anchor = captionAnchorTypeEditor.SelectedAnchorType;
             _viewer.ThumbnailCaption.Font = captionFontDialog.Font;
 
             return true;

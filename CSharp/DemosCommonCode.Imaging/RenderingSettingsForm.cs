@@ -103,7 +103,7 @@ namespace DemosCommonCode.Imaging
         {
             if (encoder == null || !(encoder is IPdfEncoder))
             {
-                if (image.SourceInfo.DecoderName == "Pdf")
+                if (image.IsVectorImage)
                 {
                     RenderingSettingsForm settingsForm = new RenderingSettingsForm(defaultRenderingSettings.CreateClone());
                     if (settingsForm.ShowDialog() == DialogResult.OK)
@@ -115,14 +115,12 @@ namespace DemosCommonCode.Imaging
         private void btOk_Click(object sender, EventArgs e)
         {
             if (cbDefault.Checked)
-                _renderingSettings = Vintasoft.Imaging.Codecs.Decoders.RenderingSettings.Empty;
+                RenderingSettings.Empty.CopyTo(_renderingSettings);
             else
             {
-                _renderingSettings = new RenderingSettings(
-                    (float)horizontalResolution.Value,
-                    (float)verticalResolution.Value,
-                    (InterpolationMode)interpolationModeComboBox.SelectedItem,
-                    (SmoothingMode)smoothingModeComboBox.SelectedItem);
+                _renderingSettings.Resolution = new Resolution((float)horizontalResolution.Value, (float)verticalResolution.Value);
+                _renderingSettings.InterpolationMode = (InterpolationMode)interpolationModeComboBox.SelectedItem;
+                _renderingSettings.SmoothingMode = (SmoothingMode)smoothingModeComboBox.SelectedItem;
                 _renderingSettings.OptimizeImageDrawing = optimizeImageDrawingCheckBox.Checked;
             }
             DialogResult = System.Windows.Forms.DialogResult.OK;

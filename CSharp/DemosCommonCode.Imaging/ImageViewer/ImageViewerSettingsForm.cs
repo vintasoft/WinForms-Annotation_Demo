@@ -55,23 +55,6 @@ namespace DemosCommonCode.Imaging
         {
             InitializeComponent();
 
-            object[] aStyles = new object[]
-            {
-                AnchorType.None,
-                AnchorType.Left | AnchorType.Top,
-                AnchorType.Top,
-                AnchorType.Top | AnchorType.Right,
-                AnchorType.Right,
-                AnchorType.Bottom | AnchorType.Right,
-                AnchorType.Bottom,
-                AnchorType.Bottom | AnchorType.Left,
-                AnchorType.Left,
-            };
-
-            // init "Image Anchor"
-            imageAnchorComboBox.Items.AddRange(aStyles);
-            focusPointAnchorComboBox.Items.AddRange(aStyles);
-
             // init "Rendering quality"
             renderingQualityComboBox.Items.Add(ImageRenderingQuality.Low);
             renderingQualityComboBox.Items.Add(ImageRenderingQuality.Normal);
@@ -131,13 +114,13 @@ namespace DemosCommonCode.Imaging
         private void ShowSettings()
         {
             // image anchor
-            imageAnchorComboBox.SelectedItem = _viewer.ImageAnchor;
-
+            imageAnchorTypeEditor.SelectedAnchorType = _viewer.ImageAnchor;
+            
             // rendering quality
             renderingQualityComboBox.SelectedItem = _viewer.RenderingQuality;
 
             // focus point
-            focusPointAnchorComboBox.SelectedItem = _viewer.FocusPointAnchor;
+            focusPointAnchorTypeEditor.SelectedAnchorType = _viewer.FocusPointAnchor;
             focusPointIsFixedCheckBox.Checked = _viewer.IsFocusPointFixed;
 
             // buffering
@@ -177,13 +160,13 @@ namespace DemosCommonCode.Imaging
         private void SetSettings()
         {
             // image anchor
-            _viewer.ImageAnchor = (AnchorType)imageAnchorComboBox.SelectedItem;
+            _viewer.ImageAnchor = imageAnchorTypeEditor.SelectedAnchorType;
 
             // rendering quality
             _viewer.RenderingQuality = (ImageRenderingQuality)renderingQualityComboBox.SelectedItem;
 
             // focus point
-            _viewer.FocusPointAnchor = (AnchorType)focusPointAnchorComboBox.SelectedItem;
+            _viewer.FocusPointAnchor = focusPointAnchorTypeEditor.SelectedAnchorType;
             _viewer.IsFocusPointFixed = focusPointIsFixedCheckBox.Checked;
 
             // buffering

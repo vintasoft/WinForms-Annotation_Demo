@@ -60,12 +60,12 @@ namespace DemosCommonCode.Imaging
             this.imagePaddingEditorControl = new DemosCommonCode.CustomControls.PaddingFEditorControl();
             this.thumbnailViewerBackColorDialog = new System.Windows.Forms.ColorDialog();
             this.thumbnailCaptionGroupBox = new System.Windows.Forms.GroupBox();
+            this.captionAnchorTypeEditor = new DemosCommonCode.CustomControls.AnchorTypeEditorControl();
             this.captionFormatHelpButton = new System.Windows.Forms.Button();
             this.captionFormatTextBox = new System.Windows.Forms.TextBox();
             this.captionFontlabel = new System.Windows.Forms.Label();
             this.captionFontSelectButton = new System.Windows.Forms.Button();
             this.captionTextColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
-            this.captionAnchorComboBox = new System.Windows.Forms.ComboBox();
             this.captionTextColorLabel = new System.Windows.Forms.Label();
             this.captionAnchorLable = new System.Windows.Forms.Label();
             this.captionFormatLabel = new System.Windows.Forms.Label();
@@ -85,7 +85,7 @@ namespace DemosCommonCode.Imaging
             // buttonOk
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonOk.Location = new System.Drawing.Point(167, 459);
+            this.buttonOk.Location = new System.Drawing.Point(167, 493);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(81, 23);
             this.buttonOk.TabIndex = 10;
@@ -97,7 +97,7 @@ namespace DemosCommonCode.Imaging
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(261, 459);
+            this.buttonCancel.Location = new System.Drawing.Point(261, 493);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(81, 23);
             this.buttonCancel.TabIndex = 11;
@@ -206,8 +206,8 @@ namespace DemosCommonCode.Imaging
             // 
             // thumbnailAppearanceGroupBox
             // 
-            this.thumbnailAppearanceGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.thumbnailAppearanceGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.thumbnailAppearanceGroupBox.Controls.Add(this.thumbnailAppearanceBorderColorPanelControl);
             this.thumbnailAppearanceGroupBox.Controls.Add(this.thumbnailAppearanceBackColorPanelControl);
             this.thumbnailAppearanceGroupBox.Controls.Add(this.borderStyleValueLabel);
@@ -220,7 +220,7 @@ namespace DemosCommonCode.Imaging
             this.thumbnailAppearanceGroupBox.Controls.Add(this.thumbnailAppearanceComboBox);
             this.thumbnailAppearanceGroupBox.Location = new System.Drawing.Point(261, 10);
             this.thumbnailAppearanceGroupBox.Name = "thumbnailAppearanceGroupBox";
-            this.thumbnailAppearanceGroupBox.Size = new System.Drawing.Size(225, 161);
+            this.thumbnailAppearanceGroupBox.Size = new System.Drawing.Size(225, 157);
             this.thumbnailAppearanceGroupBox.TabIndex = 21;
             this.thumbnailAppearanceGroupBox.TabStop = false;
             this.thumbnailAppearanceGroupBox.Text = "Thumbnail Appearance";
@@ -321,8 +321,8 @@ namespace DemosCommonCode.Imaging
             // 
             // thumbnailViewerGroupBox
             // 
-            this.thumbnailViewerGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.thumbnailViewerGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.thumbnailViewerGroupBox.Controls.Add(this.thumbnailViewerBackColorPanelControl);
             this.thumbnailViewerGroupBox.Controls.Add(this.thumbnailRenderingThreadCountNumericUpDown);
             this.thumbnailViewerGroupBox.Controls.Add(this.thumbnailRenderThreadCountLabel);
@@ -334,7 +334,7 @@ namespace DemosCommonCode.Imaging
             this.thumbnailViewerGroupBox.Controls.Add(this.columnsCountLabel);
             this.thumbnailViewerGroupBox.Location = new System.Drawing.Point(12, 10);
             this.thumbnailViewerGroupBox.Name = "thumbnailViewerGroupBox";
-            this.thumbnailViewerGroupBox.Size = new System.Drawing.Size(236, 161);
+            this.thumbnailViewerGroupBox.Size = new System.Drawing.Size(236, 157);
             this.thumbnailViewerGroupBox.TabIndex = 22;
             this.thumbnailViewerGroupBox.TabStop = false;
             this.thumbnailViewerGroupBox.Text = "Thumbnail Viewer";
@@ -399,7 +399,7 @@ namespace DemosCommonCode.Imaging
             this.thumbnailsGroupBox.Controls.Add(this.thumbnailScaleComboBox);
             this.thumbnailsGroupBox.Controls.Add(this.scaleLabel);
             this.thumbnailsGroupBox.Controls.Add(this.imagePaddingGroupBox);
-            this.thumbnailsGroupBox.Location = new System.Drawing.Point(12, 175);
+            this.thumbnailsGroupBox.Location = new System.Drawing.Point(12, 172);
             this.thumbnailsGroupBox.Name = "thumbnailsGroupBox";
             this.thumbnailsGroupBox.Size = new System.Drawing.Size(474, 122);
             this.thumbnailsGroupBox.TabIndex = 23;
@@ -422,26 +422,35 @@ namespace DemosCommonCode.Imaging
             this.imagePaddingEditorControl.MaximumSize = new System.Drawing.Size(128, 75);
             this.imagePaddingEditorControl.MinimumSize = new System.Drawing.Size(128, 75);
             this.imagePaddingEditorControl.Name = "imagePaddingEditorControl";
+            this.imagePaddingEditorControl.PaddingValue = new Vintasoft.Imaging.PaddingF(0F, 0F, 0F, 0F);
             this.imagePaddingEditorControl.Size = new System.Drawing.Size(128, 75);
             this.imagePaddingEditorControl.TabIndex = 24;
             // 
             // thumbnailCaptionGroupBox
             // 
+            this.thumbnailCaptionGroupBox.Controls.Add(this.captionAnchorTypeEditor);
             this.thumbnailCaptionGroupBox.Controls.Add(this.captionFormatHelpButton);
             this.thumbnailCaptionGroupBox.Controls.Add(this.captionFormatTextBox);
             this.thumbnailCaptionGroupBox.Controls.Add(this.captionFontlabel);
             this.thumbnailCaptionGroupBox.Controls.Add(this.captionFontSelectButton);
             this.thumbnailCaptionGroupBox.Controls.Add(this.captionTextColorPanelControl);
-            this.thumbnailCaptionGroupBox.Controls.Add(this.captionAnchorComboBox);
             this.thumbnailCaptionGroupBox.Controls.Add(this.captionTextColorLabel);
             this.thumbnailCaptionGroupBox.Controls.Add(this.captionAnchorLable);
             this.thumbnailCaptionGroupBox.Controls.Add(this.captionFormatLabel);
             this.thumbnailCaptionGroupBox.Controls.Add(this.captionPaddingGroupBox);
-            this.thumbnailCaptionGroupBox.Location = new System.Drawing.Point(12, 301);
+            this.thumbnailCaptionGroupBox.Location = new System.Drawing.Point(12, 300);
             this.thumbnailCaptionGroupBox.Name = "thumbnailCaptionGroupBox";
-            this.thumbnailCaptionGroupBox.Size = new System.Drawing.Size(474, 155);
+            this.thumbnailCaptionGroupBox.Size = new System.Drawing.Size(474, 181);
             this.thumbnailCaptionGroupBox.TabIndex = 24;
             this.thumbnailCaptionGroupBox.TabStop = false;
+            // 
+            // captionAnchorTypeEditor
+            // 
+            this.captionAnchorTypeEditor.Location = new System.Drawing.Point(101, 44);
+            this.captionAnchorTypeEditor.Name = "captionAnchorTypeEditor";
+            this.captionAnchorTypeEditor.SelectedAnchorType = Vintasoft.Imaging.UI.AnchorType.None;
+            this.captionAnchorTypeEditor.Size = new System.Drawing.Size(63, 63);
+            this.captionAnchorTypeEditor.TabIndex = 33;
             // 
             // captionFormatHelpButton
             // 
@@ -464,7 +473,7 @@ namespace DemosCommonCode.Imaging
             // captionFontlabel
             // 
             this.captionFontlabel.AutoSize = true;
-            this.captionFontlabel.Location = new System.Drawing.Point(6, 102);
+            this.captionFontlabel.Location = new System.Drawing.Point(6, 146);
             this.captionFontlabel.Name = "captionFontlabel";
             this.captionFontlabel.Size = new System.Drawing.Size(67, 13);
             this.captionFontlabel.TabIndex = 31;
@@ -472,7 +481,7 @@ namespace DemosCommonCode.Imaging
             // 
             // captionFontSelectButton
             // 
-            this.captionFontSelectButton.Location = new System.Drawing.Point(107, 100);
+            this.captionFontSelectButton.Location = new System.Drawing.Point(107, 144);
             this.captionFontSelectButton.Name = "captionFontSelectButton";
             this.captionFontSelectButton.Size = new System.Drawing.Size(121, 23);
             this.captionFontSelectButton.TabIndex = 30;
@@ -483,24 +492,15 @@ namespace DemosCommonCode.Imaging
             // 
             this.captionTextColorPanelControl.Color = System.Drawing.Color.Black;
             this.captionTextColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
-            this.captionTextColorPanelControl.Location = new System.Drawing.Point(107, 72);
+            this.captionTextColorPanelControl.Location = new System.Drawing.Point(107, 116);
             this.captionTextColorPanelControl.Name = "captionTextColorPanelControl";
             this.captionTextColorPanelControl.Size = new System.Drawing.Size(121, 22);
             this.captionTextColorPanelControl.TabIndex = 27;
             // 
-            // captionAnchorComboBox
-            // 
-            this.captionAnchorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.captionAnchorComboBox.FormattingEnabled = true;
-            this.captionAnchorComboBox.Location = new System.Drawing.Point(107, 45);
-            this.captionAnchorComboBox.Name = "captionAnchorComboBox";
-            this.captionAnchorComboBox.Size = new System.Drawing.Size(121, 21);
-            this.captionAnchorComboBox.TabIndex = 26;
-            // 
             // captionTextColorLabel
             // 
             this.captionTextColorLabel.AutoSize = true;
-            this.captionTextColorLabel.Location = new System.Drawing.Point(6, 76);
+            this.captionTextColorLabel.Location = new System.Drawing.Point(6, 120);
             this.captionTextColorLabel.Name = "captionTextColorLabel";
             this.captionTextColorLabel.Size = new System.Drawing.Size(94, 13);
             this.captionTextColorLabel.TabIndex = 21;
@@ -527,7 +527,7 @@ namespace DemosCommonCode.Imaging
             // captionPaddingGroupBox
             // 
             this.captionPaddingGroupBox.Controls.Add(this.captionPaddingFEditorControl);
-            this.captionPaddingGroupBox.Location = new System.Drawing.Point(249, 42);
+            this.captionPaddingGroupBox.Location = new System.Drawing.Point(249, 48);
             this.captionPaddingGroupBox.Name = "captionPaddingGroupBox";
             this.captionPaddingGroupBox.Size = new System.Drawing.Size(210, 103);
             this.captionPaddingGroupBox.TabIndex = 32;
@@ -540,6 +540,7 @@ namespace DemosCommonCode.Imaging
             this.captionPaddingFEditorControl.MaximumSize = new System.Drawing.Size(128, 75);
             this.captionPaddingFEditorControl.MinimumSize = new System.Drawing.Size(128, 75);
             this.captionPaddingFEditorControl.Name = "captionPaddingFEditorControl";
+            this.captionPaddingFEditorControl.PaddingValue = new Vintasoft.Imaging.PaddingF(0F, 0F, 0F, 0F);
             this.captionPaddingFEditorControl.Size = new System.Drawing.Size(128, 75);
             this.captionPaddingFEditorControl.TabIndex = 28;
             // 
@@ -548,7 +549,7 @@ namespace DemosCommonCode.Imaging
             this.captionIsVisibleCheckBox.AutoSize = true;
             this.captionIsVisibleCheckBox.Checked = true;
             this.captionIsVisibleCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.captionIsVisibleCheckBox.Location = new System.Drawing.Point(19, 300);
+            this.captionIsVisibleCheckBox.Location = new System.Drawing.Point(19, 299);
             this.captionIsVisibleCheckBox.Name = "captionIsVisibleCheckBox";
             this.captionIsVisibleCheckBox.Size = new System.Drawing.Size(114, 17);
             this.captionIsVisibleCheckBox.TabIndex = 0;
@@ -562,7 +563,7 @@ namespace DemosCommonCode.Imaging
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(501, 493);
+            this.ClientSize = new System.Drawing.Size(501, 523);
             this.Controls.Add(this.captionIsVisibleCheckBox);
             this.Controls.Add(this.thumbnailCaptionGroupBox);
             this.Controls.Add(this.thumbnailsGroupBox);
@@ -627,7 +628,6 @@ namespace DemosCommonCode.Imaging
         private System.Windows.Forms.GroupBox thumbnailCaptionGroupBox;
         private System.Windows.Forms.CheckBox captionIsVisibleCheckBox;
         private System.Windows.Forms.Label captionFormatLabel;
-        private System.Windows.Forms.ComboBox captionAnchorComboBox;
         private System.Windows.Forms.Label captionAnchorLable;
         private DemosCommonCode.CustomControls.ColorPanelControl captionTextColorPanelControl;
         private System.Windows.Forms.Label captionTextColorLabel;
@@ -639,5 +639,6 @@ namespace DemosCommonCode.Imaging
         private System.Windows.Forms.GroupBox captionPaddingGroupBox;
         private System.Windows.Forms.GroupBox imagePaddingGroupBox;
         private System.Windows.Forms.Button captionFormatHelpButton;
+        private DemosCommonCode.CustomControls.AnchorTypeEditorControl captionAnchorTypeEditor;
     }
 }

@@ -19,7 +19,7 @@ namespace DemosCommonCode.Imaging
         {
             InitializeComponent();
 
-            string[] codes = new string[] { "Bmp", "Jpeg", "Jpeg2000", "Tiff", "Png", "Pdf" };
+            string[] codes = new string[] { "Bmp", "Jpeg", "Jpeg2000", "Tiff", "Png", "Pdf", "Docx" };
 
             codecComboBox.Items.AddRange(codes);
 
@@ -71,6 +71,8 @@ namespace DemosCommonCode.Imaging
         {
             if (codecComboBox.SelectedItem.ToString() == "Jpeg2000")
                 megapixelsComboBox.Text = "0.5";
+            else if (codecComboBox.SelectedItem.ToString() == "Pdf" || codecComboBox.SelectedItem.ToString() == "Docx")
+                megapixelsComboBox.Text = "0";
             else
                 megapixelsComboBox.Text = "50";
         }

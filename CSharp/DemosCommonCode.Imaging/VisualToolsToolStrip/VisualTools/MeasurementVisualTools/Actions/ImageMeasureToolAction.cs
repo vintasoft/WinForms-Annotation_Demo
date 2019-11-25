@@ -56,7 +56,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// The current activated measurement annotation action.
         /// </summary>
-        VisualToolAction _currentActivatedMeasureTypeAction = null;
+        VisualToolAction _currentActivatedMeasureTypeAction;
 
         /// <summary>
         /// The dictionary from measurement annotation action to the measurement annotation type.
@@ -66,7 +66,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// The action, which defines current unit of measure.
         /// </summary>
-        ImageMeasureToolUnitsOfMeasureAction _currentUnitOfMeasureAction = null;
+        ImageMeasureToolUnitsOfMeasureAction _currentUnitOfMeasureAction;
 
         /// <summary>
         /// Ddictionary: unit of measure => unit of measure action.
@@ -76,7 +76,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// The value indicating whether this action is initialized.
         /// </summary>
-        bool _isInitialized = false;
+        bool _isInitialized;
 
         #endregion
 
@@ -273,8 +273,8 @@ namespace DemosCommonCode.Imaging
                 case UnitOfMeasure.Pixels:
                     return "px";
 
-                case UnitOfMeasure.PdfUserUnits:
-                    return "uu";
+                case UnitOfMeasure.Points:
+                    return "point";
 
                 case UnitOfMeasure.Twips:
                     return "twip";

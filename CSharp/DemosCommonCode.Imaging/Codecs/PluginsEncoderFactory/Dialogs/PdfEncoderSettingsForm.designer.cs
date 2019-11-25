@@ -103,7 +103,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
 #endif
             this.pdfImageCompressionControl1.IsMrcCompressionOnly = false;
             this.pdfImageCompressionControl1.Location = new System.Drawing.Point(7, 69);
-#if !REMOVE_PDF_PLUGIN
+#if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
             this.pdfImageCompressionControl1.MrcCompressionSettings = null;
 #endif
             this.pdfImageCompressionControl1.Name = "pdfImageCompressionControl1";

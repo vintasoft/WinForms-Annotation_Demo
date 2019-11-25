@@ -18,7 +18,7 @@ namespace DemosCommonCode.Imaging
 
         Dictionary<string, float> _requirements = new Dictionary<string, float>();
 
-        string[] _codes = new string[] { "Bmp", "Jpeg", "Jpeg2000", "Tiff", "Png", "Pdf" };
+        string[] _codes = new string[] { "Bmp", "Jpeg", "Jpeg2000", "Tiff", "Png", "Pdf", "Docx" };
 
         #endregion
 

@@ -1,5 +1,7 @@
 using Vintasoft.Imaging.Annotation;
 using Vintasoft.Imaging;
+using DemosCommonCode.Annotation;
+
 namespace AnnotationDemo
 {
 	partial class MainForm
@@ -199,7 +201,7 @@ namespace AnnotationDemo
             this.selectionModeToolStrip = new System.Windows.Forms.ToolStrip();
             this.interactionModeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.annotationInteractionModeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
-            this.annotationsToolStrip1 = new AnnotationDemo.AnnotationsToolStrip();
+            this.annotationsToolStrip1 = new DemosCommonCode.Annotation.AnnotationsToolStrip();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.zoomPanel = new System.Windows.Forms.Panel();

@@ -70,6 +70,8 @@ namespace DemosCommonCode.Imaging
             bool isCheckOnActivate,
             params VisualToolAction[] subActions)
         {
+            _isActivated = false;
+
             _visualTool = visualTool;
             _text = text;
             _toolTip = toolTip;
@@ -149,7 +151,7 @@ namespace DemosCommonCode.Imaging
             }
         }
 
-        bool _isActivated = false;
+        bool _isActivated;
         /// <summary>
         /// Gets a value indicating whether this action is activated.
         /// </summary>

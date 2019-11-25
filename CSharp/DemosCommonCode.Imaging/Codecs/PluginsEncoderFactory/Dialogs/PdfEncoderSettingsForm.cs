@@ -38,6 +38,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             updateModeComboBox.Items.Add(PdfDocumentUpdateMode.Incremental);
             updateModeComboBox.Items.Add(PdfDocumentUpdateMode.Pack);
             updateModeComboBox.Items.Add(PdfDocumentUpdateMode.CleanupAndPack);
+            updateModeComboBox.Items.Add(PdfDocumentUpdateMode.SubsetFontsAndPack);
             updateModeComboBox.SelectedIndex = 0;
 
             CanEditAnnotationSettings = false;
@@ -138,7 +139,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             }
         }
 
-#if !REMOVE_PDF_PLUGIN
+#if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
         /// <summary>
         /// Gets or sets the PDF MRC compression settings.
         /// </summary>

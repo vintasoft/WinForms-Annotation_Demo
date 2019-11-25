@@ -43,6 +43,9 @@ namespace DemosCommonCode.Imaging.Codecs
         const string Filters_Dicom = "*.dcm;*.dic;*.acr";
         const string Filters_DicomFiles = "DICOM files|" + Filters_Dicom;
 
+        const string Filters_Docx = "*.docx";
+        const string Filters_DocxFiles = "DOCX files|" + Filters_Docx;
+
         #endregion
 
 
@@ -195,6 +198,13 @@ namespace DemosCommonCode.Imaging.Codecs
             {
                 filter1 += "|" + Filters_PdfFiles;
                 filter2 += Filters_Pdf + ";";
+                _decoderFiltersDefaultFilterIndex++;
+            }
+
+            if (AvailableDecoders.IsDecoderAvailable("Docx"))
+            {
+                filter1 += "|" + Filters_DocxFiles;
+                filter2 += Filters_Docx + ";";
                 _decoderFiltersDefaultFilterIndex++;
             }
 

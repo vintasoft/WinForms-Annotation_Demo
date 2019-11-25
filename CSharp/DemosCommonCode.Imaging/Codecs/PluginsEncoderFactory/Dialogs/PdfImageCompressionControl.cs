@@ -35,6 +35,11 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         public PdfImageCompressionControl()
         {
             InitializeComponent();
+
+#if REMOVE_DOCCLEANUP_PLUGIN
+            compressionMrcRadioButton.Visible = false;
+            compressionImageRadioButton.Checked = true;
+#endif
         }
 
         #endregion
@@ -100,6 +105,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             }
         }
 
+#if !REMOVE_DOCCLEANUP_PLUGIN
         PdfMrcCompressionSettings _mrcCompressionSettings = null;
         /// <summary>
         /// Gets or sets the PDF MRC compression settings.
@@ -127,6 +133,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             }
         }
 #endif
+#endif
 
         #endregion
 
@@ -139,7 +146,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// </summary>
         private void compressionRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-#if !REMOVE_PDF_PLUGIN
+#if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
             if (compressionMrcRadioButton.Checked)
             {
                 if (MrcCompressionSettings != null)
@@ -162,7 +169,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// </summary>
         private void UpdateUI()
         {
-#if !REMOVE_PDF_PLUGIN
+#if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
             if (_mrcCompressionSettings != null && _mrcCompressionSettings.EnableMrcCompression)
             {
                 compressionMrcRadioButton.Checked = true;
@@ -174,11 +181,8 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
                 mrcHiQualityFrontLayerCheckBox.Checked = _mrcCompressionSettings.HiQualityFrontLayer;
                 mrcHiQualityFrontLayerCheckBox.Enabled = _mrcCompressionSettings.CreateFrontLayer;
                 mrcUseBackgroundLayerCheckBox.Checked = _mrcCompressionSettings.CreateBackgroundLayer;
-#if !REMOVE_DOCCLEANUP_PLUGIN
                 mrcImageSegmentationCheckBox.Checked = _mrcCompressionSettings.ImageSegmentation != null;
                 mrcImageSegmentationSettingsButton.Enabled = _mrcCompressionSettings.ImageSegmentation != null;
-#endif
-
                 mrcBackgroundCompressionControl.Enabled = _mrcCompressionSettings.CreateBackgroundLayer;
                 mrcImagesCompressionControl.Enabled = _mrcCompressionSettings.CreateImagesLayer;
                 mrcFrontCompressionControl.Enabled = _mrcCompressionSettings.CreateFrontLayer;
@@ -199,7 +203,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// </summary>
         private void SyncEncoderSettingsWithUI()
         {
-#if !REMOVE_PDF_PLUGIN
+#if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
             if (compressionMrcRadioButton.Checked)
             {
                 if (_mrcCompressionSettings == null)
@@ -218,7 +222,6 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
                 _mrcCompressionSettings.MaskCompressionSettings = mrcMaskCompressionControl.CompressionSettings;
                 _mrcCompressionSettings.FrontLayerCompression = mrcFrontCompressionControl.Compression;
                 _mrcCompressionSettings.FrontLayerCompressionSettings = mrcFrontCompressionControl.CompressionSettings;
-#if !REMOVE_DOCCLEANUP_PLUGIN
                 if (mrcImageSegmentationCheckBox.Checked)
                 {
                     if (_mrcCompressionSettings.ImageSegmentation == null)
@@ -228,7 +231,6 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
                 {
                     _mrcCompressionSettings.ImageSegmentation = null;
                 }
-#endif
             }
             else
             {
@@ -244,7 +246,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// </summary>
         private void mrcUseFrontCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-#if !REMOVE_PDF_PLUGIN
+#if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
             _mrcCompressionSettings.CreateFrontLayer = mrcUseFrontCheckBox.Checked;
 #endif
             OnMrcCompressionChanged();
@@ -256,7 +258,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// </summary>
         private void mrcHiQualityMaskCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-#if !REMOVE_PDF_PLUGIN
+#if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
             _mrcCompressionSettings.HiQualityMask = mrcHiQualityMaskCheckBox.Checked;
 #endif
             OnMrcCompressionChanged();
@@ -268,7 +270,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// </summary>
         private void mrcHiQualityFrontLayerCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-#if !REMOVE_PDF_PLUGIN
+#if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
             _mrcCompressionSettings.HiQualityFrontLayer = mrcHiQualityFrontLayerCheckBox.Checked;
 #endif
             OnMrcCompressionChanged();
@@ -280,7 +282,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// </summary>
         private void mrcUseBackgroundLayerCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-#if !REMOVE_PDF_PLUGIN
+#if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
             _mrcCompressionSettings.CreateBackgroundLayer = mrcUseBackgroundLayerCheckBox.Checked;
 #endif
             OnMrcCompressionChanged();
@@ -316,7 +318,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// </summary>
         private void mrcNotUseImagesLayerRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-#if !REMOVE_PDF_PLUGIN
+#if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
             _mrcCompressionSettings.CreateImagesLayer = !mrcNotUseImagesLayerRadioButton.Checked;
 #endif
             OnMrcCompressionChanged();
@@ -328,7 +330,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// </summary>
         private void mrcUseImagesLayerRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-#if !REMOVE_PDF_PLUGIN
+#if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
             _mrcCompressionSettings.CreateImagesLayer = mrcUseImagesLayerRadioButton.Checked;
 #endif
             OnMrcCompressionChanged();
@@ -352,7 +354,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             if (mrcCompressionProfileComboBox.SelectedIndex == 0)
                 return;
 
-#if !REMOVE_PDF_PLUGIN
+#if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
             PdfMrcCompressionSettings settings = new PdfMrcCompressionSettings();
 
             _isMrcCompressionProfileInitializing = true;
@@ -364,9 +366,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
                     settings.CreateBackgroundLayer = true;
                     settings.BackgroundLayerCompression = PdfCompression.Jpeg | PdfCompression.Zip;
                     settings.BackgroundLayerCompressionSettings.JpegQuality = 60;
-#if !REMOVE_DOCCLEANUP_PLUGIN
                     settings.ImageSegmentation = new ImageSegmentationCommand();
-#endif
                     settings.CreateImagesLayer = false;
 
                     settings.HiQualityMask = true;
@@ -386,9 +386,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
                     settings.BackgroundLayerCompression = PdfCompression.Jpeg | PdfCompression.Zip;
                     settings.BackgroundLayerCompressionSettings.JpegQuality = 35;
 
-#if !REMOVE_DOCCLEANUP_PLUGIN
                     settings.ImageSegmentation = new ImageSegmentationCommand();
-#endif
                     settings.CreateImagesLayer = false;
 
                     settings.HiQualityMask = true;
@@ -409,9 +407,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
                     settings.BackgroundLayerCompression = PdfCompression.Jpeg | PdfCompression.Zip;
                     settings.BackgroundLayerCompressionSettings.JpegQuality = 20;
 
-#if !REMOVE_DOCCLEANUP_PLUGIN
                     settings.ImageSegmentation = new ImageSegmentationCommand();
-#endif
                     settings.CreateImagesLayer = false;
 
                     settings.HiQualityMask = false;
@@ -429,9 +425,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
                     settings.BackgroundLayerCompression = PdfCompression.Jpeg | PdfCompression.Zip;
                     settings.BackgroundLayerCompressionSettings.JpegQuality = 30;
 
-#if !REMOVE_DOCCLEANUP_PLUGIN
                     settings.ImageSegmentation = null;
-#endif
                     settings.CreateImagesLayer = false;
 
                     settings.HiQualityMask = true;
@@ -451,9 +445,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
                     settings.BackgroundLayerCompression = PdfCompression.Jpeg | PdfCompression.Zip;
                     settings.BackgroundLayerCompressionSettings.JpegQuality = 25;
 
-#if !REMOVE_DOCCLEANUP_PLUGIN
                     settings.ImageSegmentation = null;
-#endif
                     settings.CreateImagesLayer = false;
 
                     settings.HiQualityMask = true;
@@ -473,9 +465,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
                     settings.BackgroundLayerCompression = PdfCompression.Jpeg | PdfCompression.Zip;
                     settings.BackgroundLayerCompressionSettings.JpegQuality = 20;
 
-#if !REMOVE_DOCCLEANUP_PLUGIN
                     settings.ImageSegmentation = null;
-#endif
                     settings.CreateImagesLayer = false;
 
                     settings.HiQualityMask = false;

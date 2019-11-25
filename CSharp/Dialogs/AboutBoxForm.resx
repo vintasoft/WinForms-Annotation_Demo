@@ -120,23 +120,23 @@
   <data name="decriptionRichTextBox.Text" xml:space="preserve">
     <value>This project demonstrates the following SDK possibilities:
 
-- 20+ predefined annotation types to be added visually onto JPEG, PNG, TIFF image or PDF page.
+- Interactively add 20+ predefined annotation types onto JPEG, PNG, TIFF image or PDF page.
 
-- Some custom-made annotations as an example of custom annotation development.
+- Use source codes of custom annotations as an example of custom annotation development.
 
-- Common manipulation with annotations: copy/paste, cut, delete, burn on image, resize, rotate.
+- Manipulate annotations: copy/paste, cut, delete, burn on image, resize, rotate.
 
-- Annotation loading/saving from/to XML, JPEG, PNG, TIFF or PDF file in VintasoftBinary, XMP or WANG format.
+- Load/save annotations from/to XML, JPEG, PNG, TIFF or PDF file in VintasoftBinary, XMP or WANG format.
 
-- Displaying, saving and printing images with annotations.
+- Display, save and print images with annotations.
 
-- Image collection routine: next, last, previous, first.
+- Navigate images: first, previous, next, last.
 
-- Great number of settings for images preview.
+- Change settings of image preview.
 
-- Visual image processing tools: selection, magnifier, crop, drag-n-drop, zoom, pan, scroll, composite.
+- Use visual tools for interactive image processing: selection, magnifier, crop, drag-n-drop, zoom, pan, scroll.
 
 
-The project is available in C# and VB.NET for Visual Studio .NET 2017/2015/2013/2012/2010/2008.</value>
+The project is available in C# and VB.NET for Visual Studio .NET.</value>
   </data>
 </root>

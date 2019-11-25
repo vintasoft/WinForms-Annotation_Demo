@@ -29,9 +29,9 @@ namespace DemosCommonCode.Imaging
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.focusPointAnchorTypeEditor = new DemosCommonCode.CustomControls.AnchorTypeEditorControl();
             this.focusPointIsFixedCheckBox = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.focusPointAnchorComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -42,7 +42,6 @@ namespace DemosCommonCode.Imaging
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.imageAnchorComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.renderingQualityComboBox = new System.Windows.Forms.ComboBox();
@@ -75,12 +74,13 @@ namespace DemosCommonCode.Imaging
             this.layoutDirectionComboBox = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.keyboardNavigationGroupBox = new System.Windows.Forms.GroupBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.keyboardNavigationZoomStepNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label21 = new System.Windows.Forms.Label();
             this.keyboardNavigationScrollStepNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.keyboardNavigationCheckBox = new System.Windows.Forms.CheckBox();
-            this.keyboardNavigationZoomStepNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label22 = new System.Windows.Forms.Label();
             this.backgoundColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
+            this.imageAnchorTypeEditor = new DemosCommonCode.CustomControls.AnchorTypeEditorControl();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.minImageSizeWhenZoomBufferUsedNumericUpDown)).BeginInit();
@@ -94,26 +94,36 @@ namespace DemosCommonCode.Imaging
             ((System.ComponentModel.ISupportInitialize)(this.imagesPaddingNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagesInRowColumnNumericUpDown)).BeginInit();
             this.keyboardNavigationGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.keyboardNavigationScrollStepNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyboardNavigationZoomStepNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keyboardNavigationScrollStepNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.focusPointAnchorTypeEditor);
             this.groupBox1.Controls.Add(this.focusPointIsFixedCheckBox);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.focusPointAnchorComboBox);
-            this.groupBox1.Location = new System.Drawing.Point(11, 67);
+            this.groupBox1.Location = new System.Drawing.Point(11, 106);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(354, 65);
+            this.groupBox1.Size = new System.Drawing.Size(354, 104);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Focus point";
             // 
+            // focusPointAnchorTypeEditor
+            // 
+            this.focusPointAnchorTypeEditor.Location = new System.Drawing.Point(177, 14);
+            this.focusPointAnchorTypeEditor.Name = "focusPointAnchorTypeEditor";
+            this.focusPointAnchorTypeEditor.SelectedAnchorType = ((Vintasoft.Imaging.UI.AnchorType)((((Vintasoft.Imaging.UI.AnchorType.Top | Vintasoft.Imaging.UI.AnchorType.Bottom) 
+            | Vintasoft.Imaging.UI.AnchorType.Left) 
+            | Vintasoft.Imaging.UI.AnchorType.Right)));
+            this.focusPointAnchorTypeEditor.Size = new System.Drawing.Size(63, 63);
+            this.focusPointAnchorTypeEditor.TabIndex = 8;
+            // 
             // focusPointIsFixedCheckBox
             // 
             this.focusPointIsFixedCheckBox.AutoSize = true;
-            this.focusPointIsFixedCheckBox.Location = new System.Drawing.Point(9, 44);
+            this.focusPointIsFixedCheckBox.Location = new System.Drawing.Point(6, 78);
             this.focusPointIsFixedCheckBox.Name = "focusPointIsFixedCheckBox";
             this.focusPointIsFixedCheckBox.Size = new System.Drawing.Size(51, 17);
             this.focusPointIsFixedCheckBox.TabIndex = 7;
@@ -128,15 +138,6 @@ namespace DemosCommonCode.Imaging
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Anchor";
-            // 
-            // focusPointAnchorComboBox
-            // 
-            this.focusPointAnchorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.focusPointAnchorComboBox.FormattingEnabled = true;
-            this.focusPointAnchorComboBox.Location = new System.Drawing.Point(183, 19);
-            this.focusPointAnchorComboBox.Name = "focusPointAnchorComboBox";
-            this.focusPointAnchorComboBox.Size = new System.Drawing.Size(165, 21);
-            this.focusPointAnchorComboBox.TabIndex = 5;
             // 
             // groupBox3
             // 
@@ -257,19 +258,10 @@ namespace DemosCommonCode.Imaging
             this.label3.TabIndex = 0;
             this.label3.Text = "Viewer Buffer Size";
             // 
-            // imageAnchorComboBox
-            // 
-            this.imageAnchorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.imageAnchorComboBox.FormattingEnabled = true;
-            this.imageAnchorComboBox.Location = new System.Drawing.Point(194, 12);
-            this.imageAnchorComboBox.Name = "imageAnchorComboBox";
-            this.imageAnchorComboBox.Size = new System.Drawing.Size(165, 21);
-            this.imageAnchorComboBox.TabIndex = 3;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 15);
+            this.label1.Location = new System.Drawing.Point(17, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 4;
@@ -309,7 +301,7 @@ namespace DemosCommonCode.Imaging
             // buttonOk
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOk.Location = new System.Drawing.Point(560, 415);
+            this.buttonOk.Location = new System.Drawing.Point(560, 421);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(81, 23);
             this.buttonOk.TabIndex = 9;
@@ -321,7 +313,7 @@ namespace DemosCommonCode.Imaging
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(647, 415);
+            this.buttonCancel.Location = new System.Drawing.Point(647, 421);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(81, 23);
             this.buttonCancel.TabIndex = 10;
@@ -332,7 +324,7 @@ namespace DemosCommonCode.Imaging
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 45);
+            this.label7.Location = new System.Drawing.Point(17, 83);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 13);
             this.label7.TabIndex = 11;
@@ -502,9 +494,9 @@ namespace DemosCommonCode.Imaging
             this.imagesDisplayModeGroupBox.Controls.Add(this.label17);
             this.imagesDisplayModeGroupBox.Controls.Add(this.layoutDirectionComboBox);
             this.imagesDisplayModeGroupBox.Controls.Add(this.label14);
-            this.imagesDisplayModeGroupBox.Location = new System.Drawing.Point(11, 138);
+            this.imagesDisplayModeGroupBox.Location = new System.Drawing.Point(11, 216);
             this.imagesDisplayModeGroupBox.Name = "imagesDisplayModeGroupBox";
-            this.imagesDisplayModeGroupBox.Size = new System.Drawing.Size(354, 192);
+            this.imagesDisplayModeGroupBox.Size = new System.Drawing.Size(354, 193);
             this.imagesDisplayModeGroupBox.TabIndex = 16;
             this.imagesDisplayModeGroupBox.TabStop = false;
             this.imagesDisplayModeGroupBox.Text = "Images Display Mode";
@@ -625,20 +617,46 @@ namespace DemosCommonCode.Imaging
             this.keyboardNavigationGroupBox.Controls.Add(this.keyboardNavigationZoomStepNumericUpDown);
             this.keyboardNavigationGroupBox.Controls.Add(this.label21);
             this.keyboardNavigationGroupBox.Controls.Add(this.keyboardNavigationScrollStepNumericUpDown);
-            this.keyboardNavigationGroupBox.Location = new System.Drawing.Point(11, 338);
+            this.keyboardNavigationGroupBox.Location = new System.Drawing.Point(371, 336);
             this.keyboardNavigationGroupBox.Name = "keyboardNavigationGroupBox";
             this.keyboardNavigationGroupBox.Size = new System.Drawing.Size(354, 73);
             this.keyboardNavigationGroupBox.TabIndex = 8;
             this.keyboardNavigationGroupBox.TabStop = false;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(6, 47);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(155, 13);
+            this.label22.TabIndex = 27;
+            this.label22.Text = "Keyboard navigation zoom step";
+            // 
+            // keyboardNavigationZoomStepNumericUpDown
+            // 
+            this.keyboardNavigationZoomStepNumericUpDown.Location = new System.Drawing.Point(291, 45);
+            this.keyboardNavigationZoomStepNumericUpDown.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.keyboardNavigationZoomStepNumericUpDown.Name = "keyboardNavigationZoomStepNumericUpDown";
+            this.keyboardNavigationZoomStepNumericUpDown.Size = new System.Drawing.Size(57, 20);
+            this.keyboardNavigationZoomStepNumericUpDown.TabIndex = 26;
+            this.keyboardNavigationZoomStepNumericUpDown.Value = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
             // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(6, 21);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(172, 13);
+            this.label21.Size = new System.Drawing.Size(174, 13);
             this.label21.TabIndex = 16;
-            this.label21.Text = "Keyboard navgation scroll step (px)";
+            this.label21.Text = "Keyboard navigation scroll step (px)";
             // 
             // keyboardNavigationScrollStepNumericUpDown
             // 
@@ -660,7 +678,7 @@ namespace DemosCommonCode.Imaging
             // keyboardNavigationCheckBox
             // 
             this.keyboardNavigationCheckBox.AutoSize = true;
-            this.keyboardNavigationCheckBox.Location = new System.Drawing.Point(20, 336);
+            this.keyboardNavigationCheckBox.Location = new System.Drawing.Point(383, 334);
             this.keyboardNavigationCheckBox.Name = "keyboardNavigationCheckBox";
             this.keyboardNavigationCheckBox.Size = new System.Drawing.Size(123, 17);
             this.keyboardNavigationCheckBox.TabIndex = 25;
@@ -668,42 +686,26 @@ namespace DemosCommonCode.Imaging
             this.keyboardNavigationCheckBox.UseVisualStyleBackColor = true;
             this.keyboardNavigationCheckBox.CheckedChanged += new System.EventHandler(this.keyboardNavigationCheckBox_CheckedChanged);
             // 
-            // keyboardNavigationZoomStepNumericUpDown
-            // 
-            this.keyboardNavigationZoomStepNumericUpDown.Location = new System.Drawing.Point(291, 45);
-            this.keyboardNavigationZoomStepNumericUpDown.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.keyboardNavigationZoomStepNumericUpDown.Name = "keyboardNavigationZoomStepNumericUpDown";
-            this.keyboardNavigationZoomStepNumericUpDown.Size = new System.Drawing.Size(57, 20);
-            this.keyboardNavigationZoomStepNumericUpDown.TabIndex = 26;
-            this.keyboardNavigationZoomStepNumericUpDown.Value = new decimal(new int[] {
-            25,
-            0,
-            0,
-            0});
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(6, 47);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(153, 13);
-            this.label22.TabIndex = 27;
-            this.label22.Text = "Keyboard navgation zoom step";
-            // 
             // backgoundColorPanelControl
             // 
             this.backgoundColorPanelControl.Color = System.Drawing.SystemColors.Control;
             this.backgoundColorPanelControl.ColorButtonMargin = 6;
             this.backgoundColorPanelControl.ColorButtonWidth = 32;
             this.backgoundColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
-            this.backgoundColorPanelControl.Location = new System.Drawing.Point(194, 40);
+            this.backgoundColorPanelControl.Location = new System.Drawing.Point(194, 78);
             this.backgoundColorPanelControl.Name = "backgoundColorPanelControl";
             this.backgoundColorPanelControl.Size = new System.Drawing.Size(165, 22);
             this.backgoundColorPanelControl.TabIndex = 8;
+            // 
+            // imageAnchorTypeEditor
+            // 
+            this.imageAnchorTypeEditor.Location = new System.Drawing.Point(188, 6);
+            this.imageAnchorTypeEditor.Name = "imageAnchorTypeEditor";
+            this.imageAnchorTypeEditor.SelectedAnchorType = ((Vintasoft.Imaging.UI.AnchorType)((((Vintasoft.Imaging.UI.AnchorType.Top | Vintasoft.Imaging.UI.AnchorType.Bottom) 
+            | Vintasoft.Imaging.UI.AnchorType.Left) 
+            | Vintasoft.Imaging.UI.AnchorType.Right)));
+            this.imageAnchorTypeEditor.Size = new System.Drawing.Size(63, 63);
+            this.imageAnchorTypeEditor.TabIndex = 26;
             // 
             // ImageViewerSettingsForm
             // 
@@ -711,7 +713,8 @@ namespace DemosCommonCode.Imaging
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(733, 444);
+            this.ClientSize = new System.Drawing.Size(733, 450);
+            this.Controls.Add(this.imageAnchorTypeEditor);
             this.Controls.Add(this.keyboardNavigationCheckBox);
             this.Controls.Add(this.keyboardNavigationGroupBox);
             this.Controls.Add(this.imagesDisplayModeGroupBox);
@@ -721,7 +724,6 @@ namespace DemosCommonCode.Imaging
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.imageAnchorComboBox);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -748,8 +750,8 @@ namespace DemosCommonCode.Imaging
             ((System.ComponentModel.ISupportInitialize)(this.imagesInRowColumnNumericUpDown)).EndInit();
             this.keyboardNavigationGroupBox.ResumeLayout(false);
             this.keyboardNavigationGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.keyboardNavigationScrollStepNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyboardNavigationZoomStepNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keyboardNavigationScrollStepNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -761,8 +763,6 @@ namespace DemosCommonCode.Imaging
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.CheckBox focusPointIsFixedCheckBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox focusPointAnchorComboBox;
-        private System.Windows.Forms.ComboBox imageAnchorComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -810,5 +810,7 @@ namespace DemosCommonCode.Imaging
         private System.Windows.Forms.CheckBox keyboardNavigationCheckBox;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.NumericUpDown keyboardNavigationZoomStepNumericUpDown;
+        private DemosCommonCode.CustomControls.AnchorTypeEditorControl imageAnchorTypeEditor;
+        private DemosCommonCode.CustomControls.AnchorTypeEditorControl focusPointAnchorTypeEditor;
     }
 }

@@ -1,0 +1,7 @@
+The project contains the following compiler directives:
+1. REMOVE_PDF_PLUGIN - allows to disable code, which references to VintaSoft PDF .NET Plug-in
+2. REMOVE_DICOM_PLUGIN - allows to disable code, which references to VintaSoft DICOM .NET Plug-in
+3. REMOVE_JBIG2_PLUGIN - allows to disable code, which references to VintaSoft JBIG2 .NET Plug-in
+4. REMOVE_JPEG2000_PLUGIN - allows to disable code, which references to VintaSoft JPEG2000 .NET Plug-in
+5. REMOVE_DOCCLEANUP_PLUGIN - allows to disable code, which references to VintaSoft Document Cleanup .NET Plug-in
+6. REMOVE_OFFICE_PLUGIN - allows to disable code, which references to VintaSoft Office .NET Plug-in
