@@ -443,6 +443,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="VSEvaluationLicenseManager.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <EmbeddedResource Include="CustomControls\AnchorTypeEditorControl.resx">
       <DependentUpon>AnchorTypeEditorControl.cs</DependentUpon>
     </EmbeddedResource>

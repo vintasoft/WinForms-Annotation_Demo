@@ -350,7 +350,19 @@ namespace DemosCommonCode
         {
             System.ComponentModel.LicenseException licenseException = GetLicenseException(e.ExceptionObject);
             if (licenseException != null)
+            {
+                // show information about licensing exception
                 MessageBox.Show(string.Format("{0}: {1}", licenseException.GetType().Name, licenseException.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // if Vintasoft Evaluation License Manager exists in current directory
+                if (File.Exists("VSEvaluationLicenseManager.exe"))
+                {
+                    // start Vintasoft Evaluation License Manager for getting the evaluation license
+                    System.Diagnostics.Process process = new System.Diagnostics.Process();
+                    process.StartInfo.FileName = "VSEvaluationLicenseManager.exe";
+                    process.Start();
+                }
+            }
         }
 
         /// <summary>
