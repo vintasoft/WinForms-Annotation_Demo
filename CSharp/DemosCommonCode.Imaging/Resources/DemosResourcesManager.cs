@@ -55,7 +55,7 @@ namespace DemosCommonCode
             {
                 // load bitmap
                 using (Bitmap temp = (Bitmap)Bitmap.FromStream(stream))
-                    return (Bitmap)temp.Clone();
+                    return new Bitmap(temp);
             }
         }
 
