@@ -5,7 +5,7 @@ Demo application shows how to manipulate annotations: create, process, delete, m
 Demo uses functionality of <a href="https://www.vintasoft.com/vsimaging-dotnet-index.html">VintaSoft Imaging .NET SDK</a>.
 
 <h2>Screenshot</h2>
-<img src="http://www.vintasoft.com/images/imaging_dotnet/screenshots/vintasoft-annotation-demo.png" alt="VintaSoft Annotation Demo">
+<img src="vintasoft-annotation-demo.png" alt="VintaSoft Annotation Demo">
 
 
 <h2>Download</h2>
