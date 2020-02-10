@@ -1,4 +1,4 @@
-<h1>VintaSoft Annotation Demo</h1>
+<h1>VintaSoft WinForms Annotation Demo</h1>
 
 Demo application shows how to manipulate annotations: create, process, delete, merge with image, save or load to or from XML, JPEG, TIFF, PNG or PDF file. It contains an implementation of custom-created triangle and mark annotation, as well as AnnotationsToolStrip control. Source codes for C# and VB.NET are available.<br />
 <br />
