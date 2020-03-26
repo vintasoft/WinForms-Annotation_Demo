@@ -1,4 +1,4 @@
-namespace DemosCommonCode.Pdf.Security
+namespace DemosCommonCode.Imaging
 {
     partial class DocumentPasswordForm
     {
@@ -97,12 +97,10 @@ namespace DemosCommonCode.Pdf.Security
             // 
             // authenticateTypeComboBox
             // 
-            this.authenticateTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.authenticateTypeComboBox.FormattingEnabled = true;
             this.authenticateTypeComboBox.Items.AddRange(new object[] {
             "User",
-            "Owner",
-            "User or Owner"});
+            "Owner"});
             this.authenticateTypeComboBox.Location = new System.Drawing.Point(99, 35);
             this.authenticateTypeComboBox.Name = "authenticateTypeComboBox";
             this.authenticateTypeComboBox.Size = new System.Drawing.Size(192, 21);
@@ -111,7 +109,6 @@ namespace DemosCommonCode.Pdf.Security
             // DocumentPasswordForm
             // 
             this.AcceptButton = this.okButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(303, 136);
@@ -128,7 +125,7 @@ namespace DemosCommonCode.Pdf.Security
             this.Name = "DocumentPasswordForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Password";
+            this.Text = "Authentication";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -51,7 +51,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.mrcMaskCompressionControl = new DemosCommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl();
             this.mrcFrontTabPage = new System.Windows.Forms.TabPage();
             this.mrcFrontCompressionControl = new DemosCommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl();
-            this.pdfImageCompressionControl = new DemosCommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl();
+            this.pdfCompressionControl = new DemosCommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl();
             this.mrcCompressionSettingsGroupBox.SuspendLayout();
             this.mrcTabControl.SuspendLayout();
             this.mrcCommonTabPage.SuspendLayout();
@@ -307,20 +307,19 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // 
             // pdfImageCompressionControl
             // 
-            this.pdfImageCompressionControl.Location = new System.Drawing.Point(13, 48);
-            this.pdfImageCompressionControl.Name = "pdfImageCompressionControl";
-            this.pdfImageCompressionControl.Size = new System.Drawing.Size(313, 129);
-            this.pdfImageCompressionControl.TabIndex = 27;
+            this.pdfCompressionControl.Location = new System.Drawing.Point(13, 48);
+            this.pdfCompressionControl.Name = "pdfImageCompressionControl";
+            this.pdfCompressionControl.Size = new System.Drawing.Size(313, 129);
+            this.pdfCompressionControl.TabIndex = 27;
             // 
             // PdfMrcCompressionControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.mrcCompressionProfileComboBox);
             this.Controls.Add(this.compressionImageRadioButton);
             this.Controls.Add(this.compressionMrcRadioButton);
             this.Controls.Add(this.mrcCompressionSettingsGroupBox);
-            this.Controls.Add(this.pdfImageCompressionControl);
+            this.Controls.Add(this.pdfCompressionControl);
             this.Name = "PdfMrcCompressionControl";
             this.Size = new System.Drawing.Size(330, 202);
             this.mrcCompressionSettingsGroupBox.ResumeLayout(false);
@@ -360,6 +359,6 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         private global::DemosCommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl mrcMaskCompressionControl;
         private System.Windows.Forms.TabPage mrcFrontTabPage;
         private global::DemosCommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl mrcFrontCompressionControl;
-        private global::DemosCommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl pdfImageCompressionControl;
+        private global::DemosCommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl pdfCompressionControl;
     }
 }

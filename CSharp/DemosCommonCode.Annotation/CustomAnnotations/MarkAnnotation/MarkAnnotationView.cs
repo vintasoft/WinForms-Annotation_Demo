@@ -95,29 +95,12 @@ namespace DemosCommonCode.Annotation
         public override bool IsPointOnFigure(PointF point)
         {
             using (Matrix m = VintasoftDrawingConverter.Convert(GetTransformFromContentToImageSpace()))
-            using (GraphicsPath path = GetAsGraphicsPath())
+            using (GraphicsPath path = ((MarkAnnotationRenderer)Renderer).GetAsGraphicsPath())
             {
                 path.Transform(m);
                 using (Pen pen = ObjectConverter.CreateDrawingPen(Outline))
                 {
                     return path.IsVisible(point) || path.IsOutlineVisible(point, pen);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Returns a drawing box of annotation, in the image space.
-        /// </summary>
-        /// <param name="drawingSurface">The object that provides information about drawing surface.</param>
-        /// <returns>Drawing box of annotation, in the image space.</returns>
-        public override RectangleF GetDrawingBox(DrawingSurface drawingSurface)
-        {
-            using (Matrix m = VintasoftDrawingConverter.Convert(GetTransformFromContentToImageSpace()))
-            using (GraphicsPath path = GetAsGraphicsPath())
-            {
-                using (Pen pen = ObjectConverter.CreateDrawingPen(Outline))
-                {
-                    return path.GetBounds(m, pen);
                 }
             }
         }
@@ -138,51 +121,7 @@ namespace DemosCommonCode.Annotation
 
         #region PROTECTED
 
-        /// <summary>
-        /// Draws the annotation on the <see cref="System.Drawing.Graphics"/>
-        /// in the coordinate space of annotation.
-        /// </summary>
-        /// <param name="g">The <see cref="System.Drawing.Graphics"/> to draw on.</param>
-        /// <param name="drawingSurface">The object that provides information about drawing surface.</param>
-        protected override void DrawInContentSpace(Graphics g, DrawingSurface drawingSurface)
-        {
-            using (GraphicsPath path = GetAsGraphicsPath())
-            {
-                if (FillBrush != null)
-                {
-                    using (Brush brush = ObjectConverter.CreateDrawingBrush(FillBrush))
-                        g.FillPath(brush, path);
-                }
-                if (Border)
-                {
-                    using (Pen pen = ObjectConverter.CreateDrawingPen(Outline))
-                        g.DrawPath(pen, path);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Returns a mark annotation as <see cref="GraphicsPath"/> in content space.
-        /// </summary>
-        protected virtual GraphicsPath GetAsGraphicsPath()
-        {
-            GraphicsPath path = new GraphicsPath();
-
-            PointF[] referencePoints = MarkAnnoData.GetReferencePointsInContentSpace();
-
-            switch (MarkType)
-            {
-                case MarkAnnotationType.Tick:
-                    path.AddCurve(referencePoints);
-                    break;
-                default:
-                    path.AddPolygon(referencePoints);
-                    break;
-            }
-
-            return path;
-        }
-
+    
         /// <summary>
         /// Returns an annotation selection as <see cref="GraphicsPath"/> in annotation content space.
         /// </summary>

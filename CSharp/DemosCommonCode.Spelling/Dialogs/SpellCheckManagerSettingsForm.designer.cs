@@ -1,4 +1,4 @@
-﻿namespace DemosCommonCode.Spelling
+namespace DemosCommonCode.Spelling
 {
     partial class SpellCheckManagerSettingsForm
     {
@@ -111,7 +111,6 @@
             // 
             // SpellCheckManagerSettingsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(336, 301);
             this.Controls.Add(this.okButton);

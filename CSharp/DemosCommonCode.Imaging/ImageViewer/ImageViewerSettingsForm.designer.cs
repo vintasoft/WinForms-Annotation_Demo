@@ -153,7 +153,7 @@ namespace DemosCommonCode.Imaging
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Location = new System.Drawing.Point(371, 249);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(357, 81);
+            this.groupBox3.Size = new System.Drawing.Size(389, 81);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Buffering";
@@ -161,7 +161,7 @@ namespace DemosCommonCode.Imaging
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(285, 62);
+            this.label10.Location = new System.Drawing.Point(317, 58);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(60, 13);
             this.label10.TabIndex = 14;
@@ -170,7 +170,7 @@ namespace DemosCommonCode.Imaging
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(285, 19);
+            this.label9.Location = new System.Drawing.Point(317, 15);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(59, 13);
             this.label9.TabIndex = 13;
@@ -179,7 +179,7 @@ namespace DemosCommonCode.Imaging
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(285, 41);
+            this.label8.Location = new System.Drawing.Point(317, 37);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(60, 13);
             this.label8.TabIndex = 12;
@@ -187,7 +187,7 @@ namespace DemosCommonCode.Imaging
             // 
             // minImageSizeWhenZoomBufferUsedNumericUpDown
             // 
-            this.minImageSizeWhenZoomBufferUsedNumericUpDown.Location = new System.Drawing.Point(213, 56);
+            this.minImageSizeWhenZoomBufferUsedNumericUpDown.Location = new System.Drawing.Point(245, 55);
             this.minImageSizeWhenZoomBufferUsedNumericUpDown.Maximum = new decimal(new int[] {
             128,
             0,
@@ -199,7 +199,7 @@ namespace DemosCommonCode.Imaging
             // 
             // rendererCacheSizeNumericUpDown
             // 
-            this.rendererCacheSizeNumericUpDown.Location = new System.Drawing.Point(213, 12);
+            this.rendererCacheSizeNumericUpDown.Location = new System.Drawing.Point(245, 11);
             this.rendererCacheSizeNumericUpDown.Maximum = new decimal(new int[] {
             4096,
             0,
@@ -211,7 +211,7 @@ namespace DemosCommonCode.Imaging
             // 
             // viewerBufferSizeNumericUpDown
             // 
-            this.viewerBufferSizeNumericUpDown.Location = new System.Drawing.Point(213, 34);
+            this.viewerBufferSizeNumericUpDown.Location = new System.Drawing.Point(245, 33);
             this.viewerBufferSizeNumericUpDown.Maximum = new decimal(new int[] {
             2048,
             0,
@@ -271,7 +271,7 @@ namespace DemosCommonCode.Imaging
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 24);
+            this.label6.Location = new System.Drawing.Point(9, 24);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(89, 13);
             this.label6.TabIndex = 5;
@@ -282,7 +282,7 @@ namespace DemosCommonCode.Imaging
             this.renderingQualityComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.renderingQualityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.renderingQualityComboBox.FormattingEnabled = true;
-            this.renderingQualityComboBox.Location = new System.Drawing.Point(213, 21);
+            this.renderingQualityComboBox.Location = new System.Drawing.Point(245, 21);
             this.renderingQualityComboBox.Name = "renderingQualityComboBox";
             this.renderingQualityComboBox.Size = new System.Drawing.Size(134, 21);
             this.renderingQualityComboBox.TabIndex = 6;
@@ -290,9 +290,9 @@ namespace DemosCommonCode.Imaging
             // renderingSettingsButton
             // 
             this.renderingSettingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.renderingSettingsButton.Location = new System.Drawing.Point(9, 49);
+            this.renderingSettingsButton.Location = new System.Drawing.Point(10, 49);
             this.renderingSettingsButton.Name = "renderingSettingsButton";
-            this.renderingSettingsButton.Size = new System.Drawing.Size(339, 23);
+            this.renderingSettingsButton.Size = new System.Drawing.Size(370, 23);
             this.renderingSettingsButton.TabIndex = 7;
             this.renderingSettingsButton.Text = "Image Rendering Settings...";
             this.renderingSettingsButton.UseVisualStyleBackColor = true;
@@ -301,7 +301,7 @@ namespace DemosCommonCode.Imaging
             // buttonOk
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOk.Location = new System.Drawing.Point(560, 421);
+            this.buttonOk.Location = new System.Drawing.Point(592, 421);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(81, 23);
             this.buttonOk.TabIndex = 9;
@@ -313,7 +313,7 @@ namespace DemosCommonCode.Imaging
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(647, 421);
+            this.buttonCancel.Location = new System.Drawing.Point(679, 421);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(81, 23);
             this.buttonCancel.TabIndex = 10;
@@ -334,7 +334,7 @@ namespace DemosCommonCode.Imaging
             // 
             this.renderingRequirementsButton.Location = new System.Drawing.Point(9, 79);
             this.renderingRequirementsButton.Name = "renderingRequirementsButton";
-            this.renderingRequirementsButton.Size = new System.Drawing.Size(339, 23);
+            this.renderingRequirementsButton.Size = new System.Drawing.Size(370, 23);
             this.renderingRequirementsButton.TabIndex = 14;
             this.renderingRequirementsButton.Text = "Partial/Progressive Rendering Requirements...";
             this.renderingRequirementsButton.UseVisualStyleBackColor = true;
@@ -359,7 +359,7 @@ namespace DemosCommonCode.Imaging
             this.groupBox2.Controls.Add(this.vectorRenderingQualityFactorTrackBar);
             this.groupBox2.Location = new System.Drawing.Point(371, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(357, 240);
+            this.groupBox2.Size = new System.Drawing.Size(389, 240);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Rendering";
@@ -385,7 +385,7 @@ namespace DemosCommonCode.Imaging
             // 
             // maxThreadsNumericUpDown
             // 
-            this.maxThreadsNumericUpDown.Location = new System.Drawing.Point(213, 192);
+            this.maxThreadsNumericUpDown.Location = new System.Drawing.Point(240, 192);
             this.maxThreadsNumericUpDown.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -408,7 +408,7 @@ namespace DemosCommonCode.Imaging
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(309, 170);
+            this.label16.Location = new System.Drawing.Point(336, 170);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(43, 13);
             this.label16.TabIndex = 22;
@@ -417,7 +417,7 @@ namespace DemosCommonCode.Imaging
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(211, 170);
+            this.label15.Location = new System.Drawing.Point(238, 170);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(40, 13);
             this.label15.TabIndex = 21;
@@ -444,7 +444,7 @@ namespace DemosCommonCode.Imaging
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(285, 116);
+            this.label11.Location = new System.Drawing.Point(315, 116);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(64, 13);
             this.label11.TabIndex = 16;
@@ -457,7 +457,7 @@ namespace DemosCommonCode.Imaging
             0,
             0,
             0});
-            this.previewIntervalOfVectorImagesNumericUpDown.Location = new System.Drawing.Point(213, 114);
+            this.previewIntervalOfVectorImagesNumericUpDown.Location = new System.Drawing.Point(240, 114);
             this.previewIntervalOfVectorImagesNumericUpDown.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -475,7 +475,7 @@ namespace DemosCommonCode.Imaging
             // vectorRenderingQualityFactorTrackBar
             // 
             this.vectorRenderingQualityFactorTrackBar.AutoSize = false;
-            this.vectorRenderingQualityFactorTrackBar.Location = new System.Drawing.Point(213, 140);
+            this.vectorRenderingQualityFactorTrackBar.Location = new System.Drawing.Point(240, 140);
             this.vectorRenderingQualityFactorTrackBar.Maximum = 4;
             this.vectorRenderingQualityFactorTrackBar.Name = "vectorRenderingQualityFactorTrackBar";
             this.vectorRenderingQualityFactorTrackBar.Size = new System.Drawing.Size(132, 31);
@@ -619,7 +619,7 @@ namespace DemosCommonCode.Imaging
             this.keyboardNavigationGroupBox.Controls.Add(this.keyboardNavigationScrollStepNumericUpDown);
             this.keyboardNavigationGroupBox.Location = new System.Drawing.Point(371, 336);
             this.keyboardNavigationGroupBox.Name = "keyboardNavigationGroupBox";
-            this.keyboardNavigationGroupBox.Size = new System.Drawing.Size(354, 73);
+            this.keyboardNavigationGroupBox.Size = new System.Drawing.Size(389, 73);
             this.keyboardNavigationGroupBox.TabIndex = 8;
             this.keyboardNavigationGroupBox.TabStop = false;
             // 
@@ -634,7 +634,7 @@ namespace DemosCommonCode.Imaging
             // 
             // keyboardNavigationZoomStepNumericUpDown
             // 
-            this.keyboardNavigationZoomStepNumericUpDown.Location = new System.Drawing.Point(291, 45);
+            this.keyboardNavigationZoomStepNumericUpDown.Location = new System.Drawing.Point(315, 45);
             this.keyboardNavigationZoomStepNumericUpDown.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -660,7 +660,7 @@ namespace DemosCommonCode.Imaging
             // 
             // keyboardNavigationScrollStepNumericUpDown
             // 
-            this.keyboardNavigationScrollStepNumericUpDown.Location = new System.Drawing.Point(291, 19);
+            this.keyboardNavigationScrollStepNumericUpDown.Location = new System.Drawing.Point(315, 19);
             this.keyboardNavigationScrollStepNumericUpDown.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -710,10 +710,9 @@ namespace DemosCommonCode.Imaging
             // ImageViewerSettingsForm
             // 
             this.AcceptButton = this.buttonOk;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(733, 450);
+            this.ClientSize = new System.Drawing.Size(765, 450);
             this.Controls.Add(this.imageAnchorTypeEditor);
             this.Controls.Add(this.keyboardNavigationCheckBox);
             this.Controls.Add(this.keyboardNavigationGroupBox);

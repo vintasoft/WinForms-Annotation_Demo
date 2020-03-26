@@ -40,6 +40,8 @@ namespace AnnotationDemo
             Vintasoft.Imaging.UI.ThumbnailAppearance thumbnailAppearance4 = new Vintasoft.Imaging.UI.ThumbnailAppearance();
             Vintasoft.Imaging.UI.ThumbnailAppearance thumbnailAppearance5 = new Vintasoft.Imaging.UI.ThumbnailAppearance();
             Vintasoft.Imaging.UI.ThumbnailCaption thumbnailCaption1 = new Vintasoft.Imaging.UI.ThumbnailCaption();
+            Vintasoft.Imaging.Codecs.Decoders.RenderingSettings renderingSettings1 = new Vintasoft.Imaging.Codecs.Decoders.RenderingSettings();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -139,7 +141,7 @@ namespace AnnotationDemo
             this.triangleCustomAnnotationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.markCustomAnnotationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buildAnnotationsContinuouslyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
             this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -182,9 +184,15 @@ namespace AnnotationDemo
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.propertiesTabPage = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.annotationComboBox = new System.Windows.Forms.ComboBox();
+            this.commentsTabPage = new System.Windows.Forms.TabPage();
+            this.commentsPanel = new System.Windows.Forms.Panel();
+            this.commentsControl1 = new DemosCommonCode.Annotation.AnnotationCommentsControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.actionLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.progressBar1 = new System.Windows.Forms.ToolStripProgressBar();
@@ -223,7 +231,12 @@ namespace AnnotationDemo
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.propertiesTabPage.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.commentsTabPage.SuspendLayout();
+            this.commentsPanel.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.zoomTrackBar)).BeginInit();
             this.toolStripPanel1.SuspendLayout();
@@ -532,7 +545,7 @@ namespace AnnotationDemo
             // normalToolStripMenuItem
             // 
             this.normalToolStripMenuItem.Name = "normalToolStripMenuItem";
-            this.normalToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.normalToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.normalToolStripMenuItem.Text = "Normal";
             this.normalToolStripMenuItem.Click += new System.EventHandler(this.imageSizeMode_Click);
             // 
@@ -541,75 +554,75 @@ namespace AnnotationDemo
             this.bestFitToolStripMenuItem.Checked = true;
             this.bestFitToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.bestFitToolStripMenuItem.Name = "bestFitToolStripMenuItem";
-            this.bestFitToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.bestFitToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.bestFitToolStripMenuItem.Text = "Best fit";
             this.bestFitToolStripMenuItem.Click += new System.EventHandler(this.imageSizeMode_Click);
             // 
             // fitToWidthToolStripMenuItem
             // 
             this.fitToWidthToolStripMenuItem.Name = "fitToWidthToolStripMenuItem";
-            this.fitToWidthToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.fitToWidthToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.fitToWidthToolStripMenuItem.Text = "Fit to width";
             this.fitToWidthToolStripMenuItem.Click += new System.EventHandler(this.imageSizeMode_Click);
             // 
             // fitToHeightToolStripMenuItem
             // 
             this.fitToHeightToolStripMenuItem.Name = "fitToHeightToolStripMenuItem";
-            this.fitToHeightToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.fitToHeightToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.fitToHeightToolStripMenuItem.Text = "Fit to height";
             this.fitToHeightToolStripMenuItem.Click += new System.EventHandler(this.imageSizeMode_Click);
             // 
             // pixelToPixelToolStripMenuItem
             // 
             this.pixelToPixelToolStripMenuItem.Name = "pixelToPixelToolStripMenuItem";
-            this.pixelToPixelToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.pixelToPixelToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.pixelToPixelToolStripMenuItem.Text = "Pixel to Pixel";
             this.pixelToPixelToolStripMenuItem.Click += new System.EventHandler(this.imageSizeMode_Click);
             // 
             // scaleToolStripMenuItem
             // 
             this.scaleToolStripMenuItem.Name = "scaleToolStripMenuItem";
-            this.scaleToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.scaleToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.scaleToolStripMenuItem.Text = "Scale";
             this.scaleToolStripMenuItem.Click += new System.EventHandler(this.imageSizeMode_Click);
             // 
             // toolStripSeparatorZoomModes
             // 
             this.toolStripSeparatorZoomModes.Name = "toolStripSeparatorZoomModes";
-            this.toolStripSeparatorZoomModes.Size = new System.Drawing.Size(136, 6);
+            this.toolStripSeparatorZoomModes.Size = new System.Drawing.Size(138, 6);
             // 
             // scale25ToolStripMenuItem
             // 
             this.scale25ToolStripMenuItem.Name = "scale25ToolStripMenuItem";
-            this.scale25ToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.scale25ToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.scale25ToolStripMenuItem.Text = "25%";
             this.scale25ToolStripMenuItem.Click += new System.EventHandler(this.imageSizeMode_Click);
             // 
             // scale50ToolStripMenuItem
             // 
             this.scale50ToolStripMenuItem.Name = "scale50ToolStripMenuItem";
-            this.scale50ToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.scale50ToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.scale50ToolStripMenuItem.Text = "50%";
             this.scale50ToolStripMenuItem.Click += new System.EventHandler(this.imageSizeMode_Click);
             // 
             // scale100ToolStripMenuItem
             // 
             this.scale100ToolStripMenuItem.Name = "scale100ToolStripMenuItem";
-            this.scale100ToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.scale100ToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.scale100ToolStripMenuItem.Text = "100%";
             this.scale100ToolStripMenuItem.Click += new System.EventHandler(this.imageSizeMode_Click);
             // 
             // scale200ToolStripMenuItem
             // 
             this.scale200ToolStripMenuItem.Name = "scale200ToolStripMenuItem";
-            this.scale200ToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.scale200ToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.scale200ToolStripMenuItem.Text = "200%";
             this.scale200ToolStripMenuItem.Click += new System.EventHandler(this.imageSizeMode_Click);
             // 
             // scale400ToolStripMenuItem
             // 
             this.scale400ToolStripMenuItem.Name = "scale400ToolStripMenuItem";
-            this.scale400ToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.scale400ToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.scale400ToolStripMenuItem.Text = "400%";
             this.scale400ToolStripMenuItem.Click += new System.EventHandler(this.imageSizeMode_Click);
             // 
@@ -708,7 +721,7 @@ namespace AnnotationDemo
             this.toolStripSeparator10,
             this.addAnnotationToolStripMenuItem,
             this.buildAnnotationsContinuouslyToolStripMenuItem,
-            this.toolStripSeparator5,
+            this.toolStripSeparator19,
             this.cutToolStripMenuItem,
             this.copyToolStripMenuItem,
             this.pasteToolStripMenuItem,
@@ -869,171 +882,171 @@ namespace AnnotationDemo
             // rectangleToolStripMenuItem
             // 
             this.rectangleToolStripMenuItem.Name = "rectangleToolStripMenuItem";
-            this.rectangleToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.rectangleToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.rectangleToolStripMenuItem.Text = "Rectangle";
             this.rectangleToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
             // ellipseToolStripMenuItem
             // 
             this.ellipseToolStripMenuItem.Name = "ellipseToolStripMenuItem";
-            this.ellipseToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.ellipseToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.ellipseToolStripMenuItem.Text = "Ellipse";
             this.ellipseToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
             // highlightToolStripMenuItem
             // 
             this.highlightToolStripMenuItem.Name = "highlightToolStripMenuItem";
-            this.highlightToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.highlightToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.highlightToolStripMenuItem.Text = "Highlight";
             this.highlightToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
             // textHighlightToolStripMenuItem
             // 
             this.textHighlightToolStripMenuItem.Name = "textHighlightToolStripMenuItem";
-            this.textHighlightToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.textHighlightToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.textHighlightToolStripMenuItem.Text = "Text highlight";
             this.textHighlightToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
             // embeddedImageToolStripMenuItem
             // 
             this.embeddedImageToolStripMenuItem.Name = "embeddedImageToolStripMenuItem";
-            this.embeddedImageToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.embeddedImageToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.embeddedImageToolStripMenuItem.Text = "Embedded image";
             this.embeddedImageToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
             // referencedImageToolStripMenuItem
             // 
             this.referencedImageToolStripMenuItem.Name = "referencedImageToolStripMenuItem";
-            this.referencedImageToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.referencedImageToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.referencedImageToolStripMenuItem.Text = "Referenced image";
             this.referencedImageToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
             // textToolStripMenuItem
             // 
             this.textToolStripMenuItem.Name = "textToolStripMenuItem";
-            this.textToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.textToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.textToolStripMenuItem.Text = "Text";
             this.textToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
             // stickyNoteToolStripMenuItem
             // 
             this.stickyNoteToolStripMenuItem.Name = "stickyNoteToolStripMenuItem";
-            this.stickyNoteToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.stickyNoteToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.stickyNoteToolStripMenuItem.Text = "Sticky note";
             this.stickyNoteToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
             // freeTextToolStripMenuItem
             // 
             this.freeTextToolStripMenuItem.Name = "freeTextToolStripMenuItem";
-            this.freeTextToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.freeTextToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.freeTextToolStripMenuItem.Text = "Free text";
             this.freeTextToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
             // rubberStampToolStripMenuItem
             // 
             this.rubberStampToolStripMenuItem.Name = "rubberStampToolStripMenuItem";
-            this.rubberStampToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.rubberStampToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.rubberStampToolStripMenuItem.Text = "Rubber stamp";
             this.rubberStampToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
             // linkToolStripMenuItem
             // 
             this.linkToolStripMenuItem.Name = "linkToolStripMenuItem";
-            this.linkToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.linkToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.linkToolStripMenuItem.Text = "Link";
             this.linkToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
             // toolStripSeparator16
             // 
             this.toolStripSeparator16.Name = "toolStripSeparator16";
-            this.toolStripSeparator16.Size = new System.Drawing.Size(229, 6);
+            this.toolStripSeparator16.Size = new System.Drawing.Size(228, 6);
             // 
             // lineToolStripMenuItem
             // 
             this.lineToolStripMenuItem.Name = "lineToolStripMenuItem";
-            this.lineToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.lineToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.lineToolStripMenuItem.Text = "Line";
             this.lineToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
             // linesToolStripMenuItem
             // 
             this.linesToolStripMenuItem.Name = "linesToolStripMenuItem";
-            this.linesToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.linesToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.linesToolStripMenuItem.Text = "Lines";
             this.linesToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
             // linesWithInterpolationToolStripMenuItem
             // 
             this.linesWithInterpolationToolStripMenuItem.Name = "linesWithInterpolationToolStripMenuItem";
-            this.linesWithInterpolationToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.linesWithInterpolationToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.linesWithInterpolationToolStripMenuItem.Text = "Lines with interpolation";
             this.linesWithInterpolationToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
             // freehandLinesToolStripMenuItem
             // 
             this.freehandLinesToolStripMenuItem.Name = "freehandLinesToolStripMenuItem";
-            this.freehandLinesToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.freehandLinesToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.freehandLinesToolStripMenuItem.Text = "Freehand lines";
             this.freehandLinesToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
             // polygonToolStripMenuItem
             // 
             this.polygonToolStripMenuItem.Name = "polygonToolStripMenuItem";
-            this.polygonToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.polygonToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.polygonToolStripMenuItem.Text = "Polygon";
             this.polygonToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
             // polygonWithInterpolationToolStripMenuItem
             // 
             this.polygonWithInterpolationToolStripMenuItem.Name = "polygonWithInterpolationToolStripMenuItem";
-            this.polygonWithInterpolationToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.polygonWithInterpolationToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.polygonWithInterpolationToolStripMenuItem.Text = "Polygon with interpolation";
             this.polygonWithInterpolationToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
             // freehandPolygonToolStripMenuItem
             // 
             this.freehandPolygonToolStripMenuItem.Name = "freehandPolygonToolStripMenuItem";
-            this.freehandPolygonToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.freehandPolygonToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.freehandPolygonToolStripMenuItem.Text = "Freehand polygon";
             this.freehandPolygonToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
             // rulerToolStripMenuItem
             // 
             this.rulerToolStripMenuItem.Name = "rulerToolStripMenuItem";
-            this.rulerToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.rulerToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.rulerToolStripMenuItem.Text = "Ruler";
             this.rulerToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
             // rulersToolStripMenuItem
             // 
             this.rulersToolStripMenuItem.Name = "rulersToolStripMenuItem";
-            this.rulersToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.rulersToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.rulersToolStripMenuItem.Text = "Rulers";
             this.rulersToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
             // angleToolStripMenuItem
             // 
             this.angleToolStripMenuItem.Name = "angleToolStripMenuItem";
-            this.angleToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.angleToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.angleToolStripMenuItem.Text = "Angle";
             this.angleToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
             // toolStripSeparator14
             // 
             this.toolStripSeparator14.Name = "toolStripSeparator14";
-            this.toolStripSeparator14.Size = new System.Drawing.Size(229, 6);
+            this.toolStripSeparator14.Size = new System.Drawing.Size(228, 6);
             // 
             // triangleCustomAnnotationToolStripMenuItem
             // 
             this.triangleCustomAnnotationToolStripMenuItem.Name = "triangleCustomAnnotationToolStripMenuItem";
-            this.triangleCustomAnnotationToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.triangleCustomAnnotationToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.triangleCustomAnnotationToolStripMenuItem.Text = "Triangle - Custom Annotation";
             this.triangleCustomAnnotationToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
             // markCustomAnnotationToolStripMenuItem
             // 
             this.markCustomAnnotationToolStripMenuItem.Name = "markCustomAnnotationToolStripMenuItem";
-            this.markCustomAnnotationToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.markCustomAnnotationToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.markCustomAnnotationToolStripMenuItem.Text = "Mark - Custom Annotation";
             this.markCustomAnnotationToolStripMenuItem.Click += new System.EventHandler(this.addAnnotationToolStripMenuItem_Click);
             // 
@@ -1045,15 +1058,15 @@ namespace AnnotationDemo
             this.buildAnnotationsContinuouslyToolStripMenuItem.Text = "Build Annotations Continuously";
             this.buildAnnotationsContinuouslyToolStripMenuItem.CheckedChanged += new System.EventHandler(this.buildAnnotationsContinuouslyToolStripMenuItem_CheckedChanged);
             // 
-            // toolStripSeparator5
+            // toolStripSeparator19
             // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(244, 6);
+            this.toolStripSeparator19.Name = "toolStripSeparator19";
+            this.toolStripSeparator19.Size = new System.Drawing.Size(244, 6);
             // 
             // cutToolStripMenuItem
             // 
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            this.cutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
+            this.cutToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+X";
             this.cutToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.cutToolStripMenuItem.Text = "Cut";
             this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutAnnotationToolStripMenuItem_Click);
@@ -1061,7 +1074,7 @@ namespace AnnotationDemo
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.copyToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+C";
             this.copyToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.copyToolStripMenuItem.Text = "Copy";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyAnnotationToolStripMenuItem_Click);
@@ -1069,7 +1082,7 @@ namespace AnnotationDemo
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
+            this.pasteToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+V";
             this.pasteToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.pasteToolStripMenuItem.Text = "Paste";
             this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteAnnotationToolStripMenuItem_Click);
@@ -1127,7 +1140,7 @@ namespace AnnotationDemo
             // selectAllToolStripMenuItem
             // 
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            this.selectAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.selectAllToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+A";
             this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.selectAllToolStripMenuItem.Text = "Select All";
             this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllAnnotationsToolStripMenuItem_Click);
@@ -1217,8 +1230,8 @@ namespace AnnotationDemo
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer4);
-            this.splitContainer1.Size = new System.Drawing.Size(747, 429);
-            this.splitContainer1.SplitterDistance = 190;
+            this.splitContainer1.Size = new System.Drawing.Size(740, 429);
+            this.splitContainer1.SplitterDistance = 188;
             this.splitContainer1.TabIndex = 1;
             // 
             // thumbnailViewer1
@@ -1252,7 +1265,7 @@ namespace AnnotationDemo
             thumbnailAppearance4.BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
             thumbnailAppearance4.BorderWidth = 1;
             this.thumbnailViewer1.SelectedThumbnailAppearance = thumbnailAppearance4;
-            this.thumbnailViewer1.Size = new System.Drawing.Size(190, 429);
+            this.thumbnailViewer1.Size = new System.Drawing.Size(188, 429);
             this.thumbnailViewer1.TabIndex = 0;
             this.thumbnailViewer1.Text = "thumbnailViewer1";
             thumbnailAppearance5.BackColor = System.Drawing.Color.Transparent;
@@ -1260,12 +1273,10 @@ namespace AnnotationDemo
             thumbnailAppearance5.BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
             thumbnailAppearance5.BorderWidth = 1;
             this.thumbnailViewer1.ThumbnailAppearance = thumbnailAppearance5;
-            thumbnailCaption1.Padding = new Vintasoft.Imaging.PaddingF(0F, 0F, 0F, 0F);
             thumbnailCaption1.TextColor = System.Drawing.Color.Black;
             this.thumbnailViewer1.ThumbnailCaption = thumbnailCaption1;
             this.thumbnailViewer1.ThumbnailContextMenuStrip = this.thumbnailMenu;
             this.thumbnailViewer1.ThumbnailFlowStyle = Vintasoft.Imaging.UI.ThumbnailFlowStyle.WrappedRows;
-            this.thumbnailViewer1.ThumbnailImagePadding = new Vintasoft.Imaging.PaddingF(0F, 0F, 0F, 0F);
             this.thumbnailViewer1.ThumbnailMargin = new System.Windows.Forms.Padding(3);
             this.thumbnailViewer1.ThumbnailRenderingThreadCount = 4;
             this.thumbnailViewer1.ThumbnailSize = new System.Drawing.Size(100, 100);
@@ -1280,8 +1291,8 @@ namespace AnnotationDemo
             this.annotationViewer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.annotationViewer1.DisplayMode = Vintasoft.Imaging.UI.ImageViewerDisplayMode.SingleContinuousColumn;
             this.annotationViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.annotationViewer1.ImageRenderingSettings = renderingSettings1;
             this.annotationViewer1.IsKeyboardNavigationEnabled = true;
-            this.annotationViewer1.KeyboardNavigationScrollStep = 20;
             this.annotationViewer1.Location = new System.Drawing.Point(0, 0);
             this.annotationViewer1.MinImageSizeWhenZoomBufferUsed = 0F;
             this.annotationViewer1.MultipageDisplayMode = Vintasoft.Imaging.UI.ImageViewerMultipageDisplayMode.AllImages;
@@ -1292,7 +1303,7 @@ namespace AnnotationDemo
             this.annotationViewer1.ShortcutDelete = System.Windows.Forms.Shortcut.None;
             this.annotationViewer1.ShortcutInsert = System.Windows.Forms.Shortcut.None;
             this.annotationViewer1.ShortcutSelectAll = System.Windows.Forms.Shortcut.None;
-            this.annotationViewer1.Size = new System.Drawing.Size(553, 429);
+            this.annotationViewer1.Size = new System.Drawing.Size(548, 429);
             this.annotationViewer1.SizeMode = Vintasoft.Imaging.UI.ImageSizeMode.BestFit;
             this.annotationViewer1.TabIndex = 0;
             this.annotationViewer1.Text = "annotationViewer1";
@@ -1418,7 +1429,7 @@ namespace AnnotationDemo
             // 
             this.splitContainer4.Panel2.Controls.Add(this.annotationEventsLog);
             this.splitContainer4.Panel2Collapsed = true;
-            this.splitContainer4.Size = new System.Drawing.Size(553, 429);
+            this.splitContainer4.Size = new System.Drawing.Size(548, 429);
             this.splitContainer4.SplitterDistance = 325;
             this.splitContainer4.TabIndex = 1;
             // 
@@ -1448,7 +1459,7 @@ namespace AnnotationDemo
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
             this.splitContainer2.Panel2.Padding = new System.Windows.Forms.Padding(0, 0, 1, 0);
             this.splitContainer2.Size = new System.Drawing.Size(951, 429);
-            this.splitContainer2.SplitterDistance = 747;
+            this.splitContainer2.SplitterDistance = 740;
             this.splitContainer2.TabIndex = 2;
             // 
             // splitContainer3
@@ -1462,37 +1473,69 @@ namespace AnnotationDemo
             // splitContainer3.Panel1
             // 
             this.splitContainer3.Panel1.Controls.Add(this.panel7);
-            this.splitContainer3.Panel1.Controls.Add(this.panel6);
             this.splitContainer3.Panel2Collapsed = true;
-            this.splitContainer3.Size = new System.Drawing.Size(199, 429);
+            this.splitContainer3.Size = new System.Drawing.Size(206, 429);
             this.splitContainer3.SplitterDistance = 340;
             this.splitContainer3.TabIndex = 0;
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.propertyGrid1);
+            this.panel7.Controls.Add(this.tabControl1);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(0, 24);
+            this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(199, 405);
-            this.panel7.TabIndex = 1;
+            this.panel7.Size = new System.Drawing.Size(206, 429);
+            this.panel7.TabIndex = 3;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.propertiesTabPage);
+            this.tabControl1.Controls.Add(this.commentsTabPage);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(206, 429);
+            this.tabControl1.TabIndex = 2;
+            // 
+            // propertiesTabPage
+            // 
+            this.propertiesTabPage.Controls.Add(this.panel6);
+            this.propertiesTabPage.Controls.Add(this.panel5);
+            this.propertiesTabPage.Location = new System.Drawing.Point(4, 22);
+            this.propertiesTabPage.Name = "propertiesTabPage";
+            this.propertiesTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.propertiesTabPage.Size = new System.Drawing.Size(198, 403);
+            this.propertiesTabPage.TabIndex = 0;
+            this.propertiesTabPage.Text = "Properties";
+            this.propertiesTabPage.UseVisualStyleBackColor = true;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.propertyGrid1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(3, 27);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(192, 373);
+            this.panel6.TabIndex = 3;
             // 
             // propertyGrid1
             // 
             this.propertyGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.propertyGrid1.Location = new System.Drawing.Point(0, 0);
             this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(199, 405);
+            this.propertyGrid1.Size = new System.Drawing.Size(192, 373);
             this.propertyGrid1.TabIndex = 1;
             // 
-            // panel6
+            // panel5
             // 
-            this.panel6.Controls.Add(this.annotationComboBox);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(199, 24);
-            this.panel6.TabIndex = 0;
+            this.panel5.Controls.Add(this.annotationComboBox);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(3, 3);
+            this.panel5.Margin = new System.Windows.Forms.Padding(0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(192, 24);
+            this.panel5.TabIndex = 2;
             // 
             // annotationComboBox
             // 
@@ -1502,10 +1545,42 @@ namespace AnnotationDemo
             this.annotationComboBox.FormattingEnabled = true;
             this.annotationComboBox.Location = new System.Drawing.Point(0, 0);
             this.annotationComboBox.Name = "annotationComboBox";
-            this.annotationComboBox.Size = new System.Drawing.Size(199, 23);
+            this.annotationComboBox.Size = new System.Drawing.Size(192, 23);
             this.annotationComboBox.TabIndex = 0;
             this.annotationComboBox.DropDown += new System.EventHandler(this.annotationComboBox_DropDown);
             this.annotationComboBox.SelectedIndexChanged += new System.EventHandler(this.annotationComboBox_SelectedIndexChanged);
+            // 
+            // commentsTabPage
+            // 
+            this.commentsTabPage.Controls.Add(this.commentsPanel);
+            this.commentsTabPage.Location = new System.Drawing.Point(4, 22);
+            this.commentsTabPage.Name = "commentsTabPage";
+            this.commentsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.commentsTabPage.Size = new System.Drawing.Size(198, 403);
+            this.commentsTabPage.TabIndex = 1;
+            this.commentsTabPage.Text = "Comments";
+            this.commentsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // commentsPanel
+            // 
+            this.commentsPanel.Controls.Add(this.commentsControl1);
+            this.commentsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.commentsPanel.Location = new System.Drawing.Point(3, 3);
+            this.commentsPanel.Name = "commentsPanel";
+            this.commentsPanel.Size = new System.Drawing.Size(192, 397);
+            this.commentsPanel.TabIndex = 5;
+            // 
+            // commentsControl1
+            // 
+            this.commentsControl1.AnnotationTool = null;
+            this.commentsControl1.CommentTool = null;
+            this.commentsControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.commentsControl1.ImageViewer = null;
+            this.commentsControl1.Location = new System.Drawing.Point(0, 0);
+            this.commentsControl1.MinimumSize = new System.Drawing.Size(190, 180);
+            this.commentsControl1.Name = "commentsControl1";
+            this.commentsControl1.Size = new System.Drawing.Size(192, 397);
+            this.commentsControl1.TabIndex = 5;
             // 
             // statusStrip1
             // 
@@ -1644,11 +1719,12 @@ namespace AnnotationDemo
             // annotationsToolStrip1
             // 
             this.annotationsToolStrip1.AnnotationViewer = this.annotationViewer1;
+            this.annotationsToolStrip1.CommentBuilder = null;
             this.annotationsToolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.annotationsToolStrip1.Location = new System.Drawing.Point(3, 25);
             this.annotationsToolStrip1.Name = "annotationsToolStrip1";
             this.annotationsToolStrip1.NeedBuildAnnotationsContinuously = false;
-            this.annotationsToolStrip1.Size = new System.Drawing.Size(742, 25);
+            this.annotationsToolStrip1.Size = new System.Drawing.Size(794, 25);
             this.annotationsToolStrip1.TabIndex = 0;
             // 
             // panel1
@@ -1702,10 +1778,10 @@ namespace AnnotationDemo
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(951, 564);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenu;
             this.MinimumSize = new System.Drawing.Size(615, 420);
             this.Name = "MainForm";
@@ -1731,7 +1807,12 @@ namespace AnnotationDemo
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.propertiesTabPage.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.commentsTabPage.ResumeLayout(false);
+            this.commentsPanel.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.zoomTrackBar)).EndInit();
@@ -1827,16 +1908,13 @@ namespace AnnotationDemo
         private System.Windows.Forms.ToolStrip selectionModeToolStrip;
         private System.Windows.Forms.ToolStripLabel interactionModeToolStripLabel;
         private System.Windows.Forms.ToolStripComboBox annotationInteractionModeToolStripComboBox;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.PropertyGrid propertyGrid1;
-        private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.ComboBox annotationComboBox;
         private System.Windows.Forms.ToolStripMenuItem annotationViewerSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem thumbnailViewerSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pixelToPixelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showAnnotationTransformationOnThumbnailToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem rotateImageWithAnnotationsToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer4;
         private System.Windows.Forms.TextBox annotationEventsLog;
@@ -1923,6 +2001,14 @@ namespace AnnotationDemo
         private DemosCommonCode.Imaging.VisualToolsToolStrip visualToolsToolStrip1;
         private System.Windows.Forms.ToolStripMenuItem visualToolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
-	}
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator19;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage propertiesTabPage;
+        private System.Windows.Forms.TabPage commentsTabPage;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel commentsPanel;
+        private AnnotationCommentsControl commentsControl1;
+    }
 }
-

@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging;
@@ -28,34 +27,21 @@ namespace DemosCommonCode.Annotation
         #region Nested classes
 
         /// <summary>
-        /// Contains information about annotation button.
+        /// Contains information about button.
         /// </summary>
-        private class AnnotationButtonInfo
+        private abstract class ButtonInfo
         {
 
             #region Constructors
 
             /// <summary>
-            /// Initializes the <see cref="AnnotationButtonInfo"/> class.
+            /// Initializes a new instance of the <see cref="ButtonInfo"/> class.
             /// </summary>
-            static AnnotationButtonInfo()
+            /// <param name="name">The button name.</param>
+            /// <param name="dropDownItems">The drop down items of button.</param>
+            internal ButtonInfo(string name, params ButtonInfo[] dropDownItems)
             {
-                _separator = new AnnotationButtonInfo(AnnotationType.Unknown);
-                _separator._name = "SEPARATOR";
-            }
-
-            /// <summary>
-            /// Initializes a new instance of the <see cref="AnnotationButtonInfo"/> class.
-            /// </summary>
-            /// <param name="annotationType">The annotation type.</param>
-            /// <param name="dropDownItems">The drop down items of annotation button.</param>
-            internal AnnotationButtonInfo(
-                AnnotationType annotationType,
-                params AnnotationButtonInfo[] dropDownItems)
-            {
-                _annotationType = annotationType;
-                _name = AnnotationNameFactory.GetAnnotationName(annotationType);
-
+                _name = name;
                 _dropDownItems = dropDownItems;
             }
 
@@ -65,22 +51,9 @@ namespace DemosCommonCode.Annotation
 
             #region Properties
 
-            static AnnotationButtonInfo _separator;
-            /// <summary>
-            /// Gets the separator.
-            /// </summary>
-            internal static AnnotationButtonInfo Separator
-            {
-                get
-                {
-                    return _separator;
-                }
-            }
-
-
             string _name = string.Empty;
             /// <summary>
-            /// Gets the annotation button name.
+            /// Gets the button name.
             /// </summary>
             internal string Name
             {
@@ -90,23 +63,11 @@ namespace DemosCommonCode.Annotation
                 }
             }
 
-            AnnotationType _annotationType = AnnotationType.Unknown;
+            ButtonInfo[] _dropDownItems;
             /// <summary>
-            /// Gets the annotation type.
+            /// Gets the drop down items of button.
             /// </summary>
-            internal AnnotationType AnnotationType
-            {
-                get
-                {
-                    return _annotationType;
-                }
-            }
-
-            AnnotationButtonInfo[] _dropDownItems = new AnnotationButtonInfo[0];
-            /// <summary>
-            /// Gets the drop down items of annotation button.
-            /// </summary>
-            internal AnnotationButtonInfo[] DropDownItems
+            internal ButtonInfo[] DropDownItems
             {
                 get
                 {
@@ -123,12 +84,116 @@ namespace DemosCommonCode.Annotation
             /// <summary>
             /// Returns a <see cref="System.String" /> that represents this instance.
             /// </summary>
+            /// <returns>A <see cref="System.String" /> that represents this instance.</returns>
             public override string ToString()
             {
                 return Name;
             }
 
             #endregion
+
+        }
+
+        /// <summary>
+        /// Contains information about separator.
+        /// </summary>
+        private class SeparatorButtonInfo : ButtonInfo
+        {
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="SeparatorButtonInfo"/> class.
+            /// </summary>
+            internal SeparatorButtonInfo()
+                : base("SEPARATOR")
+            {
+            }
+
+        }
+
+        /// <summary>
+        /// Contains information about annotation button.
+        /// </summary>
+        private class AnnotationButtonInfo : ButtonInfo
+        {
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="AnnotationButtonInfo"/> class.
+            /// </summary>
+            /// <param name="annotationType">The annotation type.</param>
+            /// <param name="dropDownItems">The drop down items of annotation button.</param>
+            internal AnnotationButtonInfo(
+                AnnotationType annotationType,
+                params ButtonInfo[] dropDownItems)
+                : base(AnnotationNameFactory.GetAnnotationName(annotationType), dropDownItems)
+            {
+                _annotationType = annotationType;
+            }
+
+
+
+            AnnotationType _annotationType = AnnotationType.Unknown;
+            /// <summary>
+            /// Gets the annotation type.
+            /// </summary>
+            internal AnnotationType AnnotationType
+            {
+                get
+                {
+                    return _annotationType;
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// Contains information about custom button.
+        /// </summary>
+        private class CustomButtonInfo : ButtonInfo
+        {
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="CustomButtonInfo"/> class.
+            /// </summary>
+            /// <param name="name">The button name.</param>
+            /// <param name="iconName">The button icon name.</param>
+            /// <param name="buttonClickHandler">The button click event handler.</param>
+            /// <param name="dropDownItems">The drop down items of button.</param>
+            internal CustomButtonInfo(
+                string name,
+                string iconName,
+                EventHandler buttonClickHandler,
+                params ButtonInfo[] dropDownItems)
+                : base(name, dropDownItems)
+            {
+                _iconName = iconName;
+                _buttonClickHandler = buttonClickHandler;
+            }
+
+
+
+            string _iconName;
+            /// <summary>
+            /// Gets the button icon name.
+            /// </summary>
+            internal string IconName
+            {
+                get
+                {
+                    return _iconName;
+                }
+            }
+
+            EventHandler _buttonClickHandler;
+            /// <summary>
+            /// Gets the button click event handler.
+            /// </summary>
+            internal EventHandler ButtonClickHandler
+            {
+                get
+                {
+                    return _buttonClickHandler;
+                }
+            }
 
         }
 
@@ -195,7 +260,7 @@ namespace DemosCommonCode.Annotation
         public AnnotationsToolStrip()
             : base()
         {
-            InitializeAnnotationButtons();
+            InitializeButtons();
 
             AnnotationViewer = null;
         }
@@ -227,6 +292,22 @@ namespace DemosCommonCode.Annotation
                     _annotationViewerDefaultVisualTool = _annotationViewer.VisualTool;
 
                 SubscribeToAnnotationViewerEvents(_annotationViewer);
+            }
+        }
+
+        AnnotationCommentBuilder _commentBuilder = null;
+        /// <summary>
+        /// Gets or sets the comment builder.
+        /// </summary>
+        public AnnotationCommentBuilder CommentBuilder
+        {
+            get
+            {
+                return _commentBuilder;
+            }
+            set
+            {
+                _commentBuilder = value;
             }
         }
 
@@ -334,14 +415,13 @@ namespace DemosCommonCode.Annotation
         #region Initialization
 
         /// <summary>
-        /// Initializes the annotations buttons.
+        /// Initializes the buttons.
         /// </summary>
-        private void InitializeAnnotationButtons()
+        private void InitializeButtons()
         {
             // create information about annotation buttons of this tool strip
 
-            AnnotationButtonInfo[] annotationButtonInfos = {
-
+            ButtonInfo[] buttonInfos = {
                 // Rectangle
                 new AnnotationButtonInfo(AnnotationType.Rectangle,
                     // Rectangle -> Cloud Rectangle
@@ -366,7 +446,7 @@ namespace DemosCommonCode.Annotation
                     // Text Highlight -> Freehand Polygon Highlight
                     new AnnotationButtonInfo(AnnotationType.FreehandPolygonHighlight)),
 
-                AnnotationButtonInfo.Separator,
+                new SeparatorButtonInfo(),
 
 
                 // Embedded Image
@@ -375,7 +455,7 @@ namespace DemosCommonCode.Annotation
                 // Referenced Image
                 new AnnotationButtonInfo(AnnotationType.ReferencedImage),
 
-                AnnotationButtonInfo.Separator,
+                new SeparatorButtonInfo(),
                 
 
                 // Text
@@ -403,7 +483,7 @@ namespace DemosCommonCode.Annotation
                 // Double Arrow
                 new AnnotationButtonInfo(AnnotationType.DoubleArrow),
 
-                AnnotationButtonInfo.Separator,
+                new SeparatorButtonInfo(),
 
 
                 // Line
@@ -454,8 +534,8 @@ namespace DemosCommonCode.Annotation
                     new AnnotationButtonInfo(AnnotationType.ArcWithArrow),
                     // Arc -> With Double Arrow
                     new AnnotationButtonInfo(AnnotationType.ArcWithDoubleArrow)),
-                
-                AnnotationButtonInfo.Separator,
+
+                new SeparatorButtonInfo(),
 
 
                 // Triangle
@@ -465,98 +545,155 @@ namespace DemosCommonCode.Annotation
 
                 // Mark
                 new AnnotationButtonInfo(AnnotationType.Mark),
+
+                new SeparatorButtonInfo(),
+
+
+                new CustomButtonInfo(
+                    "Add New Comment",
+                    "AddNewComment",
+                    AddNewCommentButton_Click),
+
+                new CustomButtonInfo(
+                    "Add New Comment To Annotation",
+                    "AddNewCommentToAnnotation",
+                    AddCommentToAnnotationButton_Click),
             };
-
-
-            ComponentResourceManager resources = new ComponentResourceManager(typeof(AnnotationsToolStrip));
 
             _toolStripItemToAnnotationType.Clear();
             _annotationTypeToToolStripItem.Clear();
 
-            // initialize the annotation buttons of this tool strip
-            InitializeAnnotationButtons(Items, annotationButtonInfos, resources);
+            // initialize the buttons of this tool strip
+            InitializeButtons(Items, buttonInfos);
+        }
+
+        /// <summary
+        /// Initializes the buttons.
+        /// </summary>
+        /// <param name="buttonCollection">The button collection to which new button must be added.</param>
+        /// <param name="buttonInfos">Information about buttons.</param>
+        private void InitializeButtons(ToolStripItemCollection buttonCollection, ButtonInfo[] buttonInfos)
+        {
+            foreach (ButtonInfo annotationButtonInfo in buttonInfos)
+                InitializeButton(buttonCollection, annotationButtonInfo);
         }
 
         /// <summary>
-        /// Initializes the annotation buttons.
+        /// Creates the button and adds the button to the collection of buttons.
         /// </summary>
-        /// <param name="annotationButtonCollection">The annotation button collection to which new annotation button must be added.</param>
-        /// <param name="annotationButtonInfos">Information about annotation buttons.</param>
-        /// <param name="resources">The resources, which contain the annotation button image.</param>
-        private void InitializeAnnotationButtons(
-            ToolStripItemCollection annotationButtonCollection,
-            AnnotationButtonInfo[] annotationButtonInfos,
-            ComponentResourceManager resources)
+        /// <param name="buttonCollection">The button collection to which new button must be added.</param>
+        /// <param name="buttonInfo">An information about button.</param>
+        private void InitializeButton(ToolStripItemCollection buttonCollection, ButtonInfo buttonInfo)
         {
-            foreach (AnnotationButtonInfo annotationButtonInfo in annotationButtonInfos)
-                InitializeAnnotationButton(annotationButtonCollection, annotationButtonInfo, resources);
-        }
-
-        /// <summary>
-        /// Creates the annotation button and adds the button to the collection of annotation buttons.
-        /// </summary>
-        /// <param name="annotationButtonCollection">The annotation button collection to which new annotation button must be added.</param>
-        /// <param name="annotationButtonInfo">An information about annotation button.</param>
-        /// <param name="resources">The resources, which contain the annotation button image.</param>
-        private void InitializeAnnotationButton(
-            ToolStripItemCollection annotationButtonCollection,
-            AnnotationButtonInfo annotationButtonInfo,
-            ComponentResourceManager resources)
-        {
-            string annotationButtonName = annotationButtonInfo.Name;
-            AnnotationType annotationType = annotationButtonInfo.AnnotationType;
-            AnnotationButtonInfo[] annotationButtonChildren = annotationButtonInfo.DropDownItems;
-
             ToolStripItem annotationButton = null;
 
-            if (annotationButtonInfo == AnnotationButtonInfo.Separator)
+            if (buttonInfo is SeparatorButtonInfo)
             {
                 annotationButton = new ToolStripSeparator();
             }
-            else
+            else if (buttonInfo is AnnotationButtonInfo)
             {
-                ToolStripItemDisplayStyle displayStyle = ToolStripItemDisplayStyle.ImageAndText;
-                bool addToRoot = annotationButtonCollection == Items;
+                AnnotationButtonInfo annotationButtonInfo = (AnnotationButtonInfo)buttonInfo;
 
-                if (addToRoot)
-                {
-                    displayStyle = ToolStripItemDisplayStyle.Image;
+                AnnotationType annotationType = annotationButtonInfo.AnnotationType;
 
-                    if (annotationButtonChildren.Length == 0)
-                        annotationButton = new ToolStripButton(annotationButtonName);
-                    else
-                        annotationButton = new CheckedToolStripSplitButton(annotationButtonName);
-                }
-                else
-                {
-                    annotationButton = new ToolStripMenuItem(annotationButtonName);
-                }
-
-                ToolStripDropDownItem dropDownItem = annotationButton as ToolStripDropDownItem;
-
-                if (dropDownItem != null)
-                    InitializeAnnotationButtons(dropDownItem.DropDownItems, annotationButtonChildren, resources);
-
-                annotationButton.ImageTransparentColor = Color.Magenta;
-                annotationButton.Name = annotationButtonName;
-                annotationButton.ToolTipText = annotationButtonName;
-                annotationButton.Tag = annotationButtonInfo;
-
-                ToolStripSplitButton splitButton = annotationButton as ToolStripSplitButton;
-                if (splitButton != null)
-                    splitButton.ButtonClick += new EventHandler(buildAnnotationButton_Click);
-                else
-                    annotationButton.Click += new EventHandler(buildAnnotationButton_Click);
-
-                annotationButton.Image = resources.GetObject(annotationButtonName) as Image;
-                annotationButton.DisplayStyle = displayStyle;
-                annotationButton.ImageScaling = ToolStripItemImageScaling.None;
+                annotationButton = CreateButton(
+                    buttonCollection,
+                    AnnotationNameFactory.GetAnnotationName(annotationType),
+                    AnnotationIconNameFactory.GetAnnotationIconName(annotationType),
+                    buildAnnotationButton_Click,
+                    buttonInfo.DropDownItems);
 
                 _toolStripItemToAnnotationType.Add(annotationButton, annotationType);
                 _annotationTypeToToolStripItem.Add(annotationType, annotationButton);
             }
+            else if (buttonInfo is CustomButtonInfo)
+            {
+                CustomButtonInfo customButton = (CustomButtonInfo)buttonInfo;
 
-            annotationButtonCollection.Add(annotationButton);
+                annotationButton = CreateButton(
+                    buttonCollection,
+                    customButton.Name,
+                    customButton.IconName,
+                    customButton.ButtonClickHandler,
+                    customButton.DropDownItems);
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
+
+            annotationButton.Tag = buttonInfo;
+            buttonCollection.Add(annotationButton);
+        }
+
+        /// <summary>
+        /// Creates the button.
+        /// </summary>
+        /// <param name="buttonCollection">The button collection.</param>
+        /// <param name="buttonName">The button name.</param>
+        /// <param name="buttonIconName">The button icon name.</param>
+        /// <param name="buttonClickHandler">The button click event handler.</param>
+        /// <param name="children">The button children.</param>
+        private ToolStripItem CreateButton(
+            ToolStripItemCollection buttonCollection,
+            string buttonName,
+            string buttonIconName,
+            EventHandler buttonClickHandler,
+            ButtonInfo[] children)
+        {
+            ToolStripItemDisplayStyle displayStyle = ToolStripItemDisplayStyle.ImageAndText;
+
+            ToolStripItem button = null;
+            if (buttonCollection == Items)
+            {
+                displayStyle = ToolStripItemDisplayStyle.Image;
+
+                if (children == null || children.Length == 0)
+                    button = new ToolStripButton(buttonName);
+                else
+                    button = new CheckedToolStripSplitButton(buttonName);
+            }
+            else
+            {
+                button = new ToolStripMenuItem(buttonName);
+            }
+
+            if (children != null && children.Length > 0)
+            {
+                ToolStripDropDownItem dropDownItem = button as ToolStripDropDownItem;
+
+                if (dropDownItem != null)
+                    InitializeButtons(dropDownItem.DropDownItems, children);
+            }
+
+            button.ImageTransparentColor = Color.Magenta;
+            button.Name = buttonName;
+            button.ToolTipText = buttonName;
+
+            if (buttonClickHandler != null)
+            {
+                ToolStripSplitButton splitButton = button as ToolStripSplitButton;
+                if (splitButton != null)
+                    splitButton.ButtonClick += new EventHandler(buttonClickHandler);
+                else
+                    button.Click += new EventHandler(buttonClickHandler);
+            }
+
+            if (!string.IsNullOrEmpty(buttonIconName))
+            {
+                string iconName = buttonIconName;
+                if (!Path.HasExtension(iconName))
+                    iconName += ".png";
+                string pathToIcon = "DemosCommonCode.Annotation.Icons." + iconName;
+
+                button.Image = DemosResourcesManager.GetResourceAsBitmap(pathToIcon);
+            }
+
+            button.DisplayStyle = displayStyle;
+            button.ImageScaling = ToolStripItemImageScaling.None;
+
+            return button;
         }
 
         #endregion
@@ -584,6 +721,29 @@ namespace DemosCommonCode.Annotation
 
             // add and build annotation
             AddAndBuildAnnotation(annotationType);
+        }
+
+        /// <summary>
+        /// "Add New Comment" button is clicked.
+        /// </summary>
+        private void AddNewCommentButton_Click(object sender, EventArgs e)
+        {
+            if (_commentBuilder != null && 
+                _commentBuilder.CommentVisualTool != null && 
+                _commentBuilder.CommentVisualTool.Enabled)
+                _commentBuilder.AddNewComment();
+        }
+
+        /// <summary>
+        /// "Add New Comment To Annotation" button is clicked.
+        /// </summary>
+        private void AddCommentToAnnotationButton_Click(object sender, EventArgs e)
+        {
+            if (_commentBuilder != null &&
+                _commentBuilder.CommentVisualTool != null &&
+                _commentBuilder.CommentVisualTool.Enabled &&
+                AnnotationViewer.FocusedAnnotationData != null)
+                _commentBuilder.AddCommentToAnnotation(AnnotationViewer.FocusedAnnotationData);
         }
 
         /// <summary> 
@@ -877,7 +1037,7 @@ namespace DemosCommonCode.Annotation
         private void OnLinkClicked(object sender, AnnotationLinkClickedEventArgs e)
         {
             // open the link
-            Process.Start("iexplore.exe", e.LinkText);
+            DemosTools.OpenBrowser(e.LinkText);
         }
 
         /// <summary>
@@ -916,6 +1076,8 @@ namespace DemosCommonCode.Annotation
                 new EventHandler<AnnotationViewEventArgs>(annotationViewer_AnnotationBuildingFinished);
             annotationViewer.AnnotationBuildingCanceled +=
                 new EventHandler<AnnotationViewEventArgs>(annotationViewer_AnnotationBuildingCanceled);
+
+            annotationViewer.AnnotationVisualTool.Deactivated += AnnotationVisualTool_Deactivated;
         }
 
         /// <summary>
@@ -934,6 +1096,8 @@ namespace DemosCommonCode.Annotation
 
             annotationViewer.AnnotationBuildingFinished -= annotationViewer_AnnotationBuildingFinished;
             annotationViewer.AnnotationBuildingCanceled -= annotationViewer_AnnotationBuildingCanceled;
+
+            annotationViewer.AnnotationVisualTool.Deactivated -= AnnotationVisualTool_Deactivated;
         }
 
         /// <summary>
@@ -945,6 +1109,14 @@ namespace DemosCommonCode.Annotation
                 return;
 
             _embeddedOrReferencedImageFileName = string.Empty;
+            EndAnnotationBuilding();
+        }
+
+        /// <summary>
+        /// Annotation visual tool is deactivated.
+        /// </summary>
+        private void AnnotationVisualTool_Deactivated(object sender, EventArgs e)
+        {
             EndAnnotationBuilding();
         }
 

@@ -1,4 +1,4 @@
-﻿namespace DemosCommonCode.CustomControls
+namespace DemosCommonCode.CustomControls
 {
     partial class AnchorTypeEditorControl
     {
@@ -125,7 +125,6 @@
             // 
             // AnchorTypeEditorControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.bottomRightRadioButton);
             this.Controls.Add(this.rightRadioButton);

@@ -82,11 +82,11 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         {
             get
             {
-                return pdfImageCompressionControl.Compression;
+                return pdfCompressionControl.Compression;
             }
             set
             {
-                pdfImageCompressionControl.Compression = value;
+                pdfCompressionControl.Compression = value;
             }
         }
 
@@ -97,11 +97,11 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         {
             get
             {
-                return pdfImageCompressionControl.CompressionSettings;
+                return pdfCompressionControl.CompressionSettings;
             }
             set
             {
-                pdfImageCompressionControl.CompressionSettings = value;
+                pdfCompressionControl.CompressionSettings = value;
             }
         }
 
@@ -114,6 +114,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         {
             get
             {
+                SyncEncoderSettingsWithUI();
                 return _mrcCompressionSettings;
             }
             set
@@ -149,15 +150,15 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
 #if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
             if (compressionMrcRadioButton.Checked)
             {
-                if (MrcCompressionSettings != null)
-                    MrcCompressionSettings.EnableMrcCompression = true;
+                if (_mrcCompressionSettings != null)
+                    _mrcCompressionSettings.EnableMrcCompression = true;
                 else
                     mrcCompressionProfileComboBox.SelectedIndex = 2;
             }
             else
             {
-                if (MrcCompressionSettings != null)
-                    MrcCompressionSettings.EnableMrcCompression = false;
+                if (_mrcCompressionSettings != null)
+                    _mrcCompressionSettings.EnableMrcCompression = false;
             }
 #endif
             UpdateUI();
@@ -195,7 +196,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
 #endif
             mrcCompressionSettingsGroupBox.Visible = compressionMrcRadioButton.Checked;
             mrcCompressionProfileComboBox.Visible = compressionMrcRadioButton.Checked;
-            pdfImageCompressionControl.Visible = compressionImageRadioButton.Checked;
+            pdfCompressionControl.Visible = compressionImageRadioButton.Checked;
         }
 
         /// <summary>

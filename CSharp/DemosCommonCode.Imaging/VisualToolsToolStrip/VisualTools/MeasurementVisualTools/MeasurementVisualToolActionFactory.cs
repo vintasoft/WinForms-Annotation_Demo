@@ -1,7 +1,8 @@
 ﻿using System.Drawing;
 
+#if !REMOVE_ANNOTATION_PLUGIN
 using Vintasoft.Imaging.Annotation.Measurements;
-
+#endif
 
 namespace DemosCommonCode.Imaging
 {
@@ -21,6 +22,7 @@ namespace DemosCommonCode.Imaging
         /// <param name="toolStrip">The toolstrip, where actions must be added.</param>
         public static void CreateActions(VisualToolsToolStrip toolStrip)
         {
+#if !REMOVE_ANNOTATION_PLUGIN
             // create action, which allows to measure objects on image in image viewer
             ImageMeasureToolAction imageMeasureToolAction = new ImageMeasureToolAction(
                  new ImageMeasureTool(),
@@ -29,6 +31,7 @@ namespace DemosCommonCode.Imaging
                  GetIcon("ImageMeasureTool.png"));
             // add the action to the toolstrip
             toolStrip.AddAction(imageMeasureToolAction);
+#endif
         }
 
         #endregion

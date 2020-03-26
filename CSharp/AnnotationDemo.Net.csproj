@@ -78,46 +78,29 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NHunspell">
-      <HintPath>.\NHunspell\DotNet4\NHunspell.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Vintasoft.Imaging, Version=9.0.0.23, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
-      <HintPath>packages\Vintasoft.Imaging.9.0.0.23\lib\net40\Vintasoft.Imaging.dll</HintPath>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="NHunspell">
+      <HintPath>.\NHunspell\DotNet4\NHunspell.dll</HintPath>
     </Reference>
-    <Reference Include="Vintasoft.Imaging.Annotation, Version=9.0.0.23, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
-      <HintPath>packages\Vintasoft.Imaging.Annotation.9.0.0.23\lib\net40\Vintasoft.Imaging.Annotation.dll</HintPath>
-    </Reference>
-    <Reference Include="Vintasoft.Imaging.Annotation.Pdf, Version=3.0.0.23, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
-      <HintPath>packages\Vintasoft.Imaging.Annotation.Pdf.3.0.0.23\lib\net40\Vintasoft.Imaging.Annotation.Pdf.dll</HintPath>
-    </Reference>
-    <Reference Include="Vintasoft.Imaging.Dicom, Version=2.0.0.23, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
-      <HintPath>packages\Vintasoft.Imaging.Dicom.2.0.0.23\lib\net40\Vintasoft.Imaging.Dicom.dll</HintPath>
-    </Reference>
-    <Reference Include="Vintasoft.Imaging.DocCleanup, Version=4.0.0.23, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
-      <HintPath>packages\Vintasoft.Imaging.DocCleanup.4.0.0.23\lib\net40\Vintasoft.Imaging.DocCleanup.dll</HintPath>
-    </Reference>
-    <Reference Include="Vintasoft.Imaging.Jbig2Codec, Version=6.0.0.23, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
-      <HintPath>packages\Vintasoft.Imaging.Jbig2Codec.6.0.0.23\lib\net40\Vintasoft.Imaging.Jbig2Codec.dll</HintPath>
-    </Reference>
-    <Reference Include="Vintasoft.Imaging.Jpeg2000Codec, Version=5.0.0.23, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
-      <HintPath>packages\Vintasoft.Imaging.Jpeg2000Codec.5.0.0.23\lib\net40\Vintasoft.Imaging.Jpeg2000Codec.dll</HintPath>
-    </Reference>
-    <Reference Include="Vintasoft.Imaging.Office.OpenXml, Version=1.0.0.23, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
-      <HintPath>packages\Vintasoft.Imaging.Office.OpenXml.1.0.0.23\lib\net40\Vintasoft.Imaging.Office.OpenXml.dll</HintPath>
-    </Reference>
-    <Reference Include="Vintasoft.Imaging.Pdf, Version=6.0.0.23, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
-      <HintPath>packages\Vintasoft.Imaging.Pdf.6.0.0.23\lib\net40\Vintasoft.Imaging.Pdf.dll</HintPath>
-    </Reference>
-    <Reference Include="Vintasoft.Imaging.Pdf.Mrc, Version=6.0.0.23, Culture=neutral, PublicKeyToken=e553c7d3e075f61c, processorArchitecture=MSIL">
-      <HintPath>packages\Vintasoft.Imaging.Pdf.Mrc.2.0.0.23\lib\net40\Vintasoft.Imaging.Pdf.Mrc.dll</HintPath>
-    </Reference>
-    <Reference Include="Vintasoft.Shared, Version=1.4.0.1, Culture=neutral, PublicKeyToken=153caf29a10d2e31, processorArchitecture=MSIL">
-      <HintPath>packages\Vintasoft.Shared.1.4.0.1\lib\net40\Vintasoft.Shared.dll</HintPath>
-    </Reference>
+    <PackageReference Include="Vintasoft.Imaging" Version="9.1.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation" Version="9.1.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf" Version="3.1.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.UI" Version="9.1.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Dicom" Version="2.1.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.DocCleanup" Version="4.1.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Jbig2Codec" Version="6.1.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Jpeg2000Codec" Version="5.1.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml" Version="1.1.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf" Version="6.1.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf.Mrc" Version="2.1.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.RawCodec" Version="3.1.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.UI" Version="9.1.0.1" />
+    <PackageReference Include="Vintasoft.Shared" Version="1.5.0.1" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomControls\AnchorTypeEditorControl.cs">
@@ -152,6 +135,8 @@
     </Compile>
     <Compile Include="DemosCommonCode.Annotation\AnnotationEventHandler\RulerAnnotationPropertyChangedEventHandler.cs">
     </Compile>
+    <Compile Include="DemosCommonCode.Annotation\AnnotationIconNameFactory.cs">
+    </Compile>
     <Compile Include="DemosCommonCode.Annotation\AnnotationInteractionArea\AnnotationInteractionAreaAppearanceManager.cs">
     </Compile>
     <Compile Include="DemosCommonCode.Annotation\AnnotationNameFactory.cs">
@@ -167,6 +152,52 @@
     </Compile>
     <Compile Include="DemosCommonCode.Annotation\AnnotationType.cs">
     </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\AnnotationCommentBuilder\AnnotationCommentBuilder.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\AnnotationCommentsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\AnnotationCommentsControl.designer.cs">
+      <DependentUpon>AnnotationCommentsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\AnnotationCommentTypeFactory.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\CommentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\CommentControl.designer.cs">
+      <DependentUpon>CommentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\CommentControlFactory.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\CommentControlTransformer.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\CommentPropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\CommentPropertiesForm.designer.cs">
+      <DependentUpon>CommentPropertiesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\CommentsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\CommentsControl.designer.cs">
+      <DependentUpon>CommentsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\CommentTools.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\StateHistory\CommentStateHistoryControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\StateHistory\CommentStateHistoryControl.designer.cs">
+      <DependentUpon>CommentStateHistoryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\StateHistory\CommentStateHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\StateHistory\CommentStateHistoryForm.designer.cs">
+      <DependentUpon>CommentStateHistoryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DemosCommonCode.Annotation\CustomAnnotations\AnnotationsMath.cs">
     </Compile>
     <Compile Include="DemosCommonCode.Annotation\CustomAnnotations\CustomAnnotationSerializationBinder.cs">
@@ -174,6 +205,8 @@
     <Compile Include="DemosCommonCode.Annotation\CustomAnnotations\MarkAnnotation\MarkAnnotationBuilder.cs">
     </Compile>
     <Compile Include="DemosCommonCode.Annotation\CustomAnnotations\MarkAnnotation\MarkAnnotationData.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\CustomAnnotations\MarkAnnotation\MarkAnnotationRenderer.cs">
     </Compile>
     <Compile Include="DemosCommonCode.Annotation\CustomAnnotations\MarkAnnotation\MarkAnnotationType.cs">
     </Compile>
@@ -271,6 +304,12 @@
     <Compile Include="DemosCommonCode.Imaging\ColorManagement\ColorTransformSetEditorForm.designer.cs">
       <DependentUpon>ColorTransformSetEditorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DemosCommonCode.Imaging\DocumentPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\DocumentPasswordForm.designer.cs">
+      <DependentUpon>DocumentPasswordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DemosCommonCode.Imaging\ImageViewerPrintManager.cs">
     </Compile>
     <Compile Include="DemosCommonCode.Imaging\ImageViewerToolStrip\ImageViewerToolStrip.cs">
@@ -324,6 +363,10 @@
     </Compile>
     <Compile Include="DemosCommonCode.Imaging\ThumbnailViewer\ThumbnailViewerSettingsForm.designer.cs">
       <DependentUpon>ThumbnailViewerSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\TypeEditorRegistrator\AnnotationTypeEditorRegistrator.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\TypeEditorRegistrator\ImagingTypeEditorRegistrator.cs">
     </Compile>
     <Compile Include="DemosCommonCode.Imaging\UndoManager\UndoManagerHistoryForm.cs">
       <SubType>Form</SubType>
@@ -421,15 +464,7 @@
     </Compile>
     <Compile Include="DemosCommonCode.Pdf\Fonts\CustomFontProgramsController.cs">
     </Compile>
-    <Compile Include="DemosCommonCode.Pdf\PdfAuthenticateTools.cs">
-    </Compile>
     <Compile Include="DemosCommonCode.Pdf\PdfFontProgramsTools.cs">
-    </Compile>
-    <Compile Include="DemosCommonCode.Pdf\Security\DocumentPasswordForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DemosCommonCode.Pdf\Security\DocumentPasswordForm.designer.cs">
-      <DependentUpon>DocumentPasswordForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\AboutBoxForm.cs">
       <SubType>Form</SubType>
@@ -454,23 +489,34 @@
     <EmbeddedResource Include="DemosCommonCode.Annotation\AnnotationsToolStrip.resx">
       <DependentUpon>AnnotationsToolStrip.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\AnnotationCommentsControl.resx">
+      <DependentUpon>AnnotationCommentsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\CommentControl.resx">
+      <DependentUpon>CommentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\CommentPropertiesForm.resx">
+      <DependentUpon>CommentPropertiesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\CommentsControl.resx">
+      <DependentUpon>CommentsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\StateHistory\CommentStateHistoryControl.resx">
+      <DependentUpon>CommentStateHistoryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\StateHistory\CommentStateHistoryForm.resx">
+      <DependentUpon>CommentStateHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DemosCommonCode.Annotation\RotateImageWithAnnotationsForm.resx">
       <DependentUpon>RotateImageWithAnnotationsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\DocumentPasswordForm.resx">
+      <DependentUpon>DocumentPasswordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="DefaultCMYK.icc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -489,15 +535,14 @@
     <None Include="ru_RU.dic">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
+    <Content Include=".\NHunspell\Hunspellx64.dll">
+      <Link>Hunspellx64.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include=".\NHunspell\Hunspellx86.dll">
+      <Link>Hunspellx86.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="App.ico" />
     <EmbeddedResource Include="Dialogs\AboutBoxForm.resx">
       <DependentUpon>AboutBoxForm.cs</DependentUpon>
@@ -679,100 +724,122 @@
       <DependentUpon>SpellCheckManagerViewSettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="DemosCommonCode.Pdf\Security\DocumentPasswordForm.resx">
-      <DependentUpon>DocumentPasswordForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\ColorPanelControl\ColorPanelBackground.png">
     </EmbeddedResource>
-    <Content Include="DemosCommonCode.Annotation\Icons\Angle.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\annotationSelection.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\Arc.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\ArcWithArrow.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\ArcWithDoubleArrow.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\Arrow.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\CloudEllipse.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\CloudFreeText.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\CloudHighlight.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\CloudLines.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\CloudLinesWithInterpolation.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\CloudPolygon.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\CloudPolygonWithInterpolation.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\CloudRectangle.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\CloudText.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\CloudTriangle.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\DoubleArrow.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\ellipse.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\embeddedImage.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\FreehandHighlight.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\FreehandLines.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\FreehandPolygon.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\FreehandPolygonHighlight.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\FreeText.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\gears.bmp">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\highlight.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\Line.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\Lines.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\Link.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\Mark.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\Polygon.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\PolygonHighlight.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\Rectangle.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\referencedImage.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\rubberstamp.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\Ruler.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\Rulers.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\selection.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\StickyNote.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\Text.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\TextHighlight.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\Triangle.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\TriangleLines.png">
-    </Content>
-    <Content Include="DemosCommonCode.Annotation\Icons\TrianglePolygon.png">
-    </Content>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\Resources\CommentClose.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\Resources\CommentCollapse.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\Resources\CommentExpand.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\Resources\CommentLock.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\Resources\CommentSettings.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\Resources\CommentState_ReviewAccepted.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\Resources\CommentState_ReviewCancelled.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\Resources\CommentState_ReviewCompleted.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\Resources\CommentState_ReviewNone.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\Resources\CommentState_ReviewRejected.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\AddNewComment.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\AddNewCommentToAnnotation.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Angle.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\AnnotationSelection.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Arc.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\ArcWithArrow.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\ArcWithDoubleArrow.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Arrow.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\CloudEllipse.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\CloudFreeText.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\CloudHighlight.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\CloudLines.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\CloudLinesWithInterpolation.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\CloudPolygon.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\CloudPolygonWithInterpolation.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\CloudRectangle.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\CloudText.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\CloudTriangle.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\DoubleArrow.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Ellipse.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\EmbeddedImage.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\FreehandHighlight.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\FreehandLines.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\FreehandPolygon.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\FreehandPolygonHighlight.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\FreeText.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Gears.bmp">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Highlight.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Line.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Lines.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Link.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Mark.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Polygon.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\PolygonHighlight.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Rectangle.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\ReferencedImage.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\RubberStamp.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Ruler.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Rulers.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Selection.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\StickyNote.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Text.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\TextHighlight.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Triangle.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\TriangleLines.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\TrianglePolygon.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\AnnotationCommentBuilder\CommentIcon.png">
+    </EmbeddedResource>
     <Content Include="directives.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

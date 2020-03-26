@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if !REMOVE_ANNOTATION_PLUGIN
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -525,7 +526,7 @@ namespace DemosCommonCode.Imaging
             {
                 openFileDialog.FileName = null;
                 openFileDialog.Filter =
-                    "Binary Annotations(*.vsab)|*.vsab|XMP Annotations(*.xmp)|*.xmp|All Formats(*.vsab;*.xmp)|*.vsab;*.xmp";
+                    "Binary Annotations(*.vsabm)|*.vsabm|XMP Annotations(*.xmpm)|*.xmpm|All Formats(*.vsabm;*.xmpm)|*.vsabm;*.xmpm";
                 openFileDialog.FilterIndex = 3;
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -559,7 +560,7 @@ namespace DemosCommonCode.Imaging
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
                 saveFileDialog.FileName = null;
-                saveFileDialog.Filter = "Binary Annotations|*.vsab|XMP Annotations|*.xmp";
+                saveFileDialog.Filter = "Binary Annotations|*.vsabm|XMP Annotations|*.xmpm";
                 saveFileDialog.FilterIndex = 1;
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
@@ -624,3 +625,4 @@ namespace DemosCommonCode.Imaging
 
     }
 }
+#endif

@@ -7,6 +7,7 @@ using System.Security.Permissions;
 
 using Vintasoft.Imaging;
 using Vintasoft.Imaging.Annotation;
+using Vintasoft.Imaging.Annotation.Rendering;
 
 namespace DemosCommonCode.Annotation
 {
@@ -18,6 +19,15 @@ namespace DemosCommonCode.Annotation
     {
 
         #region Constructors
+
+        /// <summary>
+        /// Initializes the <see cref="MarkAnnotationData"/> class.
+        /// </summary>
+        static MarkAnnotationData()
+        {
+            // register renderer form this annotation
+            AnnotationGraphicsRendererFactory.RegisterRendererForAnnotationData(typeof(MarkAnnotationData), typeof(MarkAnnotationRenderer));
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MarkAnnotationData"/> class.

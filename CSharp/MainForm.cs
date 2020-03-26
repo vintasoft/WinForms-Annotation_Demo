@@ -30,6 +30,7 @@ using Vintasoft.Imaging.Utils;
 
 using Vintasoft.Imaging.Annotation;
 using Vintasoft.Imaging.Annotation.Formatters;
+using Vintasoft.Imaging.Annotation.Comments;
 #if REMOVE_PDF_PLUGIN
 using Vintasoft.Imaging.Annotation.Print;
 #else
@@ -37,6 +38,7 @@ using Vintasoft.Imaging.Annotation.Pdf;
 using Vintasoft.Imaging.Annotation.Pdf.Print;
 #endif
 using Vintasoft.Imaging.Annotation.UI;
+using Vintasoft.Imaging.Annotation.UI.Comments;
 using Vintasoft.Imaging.Annotation.UI.Undo;
 using Vintasoft.Imaging.Annotation.UI.VisualTools;
 using Vintasoft.Imaging.Annotation.UI.VisualTools.UserInteraction;
@@ -186,6 +188,11 @@ namespace AnnotationDemo
         /// </summary>
         bool _isFormClosing = false;
 
+        /// <summary>
+        /// The comment visual tool.
+        /// </summary>
+        CommentVisualTool _commentVisualTool;
+
         #endregion
 
 
@@ -204,6 +211,9 @@ namespace AnnotationDemo
             DicomAssemblyLoader.Load();
             PdfAnnotationsAssemblyLoader.Load();
 
+            ImagingTypeEditorRegistrator.Register();
+            AnnotationTypeEditorRegistrator.Register();
+
             InitializeAddAnnotationMenuItems();
 
             // init "View => Image Display Mode" menu
@@ -215,8 +225,25 @@ namespace AnnotationDemo
             twoContinuousColumnsToolStripMenuItem.Tag = ImageViewerDisplayMode.TwoContinuousColumns;
 
 
+            AnnotationCommentController annotationCommentController = new AnnotationCommentController(annotationViewer1.AnnotationDataController);
+            ImageViewerCommentController imageViewerCommentsController = new ImageViewerCommentController(annotationCommentController);
+
+            _commentVisualTool = new CommentVisualTool(imageViewerCommentsController, new CommentControlFactory());
+            commentsControl1.ImageViewer = annotationViewer1;
+            commentsControl1.CommentTool = _commentVisualTool;
+            commentsControl1.AnnotationTool = annotationViewer1.AnnotationVisualTool;
+
+            annotationViewer1.VisualTool = new CompositeVisualTool(_commentVisualTool, annotationViewer1.VisualTool);
             visualToolsToolStrip1.MandatoryVisualTool = annotationViewer1.VisualTool;
             visualToolsToolStrip1.ImageViewer = annotationViewer1;
+
+
+            NoneAction noneAction = visualToolsToolStrip1.FindAction<NoneAction>();
+            noneAction.Activated += NoneAction_Activated;
+            noneAction.Deactivated += NoneAction_Deactivated;
+
+            annotationsToolStrip1.AnnotationViewer = annotationViewer1;
+            annotationsToolStrip1.CommentBuilder = new AnnotationCommentBuilder(_commentVisualTool, annotationViewer1.AnnotationVisualTool);
             _annotationVisualTool = annotationViewer1.VisualTool;
             annotationViewer1.MouseMove += new MouseEventHandler(annotationViewer1_MouseMove);
 
@@ -301,11 +328,10 @@ namespace AnnotationDemo
 
             annotationViewer1.AnnotationDataController.AnnotationDataDeserializationException += new EventHandler<AnnotationDataDeserializationExceptionEventArgs>(AnnotationDataController_AnnotationDataDeserializationException);
 #if !REMOVE_PDF_PLUGIN
-            // enable PDF Password Dialog
-            PdfAuthenticateTools.EnableAuthenticateRequest = true;
             // set CustomFontProgramsController for all opened PDF documents
-            PdfFontProgramsTools.UseCustomFontProgramsController = true;
+            CustomFontProgramsController.EnableUsageOfDefaultFontProgramsController();
 #endif
+            DocumentPasswordForm.EnableAuthentication(annotationViewer1);
 
             // define custom serialization binder for correct deserialization of TriangleAnnotation v6.1 and earlier
             AnnotationSerializationBinder.Current = new CustomAnnotationSerializationBinder();
@@ -525,7 +551,8 @@ namespace AnnotationDemo
             bool isAnnotationEmpty = true;
             if (isImageSelected)
                 isAnnotationEmpty = annotationViewer1.AnnotationDataController[annotationViewer1.FocusedIndex].Count <= 0;
-            bool isAnnotationSelected = annotationViewer1.FocusedAnnotationView != null || annotationViewer1.SelectedAnnotations.Count > 0;
+            bool isAnnotationFocused = annotationViewer1.FocusedAnnotationView != null;
+            bool isAnnotationSelected = annotationViewer1.SelectedAnnotations.Count > 0;
             bool isAnnotationBuilding = annotationViewer1.AnnotationVisualTool.IsFocusedAnnotationBuilding;
             bool isInteractionModeAuthor = annotationViewer1.AnnotationInteractionMode == AnnotationInteractionMode.Author;
             bool isCanUndo = _undoManager.UndoCount > 0 && !annotationViewer1.AnnotationVisualTool.IsFocusedAnnotationBuilding;
@@ -621,8 +648,8 @@ namespace AnnotationDemo
             burnAnnotationsOnImage2ToolStripMenuItem.Enabled = !isAnnotationEmpty;
             copyImageToClipboardToolStripMenuItem.Enabled = isImageSelected;
             deleteImageToolStripMenuItem.Enabled = isImageSelected && !isFileSaving;
-            bringToBackToolStripMenuItem.Enabled = isAnnotationSelected;
-            bringToFrontToolStripMenuItem.Enabled = isAnnotationSelected;
+            bringToBackToolStripMenuItem.Enabled = isAnnotationFocused || isAnnotationSelected;
+            bringToFrontToolStripMenuItem.Enabled = isAnnotationFocused || isAnnotationSelected;
 
             // annotation tool strip 
             annotationsToolStrip1.Enabled = !isFileOpening && !isFileEmpty;
@@ -1264,6 +1291,14 @@ namespace AnnotationDemo
         /// </summary>
         private void cutAnnotationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            CutAnnotation();
+        }
+
+        /// <summary>
+        /// Cuts selected annotation.
+        /// </summary>
+        private void CutAnnotation()
+        {
             // get UI action
             CutItemUIAction cutUIAction = GetUIAction<CutItemUIAction>(annotationViewer1.VisualTool);
             // if UI action is not empty AND UI action is enabled
@@ -1292,6 +1327,14 @@ namespace AnnotationDemo
         /// </summary>
         private void copyAnnotationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            CopyAnnotation();
+        }
+
+        /// <summary>
+        /// Copies selected annotation.
+        /// </summary>
+        private void CopyAnnotation()
+        {
             // get UI action
             CopyItemUIAction copyUIAction = GetUIAction<CopyItemUIAction>(annotationViewer1.VisualTool);
             // if UI action is not empty AND UI action is enabled
@@ -1309,6 +1352,14 @@ namespace AnnotationDemo
         /// Pastes annotations from "internal" buffer and makes them active.
         /// </summary>
         private void pasteAnnotationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PasteAnnotation();
+        }
+
+        /// <summary>
+        /// Pastes annotations from "internal" buffer and makes them active.
+        /// </summary>
+        private void PasteAnnotation()
         {
             // get UI action
             PasteItemWithOffsetUIAction pasteUIAction = GetUIAction<PasteItemWithOffsetUIAction>(annotationViewer1.VisualTool);
@@ -1510,6 +1561,14 @@ namespace AnnotationDemo
         /// Selects all annotations of annotation collection.
         /// </summary>
         private void selectAllAnnotationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SelectAllAnnotations();
+        }
+
+        /// <summary>
+        /// Selects all annotations.
+        /// </summary>
+        private void SelectAllAnnotations()
         {
             annotationViewer1.CancelAnnotationBuilding();
 
@@ -1849,17 +1908,61 @@ namespace AnnotationDemo
         /// </summary>
         private void annotationViewer1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (deleteToolStripMenuItem.Enabled &&
-                e.KeyCode == Keys.Delete &&
-                e.Modifiers == Keys.None)
+            if (e.Modifiers == Keys.Control)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.X:
+                        if (cutToolStripMenuItem.Enabled)
+                        {
+                            CutAnnotation();
+
+                            e.Handled = true;
+                        }
+                        break;
+
+                    case Keys.C:
+                        if (copyToolStripMenuItem.Enabled)
+                        {
+                            CopyAnnotation();
+
+                            e.Handled = true;
+                        }
+                        break;
+
+                    case Keys.V:
+                        if (pasteToolStripMenuItem.Enabled)
+                        {
+                            PasteAnnotation();
+
+                            e.Handled = true;
+                        }
+                        break;
+
+                    case Keys.A:
+                        if (selectAllToolStripMenuItem.Enabled)
+                        {
+                            SelectAllAnnotations();
+
+                            e.Handled = true;
+                        }
+                        break;
+                }
+            }
+            else if (deleteToolStripMenuItem.Enabled &&
+                e.KeyCode == Keys.Delete && e.Modifiers == Keys.None)
             {
                 // delete the selected annotation from image
                 DeleteAnnotation(false);
 
                 // update the UI
                 UpdateUI();
+
+                e.Handled = true;
             }
-            else if (annotationViewer1.Focused &&
+
+
+            if (!e.Handled && annotationViewer1.Focused &&
                 annotationViewer1.FocusedAnnotationView != null)
             {
                 // get transformation from AnnotationViewer space to DIP space
@@ -2033,7 +2136,7 @@ namespace AnnotationDemo
             }
         }
 
-        void annotationViewer1_SelectedAnnotationChanged(object sender, AnnotationViewChangedEventArgs e)
+        private void annotationViewer1_SelectedAnnotationChanged(object sender, AnnotationViewChangedEventArgs e)
         {
             FillAnnotationComboBox();
             ShowAnnotationProperties(annotationViewer1.FocusedAnnotationView);
@@ -2276,6 +2379,10 @@ namespace AnnotationDemo
                     }
                 }
             }
+            else if (e.PropertyName == "Comment")
+            {
+                UpdateUI();
+            }
         }
 
         private void compositeData_PropertyChanged(object sender, ObjectPropertyChangedEventArgs e)
@@ -2516,6 +2623,22 @@ namespace AnnotationDemo
                 if (_historyForm != null)
                     _historyForm.CanNavigateOnHistory = true;
             }
+        }
+
+        /// <summary>
+        /// Disables the comment visual tool.
+        /// </summary>
+        private void NoneAction_Deactivated(object sender, EventArgs e)
+        {
+            _commentVisualTool.Enabled = false;
+        }
+
+        /// <summary>
+        /// Enables the comment visual tool.
+        /// </summary>
+        private void NoneAction_Activated(object sender, EventArgs e)
+        {
+            _commentVisualTool.Enabled = true;
         }
 
         #endregion

@@ -13,7 +13,8 @@ namespace AnnotationDemo
         [STAThread]
         static void Main()
         {
-            Vintasoft.VintasoftImagingLicense.Register();
+            VintasoftImaging.VintasoftImagingLicense.Register();
+
             DemosCommonCode.DemosTools.EnableLicenseExceptionDisplaying();
 
             Application.EnableVisualStyles();

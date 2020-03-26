@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 using Vintasoft.Imaging;
 using Vintasoft.Imaging.Codecs.Decoders;
@@ -34,7 +35,19 @@ namespace DemosCommonCode
 
 
         #region Methods
-      
+
+        /// <summary>
+        /// Opens the browser with specified URL.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        public static void OpenBrowser(string url)
+        {
+            ProcessStartInfo pi = new ProcessStartInfo("cmd", string.Format("/c start {0}", url));
+            pi.CreateNoWindow = true;
+            pi.WindowStyle = ProcessWindowStyle.Hidden;
+            Process.Start(pi);
+        }
+
         /// <summary>
         /// Sets the enabled state of the specified menu item.
         /// </summary>
@@ -188,7 +201,8 @@ namespace DemosCommonCode
                 string[] directories = new string[] {
                     @"..\..\..\Images\",
                     @"..\..\..\..\Images\",
-                    @"..\..\..\..\..\Images\"
+                    @"..\..\..\..\..\Images\",
+                    @"..\..\..\..\..\..\..\Images\"
                 };
                 string demoImagesFolder = Path.GetDirectoryName(
                     System.Reflection.Assembly.GetExecutingAssembly().ManifestModule.FullyQualifiedName);

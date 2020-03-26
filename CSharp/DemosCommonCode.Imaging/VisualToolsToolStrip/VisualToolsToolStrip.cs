@@ -659,9 +659,17 @@ namespace DemosCommonCode.Imaging
                     ToolStripItemCollection subActions = null;
 
                     if (toolStripItem is CheckedToolStripSplitButton)
-                        subActions = ((CheckedToolStripSplitButton)toolStripItem).DropDownItems;
+                    {
+                        CheckedToolStripSplitButton checkedToolStripSplitButton = (CheckedToolStripSplitButton)toolStripItem;
+                        checkedToolStripSplitButton.DropDownOpened += Button_DropDownOpened;
+                        subActions = checkedToolStripSplitButton.DropDownItems;
+                    }
                     else if (toolStripItem is ToolStripMenuItem)
-                        subActions = ((ToolStripMenuItem)toolStripItem).DropDownItems;
+                    {
+                        ToolStripMenuItem toolStripMenuItem = (ToolStripMenuItem)toolStripItem;
+                        toolStripMenuItem.DropDownOpened += Button_DropDownOpened;
+                        subActions = toolStripMenuItem.DropDownItems;
+                    }
 
                     // for each sub-action
                     foreach (VisualToolAction subAction in visualToolAction.SubActions)
@@ -763,20 +771,36 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
+        /// Returns the action of specified item.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        private VisualToolAction GetAction(ToolStripItem item)
+        {
+            if (_toolStripDictionary.Contains(item))
+                return _toolStripDictionary.GetAction(item);
+            else if (_visualToolMenuItemDictionary.Contains(item))
+                return _visualToolMenuItemDictionary.GetAction(item);
+            else
+                throw new InvalidOperationException();
+        }
+
+        /// <summary>
+        /// Activates the action of drop-down menu.
+        /// </summary>
+        private void Button_DropDownOpened(object sender, EventArgs e)
+        {
+            VisualToolAction action = GetAction((ToolStripItem)sender);
+
+            if (action != null && !action.IsActivated)
+                action.Activate();
+        }
+
+        /// <summary>
         /// Activates the action.
         /// </summary>
         private void ActionItem_Click(object sender, EventArgs e)
         {
-            ToolStripItem item = (ToolStripItem)sender;
-
-            VisualToolAction action = null;
-
-            if (_toolStripDictionary.Contains(item))
-                action = _toolStripDictionary.GetAction(item);
-            else if (_visualToolMenuItemDictionary.Contains(item))
-                action = _visualToolMenuItemDictionary.GetAction(item);
-            else
-                throw new InvalidOperationException();
+            VisualToolAction action = GetAction((ToolStripItem)sender);
 
             // if action is activated
             if (action.IsActivated)

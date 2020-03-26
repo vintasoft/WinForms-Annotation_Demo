@@ -1,4 +1,4 @@
-﻿namespace DemosCommonCode.Imaging
+namespace DemosCommonCode.Imaging
 {
     partial class ImageRenderingRequirementAddForm
     {
@@ -114,7 +114,6 @@
             // ImageRenderingRequirementAddForm
             // 
             this.AcceptButton = this.okButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(325, 97);

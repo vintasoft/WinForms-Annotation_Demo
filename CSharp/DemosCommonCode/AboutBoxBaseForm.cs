@@ -100,12 +100,12 @@ namespace DemosCommonCode
 
         private void linkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start(string.Format("http://{0}", ((LinkLabel)sender).Text));
+            DemosTools.OpenBrowser(((LinkLabel)sender).Text);
         }
 
         private void vintasoftLogoPictureBox_Click(object sender, EventArgs e)
         {
-            Process.Start("http://www.vintasoft.com");
+            DemosTools.OpenBrowser("https://www.vintasoft.com");
         }
 
         #endregion
