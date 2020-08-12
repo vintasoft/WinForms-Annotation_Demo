@@ -87,20 +87,20 @@
     <Reference Include="NHunspell">
       <HintPath>.\NHunspell\DotNet4\NHunspell.dll</HintPath>
     </Reference>
-    <PackageReference Include="Vintasoft.Imaging" Version="9.1.1.11" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation" Version="9.1.1.11" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf" Version="3.1.1.11" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.UI" Version="9.1.1.11" />
-    <PackageReference Include="Vintasoft.Imaging.Dicom" Version="2.1.1.11" />
-    <PackageReference Include="Vintasoft.Imaging.DocCleanup" Version="4.1.1.11" />
-    <PackageReference Include="Vintasoft.Imaging.Jbig2Codec" Version="6.1.1.11" />
-    <PackageReference Include="Vintasoft.Imaging.Jpeg2000Codec" Version="5.1.1.11" />
-    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml" Version="1.1.1.11" />
-    <PackageReference Include="Vintasoft.Imaging.Pdf" Version="6.1.1.11" />
-    <PackageReference Include="Vintasoft.Imaging.Pdf.Mrc" Version="2.1.1.11" />
-    <PackageReference Include="Vintasoft.Imaging.RawCodec" Version="3.1.1.11" />
-    <PackageReference Include="Vintasoft.Imaging.UI" Version="9.1.1.11" />
-    <PackageReference Include="Vintasoft.Shared" Version="1.6.0.5" />
+    <PackageReference Include="Vintasoft.Imaging" Version="9.1.2.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation" Version="9.1.2.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf" Version="3.1.2.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.UI" Version="9.1.2.1" />
+    <PackageReference Include="Vintasoft.Imaging.Dicom" Version="2.1.2.1" />
+    <PackageReference Include="Vintasoft.Imaging.DocCleanup" Version="4.1.2.1" />
+    <PackageReference Include="Vintasoft.Imaging.Jbig2Codec" Version="6.1.2.1" />
+    <PackageReference Include="Vintasoft.Imaging.Jpeg2000Codec" Version="5.1.2.1" />
+    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml" Version="1.1.2.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf" Version="6.1.2.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf.Mrc" Version="2.1.2.1" />
+    <PackageReference Include="Vintasoft.Imaging.RawCodec" Version="3.1.2.1" />
+    <PackageReference Include="Vintasoft.Imaging.UI" Version="9.1.2.1" />
+    <PackageReference Include="Vintasoft.Shared" Version="1.7.0.1" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomControls\AnchorTypeEditorControl.cs">
@@ -459,8 +459,6 @@
       <DependentUpon>AboutBoxBaseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DemosCommonCode\DemosTools.cs">
-    </Compile>
-    <Compile Include="VintasoftImagingLicense.cs">
     </Compile>
     <Compile Include="DemosCommonCode.Pdf\Fonts\CustomFontProgramsController.cs">
     </Compile>
