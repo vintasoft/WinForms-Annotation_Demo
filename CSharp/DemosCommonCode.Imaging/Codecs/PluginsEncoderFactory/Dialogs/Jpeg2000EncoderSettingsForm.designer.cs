@@ -171,7 +171,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.useTilesCheckBox.TabIndex = 8;
             this.useTilesCheckBox.Text = "Use Tiles";
             this.useTilesCheckBox.UseVisualStyleBackColor = true;
-            this.useTilesCheckBox.CheckedChanged += new System.EventHandler(this.UpdateEnabledState);
+            this.useTilesCheckBox.CheckedChanged += new System.EventHandler(this.useTilesCheckBox_CheckedChanged);
             // 
             // tileWidthNumericUpDown
             // 
@@ -291,7 +291,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.compressionRatioRadioButton.TabStop = true;
             this.compressionRatioRadioButton.Text = "Compression Ratio";
             this.compressionRatioRadioButton.UseVisualStyleBackColor = true;
-            this.compressionRatioRadioButton.CheckedChanged += new System.EventHandler(this.UpdateEnabledState);
+            this.compressionRatioRadioButton.CheckedChanged += new System.EventHandler(this.compressionRatioRadioButton_CheckedChanged);
             // 
             // imageDataSizeNumericUpDown
             // 
@@ -325,7 +325,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.imageDataSizeRadioButton.TabStop = true;
             this.imageDataSizeRadioButton.Text = "Image Data Size";
             this.imageDataSizeRadioButton.UseVisualStyleBackColor = true;
-            this.imageDataSizeRadioButton.CheckedChanged += new System.EventHandler(this.UpdateEnabledState);
+            this.imageDataSizeRadioButton.CheckedChanged += new System.EventHandler(this.imageDataSizeRadioButton_CheckedChanged);
             // 
             // buttonOk
             // 
@@ -357,7 +357,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.lossyCompressionCheckBox.TabIndex = 17;
             this.lossyCompressionCheckBox.Text = "Lossy";
             this.lossyCompressionCheckBox.UseVisualStyleBackColor = true;
-            this.lossyCompressionCheckBox.CheckedChanged += new System.EventHandler(this.UpdateEnabledState);
+            this.lossyCompressionCheckBox.CheckedChanged += new System.EventHandler(this.lossyCompressionCheckBox_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -403,7 +403,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.waveletTransformCheckBox.UseVisualStyleBackColor = true;
             this.waveletTransformCheckBox.CheckedChanged += new System.EventHandler(this.waveletTransformCheckBox_CheckedChanged);
             // 
-            // Jpeg2000EncoderSettingsDialog
+            // Jpeg2000EncoderSettingsForm
             // 
             this.AcceptButton = this.buttonOk;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -416,7 +416,8 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Jpeg2000EncoderSettingsDialog";
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Name = "Jpeg2000EncoderSettingsForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "JPEG 2000 Encoder Settings";

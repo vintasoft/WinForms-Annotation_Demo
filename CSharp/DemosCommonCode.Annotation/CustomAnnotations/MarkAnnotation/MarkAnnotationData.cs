@@ -21,15 +21,6 @@ namespace DemosCommonCode.Annotation
         #region Constructors
 
         /// <summary>
-        /// Initializes the <see cref="MarkAnnotationData"/> class.
-        /// </summary>
-        static MarkAnnotationData()
-        {
-            // register renderer form this annotation
-            AnnotationGraphicsRendererFactory.RegisterRendererForAnnotationData(typeof(MarkAnnotationData), typeof(MarkAnnotationRenderer));
-        }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="MarkAnnotationData"/> class.
         /// </summary>
         public MarkAnnotationData()
@@ -47,6 +38,16 @@ namespace DemosCommonCode.Annotation
             : base(info, context)
         {
             _markType = (MarkAnnotationType)info.GetValue("MarkType", typeof(int));
+        }
+
+
+        /// <summary>
+        /// Initializes the <see cref="MarkAnnotationData"/> class.
+        /// </summary>
+        static MarkAnnotationData()
+        {
+            // register renderer form this annotation
+            AnnotationGraphicsRendererFactory.RegisterRendererForAnnotationData(typeof(MarkAnnotationData), typeof(MarkAnnotationRenderer));
         }
 
         #endregion

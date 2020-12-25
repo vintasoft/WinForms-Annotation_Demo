@@ -10,7 +10,7 @@ using Vintasoft.Imaging.UI;
 namespace DemosCommonCode.Imaging
 {
     /// <summary>
-    /// Print manager of an image viewer.
+    /// Represents a print manager of an image viewer.
     /// </summary>
     public class ImageViewerPrintManager
     {
@@ -18,9 +18,9 @@ namespace DemosCommonCode.Imaging
         #region Fields
 
         /// <summary>
-        /// Indicating when printing started.
+        /// A value indicating whether printing is started.
         /// </summary>
-        bool _printingStarted = false;
+        bool _isPrintingStarted = false;
 
         /// <summary>
         /// Array of images to print.
@@ -33,7 +33,7 @@ namespace DemosCommonCode.Imaging
         int _printPageIndex = 0;
 
         /// <summary>
-        /// Defines whether current image must be disposed after print.
+        /// A value indicating whether current image must be disposed after print.
         /// </summary>
         bool _disposeCurrentImageAfterUse;
 
@@ -43,12 +43,12 @@ namespace DemosCommonCode.Imaging
         ImageViewerBase _imageViewer;
 
         /// <summary>
-        /// The ImagePrintDocument.
+        /// The <see cref="ImagePrintDocument"/>.
         /// </summary>
         ImagePrintDocument _printDocument;
 
         /// <summary>
-        /// The PrintDialog.
+        /// The <see cref="PrintDialog"/>.
         /// </summary>
         PrintDialog _printDialog;
 
@@ -56,7 +56,7 @@ namespace DemosCommonCode.Imaging
 
 
 
-        #region Constructor
+        #region Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageViewerPrintManager"/> class.
@@ -117,10 +117,10 @@ namespace DemosCommonCode.Imaging
         /// <param name="reverse">Defines if pages should be printed in reverse order.</param>
         public void Print(bool showPrintDialog, bool reverse)
         {
-            if (_printingStarted)
+            if (_isPrintingStarted)
                 return;
 
-            _printingStarted = true;
+            _isPrintingStarted = true;
 
             try
             {
@@ -185,7 +185,7 @@ namespace DemosCommonCode.Imaging
             }
             finally
             {
-                _printingStarted = false;
+                _isPrintingStarted = false;
             }
         }
 

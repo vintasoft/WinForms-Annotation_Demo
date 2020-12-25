@@ -26,25 +26,36 @@ namespace DemosCommonCode.Annotation
         /// <remarks>
         /// This limitation is added because WinForms thrown Win32Exception if 48 or more controls are nested.
         /// </remarks>
-        const int MaxReplyNestingCount = 10;
+        const int MAX_REPLY_NESTING_COUNT = 10;
 
         /// <summary>
         /// The resource file name format.
         /// </summary>
-        const string ResourceFileNameFormat = "DemosCommonCode.Annotation.Comments.Resources.{0}.png";
+        const string RESOURCE_FILE_NAME_FORMAT = "DemosCommonCode.Annotation.Comments.Resources.{0}.png";
 
         /// <summary>
         /// The reply margin in pixels.
         /// </summary>
-        const int ReplyMargin = 2;
+        const int REPLY_MARGIN = 2;
 
         /// <summary>
         /// The states panel height in pixels.
         /// </summary>
-        const int StatesPanelHeight = 25;
+        const int STATES_PANEL_HEIGHT = 25;
 
+        /// <summary>
+        /// The WM_LBUTTONDOWN message code.
+        /// </summary>
         const int WM_LBUTTONDOWN = 0x0201;
+
+        /// <summary>
+        /// The WM_RBUTTONDOWN message code.
+        /// </summary>
         const int WM_RBUTTONDOWN = 0x0204;
+
+        /// <summary>
+        /// The WM_PARENTNOTIFY message code.
+        /// </summary>
         const int WM_PARENTNOTIFY = 0x0210;
 
         #endregion
@@ -56,17 +67,17 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// The expanded button image.
         /// </summary>
-        static Image ExpandedImage;
+        static Image _expandedImage;
 
         /// <summary>
         /// The collapsed button image.
         /// </summary>
-        static Image CollapsedImage;
+        static Image _collapsedImage;
 
         /// <summary>
         /// Dictionary: "Comment state" => "Icon image".
         /// </summary>
-        static Dictionary<string, Image> CommentStateImages;
+        static Dictionary<string, Image> _commentStateImages;
 
 
         /// <summary>
@@ -135,15 +146,15 @@ namespace DemosCommonCode.Annotation
         /// </summary>
         static CommentControl()
         {
-            ExpandedImage = DemosResourcesManager.GetResourceAsBitmap(string.Format(ResourceFileNameFormat, "CommentExpand"));
-            CollapsedImage = DemosResourcesManager.GetResourceAsBitmap(string.Format(ResourceFileNameFormat, "CommentCollapse"));
+            _expandedImage = DemosResourcesManager.GetResourceAsBitmap(string.Format(RESOURCE_FILE_NAME_FORMAT, "CommentExpand"));
+            _collapsedImage = DemosResourcesManager.GetResourceAsBitmap(string.Format(RESOURCE_FILE_NAME_FORMAT, "CommentCollapse"));
 
             string[] states = new string[] {
                 "ReviewAccepted", "ReviewRejected", "ReviewCancelled", "ReviewCompleted", "ReviewNone"
             };
-            CommentStateImages = new Dictionary<string, Image>();
+            _commentStateImages = new Dictionary<string, Image>();
             foreach (string state in states)
-                CommentStateImages.Add(state, DemosResourcesManager.GetResourceAsBitmap(string.Format(ResourceFileNameFormat, "CommentState_" + state)));
+                _commentStateImages.Add(state, DemosResourcesManager.GetResourceAsBitmap(string.Format(RESOURCE_FILE_NAME_FORMAT, "CommentState_" + state)));
         }
 
         /// <summary>
@@ -156,11 +167,11 @@ namespace DemosCommonCode.Annotation
             Disposed += CommentControl_Disposed;
 
             _commentStateNameToMenuItem = new Dictionary<string, ToolStripMenuItem>();
-            _commentStateNameToMenuItem.Add(CommentTools.CommentStateReviewAccepted, reviewAcceptedToolStripMenuItem);
-            _commentStateNameToMenuItem.Add(CommentTools.CommentStateReviewRejected, reviewRejectedToolStripMenuItem);
-            _commentStateNameToMenuItem.Add(CommentTools.CommentStateReviewCancelled, reviewCancelledToolStripMenuItem);
-            _commentStateNameToMenuItem.Add(CommentTools.CommentStateReviewCompleted, reviewCompletedToolStripMenuItem);
-            _commentStateNameToMenuItem.Add(CommentTools.CommentStateReviewNone, reviewNoneToolStripMenuItem);
+            _commentStateNameToMenuItem.Add(CommentTools.COMMENT_STATE_REVIEW_ACCEPTED, reviewAcceptedToolStripMenuItem);
+            _commentStateNameToMenuItem.Add(CommentTools.COMMENT_STATE_REVIEW_REJECTED, reviewRejectedToolStripMenuItem);
+            _commentStateNameToMenuItem.Add(CommentTools.COMMENT_STATE_REVIEW_CANCELLED, reviewCancelledToolStripMenuItem);
+            _commentStateNameToMenuItem.Add(CommentTools.COMMENT_STATE_REVIEW_COMPLETED, reviewCompletedToolStripMenuItem);
+            _commentStateNameToMenuItem.Add(CommentTools.COMMENT_STATE_REVIEW_NONE, reviewNoneToolStripMenuItem);
             foreach (string stateName in _commentStateNameToMenuItem.Keys)
                 _commentStateNameToMenuItem[stateName].Tag = stateName;
 
@@ -192,6 +203,9 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// Gets or sets a value indicating whether control has automatic height.
         /// </summary>
+        /// <value>
+        /// Default value is <b>false</b>.
+        /// </value>
         public bool AutoHeight
         {
             get
@@ -216,6 +230,9 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// Gets or sets a value indicating whether this control can be closed.
         /// </summary>
+        /// <value>
+        /// Default value is <b>true</b>.
+        /// </value>
         public bool CanClose
         {
             get
@@ -241,6 +258,9 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// Gets or sets a value indicating whether this control can be expanded.
         /// </summary>
+        /// <value>
+        /// Default value is <b>true</b>.
+        /// </value>
         public bool CanExpand
         {
             get
@@ -264,8 +284,11 @@ namespace DemosCommonCode.Annotation
 
         bool _showStateHistory = false;
         /// <summary>
-        /// Gets or sets a value indicating whether states must be shown in replies.
+        /// Gets or sets a value indicating whether control must show states in replies.
         /// </summary>
+        /// <value>
+        /// Default value is <b>false</b>.
+        /// </value>
         public bool ShowStateHistory
         {
             get
@@ -519,9 +542,9 @@ namespace DemosCommonCode.Annotation
             if (Comment != null)
             {
                 if (Comment.IsOpen)
-                    expandButton.Image = CollapsedImage;
+                    expandButton.Image = _collapsedImage;
                 else
-                    expandButton.Image = ExpandedImage;
+                    expandButton.Image = _expandedImage;
 
                 UpdateHeaderUI();
 
@@ -550,7 +573,7 @@ namespace DemosCommonCode.Annotation
                     removeToolStripMenuItem.Enabled = true;
                 }
 
-                if (GetCommentNestingCount(Comment) >= MaxReplyNestingCount)
+                if (GetCommentNestingCount(Comment) >= MAX_REPLY_NESTING_COUNT)
                     replyToolStripMenuItem.Enabled = false;
             }
             _isUiUpdating = false;
@@ -562,155 +585,251 @@ namespace DemosCommonCode.Annotation
 
         #region PRIVATE
 
+        #region UI
+
+        /// <summary>
+        /// Handles the SizeChanged event of ReplyControl object.
+        /// </summary>
+        private void ReplyControl_SizeChanged(object sender, EventArgs e)
+        {
+            // if size must be updated
+            if (!_isSizeUpdating)
+                // update control size
+                SetSize(true);
+        }
+
+        /// <summary>
+        /// Handles the TextChanged event of TextTextBox object.
+        /// </summary>
+        private void textTextBox_TextChanged(object sender, EventArgs e)
+        {
+            // if size must be updated
+            if (SetTextBoxHeight())
+                // update size
+                SetSize(false);
+
+            // if user is not updating
+            if (!_isUiUpdating)
+            {
+                // get current text
+                string text = textTextBox.Text;
+                if (text != null)
+                    // remove invalid new line sumbols
+                    text = text.Replace("\r\n", "\n");
+
+                // update text
+                Comment.Text = text;
+            }
+        }
+
+        /// <summary>
+        /// Handles the Disposed event of CommentControl object.
+        /// </summary>
+        private void CommentControl_Disposed(object sender, EventArgs e)
+        {
+            // remove comment
+            Comment = null;
+        }
+
+
         #region Buttons
 
         /// <summary>
-        /// Closes this control.
+        /// Handles the Click event of CloseButton object.
         /// </summary>
         private void closeButton_Click(object sender, EventArgs e)
         {
+            // hide current control
             Visible = false;
+            // close comment
             Comment.IsOpen = false;
+            // deselect the current comment
             IsCommentSelected = false;
         }
 
         /// <summary>
-        /// Opens this control.
+        /// Handles the Click event of ExpandButton object.
         /// </summary>
         private void expandButton_Click(object sender, EventArgs e)
         {
-            Comment.IsOpen = !Comment.IsOpen;
-            IsCommentSelected = Comment.IsOpen;
+            // if the current comment is open
+            if (Comment.IsOpen)
+            {
+                // close the current comment
+                Comment.IsOpen = false;
+                // deselect the current comment
+                IsCommentSelected = false;
+            }
+            else
+            {
+                // open the current comment
+                Comment.IsOpen = true;
+                // select the current comment
+                IsCommentSelected = true;
+            }
         }
 
         /// <summary>
-        /// Shows context menu.
+        /// Handles the Click event of SettingsButton object.
         /// </summary>
         private void settingsButton_Click(object sender, EventArgs e)
         {
+            // show context menu
             commentContextMenuStrip.Show(settingsButton, new Point(0, 0));
         }
 
         /// <summary>
-        /// Shows comment state history.
+        /// Handles the Click event of StateHistoryToolStripMenuItem object.
         /// </summary>
         private void stateHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // create the comment state history
             using (CommentStateHistoryForm dlg = new CommentStateHistoryForm(Comment))
             {
                 dlg.StartPosition = FormStartPosition.CenterParent;
                 dlg.Owner = this.ParentForm;
 
+                // show dialog
                 dlg.ShowDialog();
             }
         }
 
         /// <summary>
-        /// Shows comment properties.
+        /// Handles the Click event of PropertiesToolStripMenuItem object.
         /// </summary>
         private void propertiesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // create the comment properties form
             using (CommentPropertiesForm dlg = new CommentPropertiesForm(Comment))
             {
                 dlg.StartPosition = FormStartPosition.CenterParent;
                 dlg.Owner = this.ParentForm;
 
+                // show dialog
                 dlg.ShowDialog();
+                // update user interface
                 UpdateUI();
             }
         }
 
         /// <summary>
-        /// Removes comment.
+        /// Handles the Click event of RemoveToolStripMenuItem object.
         /// </summary>
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // remove current comment
             Comment.Remove();
         }
 
-
         /// <summary>
-        /// Adds reply to this comment.
+        /// Handles the Click event of ReplyToolStripMenuItem object.
         /// </summary>
         private void replyToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // add reply to the current comment
             Comment reply = Comment.AddReply(Color.Yellow, GetCurrentUserName());
+            // move focus to the reply
             SetFocus(reply);
         }
 
         /// <summary>
-        /// Expands all replies.
+        /// Handles the Click event of ExpandAllToolStripMenuItem object.
         /// </summary>
         private void expandAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // expand all replies
             Comment.Expand();
         }
 
         /// <summary>
-        /// Collapses all replies.
+        /// Handles the Click event of CollapseRepliesToolStripMenuItem object.
         /// </summary>
         private void collapseRepliesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // for each comment in the current comment replies
             foreach (Comment reply in Comment.Replies)
+                // collapse the reply
                 reply.Collapse();
         }
 
         /// <summary>
-        /// Resets comment location.
+        /// Handles the Click event of ResetLocationToolStripMenuItem object.
         /// </summary>
         private void resetLocationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // reset comment location
             Comment.ResetBoundingBox();
         }
 
         /// <summary>
-        /// Collapses all comments but this.
+        /// Handles the Click event of CollapseAllButThisToolStripMenuItem object.
         /// </summary>
         private void collapseAllButThisToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // get parent comment collection
             CommentCollection parentCollection = Comment.ParentCollection;
             while (parentCollection != null)
             {
+                // for each comment in parent collection
                 foreach (Comment rootComment in parentCollection)
                 {
+                    // if comment must be closed
                     if (rootComment.FindCommentBySource(Comment.Source) == null)
+                        // close comment
                         rootComment.IsOpen = false;
                 }
+
+                // if comment does not contain a parent
                 if (parentCollection.Parent == null)
                     break;
+
+                // get the parent comment collection
                 parentCollection = parentCollection.Parent.ParentCollection;
             }
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of the showStateHistoryToolStripMenuItem control.
+        /// Handles the CheckedChanged event of ShowStateHistoryToolStripMenuItem object.
         /// </summary>
         private void showStateHistoryToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
         {
-            ShowStateHistory = showStateHistoryToolStripMenuItem.Checked;
+            // if states must be shown in replies
+            if (showStateHistoryToolStripMenuItem.Checked)
+                // show the states in replies
+                ShowStateHistory = true;
+            else
+                // hide the states in replies
+                ShowStateHistory = false;
         }
 
         /// <summary>
-        /// Sets the state of this comment.
+        /// Handles the Click event of SetStateToolStripMenuItem object.
         /// </summary>
         private void setStateToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // get current tool strip menu item
             ToolStripMenuItem menuItem = (ToolStripMenuItem)sender;
+            // get state nema
             string stateName = (string)menuItem.Tag;
 
             string[] parsedName = stateName.Split('.');
+            // get state model
             string stateModel = parsedName[0];
+            // get state
             string state = parsedName[1];
 
-            Comment stateComment = Comment.SetState(Color.Yellow, GetCurrentUserName(), stateModel, state, CommentTools.SplitStatesByUserName);
+            // set comment state
+            Comment stateComment = Comment.SetState(Color.Yellow, GetCurrentUserName(), stateModel, state, CommentTools.SPLIT_STATES_BY_USER_NAME);
+            // close comment state
             stateComment.IsOpen = false;
+            // update comment state text
             stateComment.Text = string.Format("{0} sets by {1}", state, stateComment.UserName);
         }
 
         #endregion
 
+        #endregion
 
-        #region Event handlers
 
         /// <summary>
         /// Handles the Comment.PropertyChanged event.
@@ -731,9 +850,9 @@ namespace DemosCommonCode.Annotation
                     if (CanExpand)
                     {
                         if ((bool)e.NewValue)
-                            expandButton.Image = CollapsedImage;
+                            expandButton.Image = _collapsedImage;
                         else
-                            expandButton.Image = ExpandedImage;
+                            expandButton.Image = _expandedImage;
                     }
 
                     IsCommentSelected = (bool)e.NewValue;
@@ -749,45 +868,6 @@ namespace DemosCommonCode.Annotation
                 }
             }
         }
-
-        /// <summary>
-        /// Handles the ReplyControl.SizeChanged event.
-        /// </summary>
-        private void ReplyControl_SizeChanged(object sender, EventArgs e)
-        {
-            if (!_isSizeUpdating)
-                SetSize(true);
-        }
-
-        /// <summary>
-        /// Handles the TextChanged event of the textTextBox control.
-        /// </summary>
-        private void textTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (SetTextBoxHeight())
-                SetSize(false);
-            if (!_isUiUpdating)
-            {
-                string text = textTextBox.Text;
-                if (text != null)
-                    text = text.Replace("\r\n", "\n");
-
-                Comment.Text = text;
-            }
-        }
-
-        /// <summary>
-        /// Handles Disposed event.
-        /// </summary>
-        private void CommentControl_Disposed(object sender, EventArgs e)
-        {
-            Comment = null;
-        }
-
-        #endregion
-
-
-        #region UI
 
         /// <summary>
         /// Updates the comment value.
@@ -984,10 +1064,10 @@ namespace DemosCommonCode.Annotation
             {
                 for (int i = 1; i < repliesControls.Count - 1; i++)
                 {
-                    repliesControls[i].Margin = new Padding(0, ReplyMargin, 0, ReplyMargin);
+                    repliesControls[i].Margin = new Padding(0, REPLY_MARGIN, 0, REPLY_MARGIN);
                 }
-                repliesControls[0].Margin = new Padding(0, 0, 0, ReplyMargin);
-                repliesControls[repliesControls.Count - 1].Margin = new Padding(0, ReplyMargin, 0, 0);
+                repliesControls[0].Margin = new Padding(0, 0, 0, REPLY_MARGIN);
+                repliesControls[repliesControls.Count - 1].Margin = new Padding(0, REPLY_MARGIN, 0, 0);
             }
         }
 
@@ -1055,7 +1135,7 @@ namespace DemosCommonCode.Annotation
                 // comment
                 reviewToolStripMenuItem.Visible = true;
                 stateHistoryToolStripMenuItem.Visible = true;
-                states = Comment.GetStates(CommentTools.SplitStatesByUserName);
+                states = Comment.GetStates(CommentTools.SPLIT_STATES_BY_USER_NAME);
             }
 
             // update items of state menu item
@@ -1068,7 +1148,7 @@ namespace DemosCommonCode.Annotation
             {
                 foreach (Comment state in states)
                 {
-                    if (!CommentTools.SplitStatesByUserName || state.UserName == GetCurrentUserName())
+                    if (!CommentTools.SPLIT_STATES_BY_USER_NAME || state.UserName == GetCurrentUserName())
                     {
                         ToolStripMenuItem item = null;
                         string stateName = string.Format("{0}.{1}", state.StateModel, state.ParentState);
@@ -1103,9 +1183,9 @@ namespace DemosCommonCode.Annotation
             else
             {
                 // show statesToolStrip
-                if (statesToolStrip.Height != StatesPanelHeight)
+                if (statesToolStrip.Height != STATES_PANEL_HEIGHT)
                 {
-                    statesToolStrip.Height = StatesPanelHeight;
+                    statesToolStrip.Height = STATES_PANEL_HEIGHT;
                     heightChanged = true;
                 }
                 Comment[] oldStates = new Comment[_commentStateToControl.Count];
@@ -1208,10 +1288,10 @@ namespace DemosCommonCode.Annotation
         {
             string fullState = string.Format("{0}{1}", state.StateModel, state.ParentState);
             // if comment has image for comment state
-            if (CommentStateImages.ContainsKey(fullState))
+            if (_commentStateImages.ContainsKey(fullState))
             {
                 // display image and user name
-                stateLabel.Image = CommentStateImages[fullState];
+                stateLabel.Image = _commentStateImages[fullState];
                 stateLabel.Text = state.UserName;
             }
             // if comment does NOT have image for comment state
@@ -1225,8 +1305,6 @@ namespace DemosCommonCode.Annotation
             // set tooltip for state label
             stateLabel.ToolTipText = string.Format("{0}, {1}: {2} ({3})", state.UserName, state.StateModel, state.ParentState, state.ModifyDate.ToString());
         }
-
-        #endregion
 
 
         #region Tools
@@ -1257,7 +1335,7 @@ namespace DemosCommonCode.Annotation
         /// <param name="reply">The reply.</param>
         private void AddReplyControl(Comment reply)
         {
-            if (GetCommentNestingCount(reply) > MaxReplyNestingCount)
+            if (GetCommentNestingCount(reply) > MAX_REPLY_NESTING_COUNT)
                 return;
 
             if (_hasSizeUpdatingError)
@@ -1335,7 +1413,7 @@ namespace DemosCommonCode.Annotation
             }
             else
             {
-                // if reply was removed
+                // if reply is removed
                 if (e.Action == CollectionChangeActionType.RemoveItem)
                 {
                     // remove reply control
@@ -1351,7 +1429,7 @@ namespace DemosCommonCode.Annotation
                         _hasSizeUpdatingError = false;
                     }
                 }
-                // if reply was added
+                // if reply is added
                 else if (e.Action == CollectionChangeActionType.InsertItem)
                 {
                     Comment newComment = (Comment)e.NewValue;

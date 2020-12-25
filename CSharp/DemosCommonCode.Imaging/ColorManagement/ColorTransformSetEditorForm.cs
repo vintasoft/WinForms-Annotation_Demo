@@ -13,11 +13,18 @@ namespace DemosCommonCode.Imaging.ColorManagement
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ColorTransformSetEditorForm"/> class.
+        /// </summary>
         private ColorTransformSetEditorForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ColorTransformSetEditorForm"/> class.
+        /// </summary>
+        /// <param name="colorTransformSet">The set of color transforms.</param>
         public ColorTransformSetEditorForm(ColorTransformSet colorTransformSet)
             : this()
         {
@@ -61,30 +68,36 @@ namespace DemosCommonCode.Imaging.ColorManagement
         #region Methods
 
         /// <summary>
-        /// Deletes the selected color transform from the transform set.
+        /// Handles the Click event of DeleteButton object.
         /// </summary>
         private void deleteButton_Click(object sender, EventArgs e)
         {
             if (colorTransformsListBox.SelectedItem != null)
             {
+                // get color transform that must be removed
                 ColorTransform selectedColorTransform = (ColorTransform)colorTransformsListBox.SelectedItem;
+                // remove color transform
                 _colorTransformSet.Remove(selectedColorTransform);
+                // update color transform list
                 RefreshColorTransformsList();
             }
         }
 
         /// <summary>
-        /// Copies the selected color transform to the transform set.
+        /// Handles the Click event of CopyToTransformSetButton object.
         /// </summary>
         private void copyToTransformSetButton_Click(object sender, EventArgs e)
         {
             if (availableColorTransformsListBox.SelectedItem != null)
             {
                 ColorTransform selectedColorTransform = (ColorTransform)availableColorTransformsListBox.SelectedItem;
+                // add color transform
                 _colorTransformSet.Add(selectedColorTransform);
+                // update color transform list
                 RefreshColorTransformsList();
             }
         }
+
 
         /// <summary>
         /// Refreshes the list of color transforms in transform set.
@@ -93,16 +106,6 @@ namespace DemosCommonCode.Imaging.ColorManagement
         {
             colorTransformsListBox.Items.Clear();
             colorTransformsListBox.Items.AddRange(_colorTransformSet.ToArray());
-        }
-
-        private void buttonOk_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.OK;
-        }
-
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
         }
 
         #endregion

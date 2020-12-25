@@ -1,13 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 using Vintasoft.Imaging;
-using Vintasoft.Imaging.Codecs.Decoders;
 using Vintasoft.Imaging.UI;
 using Vintasoft.Imaging.UI.VisualTools;
 using Vintasoft.Imaging.UIActions;
@@ -166,7 +165,7 @@ namespace DemosCommonCode
         }
 
         /// <summary>
-        /// User clicked on the Open or Save button on a file dialog box.
+        /// User is clicked on the Open or Save button on a file dialog box.
         /// </summary>
         private static void fileDialog_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -250,7 +249,6 @@ namespace DemosCommonCode
             }
         }
 
-
         /// <summary>
         /// Returns the message of exception and inner exceptions.
         /// </summary>
@@ -284,9 +282,6 @@ namespace DemosCommonCode
         /// <summary>
         /// Handles the VisualToolException event of the ImageViewer control.
         /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="ExceptionEventArgs"/> instance
-        /// containing the event data.</param>
         private static void imageViewer_VisualToolException(object sender, ExceptionEventArgs e)
         {
             ShowErrorMessage(e.Exception);
@@ -335,9 +330,10 @@ namespace DemosCommonCode
         }
 
         /// <summary>
-        /// Gets the loading error string.
+        /// Returns the loading error string.
         /// </summary>
-        /// <param name="vsImage">The image.</param>
+        /// <param name="image">The image.</param>
+        /// <returns>The loading error string.</returns>
         public static object GetShortLoadingErrorString(VintasoftImage image)
         {
             if (!image.LoadingError)
@@ -358,8 +354,6 @@ namespace DemosCommonCode
         /// <summary>
         /// Handles the UnhandledException event of the AppDomain.CurrentDomain.
         /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="UnhandledExceptionEventArgs"/> instance containing the event data.</param>
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             System.ComponentModel.LicenseException licenseException = GetLicenseException(e.ExceptionObject);
@@ -368,21 +362,11 @@ namespace DemosCommonCode
                 // show information about licensing exception
                 MessageBox.Show(string.Format("{0}: {1}", licenseException.GetType().Name, licenseException.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                string[] dirs = new string[] { ".", "..", @"..\..\..\", @"..\..\..\..\..\", @"..\..\..\..\..\..\..\" };
-                // for each directory
-                for (int i = 0; i < dirs.Length; i++)
-                {
-                    string filename = Path.Combine(dirs[i], "VSImagingNetEvaluationLicenseManager.exe");
-                    // if VintaSoft Evaluation License Manager exists in directory
-                    if (File.Exists(filename))
-                    {
-                        // start Vintasoft Evaluation License Manager for getting the evaluation license
-                        System.Diagnostics.Process process = new System.Diagnostics.Process();
-                        process.StartInfo.FileName = filename;
-                        process.Start();
-                        return;
-                    }
-                }
+                // open article with information about usage of evaluation license
+                System.Diagnostics.Process process = new System.Diagnostics.Process();
+                process.StartInfo.FileName = "https://www.vintasoft.com/docs/vsimaging-dotnet/Licensing-Evaluation.html";
+                process.StartInfo.UseShellExecute = true;
+                process.Start();
             }
         }
 

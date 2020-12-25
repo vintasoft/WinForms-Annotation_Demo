@@ -33,10 +33,13 @@ namespace DemosCommonCode.Imaging
 
         #region Properties
 
-        MagnifierTool _magnifier;
+        MagnifierTool _magnifier = null;
         /// <summary>
         /// Gets or sets magnifier tool.
         /// </summary>
+        /// <value>
+        /// Default value is <b>null</b>.
+        /// </value>
         [Description("Magnifier tool.")]
         public MagnifierTool Magnifier
         {
@@ -56,6 +59,27 @@ namespace DemosCommonCode.Imaging
 
 
         #region Methods
+
+        /// <summary>
+        /// Handles the Click event of OkButton object.
+        /// </summary>
+        private void okButton_Click(object sender, EventArgs e)
+        {
+            // update tool settings
+            SetSettings();
+            // close form
+            Close();
+        }
+
+        /// <summary>
+        /// Handles the Click event of CancelButton object.
+        /// </summary>
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            // close form
+            Close();
+        }
+
 
         /// <summary>
         /// Updates the user interface of this form.
@@ -84,6 +108,9 @@ namespace DemosCommonCode.Imaging
 
             // set elliptical outline check box value
             ellipticalOutlineCheckBox.Checked = Magnifier.UseEllipticalOutline;
+
+            // set visual tools visibility check box value
+            showVisualToolsCheckBox.Checked = Magnifier.ShowVisualTools;
 
             // set processing commands check boxes to false
             invertCheckBox.Checked = false;
@@ -127,13 +154,16 @@ namespace DemosCommonCode.Imaging
 
             // if selected width of magnifier pen is more than 0
             if (borderWidthNumericUpDown.Value > 0)
-                // set magnifier pen
+                // set the magnifier pen
                 Magnifier.BorderPen = new Pen(borderColorPanelControl.Color, (float)borderWidthNumericUpDown.Value);
             else
                 Magnifier.BorderPen = null;
 
-            // set magnifier UseEllipticalOutline property
+            // set UseEllipticalOutline property of magnifier
             Magnifier.UseEllipticalOutline = ellipticalOutlineCheckBox.Checked;
+
+            // set ShowVisualTools property of magnifier
+            Magnifier.ShowVisualTools = showVisualToolsCheckBox.Checked;
 
             // create the list of selected processing commands
             List<ProcessingCommandBase> commands = new List<ProcessingCommandBase>();
@@ -151,23 +181,6 @@ namespace DemosCommonCode.Imaging
                 Magnifier.ProcessingCommand = new CompositeCommand(commands.ToArray());
             else
                 Magnifier.ProcessingCommand = null;
-        }
-
-        /// <summary>
-        /// "OK" button is clicked.
-        /// </summary>
-        private void okButton_Click(object sender, EventArgs e)
-        {
-            SetSettings();
-            Close();
-        }
-
-        /// <summary>
-        /// "Cancel" button is clicked.
-        /// </summary>
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            Close();
         }
 
         #endregion

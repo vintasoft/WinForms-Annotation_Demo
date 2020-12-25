@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -30,13 +29,13 @@ namespace DemosCommonCode.Imaging
             #region Fields
 
             /// <summary>
-            /// The dictionary from action to the tool strip item.
+            /// Dictionary: the action => the tool strip item.
             /// </summary>
             Dictionary<VisualToolAction, ToolStripItem> _actionToToolStripItem =
                 new Dictionary<VisualToolAction, ToolStripItem>();
 
             /// <summary>
-            /// The dictionary from the tool strip item to the action.
+            /// Dictionary: the tool strip item => the action.
             /// </summary>
             Dictionary<ToolStripItem, VisualToolAction> _toolStripItemToAction =
                 new Dictionary<ToolStripItem, VisualToolAction>();
@@ -86,7 +85,7 @@ namespace DemosCommonCode.Imaging
             /// <summary>
             /// Determines whether the dictionary contains the specified tool strip item.
             /// </summary>
-            /// <param name="action">The tool strip item to locate in the dictionary.</param>
+            /// <param name="item">The tool strip item to locate in the dictionary.</param>
             /// <returns>
             /// <b>True</b> if tool strip item is found in the dictionary; otherwise; <b>false</b>.
             /// </returns>
@@ -183,7 +182,7 @@ namespace DemosCommonCode.Imaging
         #region Fields
 
         /// <summary>
-        /// The none tool item.
+        /// The None tool item.
         /// </summary>
         NoneAction _noneVisualToolAction = null;
 
@@ -193,7 +192,7 @@ namespace DemosCommonCode.Imaging
         ToolStripLabel _actionStatusLabel = new ToolStripLabel();
 
         /// <summary>
-        /// Indicates whether the action status label is moving.
+        /// A value indicating whether the action status label is moving.
         /// </summary>
         bool _isActionStatusLabelMoving = false;
 
@@ -263,6 +262,9 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Gets or sets an image viewer, which is associated with this tool strip.
         /// </summary>
+        /// <value>
+        /// Default value <b>null</b>.
+        /// </value>
         [Description("The image viewer, which is associated with this toolstrip.")]
         [Browsable(true)]
         public ImageViewer ImageViewer
@@ -711,8 +713,13 @@ namespace DemosCommonCode.Imaging
                     _currentSelectedVisualToolAction.Deactivate();
 
                 if (_canChangeVisualTool && ImageViewer != null)
+                {
                     // change visual tool
                     ImageViewer.VisualTool = GetVisualTool(action);
+
+                    if (ImageViewer.VisualTool is CompositeVisualTool)
+                        ChangeActiveTool((CompositeVisualTool)ImageViewer.VisualTool, action.VisualTool);
+                }
 
                 _currentSelectedVisualToolAction = action;
             }
@@ -735,8 +742,18 @@ namespace DemosCommonCode.Imaging
                 return;
 
             if (_canChangeVisualTool && ImageViewer != null)
-                // remove visual tool
-                ImageViewer.VisualTool = null;
+            {
+                bool isActiveToolChanged = false;
+
+                if (ImageViewer.VisualTool is CompositeVisualTool)
+                    isActiveToolChanged = ChangeActiveTool((CompositeVisualTool)ImageViewer.VisualTool, null);
+
+                if (!isActiveToolChanged)
+                {
+                    // remove visual tool
+                    ImageViewer.VisualTool = null;
+                }
+            }
 
             if (_currentSelectedVisualToolAction == action)
                 // remove current visual tool action
@@ -789,8 +806,10 @@ namespace DemosCommonCode.Imaging
         /// </summary>
         private void Button_DropDownOpened(object sender, EventArgs e)
         {
+            // get current action
             VisualToolAction action = GetAction((ToolStripItem)sender);
 
+            // if current action is not activated
             if (action != null && !action.IsActivated)
                 action.Activate();
         }
@@ -885,7 +904,7 @@ namespace DemosCommonCode.Imaging
         /// Creates the tool strip item for specified action.
         /// </summary>
         /// <param name="visualToolAction">The visual tool action.</param>
-        /// <param name="createToolStripButton">Indicates whether the tool strip button must be created.</param>
+        /// <param name="createToolStripButton">A value indicating whether the tool strip button must be created.</param>
         /// <returns>
         /// The tool strip item
         /// </returns>
@@ -938,6 +957,47 @@ namespace DemosCommonCode.Imaging
             return toolStripItem;
         }
 
+        /// <summary>
+        /// Changes the active visual tool in composite visual tool.
+        /// </summary>
+        /// <param name="compositeVisualTool">The composite visual tool.</param>
+        /// <param name="activeTool">The active tool.</param>
+        /// <returns>
+        /// <b>True</b> if active visual tool is changed; otherwise, <b>false</b>.
+        /// </returns>
+        private bool ChangeActiveTool(CompositeVisualTool compositeVisualTool, VisualTool activeTool)
+        {
+            if (activeTool == null)
+            {
+                compositeVisualTool.ActiveTool = null;
+
+                return true;
+            }
+            else
+            {
+                foreach (VisualTool tool in compositeVisualTool)
+                {
+                    if (tool == activeTool)
+                    {
+                        compositeVisualTool.ActiveTool = activeTool;
+                        return true;
+                    }
+                    else if (tool is CompositeVisualTool)
+                    {
+                        CompositeVisualTool nestedCompositeTool = (CompositeVisualTool)tool;
+
+                        if (ChangeActiveTool(nestedCompositeTool, activeTool))
+                        {
+                            compositeVisualTool.ActiveTool = nestedCompositeTool;
+                            return true;
+                        }
+                    }
+                }
+
+                return false;
+            }
+        }
+
 
         #region Image Viewer
 
@@ -962,8 +1022,10 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Updates <see cref="ImageViewerToolStripItem.ToolStripItem"/> properties.
+        /// Updates the selected tool strip item.
         /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="FocusedIndexChangedEventArgs"/> instance containing the event data.</param>
         private void ImageViewer_FocusedIndexChanged(object sender, FocusedIndexChangedEventArgs e)
         {
             bool isEnabled = false;
@@ -976,8 +1038,10 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Selects or deselects this item.
+        /// The visual tool is changed in image viewer.
         /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="VisualToolChangedEventArgs"/> instance containing the event data.</param>
         private void ImageViewer_VisualToolChanged(object sender, VisualToolChangedEventArgs e)
         {
             if (_actionActivationCount == 0)

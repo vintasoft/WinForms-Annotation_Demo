@@ -354,6 +354,48 @@ namespace DemosCommonCode.CustomControls
 
         #region Methods
 
+        #region UI
+
+        /// <summary>
+        /// Handles the Click event of ColorButton object.
+        /// </summary>
+        private void colorButton_Click(object sender, EventArgs e)
+        {
+            // show color dialog
+            ShowColorDialog();
+        }
+
+        /// <summary>
+        /// Handles the MouseDoubleClick event of ColorPanel object.
+        /// </summary>
+        private void colorPanel_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            // if color can be changed
+            if (CanSetColor && e.Button == MouseButtons.Left)
+                // show color dialog
+                ShowColorDialog();
+        }
+
+        /// <summary>
+        /// Handles the Click event of DefaultColorButton object.
+        /// </summary>
+        private void defaultColorButton_Click(object sender, EventArgs e)
+        {
+            // if current color is not default color
+            if (Color != _defaultColor)
+            {
+                // update color
+                Color = _defaultColor;
+
+                if (ColorChanged != null)
+                    // raise color changed event
+                    ColorChanged(this, EventArgs.Empty);
+            }
+        }
+
+        #endregion
+
+
         /// <summary>
         /// Updates the color panel.
         /// </summary>
@@ -362,13 +404,16 @@ namespace DemosCommonCode.CustomControls
             Color color = Color;
             colorPanel.BackColor = color;
 
+            // if color name must be shown
             if (ShowColorName)
             {
                 Color foreColor;
+                // if color is empty
                 if (color.IsEmpty)
                 {
                     foreColor = Color.Black;
                 }
+                // if color is white
                 else if (Math.Abs(color.R - 128) < 30 &&
                          Math.Abs(color.G - 128) < 30 &&
                          Math.Abs(color.B - 128) < 30)
@@ -377,23 +422,29 @@ namespace DemosCommonCode.CustomControls
                 }
                 else
                 {
+                    // get inverted color
                     foreColor = Color.FromArgb(0xFFFFFF ^ color.ToArgb());
+                    // if current color has transparency
                     if (foreColor.A != 255)
+                        // remove transparency
                         foreColor = Color.FromArgb(255, foreColor);
                 }
 
                 string colorName;
+                // if selected color is default color
                 if (CanSetDefaultColor &&
                     color == DefaultColor)
                 {
                     colorName = "Default";
                 }
+                // if color name is known
                 else if (color.IsNamedColor)
                 {
                     colorName = color.Name;
                 }
                 else
                 {
+                    // get HEX color value
                     colorName = String.Format("#{0}{1}{2}",
                             color.R.ToString("X2"),
                             color.G.ToString("X2"),
@@ -405,23 +456,6 @@ namespace DemosCommonCode.CustomControls
             }
             else if (!string.IsNullOrEmpty(colorNameLabel.Text))
                 colorNameLabel.Text = string.Empty;
-        }
-
-        /// <summary>
-        /// "..." button is clicked.
-        /// </summary>
-        private void colorButton_Click(object sender, EventArgs e)
-        {
-            ShowColorDialog();
-        }
-
-        /// <summary>
-        /// Mouse is double clicked on the panel.
-        /// </summary>
-        private void colorPanel_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            if (CanSetColor && e.Button == MouseButtons.Left)
-                ShowColorDialog();
         }
 
         /// <summary>
@@ -439,20 +473,6 @@ namespace DemosCommonCode.CustomControls
                     if (ColorChanged != null)
                         ColorChanged(this, EventArgs.Empty);
                 }
-            }
-        }
-
-        /// <summary>
-        /// "X" button is clicked.
-        /// </summary>
-        private void defaultColorButton_Click(object sender, EventArgs e)
-        {
-            if (Color != _defaultColor)
-            {
-                Color = _defaultColor;
-
-                if (ColorChanged != null)
-                    ColorChanged(this, EventArgs.Empty);
             }
         }
 

@@ -47,8 +47,12 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// Loads annotation collection from file.
         /// </summary>
+        /// <param name="annotationViewer">The annotation viewer.</param>
+        /// <param name="openFileDialog">The open file dialog.</param>
+        /// <param name="undoManager">The undo manager.</param>
         public static void LoadAnnotationsFromFile(AnnotationViewer annotationViewer, OpenFileDialog openFileDialog, CompositeUndoManager undoManager)
         {
+            // cancel annotation building
             annotationViewer.CancelAnnotationBuilding();
 
             openFileDialog.FileName = null;
@@ -86,8 +90,11 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// Saves annotation collection to a file.
         /// </summary>
+        /// <param name="annotationViewer">The annotation viewer.</param>
+        /// <param name="saveFileDialog">The save file dialog.</param>
         public static void SaveAnnotationsToFile(AnnotationViewer annotationViewer, SaveFileDialog saveFileDialog)
         {
+            // cancel annotation building
             annotationViewer.CancelAnnotationBuilding();
 
             saveFileDialog.FileName = null;
@@ -98,8 +105,11 @@ namespace DemosCommonCode.Annotation
             {
                 try
                 {
+                    // open specified file
                     using (FileStream fs = new FileStream(saveFileDialog.FileName, FileMode.Create, FileAccess.ReadWrite))
                     {
+                        // get annotation formatter
+
                         IFormatter formatter = null;
                         if (saveFileDialog.FilterIndex == 1)
                             formatter = new AnnotationVintasoftBinaryFormatter();
@@ -119,9 +129,9 @@ namespace DemosCommonCode.Annotation
                             formatter = new AnnotationWangFormatter(annotationViewer.Image.Resolution);
                         }
 
-                        //
+                        // get focused annotation data collection
                         AnnotationDataCollection annotations = annotationViewer.AnnotationDataController[annotationViewer.FocusedIndex];
-                        //
+                        // serialize annotation data to specified stream
                         formatter.Serialize(fs, annotations);
                     }
                 }
@@ -135,59 +145,86 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// Groups/ungroups selected annotations of annotation collection.
         /// </summary>
+        /// <param name="annotationViewer">The annotation viewer.</param>
+        /// <param name="undoManager">The undo manager.</param>
         public static void GroupUngroupSelectedAnnotations(AnnotationViewer annotationViewer, CompositeUndoManager undoManager)
         {
+            // cancel annotation building
             annotationViewer.CancelAnnotationBuilding();
 
+            // get selected annotations
             Collection<AnnotationView> selectedAnnotations = annotationViewer.AnnotationVisualTool.SelectedAnnotations;
 
+            // if several annotations are selected
             if (selectedAnnotations.Count > 1)
             {
+                // begin the composite undo action
                 undoManager.BeginCompositeAction("Group annotations");
 
                 try
                 {
-                    // group annotations
-                    GroupAnnotationData group = new GroupAnnotationData();
+                    // create group annotation data
+                    GroupAnnotationData groupAnnotationData = new GroupAnnotationData();
+                    // create annotation view array
                     AnnotationView[] annotations = new AnnotationView[selectedAnnotations.Count];
+                    // copy selected annotations to array
                     selectedAnnotations.CopyTo(annotations, 0);
+                    // for each annotation in array
                     foreach (AnnotationView view in annotations)
                     {
-                        group.Items.Add(view.Data);
+                        groupAnnotationData.Items.Add(view.Data);
                         annotationViewer.AnnotationDataCollection.Remove(view.Data);
                     }
-                    annotationViewer.AnnotationDataCollection.Add(group);
-                    annotationViewer.FocusedAnnotationData = group;
+                    // add group annotation to viewer
+                    annotationViewer.AnnotationDataCollection.Add(groupAnnotationData);
+                    // update focused annotation data
+                    annotationViewer.FocusedAnnotationData = groupAnnotationData;
+                    // update selected annotations
                     annotationViewer.AnnotationVisualTool.SelectedAnnotations.Clear();
                     annotationViewer.AnnotationVisualTool.SelectedAnnotations.Add(annotationViewer.FocusedAnnotationView);
                 }
                 finally
                 {
+                    // end the composite undo action
                     undoManager.EndCompositeAction();
                 }
             }
             else
             {
-                GroupAnnotationView groupView = annotationViewer.FocusedAnnotationView as GroupAnnotationView;
-                if (groupView != null)
+                GroupAnnotationView groupAnnotationView = annotationViewer.FocusedAnnotationView as GroupAnnotationView;
+                // if focused annotation is group
+                if (groupAnnotationView != null)
                 {
+                    // begin the composite undo action
                     undoManager.BeginCompositeAction("Ungroup annotations");
 
                     try
                     {
-                        // ungroup annotations
+                        // clear selected annotations
                         selectedAnnotations.Clear();
-                        GroupAnnotationData data = (GroupAnnotationData)groupView.Data;
-                        annotationViewer.AnnotationDataCollection.Remove(data);
-                        annotationViewer.AnnotationDataCollection.AddRange(data.Items.ToArray());
+
+                        // get annotation data
+                        GroupAnnotationData groupAnnotationData = (GroupAnnotationData)groupAnnotationView.Data;
+                        // remove group annotation from annotation data collection
+                        annotationViewer.AnnotationDataCollection.Remove(groupAnnotationData);
+                        // add group annotation items to annotation data collection
+                        annotationViewer.AnnotationDataCollection.AddRange(groupAnnotationData.Items.ToArray());
+                        // if the annotation viewer allows multiple selection of annotations
                         if (annotationViewer.AnnotationMultiSelect)
-                            foreach (AnnotationData itemData in data.Items)
+                        {
+                            // for each annotation data in group annotation items
+                            foreach (AnnotationData itemData in groupAnnotationData.Items)
                                 selectedAnnotations.Add(annotationViewer.AnnotationViewCollection.FindView(itemData));
-                        data.Items.Clear();
-                        data.Dispose();
+                        }
+
+                        // remove annotations from group annotation
+                        groupAnnotationData.Items.Clear();
+                        // dispose group annotation
+                        groupAnnotationData.Dispose();
                     }
                     finally
                     {
+                        // end the composite undo action
                         undoManager.EndCompositeAction();
                     }
                 }
@@ -197,8 +234,11 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// Groups all annotations of annotation collection.
         /// </summary>
+        /// <param name="annotationViewer">The annotation viewer.</param>
+        /// <param name="undoManager">The undo manager.</param>
         public static void GroupAllAnnotations(AnnotationViewer annotationViewer, CompositeUndoManager undoManager)
         {
+            // cancel the annotation building
             annotationViewer.CancelAnnotationBuilding();
 
             // get reference to the annotation collection of focused image
@@ -206,6 +246,7 @@ namespace DemosCommonCode.Annotation
             if (annotationDataCollection.Count == 0)
                 return;
 
+            // begin the composite undo action
             undoManager.BeginCompositeAction("Group all annotations");
 
             try
@@ -233,6 +274,7 @@ namespace DemosCommonCode.Annotation
             }
             finally
             {
+                // end the composite undo action
                 undoManager.EndCompositeAction();
             }
         }
@@ -240,12 +282,18 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// Rotates image with annotations.
         /// </summary>
+        /// <param name="annotationViewer">The annotation viewer.</param>
+        /// <param name="undoManager">The undo manager.</param>
+        /// <param name="dataStorage">The data storage.</param>
         public static void RotateImageWithAnnotations(AnnotationViewer annotationViewer, CompositeUndoManager undoManager, IDataStorage dataStorage)
         {
+            // cancel annotation building
             annotationViewer.CancelAnnotationBuilding();
 
+            // create rotate image dialog
             using (RotateImageWithAnnotationsForm dialog = new RotateImageWithAnnotationsForm(annotationViewer.Image.PixelFormat))
             {
+                // if image with annotation must be rotated
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     // if undo manager is enabled
@@ -254,8 +302,10 @@ namespace DemosCommonCode.Annotation
                         // begin the composite undo action
                         undoManager.BeginCompositeAction("Rotate image with annotations");
 
+                        // if undo manager does not contain the history for current image
                         if (!undoManager.ContainsActionForSourceObject(annotationViewer.Image))
                         {
+                            // create change undo action
                             ChangeImageUndoAction originalImageAction = new ChangeImageUndoAction(dataStorage, annotationViewer.Image);
                             undoManager.AddAction(originalImageAction, null);
                         }
@@ -291,6 +341,7 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// Rotates focused image with annotations.
         /// </summary>
+        /// <param name="annotationViewer">The annotation viewer.</param>
         /// <param name="rotationAngle">Rotation angle in degrees.</param>
         /// <param name="borderColorType">Border color type.</param>
         /// <param name="pixelFormat">New pixel format.</param>
@@ -311,18 +362,27 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// Burns annotations on image.
         /// </summary>
+        /// <param name="annotationViewer">The annotation viewer.</param>
+        /// <param name="undoManager">The undo manager.</param>
+        /// <param name="dataStorage">The data storage.</param>
         public static void BurnAnnotationsOnImage(AnnotationViewer annotationViewer, CompositeUndoManager undoManager, IDataStorage dataStorage)
         {
+            // cancel annotation building
             annotationViewer.CancelAnnotationBuilding();
 
+            // if focused image is not correct
             if (!CheckImage(annotationViewer))
                 return;
 
+            // get focused image
             VintasoftImage sourceImage = annotationViewer.Image;
 #if !REMOVE_PDF_PLUGIN
+            // if focused image is PDF vector image
             if (sourceImage.IsVectorImage && sourceImage.SourceInfo.Decoder is PdfDecoder)
             {
+                // get PDF page
                 PdfPage page = PdfDocumentController.GetPageAssociatedWithImage(sourceImage);
+                // if focused PDF page contains vector content
                 if (!page.IsImageOnly)
                 {
                     DialogResult result = MessageBox.Show(string.Format("{0}\n\n{1}\n\n{2}\n\n{3}",
@@ -333,11 +393,14 @@ namespace DemosCommonCode.Annotation
                         "Burn Annotations", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
+                        // burn vector annotations
                         BurnPdfAnnotations(
                             annotationViewer.AnnotationDataCollection,
                             sourceImage.Resolution,
                             page);
+                        // remove annotations
                         annotationViewer.AnnotationDataCollection.ClearAndDisposeItems();
+                        // reload focused image
                         sourceImage.Reload(true);
                         return;
                     }
@@ -346,32 +409,40 @@ namespace DemosCommonCode.Annotation
                 }
             }
 #endif
-
+            // if undo manager is enabled
             if (undoManager.IsEnabled)
             {
+                // create focused image copy
                 using (VintasoftImage image = (VintasoftImage)sourceImage.Clone())
                 {
+                    // begin the composite undo action
                     undoManager.BeginCompositeAction("Burn annotations on image");
 
+                    // if undo manager does not contain the history for current image
                     if (!undoManager.ContainsActionForSourceObject(sourceImage))
                     {
+                        // create change undo action
                         ChangeImageUndoAction originalImageAction = new ChangeImageUndoAction(dataStorage, sourceImage);
                         undoManager.AddAction(originalImageAction, null);
                     }
                     try
                     {
+                        // burn annotations on focused image
                         annotationViewer.AnnotationViewController.BurnAnnotationCollectionOnImage(annotationViewer.FocusedIndex);
+                        // create change undo action
                         ChangeImageUndoAction action = new ChangeImageUndoAction(dataStorage, sourceImage, "Burn annotations on image");
                         undoManager.AddAction(action, image);
                     }
                     finally
                     {
+                        // end the composite undo action
                         undoManager.EndCompositeAction();
                     }
                 }
             }
             else
             {
+                // burn annotations on focused image
                 annotationViewer.AnnotationViewController.BurnAnnotationCollectionOnImage(annotationViewer.FocusedIndex);
             }
 
@@ -379,7 +450,7 @@ namespace DemosCommonCode.Annotation
 
 #if !REMOVE_PDF_PLUGIN
         /// <summary>
-        /// Burns the annotations on PDF page use vector graphics.
+        /// Burns the annotations on PDF page with vector graphics.
         /// </summary>
         /// <param name="annotations">The annotations.</param>
         /// <param name="resolution">The resolution.</param>
@@ -396,18 +467,23 @@ namespace DemosCommonCode.Annotation
                 foreach (PdfAnnotation annot in annots)
                     g.DrawAnnotation(annot);
         }
-#endif
+#endif        
+
         /// <summary>
-        /// Copies image with annotations to clipboard.
+        /// Copies image with annotations to the clipboard.
         /// </summary>
+        /// <param name="annotationViewer">The annotation viewer.</param>
         public static void CopyImageToClipboard(AnnotationViewer annotationViewer)
         {
+            // if focused image is not correct
             if (!CheckImage(annotationViewer))
                 return;
 
             try
             {
+                // create image with annotations
                 using (VintasoftImage image = annotationViewer.AnnotationViewController.GetImageWithAnnotations(annotationViewer.FocusedIndex))
+                    // copy image to the clipboard
                     Clipboard.SetImage(image.GetAsBitmap());
             }
             catch (Exception ex)
@@ -419,26 +495,35 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// Changes the location of annotation or a group of annotations.
         /// </summary>
+        /// <param name="locationDelta">The location translate point.</param>
+        /// <param name="annotations">The annotations.</param>
+        /// <param name="source">The source.</param>
         public static void ChangeAnnotationsLocation(
             System.Drawing.PointF locationDelta,
             AnnotationData[] annotations,
             AnnotationData source)
         {
+            // for each annotation data in annotations array
             foreach (AnnotationData data in annotations)
             {
+                // if annotation is composite
                 if (data is CompositeAnnotationData)
                 {
                     CompositeAnnotationData compositeData = (CompositeAnnotationData)data;
                     List<AnnotationData> subAnnotations = new List<AnnotationData>();
                     foreach (AnnotationData subAnnotation in compositeData)
                         subAnnotations.Add(subAnnotation);
+
+                    // change location in nested annotations
                     ChangeAnnotationsLocation(locationDelta, subAnnotations.ToArray(), source);
                 }
                 else
                 {
+                    // if annotation location must be changed
                     if (data != source)
                     {
                         System.Drawing.PointF location = data.Location;
+                        // update location
                         data.Location = new System.Drawing.PointF(location.X + locationDelta.X, location.Y + locationDelta.Y);
                     }
                 }
@@ -448,9 +533,10 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// Checks that focused image is present and correct.
         /// </summary>
-        /// <returns></returns>
+        /// <param name="annotationViewer">The annotation viewer.</param>
         public static bool CheckImage(AnnotationViewer annotationViewer)
         {
+            // if current image is not correct
             if (annotationViewer.Image.IsBad)
             {
                 MessageBox.Show("Focused image is bad.");
@@ -458,6 +544,7 @@ namespace DemosCommonCode.Annotation
             }
             return true;
         }
+
         #endregion
 
     }

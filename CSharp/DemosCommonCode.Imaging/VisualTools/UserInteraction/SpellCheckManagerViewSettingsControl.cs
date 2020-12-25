@@ -38,6 +38,9 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Gets or sets the interaction area settings.
         /// </summary>
+        /// <value>
+        /// Default value is <b>null</b>.
+        /// </value>
         public InteractionAreaAppearanceManager InteractionAreaSettings
         {
             get

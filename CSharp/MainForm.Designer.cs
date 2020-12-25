@@ -87,6 +87,9 @@ namespace AnnotationDemo
             this.scale100ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scale200ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scale400ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotateViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotateClockwiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotateCounterclockwiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.annotationViewerSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.interactionPointsSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scrollViewerWhenAnnotationIsMovedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -166,14 +169,21 @@ namespace AnnotationDemo
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.thumbnailViewer1 = new Vintasoft.Imaging.Annotation.UI.AnnotatedThumbnailViewer();
             this.annotationViewer1 = new Vintasoft.Imaging.Annotation.UI.AnnotationViewer();
-            this.annoViewerMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.annotationMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cutAnnotationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyAnnotationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteAnnotationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteAnnotationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.bringToBackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bringToFrontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.annotationViewerMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.pasteToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator20 = new System.Windows.Forms.ToolStripSeparator();
             this.saveImageWithAnnotationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.burnAnnotationsOnImage2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyImageToClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.bringToBackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bringToFrontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thumbnailMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.thumbnailMenu_Save = new System.Windows.Forms.ToolStripMenuItem();
             this.thumbnailMenu_Burn = new System.Windows.Forms.ToolStripMenuItem();
@@ -187,7 +197,7 @@ namespace AnnotationDemo
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.propertiesTabPage = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
+            this.annotationsPropertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.panel5 = new System.Windows.Forms.Panel();
             this.annotationComboBox = new System.Windows.Forms.ComboBox();
             this.commentsTabPage = new System.Windows.Forms.TabPage();
@@ -220,7 +230,8 @@ namespace AnnotationDemo
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.annoViewerMenu.SuspendLayout();
+            this.annotationMenu.SuspendLayout();
+            this.annotationViewerMenu.SuspendLayout();
             this.thumbnailMenu.SuspendLayout();
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
@@ -422,6 +433,7 @@ namespace AnnotationDemo
             this.toolStripSeparator3,
             this.imageDisplayModeToolStripMenuItem,
             this.scaleModeToolStripMenuItem,
+            this.rotateViewToolStripMenuItem,
             this.annotationViewerSettingsToolStripMenuItem,
             this.interactionPointsSettingsToolStripMenuItem,
             this.scrollViewerWhenAnnotationIsMovedToolStripMenuItem,
@@ -625,6 +637,35 @@ namespace AnnotationDemo
             this.scale400ToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.scale400ToolStripMenuItem.Text = "400%";
             this.scale400ToolStripMenuItem.Click += new System.EventHandler(this.imageSizeMode_Click);
+            // 
+            // rotateViewToolStripMenuItem
+            // 
+            this.rotateViewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rotateClockwiseToolStripMenuItem,
+            this.rotateCounterclockwiseToolStripMenuItem});
+            this.rotateViewToolStripMenuItem.Name = "rotateViewToolStripMenuItem";
+            this.rotateViewToolStripMenuItem.Size = new System.Drawing.Size(367, 22);
+            this.rotateViewToolStripMenuItem.Text = "Rotate View";
+            // 
+            // rotateClockwiseToolStripMenuItem
+            // 
+            this.rotateClockwiseToolStripMenuItem.Name = "rotateClockwiseToolStripMenuItem";
+            this.rotateClockwiseToolStripMenuItem.ShortcutKeyDisplayString = "Shift+Ctrl+Plus";
+            this.rotateClockwiseToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.Oemplus)));
+            this.rotateClockwiseToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.rotateClockwiseToolStripMenuItem.Text = "Clockwise";
+            this.rotateClockwiseToolStripMenuItem.Click += new System.EventHandler(this.rotateClockwiseToolStripMenuItem_Click);
+            // 
+            // rotateCounterclockwiseToolStripMenuItem
+            // 
+            this.rotateCounterclockwiseToolStripMenuItem.Name = "rotateCounterclockwiseToolStripMenuItem";
+            this.rotateCounterclockwiseToolStripMenuItem.ShortcutKeyDisplayString = "Shift+Ctrl+Minus";
+            this.rotateCounterclockwiseToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.OemMinus)));
+            this.rotateCounterclockwiseToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.rotateCounterclockwiseToolStripMenuItem.Text = "Counterclockwise";
+            this.rotateCounterclockwiseToolStripMenuItem.Click += new System.EventHandler(this.rotateCounterclockwiseToolStripMenuItem_Click);
             // 
             // annotationViewerSettingsToolStripMenuItem
             // 
@@ -1252,6 +1293,7 @@ namespace AnnotationDemo
             thumbnailAppearance2.BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
             thumbnailAppearance2.BorderWidth = 2;
             this.thumbnailViewer1.HoveredThumbnailAppearance = thumbnailAppearance2;
+            this.thumbnailViewer1.ImageRotationAngle = 0;
             this.thumbnailViewer1.Location = new System.Drawing.Point(0, 0);
             this.thumbnailViewer1.MasterViewer = this.annotationViewer1;
             this.thumbnailViewer1.Name = "thumbnailViewer1";
@@ -1273,10 +1315,12 @@ namespace AnnotationDemo
             thumbnailAppearance5.BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
             thumbnailAppearance5.BorderWidth = 1;
             this.thumbnailViewer1.ThumbnailAppearance = thumbnailAppearance5;
+            thumbnailCaption1.Padding = new Vintasoft.Imaging.PaddingF(0F, 0F, 0F, 0F);
             thumbnailCaption1.TextColor = System.Drawing.Color.Black;
             this.thumbnailViewer1.ThumbnailCaption = thumbnailCaption1;
             this.thumbnailViewer1.ThumbnailContextMenuStrip = this.thumbnailMenu;
             this.thumbnailViewer1.ThumbnailFlowStyle = Vintasoft.Imaging.UI.ThumbnailFlowStyle.WrappedRows;
+            this.thumbnailViewer1.ThumbnailImagePadding = new Vintasoft.Imaging.PaddingF(0F, 0F, 0F, 0F);
             this.thumbnailViewer1.ThumbnailMargin = new System.Windows.Forms.Padding(3);
             this.thumbnailViewer1.ThumbnailRenderingThreadCount = 4;
             this.thumbnailViewer1.ThumbnailSize = new System.Drawing.Size(100, 100);
@@ -1284,17 +1328,20 @@ namespace AnnotationDemo
             // 
             // annotationViewer1
             // 
+            this.annotationViewer1.AnnotationAuthorContextMenuStrip = this.annotationMenu;
             this.annotationViewer1.AnnotationBoundingRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.annotationViewer1.AnnotationViewContextMenuStrip = null;
             this.annotationViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.annotationViewer1.Clipboard = winFormsSystemClipboard1;
-            this.annotationViewer1.ContextMenuStrip = this.annoViewerMenu;
+            this.annotationViewer1.ContextMenuStrip = this.annotationViewerMenu;
             this.annotationViewer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.annotationViewer1.DisplayMode = Vintasoft.Imaging.UI.ImageViewerDisplayMode.SingleContinuousColumn;
             this.annotationViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.annotationViewer1.ImageRenderingSettings = renderingSettings1;
+            this.annotationViewer1.ImageRotationAngle = 0;
             this.annotationViewer1.IsKeyboardNavigationEnabled = true;
+            this.annotationViewer1.IsZoomingEnabled = true;
             this.annotationViewer1.Location = new System.Drawing.Point(0, 0);
-            this.annotationViewer1.MinImageSizeWhenZoomBufferUsed = 0F;
             this.annotationViewer1.MultipageDisplayMode = Vintasoft.Imaging.UI.ImageViewerMultipageDisplayMode.AllImages;
             this.annotationViewer1.Name = "annotationViewer1";
             this.annotationViewer1.RendererCacheSize = 256F;
@@ -1315,18 +1362,91 @@ namespace AnnotationDemo
             this.annotationViewer1.ImageLoaded += new System.EventHandler<Vintasoft.Imaging.ImageLoadedEventArgs>(this.annotationViewer1_ImageLoaded);
             this.annotationViewer1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.annotationViewer1_KeyDown);
             // 
-            // annoViewerMenu
+            // annotationMenu
             // 
-            this.annoViewerMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveImageWithAnnotationsToolStripMenuItem,
-            this.burnAnnotationsOnImage2ToolStripMenuItem,
-            this.copyImageToClipboardToolStripMenuItem,
-            this.deleteImageToolStripMenuItem,
+            this.annotationMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cutAnnotationToolStripMenuItem,
+            this.copyAnnotationToolStripMenuItem,
+            this.pasteAnnotationToolStripMenuItem,
+            this.deleteAnnotationToolStripMenuItem,
             this.toolStripSeparator4,
             this.bringToBackToolStripMenuItem,
             this.bringToFrontToolStripMenuItem});
-            this.annoViewerMenu.Name = "contextMenuStrip1";
-            this.annoViewerMenu.Size = new System.Drawing.Size(236, 142);
+            this.annotationMenu.Name = "contextMenuStrip1";
+            this.annotationMenu.Size = new System.Drawing.Size(169, 142);
+            this.annotationMenu.Opening += new System.ComponentModel.CancelEventHandler(this.annotationMenu_Opening);
+            // 
+            // cutAnnotationToolStripMenuItem
+            // 
+            this.cutAnnotationToolStripMenuItem.Name = "cutAnnotationToolStripMenuItem";
+            this.cutAnnotationToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.cutAnnotationToolStripMenuItem.Text = "Cut annotation";
+            this.cutAnnotationToolStripMenuItem.Click += new System.EventHandler(this.cutAnnotationToolStripMenuItem_Click);
+            // 
+            // copyAnnotationToolStripMenuItem
+            // 
+            this.copyAnnotationToolStripMenuItem.Name = "copyAnnotationToolStripMenuItem";
+            this.copyAnnotationToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.copyAnnotationToolStripMenuItem.Text = "Copy annotation";
+            this.copyAnnotationToolStripMenuItem.Click += new System.EventHandler(this.copyAnnotationToolStripMenuItem_Click);
+            // 
+            // pasteAnnotationToolStripMenuItem
+            // 
+            this.pasteAnnotationToolStripMenuItem.Name = "pasteAnnotationToolStripMenuItem";
+            this.pasteAnnotationToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.pasteAnnotationToolStripMenuItem.Text = "Paste annotation";
+            this.pasteAnnotationToolStripMenuItem.Click += new System.EventHandler(this.pasteAnnotationInMousePositionToolStripMenuItem_Click);
+            // 
+            // deleteAnnotationToolStripMenuItem
+            // 
+            this.deleteAnnotationToolStripMenuItem.Name = "deleteAnnotationToolStripMenuItem";
+            this.deleteAnnotationToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.deleteAnnotationToolStripMenuItem.Text = "Delete annotation";
+            this.deleteAnnotationToolStripMenuItem.Click += new System.EventHandler(this.deleteAnnotationToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(165, 6);
+            // 
+            // bringToBackToolStripMenuItem
+            // 
+            this.bringToBackToolStripMenuItem.Name = "bringToBackToolStripMenuItem";
+            this.bringToBackToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.bringToBackToolStripMenuItem.Text = "Bring to back";
+            this.bringToBackToolStripMenuItem.Click += new System.EventHandler(this.bringToBackToolStripMenuItem_Click);
+            // 
+            // bringToFrontToolStripMenuItem
+            // 
+            this.bringToFrontToolStripMenuItem.Name = "bringToFrontToolStripMenuItem";
+            this.bringToFrontToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.bringToFrontToolStripMenuItem.Text = "Bring to front";
+            this.bringToFrontToolStripMenuItem.Click += new System.EventHandler(this.bringToFrontToolStripMenuItem_Click);
+            // 
+            // annotationViewerMenu
+            // 
+            this.annotationViewerMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pasteToolStripMenuItem2,
+            this.toolStripSeparator20,
+            this.saveImageWithAnnotationsToolStripMenuItem,
+            this.burnAnnotationsOnImage2ToolStripMenuItem,
+            this.copyImageToClipboardToolStripMenuItem,
+            this.deleteImageToolStripMenuItem});
+            this.annotationViewerMenu.Name = "contextMenuStrip1";
+            this.annotationViewerMenu.Size = new System.Drawing.Size(236, 142);
+            this.annotationViewerMenu.Opening += new System.ComponentModel.CancelEventHandler(this.annotationViewerMenu_Opening);
+            // 
+            // pasteToolStripMenuItem2
+            // 
+            this.pasteToolStripMenuItem2.Name = "pasteToolStripMenuItem2";
+            this.pasteToolStripMenuItem2.Size = new System.Drawing.Size(235, 22);
+            this.pasteToolStripMenuItem2.Text = "Paste annotation";
+            this.pasteToolStripMenuItem2.Click += new System.EventHandler(this.pasteAnnotationInMousePositionToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator20
+            // 
+            this.toolStripSeparator20.Name = "toolStripSeparator20";
+            this.toolStripSeparator20.Size = new System.Drawing.Size(232, 6);
             // 
             // saveImageWithAnnotationsToolStripMenuItem
             // 
@@ -1355,25 +1475,6 @@ namespace AnnotationDemo
             this.deleteImageToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
             this.deleteImageToolStripMenuItem.Text = "Delete image";
             this.deleteImageToolStripMenuItem.Click += new System.EventHandler(this.deleteImageToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(232, 6);
-            // 
-            // bringToBackToolStripMenuItem
-            // 
-            this.bringToBackToolStripMenuItem.Name = "bringToBackToolStripMenuItem";
-            this.bringToBackToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
-            this.bringToBackToolStripMenuItem.Text = "Bring to back";
-            this.bringToBackToolStripMenuItem.Click += new System.EventHandler(this.bringToBackToolStripMenuItem_Click);
-            // 
-            // bringToFrontToolStripMenuItem
-            // 
-            this.bringToFrontToolStripMenuItem.Name = "bringToFrontToolStripMenuItem";
-            this.bringToFrontToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
-            this.bringToFrontToolStripMenuItem.Text = "Bring to front";
-            this.bringToFrontToolStripMenuItem.Click += new System.EventHandler(this.bringToFrontToolStripMenuItem_Click);
             // 
             // thumbnailMenu
             // 
@@ -1512,20 +1613,20 @@ namespace AnnotationDemo
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.propertyGrid1);
+            this.panel6.Controls.Add(this.annotationsPropertyGrid1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 27);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(192, 373);
             this.panel6.TabIndex = 3;
             // 
-            // propertyGrid1
+            // annotationsPropertyGrid1
             // 
-            this.propertyGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.propertyGrid1.Location = new System.Drawing.Point(0, 0);
-            this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(192, 373);
-            this.propertyGrid1.TabIndex = 1;
+            this.annotationsPropertyGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.annotationsPropertyGrid1.Location = new System.Drawing.Point(0, 0);
+            this.annotationsPropertyGrid1.Name = "annotationsPropertyGrid1";
+            this.annotationsPropertyGrid1.Size = new System.Drawing.Size(192, 373);
+            this.annotationsPropertyGrid1.TabIndex = 1;
             // 
             // panel5
             // 
@@ -1676,16 +1777,16 @@ namespace AnnotationDemo
             this.viewerToolStrip.Size = new System.Drawing.Size(362, 25);
             this.viewerToolStrip.TabIndex = 2;
             this.viewerToolStrip.UseImageViewerImages = true;
-            this.viewerToolStrip.OpenFile += new System.EventHandler(this.openToolStripMenuItem_Click);
-            this.viewerToolStrip.SaveFile += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
-            this.viewerToolStrip.Print += new System.EventHandler(this.printToolStripMenuItem_Click);
+            this.viewerToolStrip.OpenFile += new System.EventHandler(this.viewerToolStrip_OpenFile);
+            this.viewerToolStrip.SaveFile += new System.EventHandler(this.viewerToolStrip_SaveFile);
+            this.viewerToolStrip.Print += new System.EventHandler(this.viewerToolStrip_Print);
             // 
             // visualToolsToolStrip1
             // 
             this.visualToolsToolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.visualToolsToolStrip1.Enabled = false;
             this.visualToolsToolStrip1.ImageViewer = null;
-            this.visualToolsToolStrip1.Location = new System.Drawing.Point(365, 0);
+            this.visualToolsToolStrip1.Location = new System.Drawing.Point(520, 0);
             this.visualToolsToolStrip1.MandatoryVisualTool = null;
             this.visualToolsToolStrip1.Name = "visualToolsToolStrip1";
             this.visualToolsToolStrip1.Size = new System.Drawing.Size(35, 25);
@@ -1698,7 +1799,7 @@ namespace AnnotationDemo
             this.selectionModeToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.interactionModeToolStripLabel,
             this.annotationInteractionModeToolStripComboBox});
-            this.selectionModeToolStrip.Location = new System.Drawing.Point(431, 0);
+            this.selectionModeToolStrip.Location = new System.Drawing.Point(586, 0);
             this.selectionModeToolStrip.Name = "selectionModeToolStrip";
             this.selectionModeToolStrip.Size = new System.Drawing.Size(233, 25);
             this.selectionModeToolStrip.TabIndex = 3;
@@ -1718,7 +1819,7 @@ namespace AnnotationDemo
             // 
             // annotationsToolStrip1
             // 
-            this.annotationsToolStrip1.AnnotationViewer = this.annotationViewer1;
+            this.annotationsToolStrip1.AnnotationViewer = null;
             this.annotationsToolStrip1.CommentBuilder = null;
             this.annotationsToolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.annotationsToolStrip1.Location = new System.Drawing.Point(3, 25);
@@ -1784,6 +1885,7 @@ namespace AnnotationDemo
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenu;
             this.MinimumSize = new System.Drawing.Size(615, 420);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VintaSoft Annotation Demo";
@@ -1795,7 +1897,8 @@ namespace AnnotationDemo
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
-            this.annoViewerMenu.ResumeLayout(false);
+            this.annotationMenu.ResumeLayout(false);
+            this.annotationViewerMenu.ResumeLayout(false);
             this.thumbnailMenu.ResumeLayout(false);
             this.splitContainer4.Panel1.ResumeLayout(false);
             this.splitContainer4.Panel2.ResumeLayout(false);
@@ -1861,9 +1964,7 @@ namespace AnnotationDemo
         private System.Windows.Forms.ToolStripMenuItem scale200ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem scale400ToolStripMenuItem;
 
-		private System.Windows.Forms.ContextMenuStrip annoViewerMenu;
-		private System.Windows.Forms.ToolStripMenuItem burnAnnotationsOnImage2ToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem copyImageToClipboardToolStripMenuItem;
+		private System.Windows.Forms.ContextMenuStrip annotationMenu;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
 		private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
@@ -1886,12 +1987,10 @@ namespace AnnotationDemo
         private System.Windows.Forms.ToolStripMenuItem thumbnailMenu_Save;
         private System.Windows.Forms.ToolStripMenuItem thumbnailMenu_Burn;
         private System.Windows.Forms.ToolStripMenuItem thumbnailMenu_CopyToClipboard;
-        private System.Windows.Forms.ToolStripMenuItem saveImageWithAnnotationsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripMenuItem annotationsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem annotationsInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem deleteImageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thumbnailMenu_Delete;
         private System.Windows.Forms.ToolStripMenuItem burnAnnotationsOnImageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
@@ -1908,7 +2007,7 @@ namespace AnnotationDemo
         private System.Windows.Forms.ToolStrip selectionModeToolStrip;
         private System.Windows.Forms.ToolStripLabel interactionModeToolStripLabel;
         private System.Windows.Forms.ToolStripComboBox annotationInteractionModeToolStripComboBox;
-        private System.Windows.Forms.PropertyGrid propertyGrid1;
+        private System.Windows.Forms.PropertyGrid annotationsPropertyGrid1;
         private System.Windows.Forms.ComboBox annotationComboBox;
         private System.Windows.Forms.ToolStripMenuItem annotationViewerSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
@@ -2010,5 +2109,19 @@ namespace AnnotationDemo
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel commentsPanel;
         private AnnotationCommentsControl commentsControl1;
+        private System.Windows.Forms.ToolStripMenuItem rotateViewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rotateClockwiseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rotateCounterclockwiseToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip annotationViewerMenu;
+        private System.Windows.Forms.ToolStripMenuItem saveImageWithAnnotationsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem burnAnnotationsOnImage2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyImageToClipboardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteImageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cutAnnotationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyAnnotationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pasteAnnotationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteAnnotationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator20;
     }
 }

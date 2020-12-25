@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging.Undo;
@@ -12,7 +12,7 @@ namespace DemosCommonCode.Imaging
     public partial class UndoManagerHistoryForm : Form
     {
 
-        #region Constructor
+        #region Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UndoManagerHistoryForm"/> class.
@@ -92,8 +92,28 @@ namespace DemosCommonCode.Imaging
         #region Methods
 
         /// <summary>
+        /// Handles the SelectedIndexChanged event of UndoManagerHistoryListBox object.
+        /// </summary>
+        private void undoManagerHistoryListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // get selected history index
+            int newHistoryIndex = undoManagerHistoryListBox.SelectedIndex;
+            // if selected history index is not changed
+            if (newHistoryIndex == _undoManager.CurrentActionIndex)
+                return;
+
+            // if the history must be redo
+            if (newHistoryIndex > _undoManager.CurrentActionIndex)
+                _undoManager.Redo(newHistoryIndex - _undoManager.CurrentActionIndex);
+            else
+                _undoManager.Undo(_undoManager.CurrentActionIndex - newHistoryIndex);
+        }
+
+
+        /// <summary>
         /// Form is closed.
         /// </summary>
+        /// <param name="e">A <see cref="FormClosedEventArgs"/> that contains the event data.</param>
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
             base.OnFormClosed(e);
@@ -106,6 +126,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Subscribes to the events of history manager.
         /// </summary>
+        /// <param name="undoManager">The undo manager.</param>
         private void SubscribeToUndoManagerEvents(UndoManager undoManager)
         {
             undoManager.Changed += new EventHandler<UndoManagerChangedEventArgs>(undoManager_Changed);
@@ -115,6 +136,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Unsubscribes from the events of history manager.
         /// </summary>
+        /// <param name="undoManager">The undo manager.</param>
         private void UnsubscribeFromUndoManagerEvents(UndoManager undoManager)
         {
             if (undoManager == null)
@@ -142,8 +164,9 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Returns a description of undo action.
         /// </summary>
+        /// <param name="action">The undo manager.</param>
         /// <returns>
-        /// a description of undo action.
+        /// A description of undo action.
         /// </returns>
         private string GetUndoActionDescription(UndoAction action)
         {
@@ -183,27 +206,15 @@ namespace DemosCommonCode.Imaging
             undoManagerHistoryListBox.SelectedIndex = _undoManager.CurrentActionIndex;
         }
 
-        /// <summary>
-        /// Index of current action is changed.
-        /// </summary>
-        private void undoManagerHistoryListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int newHistoryIndex = undoManagerHistoryListBox.SelectedIndex;
-            if (newHistoryIndex == _undoManager.CurrentActionIndex)
-                return;
-
-            if (newHistoryIndex > _undoManager.CurrentActionIndex)
-                _undoManager.Redo(newHistoryIndex - _undoManager.CurrentActionIndex);
-            else
-                _undoManager.Undo(_undoManager.CurrentActionIndex - newHistoryIndex);
-        }
-
         #endregion
 
 
 
         #region Delegates
 
+        /// <summary>
+        /// The delegate for <see cref="UpdateHistoryListBox"/> or <see cref="SetSelectedIndexUndoManagerHistoryListBox"/>.
+        /// </summary>
         delegate void UpdateHistoryListBoxDelegate();
 
         #endregion

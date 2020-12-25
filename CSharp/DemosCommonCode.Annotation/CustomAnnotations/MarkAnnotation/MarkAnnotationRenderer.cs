@@ -36,7 +36,10 @@ namespace DemosCommonCode.Annotation
         /// </summary>
         MarkAnnotationData MarkAnnoData
         {
-            get { return (MarkAnnotationData)Data; }
+            get
+            {
+                return (MarkAnnotationData)Data;
+            }
         }
 
         #endregion
@@ -64,6 +67,28 @@ namespace DemosCommonCode.Annotation
             }
         }
 
+        /// <summary>
+        /// Returns a mark annotation as <see cref="GraphicsPath"/> in content space.
+        /// </summary>
+        public virtual GraphicsPath GetAsGraphicsPath()
+        {
+            GraphicsPath path = new GraphicsPath();
+
+            PointF[] referencePoints = MarkAnnoData.GetReferencePointsInContentSpace();
+
+            switch (MarkAnnoData.MarkType)
+            {
+                case MarkAnnotationType.Tick:
+                    path.AddCurve(referencePoints);
+                    break;
+                default:
+                    path.AddPolygon(referencePoints);
+                    break;
+            }
+
+            return path;
+        }
+
 
         /// <summary>
         /// Renders the annotation on the <see cref="System.Drawing.Graphics"/>
@@ -87,29 +112,6 @@ namespace DemosCommonCode.Annotation
                 }
             }
         }
-
-        /// <summary>
-        /// Returns a mark annotation as <see cref="GraphicsPath"/> in content space.
-        /// </summary>
-        public virtual GraphicsPath GetAsGraphicsPath()
-        {
-            GraphicsPath path = new GraphicsPath();
-
-            PointF[] referencePoints = MarkAnnoData.GetReferencePointsInContentSpace();
-
-            switch (MarkAnnoData.MarkType)
-            {
-                case MarkAnnotationType.Tick:
-                    path.AddCurve(referencePoints);
-                    break;
-                default:
-                    path.AddPolygon(referencePoints);
-                    break;
-            }
-
-            return path;
-        }
-
 
         #endregion
 

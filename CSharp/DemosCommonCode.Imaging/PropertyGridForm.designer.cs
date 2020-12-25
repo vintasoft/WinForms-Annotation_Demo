@@ -28,7 +28,7 @@ namespace DemosCommonCode.Imaging
         /// </summary>
         private void InitializeComponent()
         {
-            this._propertyGrid = new System.Windows.Forms.PropertyGrid();
+            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
@@ -37,13 +37,13 @@ namespace DemosCommonCode.Imaging
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // propertyGrid
+            // propertyGrid1
             // 
-            this._propertyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._propertyGrid.Location = new System.Drawing.Point(0, 0);
-            this._propertyGrid.Name = "propertyGrid";
-            this._propertyGrid.Size = new System.Drawing.Size(441, 270);
-            this._propertyGrid.TabIndex = 0;
+            this.propertyGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.propertyGrid1.Location = new System.Drawing.Point(0, 0);
+            this.propertyGrid1.Name = "propertyGrid1";
+            this.propertyGrid1.Size = new System.Drawing.Size(441, 270);
+            this.propertyGrid1.TabIndex = 0;
             // 
             // panel1
             // 
@@ -65,22 +65,21 @@ namespace DemosCommonCode.Imaging
             this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonOk
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOk.Location = new System.Drawing.Point(273, 14);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(75, 23);
             this.buttonOk.TabIndex = 0;
             this.buttonOk.Text = "OK";
             this.buttonOk.UseVisualStyleBackColor = true;
-            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this._propertyGrid);
+            this.panel2.Controls.Add(this.propertyGrid1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -97,6 +96,7 @@ namespace DemosCommonCode.Imaging
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "PropertyGridForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -109,7 +109,7 @@ namespace DemosCommonCode.Imaging
 
         #endregion
 
-        internal System.Windows.Forms.PropertyGrid _propertyGrid;
+        internal System.Windows.Forms.PropertyGrid propertyGrid1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.Panel panel2;

@@ -66,14 +66,13 @@ namespace DemosCommonCode.Imaging
             // 
             // okButton
             // 
-            this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.okButton.Location = new System.Drawing.Point(135, 98);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 26);
             this.okButton.TabIndex = 3;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
-            this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // buttonCancel
             // 
@@ -84,7 +83,6 @@ namespace DemosCommonCode.Imaging
             this.buttonCancel.TabIndex = 4;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // label3
             // 
@@ -122,6 +120,7 @@ namespace DemosCommonCode.Imaging
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "DocumentPasswordForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

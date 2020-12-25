@@ -89,7 +89,7 @@ namespace DemosCommonCode.Imaging
             using (OpenFileDialog openImageDialog = new OpenFileDialog())
             {
                 // set image files filters
-                CodecsFileFilters.SetFilters(openImageDialog);
+                CodecsFileFilters.SetOpenFileDialogFilter(openImageDialog);
                 // if image file selected
                 if (openImageDialog.ShowDialog() == DialogResult.OK)
                 {

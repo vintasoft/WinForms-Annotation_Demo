@@ -14,6 +14,10 @@ namespace DemosCommonCode.Annotation
 
         #region Constructor
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RulerAnnotationPropertyChangedEventHandler"/> class.
+        /// </summary>
+        /// <param name="annotationViewer">The annotation viewer.</param>
         public RulerAnnotationPropertyChangedEventHandler(AnnotationViewer annotationViewer)
             : base(annotationViewer, true, true)
         {
@@ -25,7 +29,13 @@ namespace DemosCommonCode.Annotation
 
 
         #region Methods
-        
+
+        /// <summary>
+        /// The annotation data property is changed.
+        /// </summary>
+        /// <param name="annotationDataCollection">The annotation data collection.</param>
+        /// <param name="annotationData">The annotation data.</param>
+        /// <param name="e">The <see cref="ObjectPropertyChangedEventArgs" /> instance containing the event data.</param>
         protected override void OnAnnotationDataPropertyChanged(
             AnnotationDataCollection annotationDataCollection,
             AnnotationData annotationData,

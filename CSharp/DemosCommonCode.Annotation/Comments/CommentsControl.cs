@@ -39,7 +39,6 @@ namespace DemosCommonCode.Annotation
 
         #region Properties
 
-
         ImageViewer _imageViewer;
         /// <summary>
         /// Gets or sets the image viewer.
@@ -221,6 +220,55 @@ namespace DemosCommonCode.Annotation
 
         #region PRIVATE
 
+        #region UI
+
+        /// <summary>
+        /// Handles the IsCommentSelectedChanged event of CommentControl object.
+        /// </summary>
+        private void CommentControl_IsCommentSelectedChanged(object sender, PropertyChangedEventArgs<bool> e)
+        {
+#if !REMOVE_ANNOTATION_PLUGIN
+            if (CommentTool != null)
+            {
+                // get comment control
+                ICommentControl control = CommentTool.FindCommentControl(((CommentControl)sender).Comment);
+                // if comment control is found
+                if (control != null)
+                {
+                    // if comment must be selected
+                    if (e.NewValue)
+                        // select the comment
+                        control.IsCommentSelected = true;
+                    else
+                        // deselect the comment
+                        control.IsCommentSelected = false;
+                }
+            }
+#endif
+        }
+
+        /// <summary>
+        /// Handles the CheckedChanged event of VisibleOnViewerCheckBox object.
+        /// </summary>
+        private void visibleOnViewerCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+#if !REMOVE_ANNOTATION_PLUGIN
+            if (CommentTool != null)
+            {
+                // if comments must he shown
+                if (visibleOnViewerCheckBox.Checked)
+                    // show the comments
+                    CommentTool.Enabled = true;
+                else
+                    // hide the comments
+                    CommentTool.Enabled = false;
+            }
+#endif
+        }
+
+#endregion
+
+
 #if !REMOVE_ANNOTATION_PLUGIN
         /// <summary>
         /// Handles the ImageCommentsChanged event of the CommentController.
@@ -276,32 +324,6 @@ namespace DemosCommonCode.Annotation
                     AddCommentControl(e.NewValue);
                 }
             }
-        }
-
-        /// <summary>
-        /// Handles the IsCommentSelectedChanged event of the CommentControl control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="PropertyChangedEventArgs{System.Boolean}"/> instance containing the event data.</param>
-        private void CommentControl_IsCommentSelectedChanged(object sender, PropertyChangedEventArgs<bool> e)
-        {
-            if (CommentTool != null)
-            {
-                ICommentControl control = CommentTool.FindCommentControl(((CommentControl)sender).Comment);
-                if (control != null)
-                    control.IsCommentSelected = e.NewValue;
-            }
-        }
-
-        /// <summary>
-        /// Handles the CheckedChanged event of the visibleOnViewerCheckBox control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void visibleOnViewerCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (CommentTool != null)
-                CommentTool.Enabled = visibleOnViewerCheckBox.Checked;
         }
 
         /// <summary>
@@ -381,9 +403,10 @@ namespace DemosCommonCode.Annotation
 
         }
 #endif
-        #endregion
 
-        #endregion
+#endregion
+
+#endregion
 
     }
 }

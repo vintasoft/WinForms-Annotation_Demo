@@ -4,11 +4,17 @@ using Vintasoft.Imaging.Annotation.Formatters;
 
 namespace DemosCommonCode.Annotation
 {
+    /// <summary>
+    /// Allows user to control the annotation loading process and select the annotation to load.
+    /// </summary>
     public class CustomAnnotationSerializationBinder : AnnotationSerializationBinder
     {
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CustomAnnotationSerializationBinder"/> class.
+        /// </summary>
         public CustomAnnotationSerializationBinder()
             : base()
         {
@@ -17,8 +23,18 @@ namespace DemosCommonCode.Annotation
         #endregion
 
 
+
         #region Methdos
 
+        /// <summary>
+        /// Controls the binding of serialized object to a type.
+        /// </summary>
+        /// <param name="assemblyName">Specifies the System.Reflection.Assembly name of
+        /// the serialized object.</param>
+        /// <param name="typeName">Specifies the System.Type name of the serialized object.</param>
+        /// <returns>
+        /// The type of the object the formatter creates a new instance of.
+        /// </returns>
         public override Type BindToType(string assemblyName, string typeName)
         {
             if (assemblyName.StartsWith("WpfAnnotationDemo"))

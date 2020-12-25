@@ -2,9 +2,6 @@
 using System.Globalization;
 using System.Windows.Forms;
 
-using Vintasoft.Imaging.ImageRendering;
-
-
 namespace DemosCommonCode.Imaging
 {
     /// <summary>
@@ -13,13 +10,16 @@ namespace DemosCommonCode.Imaging
     public partial class ImageRenderingRequirementAddForm : Form
     {
 
-        #region Constructor
+        #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ImageRenderingRequirementAddForm"/> class.
+        /// </summary>
         public ImageRenderingRequirementAddForm()
         {
             InitializeComponent();
 
-            string[] codes = new string[] { "Bmp", "Jpeg", "Jpeg2000", "Tiff", "Png", "Pdf", "Docx" };
+            string[] codes = new string[] { "Bmp", "Jpeg", "Jpeg2000", "Tiff", "Png", "Pdf", "Docx", "Xlsx" };
 
             codecComboBox.Items.AddRange(codes);
 
@@ -32,6 +32,9 @@ namespace DemosCommonCode.Imaging
 
         #region Properties
 
+        /// <summary>
+        /// Gets the selected codec name.
+        /// </summary>
         public string Codec
         {
             get
@@ -40,12 +43,15 @@ namespace DemosCommonCode.Imaging
             }
         }
 
-        float _value;
-        public float Value
+        float _imageSize;
+        /// <summary>
+        /// Gets the image size in megapixels when image rendering must be enabled.
+        /// </summary>
+        public float ImageSize
         {
             get
             {
-                return _value;
+                return _imageSize;
             }
         }
 
@@ -55,11 +61,15 @@ namespace DemosCommonCode.Imaging
 
         #region Methods
 
-        private void megapixelsComboBox_TextChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Handles the TextChanged event of ImageSizeComboBox object.
+        /// </summary>
+        private void imageSizeComboBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                _value = float.Parse(megapixelsComboBox.Text, CultureInfo.InvariantCulture);
+                // update value
+                _imageSize = float.Parse(imageSizeComboBox.Text, CultureInfo.InvariantCulture);
             }
             catch (Exception ex)
             {
@@ -67,14 +77,21 @@ namespace DemosCommonCode.Imaging
             }
         }
 
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of CodecComboBox object.
+        /// </summary>
         private void codecComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // if JPEG2000 codec is selected
             if (codecComboBox.SelectedItem.ToString() == "Jpeg2000")
-                megapixelsComboBox.Text = "0.5";
-            else if (codecComboBox.SelectedItem.ToString() == "Pdf" || codecComboBox.SelectedItem.ToString() == "Docx")
-                megapixelsComboBox.Text = "0";
+                imageSizeComboBox.Text = "0.5";
+            // if PDF codec or DOCX codec is selected
+            else if (codecComboBox.SelectedItem.ToString() == "Pdf" ||
+                     codecComboBox.SelectedItem.ToString() == "Docx" ||
+                     codecComboBox.SelectedItem.ToString() == "Xlsx")
+                imageSizeComboBox.Text = "0";
             else
-                megapixelsComboBox.Text = "50";
+                imageSizeComboBox.Text = "50";
         }
 
         #endregion

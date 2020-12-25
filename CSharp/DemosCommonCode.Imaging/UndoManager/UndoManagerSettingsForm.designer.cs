@@ -33,7 +33,7 @@ namespace DemosCommonCode.Imaging
             this.okButton = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.compressedVintasoftImageOnDiscRadioButton = new System.Windows.Forms.RadioButton();
+            this.compressedVintasoftImageOnDiskRadioButton = new System.Windows.Forms.RadioButton();
             this.storageGroupBox = new System.Windows.Forms.GroupBox();
             this.storagePathTextBox = new System.Windows.Forms.TextBox();
             this.storageFolderButton = new System.Windows.Forms.Button();
@@ -105,7 +105,7 @@ namespace DemosCommonCode.Imaging
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.compressedVintasoftImageOnDiscRadioButton);
+            this.groupBox1.Controls.Add(this.compressedVintasoftImageOnDiskRadioButton);
             this.groupBox1.Controls.Add(this.storageGroupBox);
             this.groupBox1.Controls.Add(this.compressedVintasoftImageInMemoryRadioButton);
             this.groupBox1.Controls.Add(this.vintasoftImageInMemoryRadioButton);
@@ -118,15 +118,15 @@ namespace DemosCommonCode.Imaging
             // 
             // compressedVintasoftImageOnDiscRadioButton
             // 
-            this.compressedVintasoftImageOnDiscRadioButton.AutoSize = true;
-            this.compressedVintasoftImageOnDiscRadioButton.Location = new System.Drawing.Point(6, 65);
-            this.compressedVintasoftImageOnDiscRadioButton.Name = "compressedVintasoftImageOnDiscRadioButton";
-            this.compressedVintasoftImageOnDiscRadioButton.Size = new System.Drawing.Size(193, 17);
-            this.compressedVintasoftImageOnDiscRadioButton.TabIndex = 2;
-            this.compressedVintasoftImageOnDiscRadioButton.TabStop = true;
-            this.compressedVintasoftImageOnDiscRadioButton.Text = "Compressed VintasoftImage on disk";
-            this.compressedVintasoftImageOnDiscRadioButton.UseVisualStyleBackColor = true;
-            this.compressedVintasoftImageOnDiscRadioButton.CheckedChanged += new System.EventHandler(this.compressedVintasoftImageOnDiscRadioButton_CheckedChanged);
+            this.compressedVintasoftImageOnDiskRadioButton.AutoSize = true;
+            this.compressedVintasoftImageOnDiskRadioButton.Location = new System.Drawing.Point(6, 65);
+            this.compressedVintasoftImageOnDiskRadioButton.Name = "compressedVintasoftImageOnDiscRadioButton";
+            this.compressedVintasoftImageOnDiskRadioButton.Size = new System.Drawing.Size(193, 17);
+            this.compressedVintasoftImageOnDiskRadioButton.TabIndex = 2;
+            this.compressedVintasoftImageOnDiskRadioButton.TabStop = true;
+            this.compressedVintasoftImageOnDiskRadioButton.Text = "Compressed VintasoftImage on disk";
+            this.compressedVintasoftImageOnDiskRadioButton.UseVisualStyleBackColor = true;
+            this.compressedVintasoftImageOnDiskRadioButton.CheckedChanged += new System.EventHandler(this.compressedVintasoftImageOnDiskRadioButton_CheckedChanged);
             // 
             // storageGroupBox
             // 
@@ -199,6 +199,7 @@ namespace DemosCommonCode.Imaging
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "UndoManagerSettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Undo Manager Settings";
@@ -219,7 +220,7 @@ namespace DemosCommonCode.Imaging
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton compressedVintasoftImageOnDiscRadioButton;
+        private System.Windows.Forms.RadioButton compressedVintasoftImageOnDiskRadioButton;
         private System.Windows.Forms.RadioButton compressedVintasoftImageInMemoryRadioButton;
         private System.Windows.Forms.RadioButton vintasoftImageInMemoryRadioButton;
         private System.Windows.Forms.GroupBox storageGroupBox;

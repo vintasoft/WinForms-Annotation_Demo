@@ -210,11 +210,13 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Units of measure is changed.
         /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="PropertyChangedEventArgs{UnitOfMeasure}"/> instance containing the event data.</param>
         private void Tool_UnitsOfMeasureChanged(object sender, PropertyChangedEventArgs<UnitOfMeasure> e)
         {
             ImageMeasureTool tool = (ImageMeasureTool)VisualTool;
 
-            ImageMeasureToolUnitsOfMeasureAction unitOfMeasureAction = 
+            ImageMeasureToolUnitsOfMeasureAction unitOfMeasureAction =
                 _unitOfMeasureToUnitOfMeasureAction[tool.UnitsOfMeasure];
             unitOfMeasureAction.Activate();
 
@@ -242,8 +244,10 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Measuring text template is updating.
+        /// The measuring text template is updating.
         /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="MeasurementAnnotationDataEventArgs"/> instance containing the event data.</param>
         private void Tool_MeasuringTextTemplateUpdating(object sender, MeasurementAnnotationDataEventArgs e)
         {
             string unitOfMeasureString = GetUnitOfMeasureString(e.MeasurementAnnotationData.MeasuringAnnotation.UnitsOfMeasure);
@@ -446,8 +450,10 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Shows properties form for image measure tool.
+        /// Shows the properties form for image measure tool.
         /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void propertiesAction_Clicked(object sender, EventArgs e)
         {
             ImageMeasureTool visualTool = (ImageMeasureTool)VisualTool;
@@ -459,8 +465,10 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Shows properties form for focused measurement annotation.
+        /// Shows the properties form for focused measurement annotation.
         /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void measurementPropertiesAction_Clicked(object sender, EventArgs e)
         {
             ImageMeasureTool visualTool = (ImageMeasureTool)VisualTool;
@@ -477,6 +485,8 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// The "unit of measure" action is activated.
         /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void unitOfMeasureAction_Activated(object sender, EventArgs e)
         {
             ImageMeasureToolUnitsOfMeasureAction unitsOfMeasureAction =
@@ -500,7 +510,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Adds the actions, which allows to load and save measurement annotations, to the specified action list.
         /// </summary>
-        /// <param name="button">The button.</param>
+        /// <param name="actions">The actions list.</param>
         private void AddLoadAndSaveActions(List<VisualToolAction> actions)
         {
             VisualToolAction loadMeasurementsAction =
@@ -516,10 +526,11 @@ namespace DemosCommonCode.Imaging
             actions.Add(saveMeasurementsAction);
         }
 
-
         /// <summary>
         /// Loads the measurement annotations from a file.
         /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void loadMeasurementsAction_Clicked(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -555,6 +566,8 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Saves the measurement annotations to a file.
         /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void saveMeasurementsAction_Clicked(object sender, EventArgs e)
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
@@ -597,7 +610,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Adds the 'refresh' action to the specified action list.
         /// </summary>
-        /// <param name="button">The button.</param>
+        /// <param name="actions">The actions list.</param>
         private void AddRefreshActions(List<VisualToolAction> actions)
         {
             VisualToolAction refreshAction =
@@ -610,6 +623,8 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Refreshes all measurements of focused image.
         /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void refreshAction_Clicked(object sender, EventArgs e)
         {
             ImageMeasureTool visualTool = (ImageMeasureTool)VisualTool;

@@ -33,6 +33,7 @@ namespace DemosCommonCode.CustomControls
         public PaddingFEditorControl()
         {
             InitializeComponent();
+
             UpdatePaddingPanel(_paddingValue);
         }
 
@@ -72,6 +73,48 @@ namespace DemosCommonCode.CustomControls
 
         #region Methods
 
+        #region UI
+
+        /// <summary>
+        /// Handles the ValueChanged event of NumericUpDown object.
+        /// </summary>
+        private void numericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            // if padding value is updating
+            if (_paddingValueUpdating)
+                return;
+
+            // get left padding
+            float left = Convert.ToSingle(leftNumericUpDown.Value);
+            // get top padding
+            float top = Convert.ToSingle(topNumericUpDown.Value);
+            // get right padding
+            float right = Convert.ToSingle(rightNumericUpDown.Value);
+            // get bottom padding
+            float bottom = Convert.ToSingle(bottomNumericUpDown.Value);
+
+            // update padding value
+            PaddingValue = new PaddingF(left, top, right, bottom);
+            OnPaddingValueChanged();
+        }
+
+        /// <summary>
+        /// Handles the ValueChanged event of AllNumericUpDown object.
+        /// </summary>
+        private void allNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            // if padding value is updating
+            if (_paddingValueUpdating)
+                return;
+
+            // update padding value
+            PaddingValue = new PaddingF(Convert.ToSingle(allNumericUpDown.Value));
+            OnPaddingValueChanged();
+        }
+
+        #endregion
+
+
         /// <summary>
         /// Updates the padding panel.
         /// </summary>
@@ -87,35 +130,6 @@ namespace DemosCommonCode.CustomControls
             allNumericUpDown.Value = Convert.ToDecimal(padding.All);
 
             _paddingValueUpdating = false;
-        }
-
-        /// <summary>
-        /// The single padding value is changed.
-        /// </summary>
-        private void numericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-            if (_paddingValueUpdating)
-                return;
-
-            float left = Convert.ToSingle(leftNumericUpDown.Value);
-            float top = Convert.ToSingle(topNumericUpDown.Value);
-            float right = Convert.ToSingle(rightNumericUpDown.Value);
-            float bottom = Convert.ToSingle(bottomNumericUpDown.Value);
-
-            PaddingValue = new PaddingF(left, top, right, bottom);
-            OnPaddingValueChanged();
-        }
-
-        /// <summary>
-        /// All padding values are changed.
-        /// </summary>
-        private void allNumericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-            if (_paddingValueUpdating)
-                return;
-
-            PaddingValue = new PaddingF(Convert.ToSingle(allNumericUpDown.Value));
-            OnPaddingValueChanged();
         }
 
         /// <summary>

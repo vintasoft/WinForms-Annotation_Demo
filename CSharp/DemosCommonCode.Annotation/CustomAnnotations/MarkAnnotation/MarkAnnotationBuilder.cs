@@ -16,7 +16,6 @@ namespace DemosCommonCode.Annotation
         /// Initializes a new instance of the <see cref="MarkAnnotationBuilder"/> class.
         /// </summary>
         /// <param name="view">The mark annotation.</param>
-        /// <param name="initialSize">The initial size of annotation.</param>
         public MarkAnnotationBuilder(MarkAnnotationView view)
             : base(view)
         {

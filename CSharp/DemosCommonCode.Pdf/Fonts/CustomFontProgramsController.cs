@@ -1,7 +1,8 @@
 #if !REMOVE_PDF_PLUGIN
 
+using System;
 using System.Collections.Generic;
-
+using System.IO;
 using Vintasoft.Imaging.Pdf;
 
 namespace DemosCommonCode.Pdf
@@ -83,7 +84,7 @@ namespace DemosCommonCode.Pdf
         public static string GetSystemInstalledFontFileName(string trueTypeFontName)
         {
             Dictionary<string, string> systemFonts = GetSystemFonts();
-            return _systemFonts[trueTypeFontName];
+            return systemFonts[trueTypeFontName];
         }
 
         /// <summary>
@@ -147,10 +148,30 @@ namespace DemosCommonCode.Pdf
         {
             try
             {
+                string systemFontsDirectory = "";
+                try
+                {
+                    systemFontsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Fonts);
+                }
+                catch
+                {
+                }
+
                 Microsoft.Win32.RegistryKey fontsRegistry = registryKey.OpenSubKey(@"Software\Microsoft\Windows NT\CurrentVersion\Fonts");
                 foreach (string fontName in fontsRegistry.GetValueNames())
                 {
-                    fonts[fontName] = (string)fontsRegistry.GetValue(fontName);
+                    string fontFilename = (string)fontsRegistry.GetValue(fontName);
+
+                    string fontExt = Path.GetExtension(fontFilename).ToUpperInvariant();
+                    if (fontExt != ".TTF" && fontExt != ".TTC")
+                        continue;
+
+                    if (string.IsNullOrEmpty(Path.GetDirectoryName(fontFilename)))
+                    {
+                        fontFilename = Path.Combine(systemFontsDirectory, fontFilename);
+                    }
+
+                    fonts[fontName] = fontFilename;
                 }
             }
             catch

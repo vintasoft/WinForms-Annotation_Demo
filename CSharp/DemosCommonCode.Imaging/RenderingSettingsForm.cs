@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
@@ -14,8 +14,12 @@ namespace DemosCommonCode.Imaging
     public partial class RenderingSettingsForm : Form
     {
 
-        #region Constructor
+        #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RenderingSettingsForm"/> class.
+        /// </summary>
+        /// <param name="renderingSettings">The rendering settings.</param>
         public RenderingSettingsForm(RenderingSettings renderingSettings)
         {
             InitializeComponent();
@@ -40,21 +44,24 @@ namespace DemosCommonCode.Imaging
             smoothingModeComboBox.Items.Add(SmoothingMode.HighSpeed);
             smoothingModeComboBox.Items.Add(SmoothingMode.None);
 
+            // if rendering settings are empty
             if (renderingSettings.IsEmpty || renderingSettings.Resolution.IsEmpty())
             {
-                cbDefault.Checked = true;
+                defaultCheckBox.Checked = true;
                 smoothingModeComboBox.SelectedItem = SmoothingMode.HighQuality;
                 interpolationModeComboBox.SelectedItem = InterpolationMode.HighQualityBilinear;
                 optimizeImageDrawingCheckBox.Checked = true;
+                drawSharpImageBordersCheckBox.Checked = true;
             }
             else
             {
-                cbDefault.Checked = false;
+                defaultCheckBox.Checked = false;
                 smoothingModeComboBox.SelectedItem = renderingSettings.SmoothingMode;
                 interpolationModeComboBox.SelectedItem = renderingSettings.InterpolationMode;
-                horizontalResolution.Value = (int)renderingSettings.Resolution.Horizontal;
-                verticalResolution.Value = (int)renderingSettings.Resolution.Vertical;
+                horizontalResolutionNumericUpDown.Value = (int)renderingSettings.Resolution.Horizontal;
+                verticalResolutionNumericUpDown.Value = (int)renderingSettings.Resolution.Vertical;
                 optimizeImageDrawingCheckBox.Checked = renderingSettings.OptimizeImageDrawing;
+                drawSharpImageBordersCheckBox.Checked = renderingSettings.DrawSharpImageBorders;
             }
         }
 
@@ -82,11 +89,21 @@ namespace DemosCommonCode.Imaging
 
         #region Methods
 
-        public static void SetRenderingSettingsIfNeed(ImageCollection images, EncoderBase encoder, RenderingSettings defaultRenderingSettings)
+        #region PUBLIC
+
+        /// <summary>
+        /// Sets the rendering settings if necessary.
+        /// </summary>
+        /// <param name="images">The images.</param>
+        /// <param name="encoder">The encoder.</param>
+        /// <param name="defaultRenderingSettings">The default rendering settings.</param>
+        public static void SetRenderingSettingsIfNeed(
+            ImageCollection images, EncoderBase encoder, RenderingSettings defaultRenderingSettings)
         {
             if (encoder == null || !(encoder is IPdfEncoder))
             {
                 for (int i = 0; i < images.Count; i++)
+                {
                     if (images[i].IsVectorImage)
                     {
                         RenderingSettingsForm settingsForm = new RenderingSettingsForm(defaultRenderingSettings.CreateClone());
@@ -96,10 +113,18 @@ namespace DemosCommonCode.Imaging
                             return;
                         break;
                     }
+                }
             }
         }
 
-        public static void SetRenderingSettingsIfNeed(VintasoftImage image, EncoderBase encoder, RenderingSettings defaultRenderingSettings)
+        /// <summary>
+        /// Sets the rendering settings if necessary.
+        /// </summary>
+        /// <param name="image">The image.</param>
+        /// <param name="encoder">The encoder.</param>
+        /// <param name="defaultRenderingSettings">The default rendering settings.</param>
+        public static void SetRenderingSettingsIfNeed(
+            VintasoftImage image, EncoderBase encoder, RenderingSettings defaultRenderingSettings)
         {
             if (encoder == null || !(encoder is IPdfEncoder))
             {
@@ -112,31 +137,56 @@ namespace DemosCommonCode.Imaging
             }
         }
 
-        private void btOk_Click(object sender, EventArgs e)
+        #endregion
+
+
+        #region PRIVATE
+
+        /// <summary>
+        /// Handles the Click event of OkButton object.
+        /// </summary>
+        private void okButton_Click(object sender, EventArgs e)
         {
-            if (cbDefault.Checked)
+            // if default rendering settings must be used
+            if (defaultCheckBox.Checked)
+            {
                 RenderingSettings.Empty.CopyTo(_renderingSettings);
+            }
             else
             {
-                _renderingSettings.Resolution = new Resolution((float)horizontalResolution.Value, (float)verticalResolution.Value);
+                // get rendering resolution
+                _renderingSettings.Resolution = new Resolution(
+                    (float)horizontalResolutionNumericUpDown.Value,
+                    (float)verticalResolutionNumericUpDown.Value);
+                // get rendering interpolation mode
                 _renderingSettings.InterpolationMode = (InterpolationMode)interpolationModeComboBox.SelectedItem;
+                // get rendering smotthing mode
                 _renderingSettings.SmoothingMode = (SmoothingMode)smoothingModeComboBox.SelectedItem;
+
+                // optimize image drawing
                 _renderingSettings.OptimizeImageDrawing = optimizeImageDrawingCheckBox.Checked;
+
+                // drawing sharp image borders
+                _renderingSettings.DrawSharpImageBorders = drawSharpImageBordersCheckBox.Checked;
             }
-            DialogResult = System.Windows.Forms.DialogResult.OK;
+
+            DialogResult = DialogResult.OK;
             Close();
         }
 
-        private void cbDefault_CheckedChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Handles the CheckedChanged event of DefaultCheckBox object.
+        /// </summary>
+        private void defaultCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            gbCustomSettings.Enabled = !cbDefault.Checked;
+            // if the default rendering settings must be used
+            if (defaultCheckBox.Checked)
+                customSettingsGroupBox.Enabled = false;
+            else
+                customSettingsGroupBox.Enabled = true;
         }
 
-        private void btCancel_Click(object sender, EventArgs e)
-        {
-            DialogResult = System.Windows.Forms.DialogResult.Abort;
-            Close();
-        }
+        #endregion
 
         #endregion
 

@@ -1,4 +1,4 @@
-Ôªøusing System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -19,7 +19,7 @@ namespace DemosCommonCode.Spelling
         /// <summary>
         /// The filename template of the custom dictionary.
         /// </summary>
-        const string CustomDictionaryFilenameTemplate = "NHunspell_{0}_CustomDict.txt";
+        const string CUSTOM_DICTIONARY_FILENAME_TEMPLATE = "NHunspell_{0}_CustomDict.txt";
 
         #endregion
 
@@ -287,9 +287,9 @@ namespace DemosCommonCode.Spelling
                     break;
 
                 case "RU_RU":
-                    for (int ch = (int)'–ê'; ch <= (int)'–Ø'; ch++)
+                    for (int ch = (int)'¿'; ch <= (int)'ﬂ'; ch++)
                         _availableSymbols.Add((char)ch, false);
-                    for (int ch = (int)'–∞'; ch <= (int)'—è'; ch++)
+                    for (int ch = (int)'‡'; ch <= (int)'ˇ'; ch++)
                         _availableSymbols.Add((char)ch, false);
                     break;
 
@@ -308,7 +308,7 @@ namespace DemosCommonCode.Spelling
         {
             string pathToAssembly = Path.GetDirectoryName(typeof(NHunspellSpellCheckEngine).Assembly.Location);
 
-            string fileName = string.Format(CustomDictionaryFilenameTemplate, _languages[0]);
+            string fileName = string.Format(CUSTOM_DICTIONARY_FILENAME_TEMPLATE, _languages[0]);
 
             return Path.Combine(pathToAssembly, fileName);
         }

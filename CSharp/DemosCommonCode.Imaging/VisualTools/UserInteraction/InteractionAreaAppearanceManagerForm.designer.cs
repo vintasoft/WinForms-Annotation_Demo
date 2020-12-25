@@ -33,21 +33,31 @@ namespace DemosCommonCode.Imaging
             this.resizePointsTabPage = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.resizePointsRadiusNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.resizePointsNwseCursorPanelControl = new DemosCommonCode.CustomControls.CursorPanelControl();
+            this.resizePointsBackgroundColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
+            this.resizePointsWeCursorPanelControl = new DemosCommonCode.CustomControls.CursorPanelControl();
+            this.resizePointsBorderColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
             this.resizePointsBorderPenWidthNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label33 = new System.Windows.Forms.Label();
             this.resizePointsInteractionRadiusNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
+            this.resizePointsNsCursorPanelControl = new DemosCommonCode.CustomControls.CursorPanelControl();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.resizePointsNeswCursorPanelControl = new DemosCommonCode.CustomControls.CursorPanelControl();
             this.polygonPointsTabPage = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.polygonPointRadiusNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.polygonPointCursorPanelControl = new DemosCommonCode.CustomControls.CursorPanelControl();
+            this.polygonPointBackgroundColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
             this.label29 = new System.Windows.Forms.Label();
+            this.selectedPolygonPointBackgroundColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
+            this.polygonPointBorderColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
             this.label22 = new System.Windows.Forms.Label();
             this.polygonPointInteractionRadiusNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
@@ -59,11 +69,14 @@ namespace DemosCommonCode.Imaging
             this.label7 = new System.Windows.Forms.Label();
             this.moveAreaTabPage = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.moveAreaCursorPanelControl = new DemosCommonCode.CustomControls.CursorPanelControl();
             this.label28 = new System.Windows.Forms.Label();
             this.rotationAssistantTabPage = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.rotationAssistantRadiusNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.rotationAssistantBorderColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
             this.label16 = new System.Windows.Forms.Label();
+            this.rotationAssistantBackgroundColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
             this.label17 = new System.Windows.Forms.Label();
             this.rotationAssistantBorderPenWidthNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.rotationAssistantDiscreteAngleNumericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -73,7 +86,10 @@ namespace DemosCommonCode.Imaging
             this.rotationPointTabPage = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.rotationPointRadiusNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.rotationPointCursorPanelControl = new DemosCommonCode.CustomControls.CursorPanelControl();
+            this.rotationPointBackgroundColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
             this.label27 = new System.Windows.Forms.Label();
+            this.rotationPointBorderColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
             this.rotationPointInteractionRadiusNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label15 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -86,38 +102,18 @@ namespace DemosCommonCode.Imaging
             this.textBoxTabPage = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.spellCheckManagerViewSettingsControl1 = new DemosCommonCode.Imaging.SpellCheckManagerViewSettingsControl();
             this.fontButton = new System.Windows.Forms.Button();
+            this.textBoxCursorPanelControl = new DemosCommonCode.CustomControls.CursorPanelControl();
+            this.textBoxForeColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
             this.label34 = new System.Windows.Forms.Label();
+            this.textBoxBackColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
             this.label26 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.okButton = new System.Windows.Forms.Button();
-            this.resizePointsNwseCursorPanelControl = new DemosCommonCode.CustomControls.CursorPanelControl();
-            this.resizePointsBackgroundColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
-            this.resizePointsWeCursorPanelControl = new DemosCommonCode.CustomControls.CursorPanelControl();
-            this.resizePointsBorderColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
-            this.resizePointsNsCursorPanelControl = new DemosCommonCode.CustomControls.CursorPanelControl();
-            this.resizePointsNeswCursorPanelControl = new DemosCommonCode.CustomControls.CursorPanelControl();
-            this.polygonPointCursorPanelControl = new DemosCommonCode.CustomControls.CursorPanelControl();
-            this.polygonPointBackgroundColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
-            this.selectedPolygonPointBackgroundColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
-            this.polygonPointBorderColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
-            this.moveAreaCursorPanelControl = new DemosCommonCode.CustomControls.CursorPanelControl();
-            this.rotationAssistantBorderColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
-            this.rotationAssistantBackgroundColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
-            this.rotationPointCursorPanelControl = new DemosCommonCode.CustomControls.CursorPanelControl();
-            this.rotationPointBackgroundColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
-            this.rotationPointBorderColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
-            this.spellCheckManagerViewSettingsControl1 = new DemosCommonCode.Imaging.SpellCheckManagerViewSettingsControl();
-            this.textBoxCursorPanelControl = new DemosCommonCode.CustomControls.CursorPanelControl();
-            this.textBoxForeColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
-            this.textBoxBackColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
             this.resizePointsCursorPanelControl = new DemosCommonCode.CustomControls.CursorPanelControl();
-            this.cursorPanelControl1 = new DemosCommonCode.CustomControls.CursorPanelControl();
-            this.cursorPanelControl2 = new DemosCommonCode.CustomControls.CursorPanelControl();
-            this.cursorPanelControl3 = new DemosCommonCode.CustomControls.CursorPanelControl();
-            this.cursorPanelControl4 = new DemosCommonCode.CustomControls.CursorPanelControl();
             this.textBoxEditorAreaCursorPanelControl = new DemosCommonCode.CustomControls.CursorPanelControl();
             this.mainPanel.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -151,9 +147,9 @@ namespace DemosCommonCode.Imaging
             // 
             // mainPanel
             // 
-            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.mainPanel.Controls.Add(this.tabControl1);
             this.mainPanel.Location = new System.Drawing.Point(0, 1);
             this.mainPanel.Name = "mainPanel";
@@ -188,9 +184,9 @@ namespace DemosCommonCode.Imaging
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.resizePointsRadiusNumericUpDown);
             this.panel1.Controls.Add(this.resizePointsNwseCursorPanelControl);
             this.panel1.Controls.Add(this.resizePointsBackgroundColorPanelControl);
@@ -216,18 +212,142 @@ namespace DemosCommonCode.Imaging
             // 
             // resizePointsRadiusNumericUpDown
             // 
-            this.resizePointsRadiusNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.resizePointsRadiusNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.resizePointsRadiusNumericUpDown.DecimalPlaces = 1;
             this.resizePointsRadiusNumericUpDown.Location = new System.Drawing.Point(107, 3);
             this.resizePointsRadiusNumericUpDown.Name = "resizePointsRadiusNumericUpDown";
             this.resizePointsRadiusNumericUpDown.Size = new System.Drawing.Size(323, 20);
             this.resizePointsRadiusNumericUpDown.TabIndex = 5;
             // 
+            // resizePointsNwseCursorPanelControl
+            // 
+            this.resizePointsNwseCursorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.resizePointsNwseCursorPanelControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.resizePointsNwseCursorPanelControl.Items.AddRange(new object[] {
+            "CloseHandCursor (VintaSoft)",
+            "OpenHandCursor (VintaSoft)",
+            "CropSelectionCursor (VintaSoft)",
+            "MagnifierCursor (VintaSoft)",
+            "RotateCursor (VintaSoft)",
+            "ZoomCursor (VintaSoft)",
+            "Default",
+            "AppStarting",
+            "Arrow",
+            "Cross",
+            "Hand",
+            "Help",
+            "HSplit",
+            "IBeam",
+            "No",
+            "NoMove2D",
+            "NoMoveHoriz",
+            "NoMoveVert",
+            "PanEast",
+            "PanNE",
+            "PanNorth",
+            "PanNW",
+            "PanSE",
+            "PanSouth",
+            "PanSW",
+            "PanWest",
+            "SizeAll",
+            "SizeNESW",
+            "SizeNS",
+            "SizeNWSE",
+            "SizeWE",
+            "UpArrow",
+            "VSplit",
+            "WaitCursor"});
+            this.resizePointsNwseCursorPanelControl.Location = new System.Drawing.Point(107, 128);
+            this.resizePointsNwseCursorPanelControl.Margin = new System.Windows.Forms.Padding(0);
+            this.resizePointsNwseCursorPanelControl.MinimumSize = new System.Drawing.Size(32, 0);
+            this.resizePointsNwseCursorPanelControl.Name = "resizePointsNwseCursorPanelControl";
+            this.resizePointsNwseCursorPanelControl.SelectedCursor = null;
+            this.resizePointsNwseCursorPanelControl.Size = new System.Drawing.Size(323, 21);
+            this.resizePointsNwseCursorPanelControl.TabIndex = 36;
+            // 
+            // resizePointsBackgroundColorPanelControl
+            // 
+            this.resizePointsBackgroundColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.resizePointsBackgroundColorPanelControl.CanSetColor = false;
+            this.resizePointsBackgroundColorPanelControl.Color = System.Drawing.SystemColors.Control;
+            this.resizePointsBackgroundColorPanelControl.ColorButtonMargin = 2;
+            this.resizePointsBackgroundColorPanelControl.ColorButtonWidth = 40;
+            this.resizePointsBackgroundColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
+            this.resizePointsBackgroundColorPanelControl.Location = new System.Drawing.Point(107, 52);
+            this.resizePointsBackgroundColorPanelControl.Name = "resizePointsBackgroundColorPanelControl";
+            this.resizePointsBackgroundColorPanelControl.Size = new System.Drawing.Size(323, 22);
+            this.resizePointsBackgroundColorPanelControl.TabIndex = 7;
+            // 
+            // resizePointsWeCursorPanelControl
+            // 
+            this.resizePointsWeCursorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.resizePointsWeCursorPanelControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.resizePointsWeCursorPanelControl.Items.AddRange(new object[] {
+            "CloseHandCursor (VintaSoft)",
+            "OpenHandCursor (VintaSoft)",
+            "CropSelectionCursor (VintaSoft)",
+            "MagnifierCursor (VintaSoft)",
+            "RotateCursor (VintaSoft)",
+            "ZoomCursor (VintaSoft)",
+            "Default",
+            "AppStarting",
+            "Arrow",
+            "Cross",
+            "Hand",
+            "Help",
+            "HSplit",
+            "IBeam",
+            "No",
+            "NoMove2D",
+            "NoMoveHoriz",
+            "NoMoveVert",
+            "PanEast",
+            "PanNE",
+            "PanNorth",
+            "PanNW",
+            "PanSE",
+            "PanSouth",
+            "PanSW",
+            "PanWest",
+            "SizeAll",
+            "SizeNESW",
+            "SizeNS",
+            "SizeNWSE",
+            "SizeWE",
+            "UpArrow",
+            "VSplit",
+            "WaitCursor"});
+            this.resizePointsWeCursorPanelControl.Location = new System.Drawing.Point(107, 203);
+            this.resizePointsWeCursorPanelControl.Margin = new System.Windows.Forms.Padding(0);
+            this.resizePointsWeCursorPanelControl.MinimumSize = new System.Drawing.Size(83, 0);
+            this.resizePointsWeCursorPanelControl.Name = "resizePointsWeCursorPanelControl";
+            this.resizePointsWeCursorPanelControl.SelectedCursor = null;
+            this.resizePointsWeCursorPanelControl.Size = new System.Drawing.Size(323, 21);
+            this.resizePointsWeCursorPanelControl.TabIndex = 35;
+            // 
+            // resizePointsBorderColorPanelControl
+            // 
+            this.resizePointsBorderColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.resizePointsBorderColorPanelControl.CanSetColor = false;
+            this.resizePointsBorderColorPanelControl.Color = System.Drawing.SystemColors.Control;
+            this.resizePointsBorderColorPanelControl.ColorButtonMargin = 2;
+            this.resizePointsBorderColorPanelControl.ColorButtonWidth = 40;
+            this.resizePointsBorderColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
+            this.resizePointsBorderColorPanelControl.Location = new System.Drawing.Point(107, 78);
+            this.resizePointsBorderColorPanelControl.Name = "resizePointsBorderColorPanelControl";
+            this.resizePointsBorderColorPanelControl.Size = new System.Drawing.Size(323, 22);
+            this.resizePointsBorderColorPanelControl.TabIndex = 8;
+            // 
             // resizePointsBorderPenWidthNumericUpDown
             // 
-            this.resizePointsBorderPenWidthNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.resizePointsBorderPenWidthNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.resizePointsBorderPenWidthNumericUpDown.DecimalPlaces = 1;
             this.resizePointsBorderPenWidthNumericUpDown.Location = new System.Drawing.Point(107, 104);
             this.resizePointsBorderPenWidthNumericUpDown.Name = "resizePointsBorderPenWidthNumericUpDown";
@@ -245,8 +365,8 @@ namespace DemosCommonCode.Imaging
             // 
             // resizePointsInteractionRadiusNumericUpDown
             // 
-            this.resizePointsInteractionRadiusNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.resizePointsInteractionRadiusNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.resizePointsInteractionRadiusNumericUpDown.DecimalPlaces = 1;
             this.resizePointsInteractionRadiusNumericUpDown.Location = new System.Drawing.Point(107, 29);
             this.resizePointsInteractionRadiusNumericUpDown.Name = "resizePointsInteractionRadiusNumericUpDown";
@@ -270,6 +390,54 @@ namespace DemosCommonCode.Imaging
             this.label30.Size = new System.Drawing.Size(73, 13);
             this.label30.TabIndex = 28;
             this.label30.Text = "Cursor NWSE";
+            // 
+            // resizePointsNsCursorPanelControl
+            // 
+            this.resizePointsNsCursorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.resizePointsNsCursorPanelControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.resizePointsNsCursorPanelControl.Items.AddRange(new object[] {
+            "CloseHandCursor (VintaSoft)",
+            "OpenHandCursor (VintaSoft)",
+            "CropSelectionCursor (VintaSoft)",
+            "MagnifierCursor (VintaSoft)",
+            "RotateCursor (VintaSoft)",
+            "ZoomCursor (VintaSoft)",
+            "Default",
+            "AppStarting",
+            "Arrow",
+            "Cross",
+            "Hand",
+            "Help",
+            "HSplit",
+            "IBeam",
+            "No",
+            "NoMove2D",
+            "NoMoveHoriz",
+            "NoMoveVert",
+            "PanEast",
+            "PanNE",
+            "PanNorth",
+            "PanNW",
+            "PanSE",
+            "PanSouth",
+            "PanSW",
+            "PanWest",
+            "SizeAll",
+            "SizeNESW",
+            "SizeNS",
+            "SizeNWSE",
+            "SizeWE",
+            "UpArrow",
+            "VSplit",
+            "WaitCursor"});
+            this.resizePointsNsCursorPanelControl.Location = new System.Drawing.Point(107, 178);
+            this.resizePointsNsCursorPanelControl.Margin = new System.Windows.Forms.Padding(0);
+            this.resizePointsNsCursorPanelControl.MinimumSize = new System.Drawing.Size(83, 0);
+            this.resizePointsNsCursorPanelControl.Name = "resizePointsNsCursorPanelControl";
+            this.resizePointsNsCursorPanelControl.SelectedCursor = null;
+            this.resizePointsNsCursorPanelControl.Size = new System.Drawing.Size(323, 21);
+            this.resizePointsNsCursorPanelControl.TabIndex = 33;
             // 
             // label5
             // 
@@ -325,6 +493,54 @@ namespace DemosCommonCode.Imaging
             this.label3.TabIndex = 2;
             this.label3.Text = "Background color";
             // 
+            // resizePointsNeswCursorPanelControl
+            // 
+            this.resizePointsNeswCursorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.resizePointsNeswCursorPanelControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.resizePointsNeswCursorPanelControl.Items.AddRange(new object[] {
+            "CloseHandCursor (VintaSoft)",
+            "OpenHandCursor (VintaSoft)",
+            "CropSelectionCursor (VintaSoft)",
+            "MagnifierCursor (VintaSoft)",
+            "RotateCursor (VintaSoft)",
+            "ZoomCursor (VintaSoft)",
+            "Default",
+            "AppStarting",
+            "Arrow",
+            "Cross",
+            "Hand",
+            "Help",
+            "HSplit",
+            "IBeam",
+            "No",
+            "NoMove2D",
+            "NoMoveHoriz",
+            "NoMoveVert",
+            "PanEast",
+            "PanNE",
+            "PanNorth",
+            "PanNW",
+            "PanSE",
+            "PanSouth",
+            "PanSW",
+            "PanWest",
+            "SizeAll",
+            "SizeNESW",
+            "SizeNS",
+            "SizeNWSE",
+            "SizeWE",
+            "UpArrow",
+            "VSplit",
+            "WaitCursor"});
+            this.resizePointsNeswCursorPanelControl.Location = new System.Drawing.Point(107, 153);
+            this.resizePointsNeswCursorPanelControl.Margin = new System.Windows.Forms.Padding(0);
+            this.resizePointsNeswCursorPanelControl.MinimumSize = new System.Drawing.Size(32, 0);
+            this.resizePointsNeswCursorPanelControl.Name = "resizePointsNeswCursorPanelControl";
+            this.resizePointsNeswCursorPanelControl.SelectedCursor = null;
+            this.resizePointsNeswCursorPanelControl.Size = new System.Drawing.Size(323, 21);
+            this.resizePointsNeswCursorPanelControl.TabIndex = 31;
+            // 
             // polygonPointsTabPage
             // 
             this.polygonPointsTabPage.Controls.Add(this.panel2);
@@ -338,9 +554,9 @@ namespace DemosCommonCode.Imaging
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.polygonPointRadiusNumericUpDown);
             this.panel2.Controls.Add(this.polygonPointCursorPanelControl);
             this.panel2.Controls.Add(this.polygonPointBackgroundColorPanelControl);
@@ -363,13 +579,75 @@ namespace DemosCommonCode.Imaging
             // 
             // polygonPointRadiusNumericUpDown
             // 
-            this.polygonPointRadiusNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.polygonPointRadiusNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.polygonPointRadiusNumericUpDown.DecimalPlaces = 1;
             this.polygonPointRadiusNumericUpDown.Location = new System.Drawing.Point(107, 3);
             this.polygonPointRadiusNumericUpDown.Name = "polygonPointRadiusNumericUpDown";
             this.polygonPointRadiusNumericUpDown.Size = new System.Drawing.Size(323, 20);
             this.polygonPointRadiusNumericUpDown.TabIndex = 17;
+            // 
+            // polygonPointCursorPanelControl
+            // 
+            this.polygonPointCursorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.polygonPointCursorPanelControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.polygonPointCursorPanelControl.Items.AddRange(new object[] {
+            "CloseHandCursor (VintaSoft)",
+            "OpenHandCursor (VintaSoft)",
+            "CropSelectionCursor (VintaSoft)",
+            "MagnifierCursor (VintaSoft)",
+            "RotateCursor (VintaSoft)",
+            "ZoomCursor (VintaSoft)",
+            "Default",
+            "AppStarting",
+            "Arrow",
+            "Cross",
+            "Hand",
+            "Help",
+            "HSplit",
+            "IBeam",
+            "No",
+            "NoMove2D",
+            "NoMoveHoriz",
+            "NoMoveVert",
+            "PanEast",
+            "PanNE",
+            "PanNorth",
+            "PanNW",
+            "PanSE",
+            "PanSouth",
+            "PanSW",
+            "PanWest",
+            "SizeAll",
+            "SizeNESW",
+            "SizeNS",
+            "SizeNWSE",
+            "SizeWE",
+            "UpArrow",
+            "VSplit",
+            "WaitCursor"});
+            this.polygonPointCursorPanelControl.Location = new System.Drawing.Point(107, 152);
+            this.polygonPointCursorPanelControl.Margin = new System.Windows.Forms.Padding(0);
+            this.polygonPointCursorPanelControl.MinimumSize = new System.Drawing.Size(83, 0);
+            this.polygonPointCursorPanelControl.Name = "polygonPointCursorPanelControl";
+            this.polygonPointCursorPanelControl.SelectedCursor = null;
+            this.polygonPointCursorPanelControl.Size = new System.Drawing.Size(323, 21);
+            this.polygonPointCursorPanelControl.TabIndex = 29;
+            // 
+            // polygonPointBackgroundColorPanelControl
+            // 
+            this.polygonPointBackgroundColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.polygonPointBackgroundColorPanelControl.CanSetColor = false;
+            this.polygonPointBackgroundColorPanelControl.Color = System.Drawing.SystemColors.Control;
+            this.polygonPointBackgroundColorPanelControl.ColorButtonMargin = 2;
+            this.polygonPointBackgroundColorPanelControl.ColorButtonWidth = 40;
+            this.polygonPointBackgroundColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
+            this.polygonPointBackgroundColorPanelControl.Location = new System.Drawing.Point(107, 54);
+            this.polygonPointBackgroundColorPanelControl.Name = "polygonPointBackgroundColorPanelControl";
+            this.polygonPointBackgroundColorPanelControl.Size = new System.Drawing.Size(323, 22);
+            this.polygonPointBackgroundColorPanelControl.TabIndex = 9;
             // 
             // label29
             // 
@@ -379,6 +657,34 @@ namespace DemosCommonCode.Imaging
             this.label29.Size = new System.Drawing.Size(37, 13);
             this.label29.TabIndex = 28;
             this.label29.Text = "Cursor";
+            // 
+            // selectedPolygonPointBackgroundColorPanelControl
+            // 
+            this.selectedPolygonPointBackgroundColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.selectedPolygonPointBackgroundColorPanelControl.CanSetColor = false;
+            this.selectedPolygonPointBackgroundColorPanelControl.Color = System.Drawing.SystemColors.Control;
+            this.selectedPolygonPointBackgroundColorPanelControl.ColorButtonMargin = 2;
+            this.selectedPolygonPointBackgroundColorPanelControl.ColorButtonWidth = 40;
+            this.selectedPolygonPointBackgroundColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
+            this.selectedPolygonPointBackgroundColorPanelControl.Location = new System.Drawing.Point(107, 79);
+            this.selectedPolygonPointBackgroundColorPanelControl.Name = "selectedPolygonPointBackgroundColorPanelControl";
+            this.selectedPolygonPointBackgroundColorPanelControl.Size = new System.Drawing.Size(323, 22);
+            this.selectedPolygonPointBackgroundColorPanelControl.TabIndex = 6;
+            // 
+            // polygonPointBorderColorPanelControl
+            // 
+            this.polygonPointBorderColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.polygonPointBorderColorPanelControl.CanSetColor = false;
+            this.polygonPointBorderColorPanelControl.Color = System.Drawing.SystemColors.Control;
+            this.polygonPointBorderColorPanelControl.ColorButtonMargin = 2;
+            this.polygonPointBorderColorPanelControl.ColorButtonWidth = 40;
+            this.polygonPointBorderColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
+            this.polygonPointBorderColorPanelControl.Location = new System.Drawing.Point(107, 104);
+            this.polygonPointBorderColorPanelControl.Name = "polygonPointBorderColorPanelControl";
+            this.polygonPointBorderColorPanelControl.Size = new System.Drawing.Size(323, 22);
+            this.polygonPointBorderColorPanelControl.TabIndex = 5;
             // 
             // label22
             // 
@@ -391,8 +697,8 @@ namespace DemosCommonCode.Imaging
             // 
             // polygonPointInteractionRadiusNumericUpDown
             // 
-            this.polygonPointInteractionRadiusNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.polygonPointInteractionRadiusNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.polygonPointInteractionRadiusNumericUpDown.DecimalPlaces = 1;
             this.polygonPointInteractionRadiusNumericUpDown.Location = new System.Drawing.Point(107, 29);
             this.polygonPointInteractionRadiusNumericUpDown.Name = "polygonPointInteractionRadiusNumericUpDown";
@@ -446,8 +752,8 @@ namespace DemosCommonCode.Imaging
             // 
             // polygonPointBorderPenWidthNumericUpDown
             // 
-            this.polygonPointBorderPenWidthNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.polygonPointBorderPenWidthNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.polygonPointBorderPenWidthNumericUpDown.DecimalPlaces = 1;
             this.polygonPointBorderPenWidthNumericUpDown.Location = new System.Drawing.Point(107, 129);
             this.polygonPointBorderPenWidthNumericUpDown.Name = "polygonPointBorderPenWidthNumericUpDown";
@@ -475,15 +781,63 @@ namespace DemosCommonCode.Imaging
             // 
             // panel3
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.Controls.Add(this.moveAreaCursorPanelControl);
             this.panel3.Controls.Add(this.label28);
             this.panel3.Location = new System.Drawing.Point(8, 6);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(432, 231);
             this.panel3.TabIndex = 30;
+            // 
+            // moveAreaCursorPanelControl
+            // 
+            this.moveAreaCursorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.moveAreaCursorPanelControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.moveAreaCursorPanelControl.Items.AddRange(new object[] {
+            "CloseHandCursor (VintaSoft)",
+            "OpenHandCursor (VintaSoft)",
+            "CropSelectionCursor (VintaSoft)",
+            "MagnifierCursor (VintaSoft)",
+            "RotateCursor (VintaSoft)",
+            "ZoomCursor (VintaSoft)",
+            "Default",
+            "AppStarting",
+            "Arrow",
+            "Cross",
+            "Hand",
+            "Help",
+            "HSplit",
+            "IBeam",
+            "No",
+            "NoMove2D",
+            "NoMoveHoriz",
+            "NoMoveVert",
+            "PanEast",
+            "PanNE",
+            "PanNorth",
+            "PanNW",
+            "PanSE",
+            "PanSouth",
+            "PanSW",
+            "PanWest",
+            "SizeAll",
+            "SizeNESW",
+            "SizeNS",
+            "SizeNWSE",
+            "SizeWE",
+            "UpArrow",
+            "VSplit",
+            "WaitCursor"});
+            this.moveAreaCursorPanelControl.Location = new System.Drawing.Point(106, 3);
+            this.moveAreaCursorPanelControl.Margin = new System.Windows.Forms.Padding(0);
+            this.moveAreaCursorPanelControl.MinimumSize = new System.Drawing.Size(83, 0);
+            this.moveAreaCursorPanelControl.Name = "moveAreaCursorPanelControl";
+            this.moveAreaCursorPanelControl.SelectedCursor = null;
+            this.moveAreaCursorPanelControl.Size = new System.Drawing.Size(323, 21);
+            this.moveAreaCursorPanelControl.TabIndex = 29;
             // 
             // label28
             // 
@@ -506,9 +860,9 @@ namespace DemosCommonCode.Imaging
             // 
             // panel4
             // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.Controls.Add(this.rotationAssistantRadiusNumericUpDown);
             this.panel4.Controls.Add(this.rotationAssistantBorderColorPanelControl);
             this.panel4.Controls.Add(this.label16);
@@ -526,13 +880,27 @@ namespace DemosCommonCode.Imaging
             // 
             // rotationAssistantRadiusNumericUpDown
             // 
-            this.rotationAssistantRadiusNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.rotationAssistantRadiusNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rotationAssistantRadiusNumericUpDown.DecimalPlaces = 1;
             this.rotationAssistantRadiusNumericUpDown.Location = new System.Drawing.Point(106, 3);
             this.rotationAssistantRadiusNumericUpDown.Name = "rotationAssistantRadiusNumericUpDown";
             this.rotationAssistantRadiusNumericUpDown.Size = new System.Drawing.Size(323, 20);
             this.rotationAssistantRadiusNumericUpDown.TabIndex = 17;
+            // 
+            // rotationAssistantBorderColorPanelControl
+            // 
+            this.rotationAssistantBorderColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rotationAssistantBorderColorPanelControl.CanSetColor = false;
+            this.rotationAssistantBorderColorPanelControl.Color = System.Drawing.SystemColors.Control;
+            this.rotationAssistantBorderColorPanelControl.ColorButtonMargin = 2;
+            this.rotationAssistantBorderColorPanelControl.ColorButtonWidth = 40;
+            this.rotationAssistantBorderColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
+            this.rotationAssistantBorderColorPanelControl.Location = new System.Drawing.Point(106, 52);
+            this.rotationAssistantBorderColorPanelControl.Name = "rotationAssistantBorderColorPanelControl";
+            this.rotationAssistantBorderColorPanelControl.Size = new System.Drawing.Size(323, 22);
+            this.rotationAssistantBorderColorPanelControl.TabIndex = 12;
             // 
             // label16
             // 
@@ -542,6 +910,20 @@ namespace DemosCommonCode.Imaging
             this.label16.Size = new System.Drawing.Size(87, 13);
             this.label16.TabIndex = 16;
             this.label16.Text = "Border pen width";
+            // 
+            // rotationAssistantBackgroundColorPanelControl
+            // 
+            this.rotationAssistantBackgroundColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rotationAssistantBackgroundColorPanelControl.CanSetColor = false;
+            this.rotationAssistantBackgroundColorPanelControl.Color = System.Drawing.SystemColors.Control;
+            this.rotationAssistantBackgroundColorPanelControl.ColorButtonMargin = 2;
+            this.rotationAssistantBackgroundColorPanelControl.ColorButtonWidth = 40;
+            this.rotationAssistantBackgroundColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
+            this.rotationAssistantBackgroundColorPanelControl.Location = new System.Drawing.Point(106, 27);
+            this.rotationAssistantBackgroundColorPanelControl.Name = "rotationAssistantBackgroundColorPanelControl";
+            this.rotationAssistantBackgroundColorPanelControl.Size = new System.Drawing.Size(323, 22);
+            this.rotationAssistantBackgroundColorPanelControl.TabIndex = 13;
             // 
             // label17
             // 
@@ -554,8 +936,8 @@ namespace DemosCommonCode.Imaging
             // 
             // rotationAssistantBorderPenWidthNumericUpDown
             // 
-            this.rotationAssistantBorderPenWidthNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.rotationAssistantBorderPenWidthNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rotationAssistantBorderPenWidthNumericUpDown.DecimalPlaces = 1;
             this.rotationAssistantBorderPenWidthNumericUpDown.Location = new System.Drawing.Point(106, 78);
             this.rotationAssistantBorderPenWidthNumericUpDown.Name = "rotationAssistantBorderPenWidthNumericUpDown";
@@ -564,8 +946,8 @@ namespace DemosCommonCode.Imaging
             // 
             // rotationAssistantDiscreteAngleNumericUpDown
             // 
-            this.rotationAssistantDiscreteAngleNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.rotationAssistantDiscreteAngleNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rotationAssistantDiscreteAngleNumericUpDown.Increment = new decimal(new int[] {
             10,
             0,
@@ -630,9 +1012,9 @@ namespace DemosCommonCode.Imaging
             // 
             // panel5
             // 
-            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.Controls.Add(this.rotationPointRadiusNumericUpDown);
             this.panel5.Controls.Add(this.rotationPointCursorPanelControl);
             this.panel5.Controls.Add(this.rotationPointBackgroundColorPanelControl);
@@ -654,13 +1036,75 @@ namespace DemosCommonCode.Imaging
             // 
             // rotationPointRadiusNumericUpDown
             // 
-            this.rotationPointRadiusNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.rotationPointRadiusNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rotationPointRadiusNumericUpDown.DecimalPlaces = 1;
             this.rotationPointRadiusNumericUpDown.Location = new System.Drawing.Point(106, 3);
             this.rotationPointRadiusNumericUpDown.Name = "rotationPointRadiusNumericUpDown";
             this.rotationPointRadiusNumericUpDown.Size = new System.Drawing.Size(323, 20);
             this.rotationPointRadiusNumericUpDown.TabIndex = 17;
+            // 
+            // rotationPointCursorPanelControl
+            // 
+            this.rotationPointCursorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rotationPointCursorPanelControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.rotationPointCursorPanelControl.Items.AddRange(new object[] {
+            "CloseHandCursor (VintaSoft)",
+            "OpenHandCursor (VintaSoft)",
+            "CropSelectionCursor (VintaSoft)",
+            "MagnifierCursor (VintaSoft)",
+            "RotateCursor (VintaSoft)",
+            "ZoomCursor (VintaSoft)",
+            "Default",
+            "AppStarting",
+            "Arrow",
+            "Cross",
+            "Hand",
+            "Help",
+            "HSplit",
+            "IBeam",
+            "No",
+            "NoMove2D",
+            "NoMoveHoriz",
+            "NoMoveVert",
+            "PanEast",
+            "PanNE",
+            "PanNorth",
+            "PanNW",
+            "PanSE",
+            "PanSouth",
+            "PanSW",
+            "PanWest",
+            "SizeAll",
+            "SizeNESW",
+            "SizeNS",
+            "SizeNWSE",
+            "SizeWE",
+            "UpArrow",
+            "VSplit",
+            "WaitCursor"});
+            this.rotationPointCursorPanelControl.Location = new System.Drawing.Point(106, 150);
+            this.rotationPointCursorPanelControl.Margin = new System.Windows.Forms.Padding(0);
+            this.rotationPointCursorPanelControl.MinimumSize = new System.Drawing.Size(83, 0);
+            this.rotationPointCursorPanelControl.Name = "rotationPointCursorPanelControl";
+            this.rotationPointCursorPanelControl.SelectedCursor = null;
+            this.rotationPointCursorPanelControl.Size = new System.Drawing.Size(323, 21);
+            this.rotationPointCursorPanelControl.TabIndex = 27;
+            // 
+            // rotationPointBackgroundColorPanelControl
+            // 
+            this.rotationPointBackgroundColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rotationPointBackgroundColorPanelControl.CanSetColor = false;
+            this.rotationPointBackgroundColorPanelControl.Color = System.Drawing.SystemColors.Control;
+            this.rotationPointBackgroundColorPanelControl.ColorButtonMargin = 2;
+            this.rotationPointBackgroundColorPanelControl.ColorButtonWidth = 40;
+            this.rotationPointBackgroundColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
+            this.rotationPointBackgroundColorPanelControl.Location = new System.Drawing.Point(106, 54);
+            this.rotationPointBackgroundColorPanelControl.Name = "rotationPointBackgroundColorPanelControl";
+            this.rotationPointBackgroundColorPanelControl.Size = new System.Drawing.Size(323, 22);
+            this.rotationPointBackgroundColorPanelControl.TabIndex = 11;
             // 
             // label27
             // 
@@ -671,10 +1115,24 @@ namespace DemosCommonCode.Imaging
             this.label27.TabIndex = 26;
             this.label27.Text = "Cursor";
             // 
+            // rotationPointBorderColorPanelControl
+            // 
+            this.rotationPointBorderColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rotationPointBorderColorPanelControl.CanSetColor = false;
+            this.rotationPointBorderColorPanelControl.Color = System.Drawing.SystemColors.Control;
+            this.rotationPointBorderColorPanelControl.ColorButtonMargin = 2;
+            this.rotationPointBorderColorPanelControl.ColorButtonWidth = 40;
+            this.rotationPointBorderColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
+            this.rotationPointBorderColorPanelControl.Location = new System.Drawing.Point(106, 78);
+            this.rotationPointBorderColorPanelControl.Name = "rotationPointBorderColorPanelControl";
+            this.rotationPointBorderColorPanelControl.Size = new System.Drawing.Size(323, 22);
+            this.rotationPointBorderColorPanelControl.TabIndex = 10;
+            // 
             // rotationPointInteractionRadiusNumericUpDown
             // 
-            this.rotationPointInteractionRadiusNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.rotationPointInteractionRadiusNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rotationPointInteractionRadiusNumericUpDown.DecimalPlaces = 1;
             this.rotationPointInteractionRadiusNumericUpDown.Location = new System.Drawing.Point(106, 29);
             this.rotationPointInteractionRadiusNumericUpDown.Name = "rotationPointInteractionRadiusNumericUpDown";
@@ -710,8 +1168,8 @@ namespace DemosCommonCode.Imaging
             // 
             // rotationPointBorderPenWidthNumericUpDown
             // 
-            this.rotationPointBorderPenWidthNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.rotationPointBorderPenWidthNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rotationPointBorderPenWidthNumericUpDown.DecimalPlaces = 1;
             this.rotationPointBorderPenWidthNumericUpDown.Location = new System.Drawing.Point(106, 103);
             this.rotationPointBorderPenWidthNumericUpDown.Name = "rotationPointBorderPenWidthNumericUpDown";
@@ -720,8 +1178,8 @@ namespace DemosCommonCode.Imaging
             // 
             // rotationPointDistanceNumericUpDown
             // 
-            this.rotationPointDistanceNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.rotationPointDistanceNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rotationPointDistanceNumericUpDown.DecimalPlaces = 1;
             this.rotationPointDistanceNumericUpDown.Location = new System.Drawing.Point(106, 127);
             this.rotationPointDistanceNumericUpDown.Name = "rotationPointDistanceNumericUpDown";
@@ -767,9 +1225,9 @@ namespace DemosCommonCode.Imaging
             // 
             // panel6
             // 
-            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.Controls.Add(this.groupBox1);
             this.panel6.Controls.Add(this.fontButton);
             this.panel6.Controls.Add(this.textBoxCursorPanelControl);
@@ -786,9 +1244,9 @@ namespace DemosCommonCode.Imaging
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.spellCheckManagerViewSettingsControl1);
             this.groupBox1.Location = new System.Drawing.Point(0, 113);
             this.groupBox1.Name = "groupBox1";
@@ -797,10 +1255,22 @@ namespace DemosCommonCode.Imaging
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Spell Check Manager";
             // 
+            // spellCheckManagerViewSettingsControl1
+            // 
+            this.spellCheckManagerViewSettingsControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.spellCheckManagerViewSettingsControl1.InteractionAreaSettings = null;
+            this.spellCheckManagerViewSettingsControl1.Location = new System.Drawing.Point(0, 19);
+            this.spellCheckManagerViewSettingsControl1.MinimumSize = new System.Drawing.Size(212, 100);
+            this.spellCheckManagerViewSettingsControl1.Name = "spellCheckManagerViewSettingsControl1";
+            this.spellCheckManagerViewSettingsControl1.Size = new System.Drawing.Size(432, 100);
+            this.spellCheckManagerViewSettingsControl1.TabIndex = 0;
+            // 
             // fontButton
             // 
-            this.fontButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.fontButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.fontButton.Location = new System.Drawing.Point(116, 3);
             this.fontButton.Name = "fontButton";
             this.fontButton.Size = new System.Drawing.Size(313, 23);
@@ -808,6 +1278,68 @@ namespace DemosCommonCode.Imaging
             this.fontButton.Text = "Select font...";
             this.fontButton.UseVisualStyleBackColor = true;
             this.fontButton.Click += new System.EventHandler(this.fontButton_Click);
+            // 
+            // textBoxCursorPanelControl
+            // 
+            this.textBoxCursorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxCursorPanelControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.textBoxCursorPanelControl.Items.AddRange(new object[] {
+            "CloseHandCursor (VintaSoft)",
+            "OpenHandCursor (VintaSoft)",
+            "CropSelectionCursor (VintaSoft)",
+            "MagnifierCursor (VintaSoft)",
+            "RotateCursor (VintaSoft)",
+            "ZoomCursor (VintaSoft)",
+            "Default",
+            "AppStarting",
+            "Arrow",
+            "Cross",
+            "Hand",
+            "Help",
+            "HSplit",
+            "IBeam",
+            "No",
+            "NoMove2D",
+            "NoMoveHoriz",
+            "NoMoveVert",
+            "PanEast",
+            "PanNE",
+            "PanNorth",
+            "PanNW",
+            "PanSE",
+            "PanSouth",
+            "PanSW",
+            "PanWest",
+            "SizeAll",
+            "SizeNESW",
+            "SizeNS",
+            "SizeNWSE",
+            "SizeWE",
+            "UpArrow",
+            "VSplit",
+            "WaitCursor"});
+            this.textBoxCursorPanelControl.Location = new System.Drawing.Point(116, 89);
+            this.textBoxCursorPanelControl.Margin = new System.Windows.Forms.Padding(0);
+            this.textBoxCursorPanelControl.MinimumSize = new System.Drawing.Size(83, 0);
+            this.textBoxCursorPanelControl.Name = "textBoxCursorPanelControl";
+            this.textBoxCursorPanelControl.SelectedCursor = null;
+            this.textBoxCursorPanelControl.Size = new System.Drawing.Size(313, 21);
+            this.textBoxCursorPanelControl.TabIndex = 31;
+            // 
+            // textBoxForeColorPanelControl
+            // 
+            this.textBoxForeColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxForeColorPanelControl.CanSetColor = false;
+            this.textBoxForeColorPanelControl.Color = System.Drawing.SystemColors.Control;
+            this.textBoxForeColorPanelControl.ColorButtonMargin = 2;
+            this.textBoxForeColorPanelControl.ColorButtonWidth = 40;
+            this.textBoxForeColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
+            this.textBoxForeColorPanelControl.Location = new System.Drawing.Point(116, 33);
+            this.textBoxForeColorPanelControl.Name = "textBoxForeColorPanelControl";
+            this.textBoxForeColorPanelControl.Size = new System.Drawing.Size(313, 22);
+            this.textBoxForeColorPanelControl.TabIndex = 15;
             // 
             // label34
             // 
@@ -817,6 +1349,20 @@ namespace DemosCommonCode.Imaging
             this.label34.Size = new System.Drawing.Size(37, 13);
             this.label34.TabIndex = 30;
             this.label34.Text = "Cursor";
+            // 
+            // textBoxBackColorPanelControl
+            // 
+            this.textBoxBackColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxBackColorPanelControl.CanSetColor = false;
+            this.textBoxBackColorPanelControl.Color = System.Drawing.SystemColors.Control;
+            this.textBoxBackColorPanelControl.ColorButtonMargin = 2;
+            this.textBoxBackColorPanelControl.ColorButtonWidth = 40;
+            this.textBoxBackColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
+            this.textBoxBackColorPanelControl.Location = new System.Drawing.Point(116, 60);
+            this.textBoxBackColorPanelControl.Name = "textBoxBackColorPanelControl";
+            this.textBoxBackColorPanelControl.Size = new System.Drawing.Size(313, 22);
+            this.textBoxBackColorPanelControl.TabIndex = 14;
             // 
             // label26
             // 
@@ -855,7 +1401,6 @@ namespace DemosCommonCode.Imaging
             this.buttonCancel.TabIndex = 5;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // okButton
             // 
@@ -868,282 +1413,46 @@ namespace DemosCommonCode.Imaging
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
-            // resizePointsNwseCursorPanelControl
-            // 
-            this.resizePointsNwseCursorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.resizePointsNwseCursorPanelControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.resizePointsNwseCursorPanelControl.Location = new System.Drawing.Point(107, 128);
-            this.resizePointsNwseCursorPanelControl.Margin = new System.Windows.Forms.Padding(0);
-            this.resizePointsNwseCursorPanelControl.MinimumSize = new System.Drawing.Size(32, 0);
-            this.resizePointsNwseCursorPanelControl.Name = "resizePointsNwseCursorPanelControl";
-            this.resizePointsNwseCursorPanelControl.SelectedCursor = null;
-            this.resizePointsNwseCursorPanelControl.Size = new System.Drawing.Size(323, 21);
-            this.resizePointsNwseCursorPanelControl.TabIndex = 36;
-            // 
-            // resizePointsBackgroundColorPanelControl
-            // 
-            this.resizePointsBackgroundColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.resizePointsBackgroundColorPanelControl.CanSetColor = false;
-            this.resizePointsBackgroundColorPanelControl.Color = System.Drawing.SystemColors.Control;
-            this.resizePointsBackgroundColorPanelControl.ColorButtonMargin = 2;
-            this.resizePointsBackgroundColorPanelControl.ColorButtonWidth = 40;
-            this.resizePointsBackgroundColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
-            this.resizePointsBackgroundColorPanelControl.Location = new System.Drawing.Point(107, 52);
-            this.resizePointsBackgroundColorPanelControl.Name = "resizePointsBackgroundColorPanelControl";
-            this.resizePointsBackgroundColorPanelControl.Size = new System.Drawing.Size(323, 22);
-            this.resizePointsBackgroundColorPanelControl.TabIndex = 7;
-            // 
-            // resizePointsWeCursorPanelControl
-            // 
-            this.resizePointsWeCursorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.resizePointsWeCursorPanelControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.resizePointsWeCursorPanelControl.Location = new System.Drawing.Point(107, 203);
-            this.resizePointsWeCursorPanelControl.Margin = new System.Windows.Forms.Padding(0);
-            this.resizePointsWeCursorPanelControl.MinimumSize = new System.Drawing.Size(83, 0);
-            this.resizePointsWeCursorPanelControl.Name = "resizePointsWeCursorPanelControl";
-            this.resizePointsWeCursorPanelControl.SelectedCursor = null;
-            this.resizePointsWeCursorPanelControl.Size = new System.Drawing.Size(323, 21);
-            this.resizePointsWeCursorPanelControl.TabIndex = 35;
-            // 
-            // resizePointsBorderColorPanelControl
-            // 
-            this.resizePointsBorderColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.resizePointsBorderColorPanelControl.CanSetColor = false;
-            this.resizePointsBorderColorPanelControl.Color = System.Drawing.SystemColors.Control;
-            this.resizePointsBorderColorPanelControl.ColorButtonMargin = 2;
-            this.resizePointsBorderColorPanelControl.ColorButtonWidth = 40;
-            this.resizePointsBorderColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
-            this.resizePointsBorderColorPanelControl.Location = new System.Drawing.Point(107, 78);
-            this.resizePointsBorderColorPanelControl.Name = "resizePointsBorderColorPanelControl";
-            this.resizePointsBorderColorPanelControl.Size = new System.Drawing.Size(323, 22);
-            this.resizePointsBorderColorPanelControl.TabIndex = 8;
-            // 
-            // resizePointsNsCursorPanelControl
-            // 
-            this.resizePointsNsCursorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.resizePointsNsCursorPanelControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.resizePointsNsCursorPanelControl.Location = new System.Drawing.Point(107, 178);
-            this.resizePointsNsCursorPanelControl.Margin = new System.Windows.Forms.Padding(0);
-            this.resizePointsNsCursorPanelControl.MinimumSize = new System.Drawing.Size(83, 0);
-            this.resizePointsNsCursorPanelControl.Name = "resizePointsNsCursorPanelControl";
-            this.resizePointsNsCursorPanelControl.SelectedCursor = null;
-            this.resizePointsNsCursorPanelControl.Size = new System.Drawing.Size(323, 21);
-            this.resizePointsNsCursorPanelControl.TabIndex = 33;
-            // 
-            // resizePointsNeswCursorPanelControl
-            // 
-            this.resizePointsNeswCursorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.resizePointsNeswCursorPanelControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.resizePointsNeswCursorPanelControl.Location = new System.Drawing.Point(107, 153);
-            this.resizePointsNeswCursorPanelControl.Margin = new System.Windows.Forms.Padding(0);
-            this.resizePointsNeswCursorPanelControl.MinimumSize = new System.Drawing.Size(32, 0);
-            this.resizePointsNeswCursorPanelControl.Name = "resizePointsNeswCursorPanelControl";
-            this.resizePointsNeswCursorPanelControl.SelectedCursor = null;
-            this.resizePointsNeswCursorPanelControl.Size = new System.Drawing.Size(323, 21);
-            this.resizePointsNeswCursorPanelControl.TabIndex = 31;
-            // 
-            // polygonPointCursorPanelControl
-            // 
-            this.polygonPointCursorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.polygonPointCursorPanelControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.polygonPointCursorPanelControl.Location = new System.Drawing.Point(107, 152);
-            this.polygonPointCursorPanelControl.Margin = new System.Windows.Forms.Padding(0);
-            this.polygonPointCursorPanelControl.MinimumSize = new System.Drawing.Size(83, 0);
-            this.polygonPointCursorPanelControl.Name = "polygonPointCursorPanelControl";
-            this.polygonPointCursorPanelControl.SelectedCursor = null;
-            this.polygonPointCursorPanelControl.Size = new System.Drawing.Size(323, 21);
-            this.polygonPointCursorPanelControl.TabIndex = 29;
-            // 
-            // polygonPointBackgroundColorPanelControl
-            // 
-            this.polygonPointBackgroundColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.polygonPointBackgroundColorPanelControl.CanSetColor = false;
-            this.polygonPointBackgroundColorPanelControl.Color = System.Drawing.SystemColors.Control;
-            this.polygonPointBackgroundColorPanelControl.ColorButtonMargin = 2;
-            this.polygonPointBackgroundColorPanelControl.ColorButtonWidth = 40;
-            this.polygonPointBackgroundColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
-            this.polygonPointBackgroundColorPanelControl.Location = new System.Drawing.Point(107, 54);
-            this.polygonPointBackgroundColorPanelControl.Name = "polygonPointBackgroundColorPanelControl";
-            this.polygonPointBackgroundColorPanelControl.Size = new System.Drawing.Size(323, 22);
-            this.polygonPointBackgroundColorPanelControl.TabIndex = 9;
-            // 
-            // selectedPolygonPointBackgroundColorPanelControl
-            // 
-            this.selectedPolygonPointBackgroundColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.selectedPolygonPointBackgroundColorPanelControl.CanSetColor = false;
-            this.selectedPolygonPointBackgroundColorPanelControl.Color = System.Drawing.SystemColors.Control;
-            this.selectedPolygonPointBackgroundColorPanelControl.ColorButtonMargin = 2;
-            this.selectedPolygonPointBackgroundColorPanelControl.ColorButtonWidth = 40;
-            this.selectedPolygonPointBackgroundColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
-            this.selectedPolygonPointBackgroundColorPanelControl.Location = new System.Drawing.Point(107, 79);
-            this.selectedPolygonPointBackgroundColorPanelControl.Name = "selectedPolygonPointBackgroundColorPanelControl";
-            this.selectedPolygonPointBackgroundColorPanelControl.Size = new System.Drawing.Size(323, 22);
-            this.selectedPolygonPointBackgroundColorPanelControl.TabIndex = 6;
-            // 
-            // polygonPointBorderColorPanelControl
-            // 
-            this.polygonPointBorderColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.polygonPointBorderColorPanelControl.CanSetColor = false;
-            this.polygonPointBorderColorPanelControl.Color = System.Drawing.SystemColors.Control;
-            this.polygonPointBorderColorPanelControl.ColorButtonMargin = 2;
-            this.polygonPointBorderColorPanelControl.ColorButtonWidth = 40;
-            this.polygonPointBorderColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
-            this.polygonPointBorderColorPanelControl.Location = new System.Drawing.Point(107, 104);
-            this.polygonPointBorderColorPanelControl.Name = "polygonPointBorderColorPanelControl";
-            this.polygonPointBorderColorPanelControl.Size = new System.Drawing.Size(323, 22);
-            this.polygonPointBorderColorPanelControl.TabIndex = 5;
-            // 
-            // moveAreaCursorPanelControl
-            // 
-            this.moveAreaCursorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.moveAreaCursorPanelControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.moveAreaCursorPanelControl.Location = new System.Drawing.Point(106, 3);
-            this.moveAreaCursorPanelControl.Margin = new System.Windows.Forms.Padding(0);
-            this.moveAreaCursorPanelControl.MinimumSize = new System.Drawing.Size(83, 0);
-            this.moveAreaCursorPanelControl.Name = "moveAreaCursorPanelControl";
-            this.moveAreaCursorPanelControl.SelectedCursor = null;
-            this.moveAreaCursorPanelControl.Size = new System.Drawing.Size(323, 21);
-            this.moveAreaCursorPanelControl.TabIndex = 29;
-            // 
-            // rotationAssistantBorderColorPanelControl
-            // 
-            this.rotationAssistantBorderColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.rotationAssistantBorderColorPanelControl.CanSetColor = false;
-            this.rotationAssistantBorderColorPanelControl.Color = System.Drawing.SystemColors.Control;
-            this.rotationAssistantBorderColorPanelControl.ColorButtonMargin = 2;
-            this.rotationAssistantBorderColorPanelControl.ColorButtonWidth = 40;
-            this.rotationAssistantBorderColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
-            this.rotationAssistantBorderColorPanelControl.Location = new System.Drawing.Point(106, 52);
-            this.rotationAssistantBorderColorPanelControl.Name = "rotationAssistantBorderColorPanelControl";
-            this.rotationAssistantBorderColorPanelControl.Size = new System.Drawing.Size(323, 22);
-            this.rotationAssistantBorderColorPanelControl.TabIndex = 12;
-            // 
-            // rotationAssistantBackgroundColorPanelControl
-            // 
-            this.rotationAssistantBackgroundColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.rotationAssistantBackgroundColorPanelControl.CanSetColor = false;
-            this.rotationAssistantBackgroundColorPanelControl.Color = System.Drawing.SystemColors.Control;
-            this.rotationAssistantBackgroundColorPanelControl.ColorButtonMargin = 2;
-            this.rotationAssistantBackgroundColorPanelControl.ColorButtonWidth = 40;
-            this.rotationAssistantBackgroundColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
-            this.rotationAssistantBackgroundColorPanelControl.Location = new System.Drawing.Point(106, 27);
-            this.rotationAssistantBackgroundColorPanelControl.Name = "rotationAssistantBackgroundColorPanelControl";
-            this.rotationAssistantBackgroundColorPanelControl.Size = new System.Drawing.Size(323, 22);
-            this.rotationAssistantBackgroundColorPanelControl.TabIndex = 13;
-            // 
-            // rotationPointCursorPanelControl
-            // 
-            this.rotationPointCursorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.rotationPointCursorPanelControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.rotationPointCursorPanelControl.Location = new System.Drawing.Point(106, 150);
-            this.rotationPointCursorPanelControl.Margin = new System.Windows.Forms.Padding(0);
-            this.rotationPointCursorPanelControl.MinimumSize = new System.Drawing.Size(83, 0);
-            this.rotationPointCursorPanelControl.Name = "rotationPointCursorPanelControl";
-            this.rotationPointCursorPanelControl.SelectedCursor = null;
-            this.rotationPointCursorPanelControl.Size = new System.Drawing.Size(323, 21);
-            this.rotationPointCursorPanelControl.TabIndex = 27;
-            // 
-            // rotationPointBackgroundColorPanelControl
-            // 
-            this.rotationPointBackgroundColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.rotationPointBackgroundColorPanelControl.CanSetColor = false;
-            this.rotationPointBackgroundColorPanelControl.Color = System.Drawing.SystemColors.Control;
-            this.rotationPointBackgroundColorPanelControl.ColorButtonMargin = 2;
-            this.rotationPointBackgroundColorPanelControl.ColorButtonWidth = 40;
-            this.rotationPointBackgroundColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
-            this.rotationPointBackgroundColorPanelControl.Location = new System.Drawing.Point(106, 54);
-            this.rotationPointBackgroundColorPanelControl.Name = "rotationPointBackgroundColorPanelControl";
-            this.rotationPointBackgroundColorPanelControl.Size = new System.Drawing.Size(323, 22);
-            this.rotationPointBackgroundColorPanelControl.TabIndex = 11;
-            // 
-            // rotationPointBorderColorPanelControl
-            // 
-            this.rotationPointBorderColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.rotationPointBorderColorPanelControl.CanSetColor = false;
-            this.rotationPointBorderColorPanelControl.Color = System.Drawing.SystemColors.Control;
-            this.rotationPointBorderColorPanelControl.ColorButtonMargin = 2;
-            this.rotationPointBorderColorPanelControl.ColorButtonWidth = 40;
-            this.rotationPointBorderColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
-            this.rotationPointBorderColorPanelControl.Location = new System.Drawing.Point(106, 78);
-            this.rotationPointBorderColorPanelControl.Name = "rotationPointBorderColorPanelControl";
-            this.rotationPointBorderColorPanelControl.Size = new System.Drawing.Size(323, 22);
-            this.rotationPointBorderColorPanelControl.TabIndex = 10;
-            // 
-            // spellCheckManagerViewSettingsControl1
-            // 
-            this.spellCheckManagerViewSettingsControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.spellCheckManagerViewSettingsControl1.InteractionAreaSettings = null;
-            this.spellCheckManagerViewSettingsControl1.Location = new System.Drawing.Point(0, 19);
-            this.spellCheckManagerViewSettingsControl1.MinimumSize = new System.Drawing.Size(212, 100);
-            this.spellCheckManagerViewSettingsControl1.Name = "spellCheckManagerViewSettingsControl1";
-            this.spellCheckManagerViewSettingsControl1.Size = new System.Drawing.Size(432, 100);
-            this.spellCheckManagerViewSettingsControl1.TabIndex = 0;
-            // 
-            // textBoxCursorPanelControl
-            // 
-            this.textBoxCursorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxCursorPanelControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.textBoxCursorPanelControl.Location = new System.Drawing.Point(116, 89);
-            this.textBoxCursorPanelControl.Margin = new System.Windows.Forms.Padding(0);
-            this.textBoxCursorPanelControl.MinimumSize = new System.Drawing.Size(83, 0);
-            this.textBoxCursorPanelControl.Name = "textBoxCursorPanelControl";
-            this.textBoxCursorPanelControl.SelectedCursor = null;
-            this.textBoxCursorPanelControl.Size = new System.Drawing.Size(313, 21);
-            this.textBoxCursorPanelControl.TabIndex = 31;
-            // 
-            // textBoxForeColorPanelControl
-            // 
-            this.textBoxForeColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxForeColorPanelControl.CanSetColor = false;
-            this.textBoxForeColorPanelControl.Color = System.Drawing.SystemColors.Control;
-            this.textBoxForeColorPanelControl.ColorButtonMargin = 2;
-            this.textBoxForeColorPanelControl.ColorButtonWidth = 40;
-            this.textBoxForeColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
-            this.textBoxForeColorPanelControl.Location = new System.Drawing.Point(116, 33);
-            this.textBoxForeColorPanelControl.Name = "textBoxForeColorPanelControl";
-            this.textBoxForeColorPanelControl.Size = new System.Drawing.Size(313, 22);
-            this.textBoxForeColorPanelControl.TabIndex = 15;
-            // 
-            // textBoxBackColorPanelControl
-            // 
-            this.textBoxBackColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxBackColorPanelControl.CanSetColor = false;
-            this.textBoxBackColorPanelControl.Color = System.Drawing.SystemColors.Control;
-            this.textBoxBackColorPanelControl.ColorButtonMargin = 2;
-            this.textBoxBackColorPanelControl.ColorButtonWidth = 40;
-            this.textBoxBackColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
-            this.textBoxBackColorPanelControl.Location = new System.Drawing.Point(116, 60);
-            this.textBoxBackColorPanelControl.Name = "textBoxBackColorPanelControl";
-            this.textBoxBackColorPanelControl.Size = new System.Drawing.Size(313, 22);
-            this.textBoxBackColorPanelControl.TabIndex = 14;
-            // 
             // resizePointsCursorPanelControl
             // 
-            this.resizePointsCursorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.resizePointsCursorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.resizePointsCursorPanelControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.resizePointsCursorPanelControl.Items.AddRange(new object[] {
+            "CloseHandCursor (VintaSoft)",
+            "OpenHandCursor (VintaSoft)",
+            "CropSelectionCursor (VintaSoft)",
+            "MagnifierCursor (VintaSoft)",
+            "RotateCursor (VintaSoft)",
+            "ZoomCursor (VintaSoft)",
+            "Default",
+            "AppStarting",
+            "Arrow",
+            "Cross",
+            "Hand",
+            "Help",
+            "HSplit",
+            "IBeam",
+            "No",
+            "NoMove2D",
+            "NoMoveHoriz",
+            "NoMoveVert",
+            "PanEast",
+            "PanNE",
+            "PanNorth",
+            "PanNW",
+            "PanSE",
+            "PanSouth",
+            "PanSW",
+            "PanWest",
+            "SizeAll",
+            "SizeNESW",
+            "SizeNS",
+            "SizeNWSE",
+            "SizeWE",
+            "UpArrow",
+            "VSplit",
+            "WaitCursor",
             "CloseHandCursor (VintaSoft)",
             "OpenHandCursor (VintaSoft)",
             "CropSelectionCursor (VintaSoft)",
@@ -1322,1156 +1631,46 @@ namespace DemosCommonCode.Imaging
             this.resizePointsCursorPanelControl.Size = new System.Drawing.Size(83, 21);
             this.resizePointsCursorPanelControl.TabIndex = 29;
             // 
-            // cursorPanelControl1
-            // 
-            this.cursorPanelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.cursorPanelControl1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cursorPanelControl1.Items.AddRange(new object[] {
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor"});
-            this.cursorPanelControl1.Location = new System.Drawing.Point(101, 190);
-            this.cursorPanelControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.cursorPanelControl1.MinimumSize = new System.Drawing.Size(83, 0);
-            this.cursorPanelControl1.Name = "cursorPanelControl1";
-            this.cursorPanelControl1.SelectedCursor = null;
-            this.cursorPanelControl1.Size = new System.Drawing.Size(83, 21);
-            this.cursorPanelControl1.TabIndex = 31;
-            // 
-            // cursorPanelControl2
-            // 
-            this.cursorPanelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.cursorPanelControl2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cursorPanelControl2.Items.AddRange(new object[] {
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor"});
-            this.cursorPanelControl2.Location = new System.Drawing.Point(101, 238);
-            this.cursorPanelControl2.Margin = new System.Windows.Forms.Padding(0);
-            this.cursorPanelControl2.MinimumSize = new System.Drawing.Size(83, 0);
-            this.cursorPanelControl2.Name = "cursorPanelControl2";
-            this.cursorPanelControl2.SelectedCursor = null;
-            this.cursorPanelControl2.Size = new System.Drawing.Size(83, 21);
-            this.cursorPanelControl2.TabIndex = 33;
-            // 
-            // cursorPanelControl3
-            // 
-            this.cursorPanelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.cursorPanelControl3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cursorPanelControl3.Items.AddRange(new object[] {
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor"});
-            this.cursorPanelControl3.Location = new System.Drawing.Point(101, 286);
-            this.cursorPanelControl3.Margin = new System.Windows.Forms.Padding(0);
-            this.cursorPanelControl3.MinimumSize = new System.Drawing.Size(83, 0);
-            this.cursorPanelControl3.Name = "cursorPanelControl3";
-            this.cursorPanelControl3.SelectedCursor = null;
-            this.cursorPanelControl3.Size = new System.Drawing.Size(83, 21);
-            this.cursorPanelControl3.TabIndex = 35;
-            // 
-            // cursorPanelControl4
-            // 
-            this.cursorPanelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.cursorPanelControl4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cursorPanelControl4.Items.AddRange(new object[] {
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor",
-            "CloseHandCursor (VintaSoft)",
-            "OpenHandCursor (VintaSoft)",
-            "CropSelectionCursor (VintaSoft)",
-            "MagnifierCursor (VintaSoft)",
-            "RotateCursor (VintaSoft)",
-            "ZoomCursor (VintaSoft)",
-            "Default",
-            "AppStarting",
-            "Arrow",
-            "Cross",
-            "Hand",
-            "Help",
-            "HSplit",
-            "IBeam",
-            "No",
-            "NoMove2D",
-            "NoMoveHoriz",
-            "NoMoveVert",
-            "PanEast",
-            "PanNE",
-            "PanNorth",
-            "PanNW",
-            "PanSE",
-            "PanSouth",
-            "PanSW",
-            "PanWest",
-            "SizeAll",
-            "SizeNESW",
-            "SizeNS",
-            "SizeNWSE",
-            "SizeWE",
-            "UpArrow",
-            "VSplit",
-            "WaitCursor"});
-            this.cursorPanelControl4.Location = new System.Drawing.Point(103, 103);
-            this.cursorPanelControl4.Margin = new System.Windows.Forms.Padding(0);
-            this.cursorPanelControl4.MinimumSize = new System.Drawing.Size(83, 0);
-            this.cursorPanelControl4.Name = "cursorPanelControl4";
-            this.cursorPanelControl4.SelectedCursor = null;
-            this.cursorPanelControl4.Size = new System.Drawing.Size(83, 21);
-            this.cursorPanelControl4.TabIndex = 31;
-            // 
             // textBoxEditorAreaCursorPanelControl
             // 
-            this.textBoxEditorAreaCursorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxEditorAreaCursorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxEditorAreaCursorPanelControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.textBoxEditorAreaCursorPanelControl.Items.AddRange(new object[] {
+            "CloseHandCursor (VintaSoft)",
+            "OpenHandCursor (VintaSoft)",
+            "CropSelectionCursor (VintaSoft)",
+            "MagnifierCursor (VintaSoft)",
+            "RotateCursor (VintaSoft)",
+            "ZoomCursor (VintaSoft)",
+            "Default",
+            "AppStarting",
+            "Arrow",
+            "Cross",
+            "Hand",
+            "Help",
+            "HSplit",
+            "IBeam",
+            "No",
+            "NoMove2D",
+            "NoMoveHoriz",
+            "NoMoveVert",
+            "PanEast",
+            "PanNE",
+            "PanNorth",
+            "PanNW",
+            "PanSE",
+            "PanSouth",
+            "PanSW",
+            "PanWest",
+            "SizeAll",
+            "SizeNESW",
+            "SizeNS",
+            "SizeNWSE",
+            "SizeWE",
+            "UpArrow",
+            "VSplit",
+            "WaitCursor",
             "CloseHandCursor (VintaSoft)",
             "OpenHandCursor (VintaSoft)",
             "CropSelectionCursor (VintaSoft)",
@@ -2798,6 +1997,7 @@ namespace DemosCommonCode.Imaging
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "InteractionAreaAppearanceManagerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Interaction Area Settings";
@@ -2906,14 +2106,10 @@ namespace DemosCommonCode.Imaging
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
         private DemosCommonCode.CustomControls.CursorPanelControl resizePointsCursorPanelControl;
-        private DemosCommonCode.CustomControls.CursorPanelControl cursorPanelControl1;
-        private DemosCommonCode.CustomControls.CursorPanelControl cursorPanelControl2;
-        private DemosCommonCode.CustomControls.CursorPanelControl cursorPanelControl3;
         private DemosCommonCode.CustomControls.CursorPanelControl moveAreaCursorPanelControl;
         private System.Windows.Forms.Label label28;
         private DemosCommonCode.CustomControls.CursorPanelControl textBoxCursorPanelControl;
         private System.Windows.Forms.Label label34;
-        private DemosCommonCode.CustomControls.CursorPanelControl cursorPanelControl4;
         private DemosCommonCode.CustomControls.CursorPanelControl textBoxEditorAreaCursorPanelControl;
         private DemosCommonCode.CustomControls.CursorPanelControl resizePointsNwseCursorPanelControl;
         private DemosCommonCode.CustomControls.CursorPanelControl resizePointsNeswCursorPanelControl;

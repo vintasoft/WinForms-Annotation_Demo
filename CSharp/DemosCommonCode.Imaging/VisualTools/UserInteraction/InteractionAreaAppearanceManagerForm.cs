@@ -2,9 +2,6 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-using Vintasoft.Imaging.Spelling.UI;
-using Vintasoft.Imaging.UI;
-using Vintasoft.Imaging.UI.VisualTools;
 using Vintasoft.Imaging.UI.VisualTools.UserInteraction;
 
 
@@ -109,6 +106,9 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Gets or sets the interaction area settings.
         /// </summary>
+        /// <value>
+        /// Default value is <b>null</b>.
+        /// </value>
         public InteractionAreaAppearanceManager InteractionAreaSettings
         {
             get
@@ -134,15 +134,16 @@ namespace DemosCommonCode.Imaging
         #region Methods
 
         /// <summary>
-        /// "Select font..." button is clicked.
+        /// Handles the Click event of FontButton object.
         /// </summary>
         private void fontButton_Click(object sender, EventArgs e)
         {
+            // show font dialog
             _fontDialog.ShowDialog();
         }
 
         /// <summary>
-        /// "OK" button is clicked.
+        /// Handles the Click event of OkButton object.
         /// </summary>
         private void okButton_Click(object sender, EventArgs e)
         {
@@ -220,6 +221,7 @@ namespace DemosCommonCode.Imaging
             }
         }
 
+
         /// <summary>
         /// Updates the user interface of this form.
         /// </summary>
@@ -274,14 +276,6 @@ namespace DemosCommonCode.Imaging
 
             // move area
             moveAreaCursorPanelControl.SelectedCursor = settings.MoveAreaCursor;
-        }
-
-        /// <summary>
-        /// "Cancel" button is clicked.
-        /// </summary>
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
         }
 
         #endregion

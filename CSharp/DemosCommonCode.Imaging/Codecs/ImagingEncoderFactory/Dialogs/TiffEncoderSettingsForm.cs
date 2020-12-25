@@ -1,11 +1,10 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging;
-using Vintasoft.Imaging.Codecs;
-using Vintasoft.Imaging.Codecs.ImageFiles.Tiff;
 using Vintasoft.Imaging.Codecs.Encoders;
+using Vintasoft.Imaging.Codecs.ImageFiles.Tiff;
 using Vintasoft.Imaging.ImageProcessing;
 
 namespace DemosCommonCode.Imaging.Codecs.Dialogs
@@ -18,6 +17,9 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TiffEncoderSettingsForm"/> class.
+        /// </summary>
         public TiffEncoderSettingsForm()
         {
             InitializeComponent();
@@ -54,7 +56,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
                 {
                     _encoderSettings = value;
 
-                    InitUI();
+                    InitializeUI();
                 }
             }
         }
@@ -97,6 +99,12 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether the annotation format must be changed.
+        /// </summary>
+        /// <value>
+        /// <b>True</b> if annotation format must be changed; otherwise, <b>false</b>.
+        /// </value>
         public bool EditAnnotationSettings
         {
             get
@@ -121,6 +129,11 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
 
         #region Methods
 
+        #region PROTECTED
+
+        /// <summary>
+        /// Updates the user interface of this form.
+        /// </summary>
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -129,7 +142,126 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
                 EncoderSettings = new TiffEncoderSettings();
         }
 
-        private void InitUI()
+        #endregion
+
+
+        #region PRIVATE
+
+        #region UI
+
+        /// <summary>
+        /// Handles the ValueChanged event of TileWidthNumericUpDown object.
+        /// </summary>
+        private void tileWidthNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            // if tile width is not corrent
+            if ((tileWidthNumericUpDown.Value % 16) != 0)
+            {
+                // show message
+                MessageBox.Show("Tile width must be multiple 16.");
+                // calculate corrent tile width
+                tileWidthNumericUpDown.Value = (int)(tileWidthNumericUpDown.Value / 16) * 16;
+            }
+        }
+
+        /// <summary>
+        /// Handles the ValueChanged event of TileHeightNumericUpDown object.
+        /// </summary>
+        private void tileHeightNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            // if tile height is not corrent
+            if ((tileHeightNumericUpDown.Value % 16) != 0)
+            {
+                // show message
+                MessageBox.Show("Tile height must be multiple 16.");
+                // calculate corrent tile width
+                tileHeightNumericUpDown.Value = (int)(tileHeightNumericUpDown.Value / 16) * 16;
+            }
+        }
+
+        /// <summary>
+        /// Handles the Click event of Jpeg2000SettingsButton object.
+        /// </summary>
+        private void jpeg2000SettingsButton_Click(object sender, EventArgs e)
+        {
+            // create JPEG2000 encoder settings form
+            using (Jpeg2000EncoderSettingsForm dialog = new Jpeg2000EncoderSettingsForm())
+            {
+                // set current JPEG2000 encoder settings
+                dialog.EncoderSettings = EncoderSettings.Jpeg2000EncoderSettings;
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    // update JPEG2000 encoder settings
+
+                    EncoderSettings.Jpeg2000EncoderSettings.CompressionRatio = dialog.EncoderSettings.CompressionRatio;
+                    EncoderSettings.Jpeg2000EncoderSettings.CompressionType = dialog.EncoderSettings.CompressionType;
+                    EncoderSettings.Jpeg2000EncoderSettings.EncodeAlphaChannelInPalette = dialog.EncoderSettings.EncodeAlphaChannelInPalette;
+                    EncoderSettings.Jpeg2000EncoderSettings.FileFormat = dialog.EncoderSettings.FileFormat;
+                    EncoderSettings.Jpeg2000EncoderSettings.FileSize = dialog.EncoderSettings.FileSize;
+                    EncoderSettings.Jpeg2000EncoderSettings.ProgressionOrder = dialog.EncoderSettings.ProgressionOrder;
+                    EncoderSettings.Jpeg2000EncoderSettings.QualityLayers = dialog.EncoderSettings.QualityLayers;
+                    EncoderSettings.Jpeg2000EncoderSettings.TileHeight = dialog.EncoderSettings.TileHeight;
+                    EncoderSettings.Jpeg2000EncoderSettings.TileWidth = dialog.EncoderSettings.TileWidth;
+                    EncoderSettings.Jpeg2000EncoderSettings.WaveletLevels = dialog.EncoderSettings.WaveletLevels;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Handles the Click event of OkButton object.
+        /// </summary>
+        private void okButton_Click(object sender, EventArgs e)
+        {
+            // update encoder settings
+            SetEncoderSettings();
+
+            // if annotations must be saved to 'WANG' format
+            if (EditAnnotationSettings && _encoderSettings.AnnotationsFormat == AnnotationsFormat.Wang)
+            {
+                // if dialog closing must be canceled
+                if (MessageBox.Show(
+                    "Important: some data from annotations will be lost. Do you want to continue anyway?",
+                    "Warning",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Warning) != DialogResult.OK)
+                {
+                    return;
+                }
+            }
+
+            DialogResult = DialogResult.OK;
+        }
+
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of BinarizationModeComboBox object.
+        /// </summary>
+        private void binarizationModeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // if the image should be binarized using a threshold
+            if ((BinarizationMode)binarizationModeComboBox.SelectedItem == BinarizationMode.Threshold)
+            {
+                // enable user interface
+
+                binarizationThresholdNumericUpDown.Visible = true;
+                binarizationThresholdLabel.Visible = true;
+            }
+            else
+            {
+                // disable user interface
+
+                binarizationThresholdNumericUpDown.Visible = false;
+                binarizationThresholdLabel.Visible = false;
+            }
+        }
+
+        #endregion
+
+
+        /// <summary>
+        /// Initialize the user interface of this form.
+        /// </summary>
+        private void InitializeUI()
         {
             // compression
             switch (EncoderSettings.Compression)
@@ -197,7 +329,9 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
 
         }
 
-
+        /// <summary>
+        /// Updates the user interface of this form.
+        /// </summary>
         private void UpdateUI()
         {
             jpegCompressionAdvancedSettingsGroupBox.Visible = jpegCompressionRadioButton.Checked;
@@ -214,113 +348,19 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             tileHeightNumericUpDown.Visible = useTilesRadioButton.Checked;
         }
 
-        private void autoCompressionRadioButton_CheckedChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Updates the user interface of this form.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void UpdateUI(object sender, EventArgs e)
         {
             UpdateUI();
         }
 
-        private void noneCompressionRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            UpdateUI();
-        }
-
-        private void ccitt4CompressionRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            UpdateUI();
-        }
-
-        private void lzwCompressionRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            UpdateUI();
-        }
-
-        private void zipCompressionRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            UpdateUI();
-        }
-
-        private void jpegCompressionRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            UpdateUI();
-        }
-
-        private void jpeg2000CompressionRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            UpdateUI();
-        }
-
-
-        private void useStripsRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            UpdateUI();
-        }
-
-        private void useTilesRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            UpdateUI();
-        }
-
-        private void tileWidthNumericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-            if ((tileWidthNumericUpDown.Value % 16) != 0)
-            {
-                MessageBox.Show("Tile width must be multiple 16.");
-                tileWidthNumericUpDown.Value = (int)(tileWidthNumericUpDown.Value / 16) * 16;
-            }
-        }
-
-        private void tileHeightNumericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-            if ((tileHeightNumericUpDown.Value % 16) != 0)
-            {
-                MessageBox.Show("Tile height must be multiple 16.");
-                tileHeightNumericUpDown.Value = (int)(tileHeightNumericUpDown.Value / 16) * 16;
-            }
-        }
-
-
-        private void jpeg2000SettingsButton_Click(object sender, EventArgs e)
-        {
-            using (Jpeg2000EncoderSettingsForm dialog = new Jpeg2000EncoderSettingsForm())
-            {
-                dialog.EncoderSettings = EncoderSettings.Jpeg2000EncoderSettings;
-
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    EncoderSettings.Jpeg2000EncoderSettings.CompressionRatio = dialog.EncoderSettings.CompressionRatio;
-                    EncoderSettings.Jpeg2000EncoderSettings.CompressionType = dialog.EncoderSettings.CompressionType;
-                    EncoderSettings.Jpeg2000EncoderSettings.EncodeAlphaChannelInPalette = dialog.EncoderSettings.EncodeAlphaChannelInPalette;
-                    EncoderSettings.Jpeg2000EncoderSettings.FileFormat = dialog.EncoderSettings.FileFormat;
-                    EncoderSettings.Jpeg2000EncoderSettings.FileSize = dialog.EncoderSettings.FileSize;
-                    EncoderSettings.Jpeg2000EncoderSettings.ProgressionOrder = dialog.EncoderSettings.ProgressionOrder;
-                    EncoderSettings.Jpeg2000EncoderSettings.QualityLayers = dialog.EncoderSettings.QualityLayers;
-                    EncoderSettings.Jpeg2000EncoderSettings.TileHeight = dialog.EncoderSettings.TileHeight;
-                    EncoderSettings.Jpeg2000EncoderSettings.TileWidth = dialog.EncoderSettings.TileWidth;
-                    EncoderSettings.Jpeg2000EncoderSettings.WaveletLevels = dialog.EncoderSettings.WaveletLevels;
-                }
-            }
-        }
-
-
-        private void okButton_Click(object sender, EventArgs e)
-        {
-            SetEncoderSettings();
-
-            if (EditAnnotationSettings && _encoderSettings.AnnotationsFormat == AnnotationsFormat.Wang)
-            {
-                if (MessageBox.Show(
-                    "Important: some data from annotations will be lost. Do you want to continue anyway?",
-                    "Warning",
-                    MessageBoxButtons.OKCancel,
-                    MessageBoxIcon.Warning) != DialogResult.OK)
-                {
-                    return;
-                }
-            }
-
-            DialogResult = DialogResult.OK;
-        }
-
+        /// <summary>
+        /// Updates the encoder settings.
+        /// </summary>
         private void SetEncoderSettings()
         {
             // compression
@@ -389,19 +429,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
                 EncoderSettings.FileVersion = TiffFileVersion.BigTIFF;
         }
 
-        private void binarizationModeComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if ((BinarizationMode)binarizationModeComboBox.SelectedItem == BinarizationMode.Threshold)
-            {
-                binarizationThresholdNumericUpDown.Visible = true;
-                binarizationThresholdLabel.Visible = true;
-            }
-            else
-            {
-                binarizationThresholdNumericUpDown.Visible = false;
-                binarizationThresholdLabel.Visible = false;
-            }
-        }
+        #endregion
 
         #endregion
 

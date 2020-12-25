@@ -50,6 +50,7 @@ namespace DemosCommonCode.Imaging
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.showVisualToolsCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.widthNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heightNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoomNumericUpDown)).BeginInit();
@@ -309,12 +310,23 @@ namespace DemosCommonCode.Imaging
             this.label8.TabIndex = 14;
             this.label8.Text = "(%)";
             // 
+            // showVisualToolsCheckBox
+            // 
+            this.showVisualToolsCheckBox.AutoSize = true;
+            this.showVisualToolsCheckBox.Location = new System.Drawing.Point(171, 85);
+            this.showVisualToolsCheckBox.Name = "showVisualToolsCheckBox";
+            this.showVisualToolsCheckBox.Size = new System.Drawing.Size(113, 17);
+            this.showVisualToolsCheckBox.TabIndex = 15;
+            this.showVisualToolsCheckBox.Text = "Show Visual Tools";
+            this.showVisualToolsCheckBox.UseVisualStyleBackColor = true;
+            // 
             // MagnifierToolSettingsForm
             // 
             this.AcceptButton = this.buttonOk;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(348, 213);
+            this.Controls.Add(this.showVisualToolsCheckBox);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -332,6 +344,7 @@ namespace DemosCommonCode.Imaging
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "MagnifierToolSettingsForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -373,5 +386,6 @@ namespace DemosCommonCode.Imaging
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox showVisualToolsCheckBox;
     }
 }

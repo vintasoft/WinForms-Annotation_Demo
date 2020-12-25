@@ -1,5 +1,4 @@
-using System;
-using System.IO;
+﻿using System.IO;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging;
@@ -74,7 +73,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Authenticates the specified document.
         /// </summary>
-        /// <param name="document">The decoder.</param>
+        /// <param name="decoder">The decoder.</param>
         public static bool Authenticate(DecoderBase decoder)
         {
             // if authentication is required
@@ -145,7 +144,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Enables the authentication for specified image collection.
         /// </summary>
-        /// <param name="imageViewer">The image collection.</param>
+        /// <param name="imageCollection">The image collection.</param>
         public static void EnableAuthentication(ImageCollection imageCollection)
         {
             // subscribe to the ImageCollection.AuthenticationRequest event
@@ -165,7 +164,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Disables the authentication for specified image viewer.
         /// </summary>
-        /// <param name="imageViewer">The image collection.</param>
+        /// <param name="imageCollection">The image collection.</param>
         public static void DisableAuthentication(ImageCollection imageCollection)
         {
             // unsubscribe from the ImageCollection.AuthenticationRequest event
@@ -178,26 +177,11 @@ namespace DemosCommonCode.Imaging
         #region PRIVATE
 
         /// <summary>
-        /// "OK" button is clicked.
+        /// Handles the AuthenticationRequest event of ImageViewer object.
         /// </summary>
-        private void okButton_Click(object sender, EventArgs e)
+        private static void ImageViewer_AuthenticationRequest(object sender, DocumentAuthenticationRequestEventArgs e)
         {
-            DialogResult = DialogResult.OK;
-        }
-
-        /// <summary>
-        /// "Cancel" button is clicked.
-        /// </summary>
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-        }
-
-        /// <summary>
-        /// The document, which is adding to the image collection, requires authentication.
-        /// </summary>
-        private static void ImageViewer_AuthenticationRequest(object sender, Vintasoft.Imaging.DocumentAuthenticationRequestEventArgs e)
-        {
+            // if authenticate is failed
             if (!Authenticate(e.Decoder))
                 e.IsCanceled = true;
         }

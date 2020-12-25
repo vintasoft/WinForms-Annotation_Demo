@@ -1,8 +1,7 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging;
-using Vintasoft.Imaging.Codecs;
 using Vintasoft.Imaging.ImageRendering;
 using Vintasoft.Imaging.Codecs.Decoders;
 using Vintasoft.Imaging.UI;
@@ -108,6 +107,109 @@ namespace DemosCommonCode.Imaging
 
         #region Methods
 
+        #region UI
+
+        /// <summary>
+        /// Handles the Click event of RenderingSettingsButton object.
+        /// </summary>
+        private void renderingSettingsButton_Click(object sender, EventArgs e)
+        {
+            // create rendering settings dialog
+            using (RenderingSettingsForm renderingSettingsDialog =
+                new RenderingSettingsForm(_renderingSettings))
+            {
+                // if rendering setting must be updated
+                if (renderingSettingsDialog.ShowDialog() == DialogResult.OK)
+                    // update rendering settings
+                    _renderingSettings = renderingSettingsDialog.RenderingSettings;
+            }
+        }
+
+        /// <summary>
+        /// Handles the Click event of ButtonOk object.
+        /// </summary>
+        private void buttonOk_Click(object sender, EventArgs e)
+        {
+            // apply settings to the image viewer
+            ApplySettings();
+
+            DialogResult = DialogResult.OK;
+        }
+
+        /// <summary>
+        /// Handles the Click event of RenderingRequirementsButton object.
+        /// </summary>
+        private void renderingRequirementsButton_Click(object sender, EventArgs e)
+        {
+            // if rendering requirement does not exist
+            if (_renderingRequirements == null)
+                // create rendering requirement
+                _renderingRequirements = new ImageRenderingRequirements(_viewer.RenderingRequirements);
+
+            // create rendering requirements form
+            using (ImageRenderingRequirementsForm renderingRequirements =
+                new ImageRenderingRequirementsForm(_renderingRequirements))
+            {
+                // if rendering requirements muust be changed
+                if (renderingRequirements.ShowDialog() == DialogResult.OK)
+                    // update rendering requrements
+                    _renderingRequirements = renderingRequirements.RenderingRequirements;
+            }
+        }
+
+        /// <summary>
+        /// Handles the Click event of ImageAppearance object.
+        /// </summary>
+        private void imageAppearance_Click(object sender, EventArgs e)
+        {
+            // if image appearance does not exist
+            if (_imageAppearance == null)
+                // create image appearance
+                _imageAppearance = new ThumbnailAppearance(_viewer.ImageAppearance);
+
+            // create image appearance settings form
+            using (ThumbnailAppearanceSettingsForm dialog =
+                new ThumbnailAppearanceSettingsForm(_imageAppearance, "Not Focused Image Appearance Settings"))
+            {
+                // show dialog
+                dialog.ShowDialog();
+            }
+        }
+
+        /// <summary>
+        /// Handles the Click event of FocusedImageAppearance object.
+        /// </summary>
+        private void focusedImageAppearance_Click(object sender, EventArgs e)
+        {
+            // if focused image appearance does not exist
+            if (_focusedImageAppearance == null)
+                // create focused image appearance
+                _focusedImageAppearance = new ThumbnailAppearance(_viewer.FocusedImageAppearance);
+
+            // create image appearance settings form
+            using (ThumbnailAppearanceSettingsForm dialog =
+                new ThumbnailAppearanceSettingsForm(_focusedImageAppearance, "Focused Image Appearance Settings"))
+            {
+                // show dialog
+                dialog.ShowDialog();
+            }
+        }
+
+        /// <summary>
+        /// Handles the CheckedChanged event of KeyboardNavigationCheckBox object.
+        /// </summary>
+        private void keyboardNavigationCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            // if keyboard navigation must be enabled
+            if (keyboardNavigationCheckBox.Checked)
+                keyboardNavigationGroupBox.Enabled = true;
+            else
+                keyboardNavigationGroupBox.Enabled = false;
+        }
+
+        #endregion
+
+
         /// <summary>
         /// Shows settings of the image viewer.
         /// </summary>
@@ -115,7 +217,7 @@ namespace DemosCommonCode.Imaging
         {
             // image anchor
             imageAnchorTypeEditor.SelectedAnchorType = _viewer.ImageAnchor;
-            
+
             // rendering quality
             renderingQualityComboBox.SelectedItem = _viewer.RenderingQuality;
 
@@ -155,9 +257,9 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Sets settings to the image viewer.
+        /// Applies settings to the image viewer.
         /// </summary>
-        private void SetSettings()
+        private void ApplySettings()
         {
             // image anchor
             _viewer.ImageAnchor = imageAnchorTypeEditor.SelectedAnchorType;
@@ -220,89 +322,7 @@ namespace DemosCommonCode.Imaging
             _viewer.KeyboardNavigationZoomStep = (float)keyboardNavigationZoomStepNumericUpDown.Value;
         }
 
-        /// <summary>
-        /// Shows Rendering Settings Form.
-        /// </summary>
-        private void renderingSettingsButton_Click(object sender, EventArgs e)
-        {
-            using (RenderingSettingsForm renderingSettingsDialog = 
-                new RenderingSettingsForm(_renderingSettings))
-            {
-                if (renderingSettingsDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    _renderingSettings = renderingSettingsDialog.RenderingSettings;
-            }
-        }
-
-        /// <summary>
-        /// "Ok" button is clicked.
-        /// </summary>
-        private void buttonOk_Click(object sender, EventArgs e)
-        {
-            // set settings to the image viewer
-            SetSettings();
-
-            DialogResult = DialogResult.OK;
-        }
-
-        /// <summary>
-        /// "Cancel" button is clicked.
-        /// </summary>
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-        }
-
-        /// <summary>
-        /// Shows a form that allows to view and edit the rendering requirements.
-        /// </summary>
-        private void renderingRequirementsButton_Click(object sender, EventArgs e)
-        {
-            if (_renderingRequirements == null)
-                _renderingRequirements = new ImageRenderingRequirements(_viewer.RenderingRequirements);
-            using (ImageRenderingRequirementsForm renderingRequirements =
-                new ImageRenderingRequirementsForm(_renderingRequirements))
-            {
-                if (renderingRequirements.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    _renderingRequirements = renderingRequirements.RenderingRequirements;
-            }
-        }
-
-        /// <summary>
-        /// Shows a form that allows to view and edit the appearance of not focused image.
-        /// </summary>
-        private void imageAppearance_Click(object sender, EventArgs e)
-        {
-            if (_imageAppearance == null)
-                _imageAppearance = new ThumbnailAppearance(_viewer.ImageAppearance);
-            using (ThumbnailAppearanceSettingsForm imageAppearance = 
-                new ThumbnailAppearanceSettingsForm(_imageAppearance, "Not Focused Image Appearance Settings"))
-            {
-                imageAppearance.ShowDialog();
-            }
-        }
-
-        /// <summary>
-        /// Shows a form that allows to view and edit the appearance of focused image.
-        /// </summary>
-        private void focusedImageAppearance_Click(object sender, EventArgs e)
-        {
-            if (_focusedImageAppearance == null)
-                _focusedImageAppearance = new ThumbnailAppearance(_viewer.FocusedImageAppearance);
-            using (ThumbnailAppearanceSettingsForm focusedImageAppearance =
-                new ThumbnailAppearanceSettingsForm(_focusedImageAppearance, "Focused Image Appearance Settings"))
-            {
-                focusedImageAppearance.ShowDialog();
-            }
-        }
-
-        /// <summary> 
-        /// The keyboard navigation visibility is changed.
-        /// </summary>
-        private void keyboardNavigationCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            keyboardNavigationGroupBox.Enabled = keyboardNavigationCheckBox.Checked;
-        }
-
         #endregion
+
     }
 }

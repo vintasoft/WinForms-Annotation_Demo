@@ -2,11 +2,9 @@
 using System.IO;
 using System.Windows.Forms;
 
-using Vintasoft.Imaging;
-using Vintasoft.Imaging.Codecs;
+using Vintasoft.Imaging.Codecs.Decoders;
 using Vintasoft.Imaging.ColorManagement;
 using Vintasoft.Imaging.ColorManagement.Icc;
-using Vintasoft.Imaging.Codecs.Decoders;
 using Vintasoft.Imaging.UI;
 
 namespace DemosCommonCode.Imaging.ColorManagement
@@ -22,7 +20,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
         /// <summary>
         /// Default input CMYK ICC profile.
         /// </summary>
-        public const string DefaultInputCmykProfile = "DefaultCMYK.icc";
+        public const string DEFAULT_INPUT_CMYK_PROFILE = "DefaultCMYK.icc";
 
         #endregion
 
@@ -31,7 +29,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
         #region Fields
 
         /// <summary>
-        /// Open ICC file dialog.
+        /// Open file dialog for selecting ICC file.
         /// </summary>
         OpenFileDialog _openIccFileDialog;
 
@@ -41,6 +39,9 @@ namespace DemosCommonCode.Imaging.ColorManagement
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ColorManagementSettingsForm"/> class.
+        /// </summary>
         public ColorManagementSettingsForm()
         {
             InitializeComponent();
@@ -92,17 +93,57 @@ namespace DemosCommonCode.Imaging.ColorManagement
 
         #region Methods
 
-        #region Event handlers
+        #region PUBLIC
 
         /// <summary>
-        /// Sets input ICC profile.
+        /// Edits a color management settings of specified image viewer.
+        /// </summary>
+        public static bool EditColorManagement(ImageViewerBase imageViewer)
+        {
+            using (ColorManagementSettingsForm colorManagementSettingsForm = new ColorManagementSettingsForm())
+            {
+                if (imageViewer.ImageDecodingSettings == null)
+                    colorManagementSettingsForm.ColorManagementSettings = null;
+                else
+                    colorManagementSettingsForm.ColorManagementSettings = imageViewer.ImageDecodingSettings.ColorManagement;
+
+                if (colorManagementSettingsForm.ShowDialog() == DialogResult.OK)
+                {
+                    DecodingSettings settings = imageViewer.ImageDecodingSettings;
+                    if (settings == null)
+                        settings = new DecodingSettings();
+
+                    settings.ColorManagement = colorManagementSettingsForm.ColorManagementSettings;
+                    imageViewer.ImageDecodingSettings = settings;
+
+                    // reload images in image viewer
+                    DemosTools.ReloadImagesInViewer(imageViewer);
+
+                    return true;
+                }
+
+                return false;
+            }
+        }
+
+        #endregion
+
+
+        #region PRIVATE
+
+        #region UI
+
+        /// <summary>
+        /// Handles the Click event of SetInputProfileButton object.
         /// </summary>
         private void setInputProfileButton_Click(object sender, EventArgs e)
         {
+            // if input ICC profile is selected
             if (_openIccFileDialog.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
+                    // create ICC profile
                     IccProfile iccProfile = new IccProfile(_openIccFileDialog.FileName);
                     _openIccFileDialog.InitialDirectory = Path.GetDirectoryName(_openIccFileDialog.FileName);
                     IccProfile oldIccProfile = null;
@@ -143,10 +184,11 @@ namespace DemosCommonCode.Imaging.ColorManagement
         }
 
         /// <summary>
-        /// Sets output ICC profile.
+        /// Handles the Click event of SetOutputProfileButton object.
         /// </summary>
         private void setOutputProfileButton_Click(object sender, EventArgs e)
         {
+            // if output ICC profile is selected
             if (_openIccFileDialog.ShowDialog() == DialogResult.OK)
             {
                 try
@@ -185,82 +227,104 @@ namespace DemosCommonCode.Imaging.ColorManagement
         }
 
         /// <summary>
-        /// Removes input CMYK profile.
+        /// Handles the Click event of RemoveInputCmykButton object.
         /// </summary>
         private void removeInputCmykButton_Click(object sender, EventArgs e)
         {
+            // get input CMYK profile
             IccProfile profile = _colorManagementSettings.InputCmykProfile;
+            // if CMYK profile is exist
             if (profile != null)
             {
+                // remove input CMYK profile
                 _colorManagementSettings.InputCmykProfile = null;
                 profile.Dispose();
             }
+            // update user interface
             RemoveProfileDescription(inputCmykTextBox);
         }
 
         /// <summary>
-        /// Removes input RGB profile.
+        /// Handles the Click event of RemoveInputRgbButton object.
         /// </summary>
         private void removeInputRgbButton_Click(object sender, EventArgs e)
         {
+            // get input RGB profile
             IccProfile profile = _colorManagementSettings.InputRgbProfile;
+            // if RGB profile is exist
             if (profile != null)
             {
+                // remove input RGB profile
                 _colorManagementSettings.InputRgbProfile = null;
                 profile.Dispose();
             }
+            // update user interface
             RemoveProfileDescription(inputRgbTextBox);
         }
 
         /// <summary>
-        /// Removes input Gray profile.
+        /// Handles the Click event of RemoveInputGrayscaleButton object.
         /// </summary>
         private void removeInputGrayscaleButton_Click(object sender, EventArgs e)
         {
+            // get input grayscale profile
             IccProfile profile = _colorManagementSettings.InputGrayscaleProfile;
+            // if grayscale profile is exist
             if (profile != null)
             {
+                // remove input grayscale profile
                 _colorManagementSettings.InputGrayscaleProfile = null;
                 profile.Dispose();
             }
+            // update user interface
             RemoveProfileDescription(inputGrayscaleTextBox);
         }
 
         /// <summary>
-        /// Removes output RGB profile.
+        /// Handles the Click event of RemoveOutputRgbButton object.
         /// </summary>
         private void removeOutputRgbButton_Click(object sender, EventArgs e)
         {
+            // get output RGB profile
             IccProfile profile = _colorManagementSettings.OutputRgbProfile;
+            // if RGB profile is exist
             if (profile != null)
             {
+                // remove output RGB profile
                 _colorManagementSettings.OutputRgbProfile = null;
                 profile.Dispose();
             }
+            // update user interface
             RemoveProfileDescription(outputRgbTextBox);
         }
 
         /// <summary>
-        /// Removes output Gray profile.
+        /// Handles the Click event of RemoveOutputGrayscaleButton object.
         /// </summary>
         private void removeOutputGrayscaleButton_Click(object sender, EventArgs e)
         {
+            // get output grayscale profile
             IccProfile profile = _colorManagementSettings.OutputGrayscaleProfile;
+            // if grayscale profile is exist
             if (profile != null)
             {
+                // remove output grayscale profile
                 _colorManagementSettings.OutputGrayscaleProfile = null;
                 profile.Dispose();
             }
+            // update user interface
             RemoveProfileDescription(outputGrayscaleTextBox);
         }
 
         /// <summary>
-        /// Opens the color transform set editor.
+        /// Handles the Click event of EditColorTransformsButton object.
         /// </summary>
         private void editColorTransformsButton_Click(object sender, EventArgs e)
         {
+            // create color transform editor
             using (ColorTransformSetEditorForm editorForm = new ColorTransformSetEditorForm(_colorManagementSettings.ColorSpaceTransforms))
             {
+                // if color transform must be updated
                 if (editorForm.ShowDialog() == DialogResult.OK)
                 {
                     _colorManagementSettings.ColorSpaceTransforms.Clear();
@@ -270,26 +334,47 @@ namespace DemosCommonCode.Imaging.ColorManagement
         }
 
         /// <summary>
-        /// Color management is enabled/disabled.
+        /// Handles the CheckedChanged event of EnableColorManagementCheckBox object.
         /// </summary>
         private void enableColorManagementCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            decodingSettingsGroupBox.Enabled = enableColorManagementCheckBox.Checked;
-
-            if (decodingSettingsGroupBox.Enabled && _colorManagementSettings == null)
+            // if color managment must be used
+            if (enableColorManagementCheckBox.Checked)
             {
-                ColorManagementDecodeSettings settings = new ColorManagementDecodeSettings();
-                LoadDefaultInputCmykProfile(settings);
-                ColorManagementSettings = settings;
+                // enable decoding settings user interface
+                decodingSettingsGroupBox.Enabled = true;
+
+                // if color managment settings must be created
+                if (_colorManagementSettings == null)
+                {
+                    // create color managment settings
+                    ColorManagementDecodeSettings settings = new ColorManagementDecodeSettings();
+                    // load default profiles
+                    LoadDefaultInputCmykProfile(settings);
+                    // update color managment settings
+                    ColorManagementSettings = settings;
+                }
+            }
+            else
+            {
+                // disable decoding settings user interface
+                decodingSettingsGroupBox.Enabled = false;
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of ButtonOk object.
+        /// </summary>
         private void buttonOk_Click(object sender, EventArgs e)
         {
+            // update color managment settings
             SetSettings();
             DialogResult = DialogResult.OK;
         }
 
+        /// <summary>
+        /// Handles the Click event of ButtonCancel object.
+        /// </summary>
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
@@ -297,37 +382,6 @@ namespace DemosCommonCode.Imaging.ColorManagement
 
         #endregion
 
-
-        /// <summary>
-        /// Edits a color management settings of specified image viewer.
-        /// </summary>
-        public static bool EditColorManagement(ImageViewerBase imageViewer)
-        {
-            using (ColorManagementSettingsForm colorManagementSettingsForm = new ColorManagementSettingsForm())
-            {
-                if (imageViewer.ImageDecodingSettings == null)
-                    colorManagementSettingsForm.ColorManagementSettings = null;
-                else
-                    colorManagementSettingsForm.ColorManagementSettings = imageViewer.ImageDecodingSettings.ColorManagement;
-
-                if (colorManagementSettingsForm.ShowDialog() == DialogResult.OK)
-                {
-                    DecodingSettings settings = imageViewer.ImageDecodingSettings;
-                    if (settings == null)
-                        settings = new DecodingSettings();
-
-                    settings.ColorManagement = colorManagementSettingsForm.ColorManagementSettings;
-                    imageViewer.ImageDecodingSettings = settings;
-
-                    // reload images in image viewer
-                    DemosTools.ReloadImagesInViewer(imageViewer);
-
-                    return true;
-                }
-
-                return false;
-            }
-        }
 
         /// <summary>
         /// Updates the user interface of this form.
@@ -405,9 +459,9 @@ namespace DemosCommonCode.Imaging.ColorManagement
                 foreach (string dir in directories)
                 {
                     string profileDirectory = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), dir));
-                    if (File.Exists(Path.Combine(profileDirectory, DefaultInputCmykProfile)))
+                    if (File.Exists(Path.Combine(profileDirectory, DEFAULT_INPUT_CMYK_PROFILE)))
                     {
-                        defaultInputCmykFilename = Path.Combine(profileDirectory, DefaultInputCmykProfile);
+                        defaultInputCmykFilename = Path.Combine(profileDirectory, DEFAULT_INPUT_CMYK_PROFILE);
                         break;
                     }
                 }
@@ -436,6 +490,8 @@ namespace DemosCommonCode.Imaging.ColorManagement
         {
             textBox.Text = "(none)";
         }
+
+        #endregion
 
         #endregion
 

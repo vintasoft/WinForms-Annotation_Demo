@@ -52,7 +52,6 @@ namespace DemosCommonCode.Annotation
                 {
                 }
 
-
                 //
                 this.Location = (PointF)info.GetValue("Location", typeof(PointF));
 

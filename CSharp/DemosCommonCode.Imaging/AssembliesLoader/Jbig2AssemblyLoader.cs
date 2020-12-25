@@ -11,7 +11,9 @@
         /// </summary>
         public static void Load()
         {
-#if !REMOVE_JBIG2_PLUGIN
+#if REMOVE_JBIG2_PLUGIN
+            Vintasoft.Imaging.Codecs.AvailableCodecs.RemoveCodecByName("Jbig2");
+#else
             using (Vintasoft.Imaging.Codecs.Decoders.Jbig2Decoder decoder = 
                 new Vintasoft.Imaging.Codecs.Decoders.Jbig2Decoder())
             {

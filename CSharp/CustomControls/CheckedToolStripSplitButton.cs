@@ -65,7 +65,7 @@ namespace DemosCommonCode.CustomControls
         /// </summary>
         /// <param name="text">The text to display on the <see cref="CheckedToolStripSplitButton"/>.</param>
         /// <param name="image">The <see cref="Image"/> to be displayed on the <see cref="CheckedToolStripSplitButton"/>.</param>
-        /// <param name="onClick">Raises the <see cref="Click"/> event when the user clicks the
+        /// <param name="onClick">Raises the <see cref="EventHandler"/> event when the user clicks the
         /// <see cref="CheckedToolStripSplitButton"/>.</param>
         public CheckedToolStripSplitButton(string text, Image image, EventHandler onClick)
             : base(text, image, onClick)
@@ -77,7 +77,7 @@ namespace DemosCommonCode.CustomControls
         /// </summary>
         /// <param name="text">The text to display on the <see cref="CheckedToolStripSplitButton"/>.</param>
         /// <param name="image"> The <see cref="Image"/> to be displayed on the <see cref="CheckedToolStripSplitButton"/>.</param>
-        /// <param name="onClick">Raises the <see cref="Click"/> event when the user clicks the
+        /// <param name="onClick">Raises the <see cref="EventHandler"/> event when the user clicks the
         /// <see cref="CheckedToolStripSplitButton"/>.</param>
         /// <param name="name">The name of the <see cref="CheckedToolStripSplitButton"/>.</param>
         public CheckedToolStripSplitButton(string text, Image image, EventHandler onClick, string name)
@@ -154,8 +154,9 @@ namespace DemosCommonCode.CustomControls
         }
 
         /// <summary>
-        /// Raises the <see cref="Paint"/> event.
+        /// Raises the <see cref="PaintEventArgs"/> event.
         /// </summary>
+        /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
         protected override void OnPaint(PaintEventArgs e)
         {
             // if checked is true

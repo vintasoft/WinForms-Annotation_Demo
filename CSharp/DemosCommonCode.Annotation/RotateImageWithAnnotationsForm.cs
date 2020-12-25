@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Text;
 using System.Windows.Forms;
 
@@ -37,7 +37,10 @@ namespace DemosCommonCode.Annotation
         /// </summary>
         public decimal Angle
         {
-            get { return _angle; }
+            get
+            {
+                return _angle;
+            }
         }
 
         /// <summary>
@@ -76,35 +79,45 @@ namespace DemosCommonCode.Annotation
         #region Methods
 
         /// <summary>
-        /// Sets the angle value and DialogResult.
+        /// Handles the Click event of OkButton object.
         /// </summary>
         private void okButton_Click(object sender, EventArgs e)
         {
+            // update image rotation angle
             _angle = angleNumericUpDown.Value;
 
-            if (transparentBackgroundRadioButton.Checked &&
-                SourceImagePixelFormat != PixelFormat.Bgra32 &&
-                SourceImagePixelFormat != PixelFormat.Bgra64)
+            // if image background must be transparent
+            if (transparentBackgroundRadioButton.Checked)
             {
-                PixelFormat pixelFormatWithTransparencySupport = GetPixelFormatWithTransparencySupport(SourceImagePixelFormat);
-                StringBuilder message = new StringBuilder();
-                message.AppendLine("You have selected a transparent background but image pixel format does not support transparency.");
-                message.AppendLine(string.Format("For using transparency the image should be converted to the {0} pixel format.", pixelFormatWithTransparencySupport));
-                message.AppendLine("Press 'OK' for converting an image.");
-                message.AppendLine("Press 'Cancel' for detecting the color automatically.");
+                // if current image does not support transparent color
+                if (SourceImagePixelFormat != PixelFormat.Bgra32 &&
+                    SourceImagePixelFormat != PixelFormat.Bgra64)
+                {
+                    // get pixel format with transparency
+                    PixelFormat pixelFormatWithTransparencySupport = GetPixelFormatWithTransparencySupport(SourceImagePixelFormat);
 
-                if (MessageBox.Show(message.ToString(), "Rotate image with annotations", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                {
-                    _sourceImagePixelFormat = pixelFormatWithTransparencySupport;
-                }
-                else
-                {
-                    autoDetectBackgroundRadioButton.Checked = true;
+                    // create message
+                    StringBuilder message = new StringBuilder();
+                    message.AppendLine("You have selected a transparent background but image pixel format does not support transparency.");
+                    message.AppendLine(string.Format("For using transparency the image should be converted to the {0} pixel format.", pixelFormatWithTransparencySupport));
+                    message.AppendLine("Press 'OK' for converting an image.");
+                    message.AppendLine("Press 'Cancel' for detecting the color automatically.");
+
+                    // if image must be converted to format with transparency
+                    if (MessageBox.Show(message.ToString(), "Rotate image with annotations", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    {
+                        _sourceImagePixelFormat = pixelFormatWithTransparencySupport;
+                    }
+                    else
+                    {
+                        autoDetectBackgroundRadioButton.Checked = true;
+                    }
                 }
             }
 
             DialogResult = System.Windows.Forms.DialogResult.OK;
         }
+
 
         /// <summary>
         /// Returns a pixel format, which supports transparency.

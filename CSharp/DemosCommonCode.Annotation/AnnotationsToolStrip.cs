@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -412,6 +412,200 @@ namespace DemosCommonCode.Annotation
 
         #region PRIVATE
 
+        #region UI
+
+        /// <summary>
+        /// Handles the Click event of BuildAnnotationButton object.
+        /// </summary>
+        private void buildAnnotationButton_Click(object sender, EventArgs e)
+        {
+            ToolStripItem annotationButton = (ToolStripItem)sender;
+            // get the annotation type
+            AnnotationType annotationType = _toolStripItemToAnnotationType[annotationButton];
+
+            // if annotation building must be stopped
+            if (annotationType == _buildingAnnotationType ||
+                (sender is CheckedToolStripSplitButton &&
+                ((CheckedToolStripSplitButton)sender).Checked))
+            {
+                // stop the annotation buiding
+                annotationType = AnnotationType.Unknown;
+            }
+
+            // add and build annotation
+            AddAndBuildAnnotation(annotationType);
+        }
+
+        /// <summary>
+        /// Handles the Click event of AddNewCommentButton object.
+        /// </summary>
+        private void AddNewCommentButton_Click(object sender, EventArgs e)
+        {
+            if (_commentBuilder != null &&
+                _commentBuilder.CommentVisualTool != null &&
+                _commentBuilder.CommentVisualTool.Enabled)
+                _commentBuilder.AddNewComment();
+        }
+
+        /// <summary>
+        /// Handles the Click event of AddCommentToAnnotationButton object.
+        /// </summary>
+        private void AddCommentToAnnotationButton_Click(object sender, EventArgs e)
+        {
+            if (_commentBuilder != null &&
+                _commentBuilder.CommentVisualTool != null &&
+                _commentBuilder.CommentVisualTool.Enabled &&
+                AnnotationViewer.FocusedAnnotationData != null)
+                _commentBuilder.AddCommentToAnnotation(AnnotationViewer.FocusedAnnotationData);
+        }
+
+
+        #region #region Annotation viewer
+
+        /// <summary>
+        /// Handles the AnnotationBuildingCanceled event of AnnotationViewer object.
+        /// </summary>
+        private void annotationViewer_AnnotationBuildingCanceled(object sender, AnnotationViewEventArgs e)
+        {
+            if (_isInteractionModeChanging)
+                return;
+
+            _embeddedOrReferencedImageFileName = string.Empty;
+            EndAnnotationBuilding();
+        }
+
+        /// <summary>
+        /// Handles the AnnotationBuildingFinished event of AnnotationViewer object.
+        /// </summary>
+        private void annotationViewer_AnnotationBuildingFinished(object sender, AnnotationViewEventArgs e)
+        {
+            // if annotation view collection is not specified
+            if (AnnotationViewer.AnnotationViewCollection == null)
+            {
+                EndAnnotationBuilding();
+                return;
+            }
+
+            if (!AnnotationViewer.AnnotationViewCollection.Contains(e.AnnotationView))
+                return;
+
+            // if buiding annotation type is specified
+            if (_buildingAnnotationType != AnnotationType.Unknown)
+            {
+                // if building annotation is "Freehand lines"
+                if (_buildingAnnotationType == AnnotationType.FreehandLines)
+                {
+                    // if annotation has less than 2 points
+                    if (((LinesAnnotationData)e.AnnotationView.Data).Points.Count < 2)
+                    {
+                        // cancel the annotation building
+                        AnnotationViewer.CancelAnnotationBuilding();
+                        _buildingAnnotationType = AnnotationType.FreehandLines;
+                    }
+                }
+
+                // if next annotation should be built
+                if (AnnotationViewer.AnnotationInteractionMode == AnnotationInteractionMode.Author &&
+                    NeedBuildAnnotationsContinuously)
+                {
+                    // if interaction controller of focused annotation must be changed
+                    if (AnnotationViewer.FocusedAnnotationView != null)
+                    {
+                        // set transformer as interaction controller to the focused annotation view
+                        AnnotationViewer.FocusedAnnotationView.InteractionController =
+                            AnnotationViewer.FocusedAnnotationView.Transformer;
+                    }
+
+                    // build next annotation
+                    AddAndBuildAnnotation(_buildingAnnotationType);
+                }
+                else
+                {
+                    // clear file name of refereced image annotation
+                    _embeddedOrReferencedImageFileName = string.Empty;
+
+                    // stop building
+                    EndAnnotationBuilding();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Handles the AnnotationInteractionModeChanging event of AnnotationViewer object.
+        /// </summary>
+        private void annotationViewer_AnnotationInteractionModeChanging(
+            object sender,
+            AnnotationInteractionModeChangingEventArgs e)
+        {
+            // cancel the annotation building
+            AnnotationViewer.CancelAnnotationBuilding();
+        }
+
+        /// <summary>
+        /// Handles the AnnotationViewCollectionChanged event of AnnotationViewer object.
+        /// </summary>
+        private void annotationViewer_AnnotationViewCollectionChanged(
+            object sender,
+            AnnotationViewCollectionChangedEventArgs e)
+        {
+            // is previous annotation collection exists
+            if (e.OldValue != null)
+            {
+                // for each annotation in previous annotation collection
+                foreach (AnnotationView annotationView in e.OldValue)
+                {
+                    // if annotation is link annotation
+                    if (annotationView is LinkAnnotationView)
+                    {
+                        // unsubscribe from the Link annotation events
+                        UnsubscribeFromLinkAnnotationViewEvents((LinkAnnotationView)annotationView);
+                    }
+                }
+            }
+
+            // is new annotation collection exists
+            if (e.NewValue != null)
+            {
+                // for each annotation in new annotation collection
+                foreach (AnnotationView annotationView in e.NewValue)
+                {
+                    // if annotation is link annotation
+                    if (annotationView is LinkAnnotationView)
+                    {
+                        // subscribe to the Link annotation events
+                        SubscribeToLinkAnnotationViewEvents((LinkAnnotationView)annotationView);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Handles the FocusedIndexChanging event of AnnotationViewer object.
+        /// </summary>
+        private void annotationViewer_FocusedIndexChanging(object sender, FocusedIndexChangedEventArgs e)
+        {
+            // get the annotation tool
+            AnnotationVisualTool annotationVisualTool = AnnotationViewer.AnnotationVisualTool;
+            if (annotationVisualTool != null)
+            {
+                // if viewer has focused annotation
+                if (annotationVisualTool.FocusedAnnotationView != null)
+                {
+                    // if focused annotation is building
+                    if (annotationVisualTool.FocusedAnnotationView.IsBuilding)
+                    {
+                        // cancel the annotation building
+                        annotationVisualTool.CancelAnnotationBuilding();
+                    }
+                }
+            }
+        }
+
+        #endregion
+
+        #endregion
+
+
         #region Initialization
 
         /// <summary>
@@ -567,7 +761,7 @@ namespace DemosCommonCode.Annotation
             InitializeButtons(Items, buttonInfos);
         }
 
-        /// <summary
+        /// <summary>
         /// Initializes the buttons.
         /// </summary>
         /// <param name="buttonCollection">The button collection to which new button must be added.</param>
@@ -700,51 +894,6 @@ namespace DemosCommonCode.Annotation
 
 
         #region Annotations
-
-        /// <summary>
-        /// "Build annotation" button is clicked.
-        /// </summary>
-        private void buildAnnotationButton_Click(object sender, EventArgs e)
-        {
-            ToolStripItem annotationButton = (ToolStripItem)sender;
-            // get the annotation type
-            AnnotationType annotationType = _toolStripItemToAnnotationType[annotationButton];
-
-            // if annotation building must be stopped
-            if (annotationType == _buildingAnnotationType ||
-                (sender is CheckedToolStripSplitButton &&
-                ((CheckedToolStripSplitButton)sender).Checked))
-            {
-                // stop the annotation buiding
-                annotationType = AnnotationType.Unknown;
-            }
-
-            // add and build annotation
-            AddAndBuildAnnotation(annotationType);
-        }
-
-        /// <summary>
-        /// "Add New Comment" button is clicked.
-        /// </summary>
-        private void AddNewCommentButton_Click(object sender, EventArgs e)
-        {
-            if (_commentBuilder != null && 
-                _commentBuilder.CommentVisualTool != null && 
-                _commentBuilder.CommentVisualTool.Enabled)
-                _commentBuilder.AddNewComment();
-        }
-
-        /// <summary>
-        /// "Add New Comment To Annotation" button is clicked.
-        /// </summary>
-        private void AddCommentToAnnotationButton_Click(object sender, EventArgs e)
-        {
-            if (_commentBuilder != null &&
-                _commentBuilder.CommentVisualTool != null &&
-                _commentBuilder.CommentVisualTool.Enabled &&
-                AnnotationViewer.FocusedAnnotationData != null)
-                _commentBuilder.AddCommentToAnnotation(AnnotationViewer.FocusedAnnotationData);
-        }
 
         /// <summary> 
         /// Creates an annotation view for specified annotation type.
@@ -1101,150 +1250,11 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Annotation building is canceled.
-        /// </summary>
-        private void annotationViewer_AnnotationBuildingCanceled(object sender, AnnotationViewEventArgs e)
-        {
-            if (_isInteractionModeChanging)
-                return;
-
-            _embeddedOrReferencedImageFileName = string.Empty;
-            EndAnnotationBuilding();
-        }
-
-        /// <summary>
         /// Annotation visual tool is deactivated.
         /// </summary>
         private void AnnotationVisualTool_Deactivated(object sender, EventArgs e)
         {
             EndAnnotationBuilding();
-        }
-
-        /// <summary>
-        /// Annotation building is finished.
-        /// </summary>
-        private void annotationViewer_AnnotationBuildingFinished(object sender, AnnotationViewEventArgs e)
-        {
-            // if annotation view collection is not specified
-            if (AnnotationViewer.AnnotationViewCollection == null)
-            {
-                EndAnnotationBuilding();
-                return;
-            }
-
-            if (!AnnotationViewer.AnnotationViewCollection.Contains(e.AnnotationView))
-                return;
-
-            // if buiding annotation type is specified
-            if (_buildingAnnotationType != AnnotationType.Unknown)
-            {
-                // if building annotation is "Freehand lines"
-                if (_buildingAnnotationType == AnnotationType.FreehandLines)
-                {
-                    // if annotation has less than 2 points
-                    if (((LinesAnnotationData)e.AnnotationView.Data).Points.Count < 2)
-                    {
-                        // cancel the annotation building
-                        AnnotationViewer.CancelAnnotationBuilding();
-                        _buildingAnnotationType = AnnotationType.FreehandLines;
-                    }
-                }
-
-                // if next annotation should be built
-                if (AnnotationViewer.AnnotationInteractionMode == AnnotationInteractionMode.Author &&
-                    NeedBuildAnnotationsContinuously)
-                {
-                    // if interaction controller of focused annotation must be changed
-                    if (AnnotationViewer.FocusedAnnotationView != null)
-                    {
-                        // set transformer as interaction controller to the focused annotation view
-                        AnnotationViewer.FocusedAnnotationView.InteractionController =
-                            AnnotationViewer.FocusedAnnotationView.Transformer;
-                    }
-
-                    // build next annotation
-                    AddAndBuildAnnotation(_buildingAnnotationType);
-                }
-                else
-                {
-                    // clear file name of refereced image annotation
-                    _embeddedOrReferencedImageFileName = string.Empty;
-
-                    // stop building
-                    EndAnnotationBuilding();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Interaction mode of annotation is changing.
-        /// </summary>
-        private void annotationViewer_AnnotationInteractionModeChanging(
-            object sender,
-            AnnotationInteractionModeChangingEventArgs e)
-        {
-            // cancel the annotation building
-            AnnotationViewer.CancelAnnotationBuilding();
-        }
-
-        /// <summary>
-        /// Annotation view collection is changed.
-        /// </summary>
-        private void annotationViewer_AnnotationViewCollectionChanged(
-            object sender,
-            AnnotationViewCollectionChangedEventArgs e)
-        {
-            // is previous annotation collection exists
-            if (e.OldValue != null)
-            {
-                // for each annotation in previous annotation collection
-                foreach (AnnotationView annotationView in e.OldValue)
-                {
-                    // if annotation is link annotation
-                    if (annotationView is LinkAnnotationView)
-                    {
-                        // unsubscribe from the Link annotation events
-                        UnsubscribeFromLinkAnnotationViewEvents((LinkAnnotationView)annotationView);
-                    }
-                }
-            }
-
-            // is new annotation collection exists
-            if (e.NewValue != null)
-            {
-                // for each annotation in new annotation collection
-                foreach (AnnotationView annotationView in e.NewValue)
-                {
-                    // if annotation is link annotation
-                    if (annotationView is LinkAnnotationView)
-                    {
-                        // subscribe to the Link annotation events
-                        SubscribeToLinkAnnotationViewEvents((LinkAnnotationView)annotationView);
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Focused image is changing in viewer.
-        /// </summary>
-        private void annotationViewer_FocusedIndexChanging(object sender, FocusedIndexChangedEventArgs e)
-        {
-            // get the annotation tool
-            AnnotationVisualTool annotationVisualTool = AnnotationViewer.AnnotationVisualTool;
-            if (annotationVisualTool != null)
-            {
-                // if viewer has focused annotation
-                if (annotationVisualTool.FocusedAnnotationView != null)
-                {
-                    // if focused annotation is building
-                    if (annotationVisualTool.FocusedAnnotationView.IsBuilding)
-                    {
-                        // cancel the annotation building
-                        annotationVisualTool.CancelAnnotationBuilding();
-                    }
-                }
-            }
         }
 
         #endregion
@@ -1266,7 +1276,7 @@ namespace DemosCommonCode.Annotation
                 // create dialog
                 _openImageDialog = new OpenFileDialog();
                 // set the available image formats
-                CodecsFileFilters.SetFilters(_openImageDialog);
+                CodecsFileFilters.SetOpenFileDialogFilter(_openImageDialog);
             }
 
             string result = null;

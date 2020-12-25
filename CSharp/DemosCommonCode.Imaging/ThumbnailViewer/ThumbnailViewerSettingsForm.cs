@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -52,8 +52,26 @@ namespace DemosCommonCode.Imaging
         #region Constructors
 
         /// <summary>
-        /// Prevents a default instance of
-        /// the <see cref="ThumbnailViewerSettingsForm"/> class from being created.
+        /// Initializes a new instance of the <see cref="ThumbnailViewerSettingsForm"/> class.
+        /// </summary>
+        /// <param name="viewer">The thumbnail viewer.</param>
+        public ThumbnailViewerSettingsForm(ThumbnailViewer viewer)
+            : this()
+        {
+            _viewer = viewer;
+            _normalThumbnailAppearance = new ThumbnailAppearance(viewer.ThumbnailAppearance);
+            _focusedThumbnailAppearance = new ThumbnailAppearance(viewer.FocusedThumbnailAppearance);
+            _hoveredThumbnailAppearance = new ThumbnailAppearance(viewer.HoveredThumbnailAppearance);
+            _selectedThumbnailAppearance = new ThumbnailAppearance(viewer.SelectedThumbnailAppearance);
+            _notReadyThumbnailAppearance = new ThumbnailAppearance(viewer.NotReadyThumbnailAppearance);
+            thumbnailAppearanceComboBox.SelectedIndex = 0;
+            ShowSettings();
+        }
+
+
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ThumbnailViewerSettingsForm"/> class.
         /// </summary>
         private ThumbnailViewerSettingsForm()
         {
@@ -76,29 +94,120 @@ namespace DemosCommonCode.Imaging
             thumbnailAppearanceComboBox.Items.Add("Not ready");
         }
 
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ThumbnailViewerSettingsForm"/> class.
-        /// </summary>
-        /// <param name="viewer">The thumbnail viewer.</param>
-        public ThumbnailViewerSettingsForm(ThumbnailViewer viewer)
-            : this()
-        {
-            _viewer = viewer;
-            _normalThumbnailAppearance = new ThumbnailAppearance(viewer.ThumbnailAppearance);
-            _focusedThumbnailAppearance = new ThumbnailAppearance(viewer.FocusedThumbnailAppearance);
-            _hoveredThumbnailAppearance = new ThumbnailAppearance(viewer.HoveredThumbnailAppearance);
-            _selectedThumbnailAppearance = new ThumbnailAppearance(viewer.SelectedThumbnailAppearance);
-            _notReadyThumbnailAppearance = new ThumbnailAppearance(viewer.NotReadyThumbnailAppearance);
-            thumbnailAppearanceComboBox.SelectedIndex = 0;
-            ShowSettings();
-        }
-
         #endregion
 
 
 
         #region Methods
+
+        #region UI
+
+        /// <summary>
+        /// Handles the Click event of ButtonOk object.
+        /// </summary>
+        private void buttonOk_Click(object sender, EventArgs e)
+        {
+            // if settings are updated
+            if (SetSettings())
+                DialogResult = DialogResult.OK;
+        }
+
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of ThumbnailAppearanceComboBox object.
+        /// </summary>
+        private void thumbnailAppearanceComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // update thumbnail appearance
+            InitAppearance(GetSelectedAppearance());
+        }
+
+        /// <summary>
+        /// Handles the Click event of EditThumbnailAppearanceButton object.
+        /// </summary>
+        private void editThumbnailAppearanceButton_Click(object sender, EventArgs e)
+        {
+            // get selected appearance
+            ThumbnailAppearance appearance = GetSelectedAppearance();
+
+            // create appearance settings form
+            using (ThumbnailAppearanceSettingsForm thumbnailAppearanceSettingsDialog =
+                new ThumbnailAppearanceSettingsForm(appearance))
+            {
+                // if appearance is changed
+                if (thumbnailAppearanceSettingsDialog.ShowDialog() == DialogResult.OK)
+                    // init appearance
+                    InitAppearance(appearance);
+            }
+        }
+
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of ThumbnailFlowStyleComboBox object.
+        /// </summary>
+        private void thumbnailFlowStyleComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // if thumbanil flow style is fixel columns
+            if ((ThumbnailFlowStyle)thumbnailFlowStyleComboBox.SelectedItem == ThumbnailFlowStyle.FixedColumns)
+            {
+                thumbnailColumnsCountComboBox.Enabled = true;
+            }
+            else
+            {
+                thumbnailColumnsCountComboBox.Enabled = false;
+            }
+        }
+
+        /// <summary>
+        /// Handles the CheckedChanged event of CaptionIsVisibleCheckBox object.
+        /// </summary>
+        private void captionIsVisibleCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            // if thumbnail caption must be shown
+            if (captionIsVisibleCheckBox.Checked)
+                thumbnailCaptionGroupBox.Enabled = true;
+            else
+                thumbnailCaptionGroupBox.Enabled = false;
+        }
+
+        /// <summary>
+        /// Handles the Click event of CaptionFontSelectButton object.
+        /// </summary>
+        private void captionFontSelectButton_Click(object sender, EventArgs e)
+        {
+            // show caption font dialog
+            captionFontDialog.ShowDialog();
+        }
+
+        /// <summary>
+        /// Handles the Click event of CaptionFormatHelpButton object.
+        /// </summary>
+        private void captionFormatHelpButton_Click(object sender, EventArgs e)
+        {
+            // show information about ThumbnailCaption.CaptionFormat property
+            MessageBox.Show(
+                "Examples:\n" +
+                "'File {Filename}, page {PageNumber}'\n" +
+                "'{ImageSizeMpx:f2} MPX'\n" +
+                "\n" +
+                "List of predefined format variables:\n" +
+                "{PageNumber} - page number, in source image file\n" +
+                "{PageIndex} - page index, in source image file\n" +
+                "{ImageNumber} - image number, in image collection\n" +
+                "{ImageIndex} - image index, in image collection\n" +
+                "{Filename} - filename without directory\n" +
+                "{FullFilename} - full filename\n" +
+                "{DirectoryName} - directory name\n" +
+                "{DecoderName} - decoder name\n" +
+                "{ImageWidthPx} - source image width, in pixels\n" +
+                "{ImageHeightPx} - source image height, in pixels\n" +
+                "{ImageSizeMpx} - source image size, in megapixels\n" +
+                "{ImageHRes} - source image horizontal resolution, in DPI\n" +
+                "{ImageVRes} - source image vertical resolution, in DPI\n" +
+                "{ImageBitsPerPixel} - source image bits per pixel",
+                "ThumbnailCaption.CaptionFormat property");
+        }
+
+        #endregion
+
 
         /// <summary>
         /// Shows the settings of thumbnail viewer.
@@ -182,44 +291,29 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// "OK" button is clicked.
+        /// Returns the selected appearance.
         /// </summary>
-        private void buttonOk_Click(object sender, EventArgs e)
-        {
-            if (SetSettings())
-                DialogResult = DialogResult.OK;
-        }
-
-        /// <summary>
-        /// "Cancel" button is clicked.
-        /// </summary>
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-        }
-
-        /// <summary>
-        /// Selected appearance of thumbnail is changed.
-        /// </summary>
-        private void thumbnailAppearanceComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private ThumbnailAppearance GetSelectedAppearance()
         {
             switch (thumbnailAppearanceComboBox.SelectedIndex)
             {
                 case 0:
-                    InitAppearance(_normalThumbnailAppearance);
-                    break;
+                    return _normalThumbnailAppearance;
+
                 case 1:
-                    InitAppearance(_focusedThumbnailAppearance);
-                    break;
+                    return _focusedThumbnailAppearance;
+
                 case 2:
-                    InitAppearance(_hoveredThumbnailAppearance);
-                    break;
+                    return _hoveredThumbnailAppearance;
+
                 case 3:
-                    InitAppearance(_selectedThumbnailAppearance);
-                    break;
+                    return _selectedThumbnailAppearance;
+
                 case 4:
-                    InitAppearance(_notReadyThumbnailAppearance);
-                    break;
+                    return _notReadyThumbnailAppearance;
+
+                default:
+                    throw new NotSupportedException();
             }
         }
 
@@ -233,97 +327,6 @@ namespace DemosCommonCode.Imaging
             thumbnailAppearanceBorderColorPanelControl.Color = thumbnailAppearance.BorderColor;
             borderWidthValueLabel.Text = thumbnailAppearance.BorderWidth.ToString();
             borderStyleValueLabel.Text = thumbnailAppearance.BorderStyle.ToString();
-        }
-
-        /// <summary>
-        /// Edits settings of the appearance.
-        /// </summary>
-        private void editThumbnailAppearanceButton_Click(object sender, EventArgs e)
-        {
-            ThumbnailAppearance appearance = null;
-            switch (thumbnailAppearanceComboBox.SelectedIndex)
-            {
-                case 0:
-                    appearance = _normalThumbnailAppearance;
-                    break;
-                case 1:
-                    appearance = _focusedThumbnailAppearance;
-                    break;
-                case 2:
-                    appearance = _hoveredThumbnailAppearance;
-                    break;
-                case 3:
-                    appearance = _selectedThumbnailAppearance;
-                    break;
-                case 4:
-                    appearance = _notReadyThumbnailAppearance;
-                    break;
-            }
-
-            ThumbnailAppearanceSettingsForm thumbnailAppearanceSettingsDialog =
-                new ThumbnailAppearanceSettingsForm(appearance);
-
-            if (thumbnailAppearanceSettingsDialog.ShowDialog() == DialogResult.OK)
-                InitAppearance(appearance);
-        }
-
-        /// <summary>
-        /// The flow style of thumbnail viewer is changed.
-        /// </summary>
-        private void thumbnailFlowStyleComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if ((ThumbnailFlowStyle)thumbnailFlowStyleComboBox.SelectedItem == ThumbnailFlowStyle.FixedColumns)
-            {
-                thumbnailColumnsCountComboBox.Enabled = true;
-            }
-            else
-            {
-                thumbnailColumnsCountComboBox.Enabled = false;
-            }
-        }
-
-        /// <summary>
-        /// The thumbnail caption visibility is changed.
-        /// </summary>
-        private void captionIsVisibleCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            thumbnailCaptionGroupBox.Enabled = captionIsVisibleCheckBox.Checked;
-        }
-
-        /// <summary>
-        /// Shows the dialog for editing the font of the thumbnail caption.
-        /// </summary>
-        private void captionFontSelectButton_Click(object sender, EventArgs e)
-        {
-            captionFontDialog.ShowDialog();
-        }
-
-        /// <summary>
-        /// Shows information about ThumbnailCaption.CaptionFormat property.
-        /// </summary>
-        private void captionFormatHelpButton_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(
-                "Examples:\n" +
-                "'File {Filename}, page {PageNumber}'\n" +
-                "'{ImageSizeMpx:f2} MPX'\n" +
-                "\n" +
-                "List of predefined format variables:\n" +
-                "{PageNumber} - page number, in source image file\n" +
-                "{PageIndex} - page index, in source image file\n" +
-                "{ImageNumber} - image number, in image collection\n" +
-                "{ImageIndex} - image index, in image collection\n" +
-                "{Filename} - filename without directory\n" +
-                "{FullFilename} - full filename\n" +
-                "{DirectoryName} - directory name\n" +
-                "{DecoderName} - decoder name\n" +
-                "{ImageWidthPx} - source image width, in pixels\n" +
-                "{ImageHeightPx} - source image height, in pixels\n" +
-                "{ImageSizeMpx} - source image size, in megapixels\n" +
-                "{ImageHRes} - source image horizontal resolution, in DPI\n" +
-                "{ImageVRes} - source image vertical resolution, in DPI\n" +
-                "{ImageBitsPerPixel} - source image bits per pixel",
-                "ThumbnailCaption.CaptionFormat property");
         }
 
         #endregion

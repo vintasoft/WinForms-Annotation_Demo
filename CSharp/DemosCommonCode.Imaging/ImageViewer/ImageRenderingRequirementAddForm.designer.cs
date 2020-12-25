@@ -31,7 +31,7 @@ namespace DemosCommonCode.Imaging
             this.okButton = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.codecComboBox = new System.Windows.Forms.ComboBox();
-            this.megapixelsComboBox = new System.Windows.Forms.ComboBox();
+            this.imageSizeComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -69,8 +69,8 @@ namespace DemosCommonCode.Imaging
             // 
             // megapixelsComboBox
             // 
-            this.megapixelsComboBox.FormattingEnabled = true;
-            this.megapixelsComboBox.Items.AddRange(new object[] {
+            this.imageSizeComboBox.FormattingEnabled = true;
+            this.imageSizeComboBox.Items.AddRange(new object[] {
             "0.5",
             "1",
             "5",
@@ -78,11 +78,11 @@ namespace DemosCommonCode.Imaging
             "25",
             "50",
             "100"});
-            this.megapixelsComboBox.Location = new System.Drawing.Point(133, 39);
-            this.megapixelsComboBox.Name = "megapixelsComboBox";
-            this.megapixelsComboBox.Size = new System.Drawing.Size(121, 21);
-            this.megapixelsComboBox.TabIndex = 3;
-            this.megapixelsComboBox.TextChanged += new System.EventHandler(this.megapixelsComboBox_TextChanged);
+            this.imageSizeComboBox.Location = new System.Drawing.Point(133, 39);
+            this.imageSizeComboBox.Name = "megapixelsComboBox";
+            this.imageSizeComboBox.Size = new System.Drawing.Size(121, 21);
+            this.imageSizeComboBox.TabIndex = 3;
+            this.imageSizeComboBox.TextChanged += new System.EventHandler(this.imageSizeComboBox_TextChanged);
             // 
             // label1
             // 
@@ -120,13 +120,14 @@ namespace DemosCommonCode.Imaging
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.megapixelsComboBox);
+            this.Controls.Add(this.imageSizeComboBox);
             this.Controls.Add(this.codecComboBox);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.okButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "ImageRenderingRequirementAddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Image Rendering Requirement Add";
@@ -140,7 +141,7 @@ namespace DemosCommonCode.Imaging
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.ComboBox codecComboBox;
-        private System.Windows.Forms.ComboBox megapixelsComboBox;
+        private System.Windows.Forms.ComboBox imageSizeComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

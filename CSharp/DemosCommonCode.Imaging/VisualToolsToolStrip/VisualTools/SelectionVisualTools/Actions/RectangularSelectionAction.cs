@@ -73,6 +73,8 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// The visual tool selection is changed.
         /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="SelectionChangedEventArgs"/> instance containing the event data.</param>
         private void RectangularSelectionTool_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SetStatus(ConvertRectangleToString(e.Rectangle));

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging;
@@ -45,16 +45,19 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
 
 #if !REMOVE_PDF_PLUGIN
             PdfDocumentConformance[] conformances = new PdfDocumentConformance[] {
-                 PdfDocumentConformance.PdfA_1b,
-                 PdfDocumentConformance.PdfA_2b,
-                 PdfDocumentConformance.PdfA_3b,
                  PdfDocumentConformance.PdfA_1a,
+                 PdfDocumentConformance.PdfA_1b,
                  PdfDocumentConformance.PdfA_2a,
-                 PdfDocumentConformance.PdfA_3a};
+                 PdfDocumentConformance.PdfA_2b,
+                 PdfDocumentConformance.PdfA_2u,
+                 PdfDocumentConformance.PdfA_3a,
+                 PdfDocumentConformance.PdfA_3b,
+                 PdfDocumentConformance.PdfA_3u,
+            };
             foreach (PdfDocumentConformance conformance in conformances)
                 conformanceComboBox.Items.Add(ConvertToString(conformance));
 
-            conformanceComboBox.SelectedIndex = 0;
+            conformanceComboBox.SelectedIndex = 1;
 
             // if PDF encoder cannot generate annotation appearance in PDF document
             if (!PdfEncoder.CanGeneratePdfAnnotationAppearance)
@@ -319,7 +322,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         #region PROTECTED
 
         /// <summary>
-        /// Form is loaded.
+        /// Creates the encoder settings.
         /// </summary>
         protected override void OnLoad(EventArgs e)
         {
@@ -330,7 +333,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Form is shown.
+        /// Removes the annotations tab page.
         /// </summary>
         protected override void OnShown(EventArgs e)
         {
@@ -348,27 +351,34 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
 
         #region PRIVATE
 
+        #region UI
+
         /// <summary>
-        /// 'Append to existing document' checkbox state is changed.
+        /// Handles the CheckedChanged event of AppendCheckBox object.
         /// </summary>
         private void appendCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            pdfaCheckBox.Enabled = !appendCheckBox.Checked;
             if (appendCheckBox.Checked)
+            {
+                pdfaCheckBox.Enabled = false;
                 pdfaCheckBox.Checked = false;
+            }
+            else
+            {
+                pdfaCheckBox.Enabled = true;
+            }
         }
 
         /// <summary>
-        /// 'Cancel' button is pressed.
+        /// Handles the Click event of ButtonCancel object.
         /// </summary>
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
         }
 
-
         /// <summary>
-        /// 'OK' button is pressed.
+        /// Handles the Click event of ButtonOk object.
         /// </summary>
         private void buttonOk_Click(object sender, EventArgs e)
         {
@@ -376,6 +386,21 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
 
             DialogResult = DialogResult.OK;
         }
+
+        /// <summary>
+        /// Handles the CheckedChanged event of PdfaCheckBox object.
+        /// </summary>
+        private void pdfaCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            // if PDF must be compatible to PDF/A
+            if (pdfaCheckBox.Checked)
+                conformanceComboBox.Enabled = true;
+            else
+                conformanceComboBox.Enabled = false;
+        }
+
+        #endregion
+
 
         /// <summary>
         /// Updates the user interface of this form.
@@ -541,18 +566,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
 #endif
 
         /// <summary>
-        /// "PDF/A Compatible" checkbox state is changed.
-        /// </summary>
-        private void pdfaCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (pdfaCheckBox.Checked)
-                conformanceComboBox.Enabled = true;
-            else
-                conformanceComboBox.Enabled = false;
-        }
-
-        /// <summary>
-        /// Updates User Interface.
+        /// Updates the user interface of this form.
         /// </summary>
         private void UpdateUI_Handler(object sender, EventArgs e)
         {

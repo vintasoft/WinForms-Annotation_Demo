@@ -55,24 +55,14 @@ namespace DemosCommonCode.Imaging
         bool _isPageChanging;
 
         /// <summary>
-        /// X coordinate of autoscroll position of previous focused image.
+        /// X coordinate of autoscroll position of previously focused image.
         /// </summary>
-        float _previousFocusedImageAutoScrollPositionX;
+        float _previouslyFocusedImageAutoScrollPositionX;
 
         /// <summary>
-        /// Width of previous focused image.
+        /// Width of previously focused image.
         /// </summary>
-        int _previousFocusedImageWidth;
-
-        /// <summary>
-        /// A value indication whether the scroll was changed by user.
-        /// </summary>
-        bool _isScrollChangedByUser = true;
-
-        /// <summary>
-        /// A value indication whether the scroll was changed by visual tool.
-        /// </summary>
-        bool _isScrollChangedByTool = false;
+        int _previouslyFocusedImageWidth;
 
         #endregion
 
@@ -108,6 +98,9 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Gets or sets the scroll step size, in pixels, of this tool.
         /// </summary>
+        /// <value>
+        /// Default value is <b>50</b>.
+        /// </value>
         [Description("The scroll step size in pixels.")]
         [DefaultValue(50)]
         public int ScrollStep
@@ -126,28 +119,6 @@ namespace DemosCommonCode.Imaging
             }
         }
 
-        bool _usePreviousImageAnchorWhenScrolling = false;
-        /// <summary>
-        /// Gets or sets a value which determines whether save scroll position by image.
-        /// </summary>
-        /// <value>
-        /// <b>True</b> - image viewer must use the anchor of previous image when image viewer is scrolled;
-        /// <b>false</b> - image viewer must NOT use the anchor of previous image when image viewer is scrolled.
-        /// </value>
-        [Description("Indicates that image viewer must use the anchor of previous image when image viewer is scrolled.")]
-        [DefaultValue(false)]
-        public bool UsePreviousImageAnchorWhenScrolling
-        {
-            get
-            {
-                return _usePreviousImageAnchorWhenScrolling;
-            }
-            set
-            {
-                _usePreviousImageAnchorWhenScrolling = value;
-            }
-        }
-
         #endregion
 
 
@@ -157,9 +128,10 @@ namespace DemosCommonCode.Imaging
         #region PROTECTED
 
         /// <summary>
-        /// Raises the MouseWheel event.
+        /// Raises the <see cref="E:MouseWheel" /> event.
         /// </summary>
-        /// <param name="e">A <see cref="VisualToolMouseEventArgs"/> that contains the event data.</param>
+        /// <param name="e">The <see cref="VisualToolMouseEventArgs" /> instance
+        /// containing the event data.</param>
         protected override void OnMouseWheel(VisualToolMouseEventArgs e)
         {
             if (!Enabled)
@@ -173,38 +145,6 @@ namespace DemosCommonCode.Imaging
             e.Handled = true;
         }
 
-        /// <summary> 
-        /// Raises the Activated event.
-        /// </summary>
-        protected override void OnActivated(EventArgs e)
-        {
-            ImageViewer.Scroll += new ScrollEventHandler(ImageViewer_Scroll);
-            ImageViewer.FocusedIndexChanged += new EventHandler<Vintasoft.Imaging.UI.FocusedIndexChangedEventArgs>(ImageViewer_FocusedIndexChanged);
-
-            Point imageViewerCenter = new Point(ImageViewer.ClientSize.Width / 2, ImageViewer.ClientSize.Height / 2);
-            if (ImageViewer.GetImageIndexByLocation(imageViewerCenter) == ImageViewer.FocusedIndex)
-            {
-                _isScrollChangedByUser = false;
-            }
-            else
-            {
-                _isScrollChangedByUser = true;
-            }
-
-            base.OnActivated(e);
-        }
-
-        /// <summary> 
-        /// Raises the Deactivated event.
-        /// </summary>
-        protected override void OnDeactivated(EventArgs e)
-        {
-            ImageViewer.Scroll -= ImageViewer_Scroll;
-            ImageViewer.FocusedIndexChanged -= ImageViewer_FocusedIndexChanged;
-
-            base.OnDeactivated(e);
-        }
-
         #endregion
 
 
@@ -213,7 +153,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Scrolls the current page.
         /// </summary>
-        /// <param name="e">A MouseEventArgs that contains the event data.</param>
+        /// <param name="e">The <see cref="MouseEventArgs" /> instance containing the event data.</param>
         private void Scroll(MouseEventArgs e)
         {
             if (!Enabled)
@@ -224,35 +164,19 @@ namespace DemosCommonCode.Imaging
 
             int delta = e.Delta;
 
-
             if (delta <= 0)
-            {
                 Scroll(_scrollStep);
-            }
             else
-            {
                 Scroll(-_scrollStep);
-            }
-
-            _isScrollChangedByTool = true;
-        }
-
-        /// <summary>
-        /// Image viewer scroll is changed.
-        /// </summary>
-        private void ImageViewer_Scroll(object sender, ScrollEventArgs e)
-        {
-            if (!_isScrollChangedByTool)
-                _isScrollChangedByUser = true;
-
-            _isScrollChangedByTool = false;
         }
 
         /// <summary>
         /// Returns center point of image viewer in coordinate space of specified image.
         /// </summary>
         /// <param name="image">An image.</param>
-        /// <returns>Center point of image viewer in coordinate space of specified image.</returns>
+        /// <returns>
+        /// Center point of image viewer in coordinate space of specified image.
+        /// </returns>
         private PointF GetCenterPoint(VintasoftImage image)
         {
             // get old visible point
@@ -279,7 +203,7 @@ namespace DemosCommonCode.Imaging
 
             // get the visible image rectangle in image viewer
             RectangleF imageVisibleRect;
-            if (ImageViewer.IsMultipageDisplayMode && !UsePreviousImageAnchorWhenScrolling)
+            if (ImageViewer.IsMultipageDisplayMode)
             {
                 imageVisibleRect = ImageViewer.ClientRectangle;
             }
@@ -290,7 +214,7 @@ namespace DemosCommonCode.Imaging
 
             // get the image rectangle in image viewer
             RectangleF imageRect;
-            if (ImageViewer.IsMultipageDisplayMode && !UsePreviousImageAnchorWhenScrolling)
+            if (ImageViewer.IsMultipageDisplayMode)
             {
                 imageRect = focusedImageViewerState.ImageBoundingBox;
             }
@@ -342,13 +266,14 @@ namespace DemosCommonCode.Imaging
             bool scrollForward = true;
             _scrollAction = ScrollAction.MoveToNextPage;
             Vintasoft.Imaging.UI.AnchorType imageEdge = Vintasoft.Imaging.UI.AnchorType.Bottom;
+
             // if scroll step size is negative 
             if (scrollStepSize < 0)
             {
                 // change the scroll direction
                 scrollForward = false;
                 _scrollAction = ScrollAction.MoveToPreviousPage;
-                imageEdge = Vintasoft.Imaging.UI.AnchorType.Top;
+                imageEdge = Invert(imageEdge);
             }
 
             // get new scroll step size according to the focused image resolution
@@ -378,39 +303,9 @@ namespace DemosCommonCode.Imaging
                 // if image viewer is in multipage mode
                 if (ImageViewer.IsMultipageDisplayMode)
                 {
-                    // get the center point of previous focused image
-                    PointF previousFocusedImageCenterPoint = GetCenterPoint(ImageViewer.Image);
-                    // anchor of previous focused image
-                    Vintasoft.Imaging.UI.AnchorType previousFocusedImageAnchor = Vintasoft.Imaging.UI.AnchorType.None;
-                    // X coordinate of center point of previous focused image bounding box
-                    float previousFocusedImageBoundingBoxCenterX = 0;
-                    // width of previous focused image bounding box
-                    float previousFocusedImageBoundingBoxWidth = 0;
-
-                    // get the scroll point of previous focused image
-                    PointF previousImageScrollPoint = GetPreviousFocusedImageScrollPoint(
-                        scrollForward,
-                        previousFocusedImageCenterPoint,
-                        ref previousFocusedImageAnchor,
-                        ref previousFocusedImageBoundingBoxCenterX,
-                        ref previousFocusedImageBoundingBoxWidth);
-
                     // change focused image
                     ChangeFocusedImage(newFocusedIndex);
 
-                    // get the scroll point of new focused image
-                    PointF newFocusedImageScrollPoint = GetNewFocusedImageScrollPoint(
-                        scrollForward,
-                        newScrollStepSize,
-                        previousImageScrollPoint,
-                        ref previousFocusedImageAnchor,
-                        previousFocusedImageBoundingBoxCenterX,
-                        previousFocusedImageBoundingBoxWidth);
-
-                    // scroll to the scroll point on new focused image
-                    ImageViewer.ScrollToPoint(newFocusedImageScrollPoint, previousFocusedImageAnchor);
-
-                    _scrollAction = ScrollAction.None;
                     _isPageChanging = false;
                 }
                 // if image viewer is in single page mode
@@ -418,32 +313,82 @@ namespace DemosCommonCode.Imaging
                 {
                     ImageViewer.ImageLoading += new EventHandler<ImageLoadingEventArgs>(ImageViewer_ImageLoading);
                     // save information about previous focused image
-                    _previousFocusedImageAutoScrollPositionX = ImageViewer.ViewerState.AutoScrollPosition.X;
-                    _previousFocusedImageWidth = ImageViewer.Image.Width;
+                    _previouslyFocusedImageAutoScrollPositionX = ImageViewer.ViewerState.AutoScrollPosition.X;
+                    _previouslyFocusedImageWidth = ImageViewer.Image.Width;
                     // change focused index
                     ChangeFocusedImage(newFocusedIndex);
                 }
             }
-            // if edge (top/bottom) of image is not visible
-            else
+
+            // get the center point of previous focused image
+            PointF previousFocusedImageCenterPoint = GetCenterPoint(ImageViewer.Image);
+
+            // get the scroll point of new focused image
+            PointF newFocusedImageScrollPoint;
+
+            switch (ImageViewer.ImageRotationAngle)
             {
-                // get the center point of previous focused image
-                PointF previousFocusedImageCenterPoint = GetCenterPoint(ImageViewer.Image);
+                case 90:
+                    newFocusedImageScrollPoint = new PointF(
+                        previousFocusedImageCenterPoint.X + newScrollStepSize,
+                        previousFocusedImageCenterPoint.Y);
+                    break;
 
-                // get the scroll point of new focused image
-                PointF newFocusedImageScrollPoint = new PointF(
-                    previousFocusedImageCenterPoint.X,
-                    previousFocusedImageCenterPoint.Y + newScrollStepSize);
+                case 180:
+                    newFocusedImageScrollPoint = new PointF(
+                        previousFocusedImageCenterPoint.X,
+                        previousFocusedImageCenterPoint.Y - newScrollStepSize);
+                    break;
 
-                // scroll to the scroll point on new focused image
-                ImageViewer.ScrollToPoint(newFocusedImageScrollPoint,
-                        Vintasoft.Imaging.UI.AnchorType.Bottom |
-                        Vintasoft.Imaging.UI.AnchorType.Left |
-                        Vintasoft.Imaging.UI.AnchorType.Right |
-                        Vintasoft.Imaging.UI.AnchorType.Top);
+                case 270:
+                    newFocusedImageScrollPoint = new PointF(
+                        previousFocusedImageCenterPoint.X - newScrollStepSize,
+                        previousFocusedImageCenterPoint.Y);
+                    break;
 
-                _scrollAction = ScrollAction.None;
-                SetFocusToVisibleImage();
+                default:
+                    newFocusedImageScrollPoint = new PointF(
+                        previousFocusedImageCenterPoint.X,
+                        previousFocusedImageCenterPoint.Y + newScrollStepSize);
+                    break;
+            }
+
+            // scroll to the scroll point on new focused image
+            ImageViewer.ScrollToPoint(newFocusedImageScrollPoint,
+                    Vintasoft.Imaging.UI.AnchorType.Bottom |
+                    Vintasoft.Imaging.UI.AnchorType.Left |
+                    Vintasoft.Imaging.UI.AnchorType.Right |
+                    Vintasoft.Imaging.UI.AnchorType.Top);
+
+            _scrollAction = ScrollAction.None;
+            SetFocusToVisibleImage();
+        }
+
+        /// <summary>
+        /// Inverts the specified anchor.
+        /// </summary>
+        /// <param name="anchor">The anchor.</param>
+        /// <returns>
+        /// The inverted value.
+        /// </returns>
+        private Vintasoft.Imaging.UI.AnchorType Invert(Vintasoft.Imaging.UI.AnchorType anchor)
+        {
+            switch (anchor)
+            {
+                case Vintasoft.Imaging.UI.AnchorType.Top:
+                    return Vintasoft.Imaging.UI.AnchorType.Bottom;
+
+                case Vintasoft.Imaging.UI.AnchorType.Bottom:
+                    return Vintasoft.Imaging.UI.AnchorType.Top;
+
+                case Vintasoft.Imaging.UI.AnchorType.Left:
+                    return Vintasoft.Imaging.UI.AnchorType.Right;
+
+                case Vintasoft.Imaging.UI.AnchorType.Right:
+                    return Vintasoft.Imaging.UI.AnchorType.Left;
+
+                default:
+                    throw new NotImplementedException();
             }
         }
 
@@ -459,187 +404,10 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Returns the scroll point of previous focused image.
-        /// </summary>
-        /// <param name="scrollForward">A value, which determines that the image viewer must be scrolled forward.</param>
-        /// <param name="previousFocusedImageCenterPoint">The center point of previous focused image.</param>
-        /// <param name="previousFocusedImageAnchor">The anchor of previous focused image.</param>
-        /// <param name="previousFocusedImageBoundingBoxCenterX">X coordinate of center point of previous focused image bounding box.</param>
-        /// <param name="previousFocusedImageBoundingBoxWidth">The width of previous focused image bounding box.</param>
-        /// <returns>The scroll point of previous focused image.</returns>
-        private PointF GetPreviousFocusedImageScrollPoint(
-            bool scrollForward,
-            PointF previousFocusedImageCenterPoint,
-            ref Vintasoft.Imaging.UI.AnchorType previousFocusedImageAnchor,
-            ref float previousFocusedImageBoundingBoxCenterX,
-            ref float previousFocusedImageBoundingBoxWidth)
-        {
-            int newFocusedIndex = ImageViewer.FocusedIndex;
-            if (scrollForward)
-                newFocusedIndex++;
-            else
-                newFocusedIndex--;
-
-            VintasoftImage previousFocusedImage = ImageViewer.Image;
-            VintasoftImage newFocusedImage = ImageViewer.Images[newFocusedIndex];
-
-            PointF previousImageScrollPoint = previousFocusedImageCenterPoint;
-
-            // if image viewer must use the anchor of previous focused image when image viewer is scrolled
-            if (UsePreviousImageAnchorWhenScrolling)
-            {
-                // if left edge of previous focused image is visible
-                if (GetIsImageEdgeVisible(previousFocusedImage, Vintasoft.Imaging.UI.AnchorType.Left))
-                {
-                    // save information about anchor of previous focused image
-                    previousFocusedImageAnchor = Vintasoft.Imaging.UI.AnchorType.Left;
-                    // save information scroll point of new focused image 
-                    previousImageScrollPoint.X = 0;
-                }
-                // if right edge of previous focused image is visible
-                else if (GetIsImageEdgeVisible(previousFocusedImage, Vintasoft.Imaging.UI.AnchorType.Right))
-                {
-                    // save information about anchor of previous focused image
-                    previousFocusedImageAnchor = Vintasoft.Imaging.UI.AnchorType.Right;
-                    // save information scroll point of new focused image 
-                    previousImageScrollPoint.X = newFocusedImage.Width;
-                }
-                // if left/right edges of previous focused image are not visible
-                else
-                {
-                    // save information scroll point of new focused image 
-                    previousImageScrollPoint.X = previousFocusedImageCenterPoint.X *
-                        newFocusedImage.Width / previousFocusedImage.Width;
-                }
-            }
-            // if image viewer must NOT use the anchor of previous focused image when image viewer is scrolled
-            else 
-            {
-                // if display mode is single continuous row
-                // and left and right edges of previous focused image is visible
-                if (ImageViewer.DisplayMode == Vintasoft.Imaging.UI.ImageViewerDisplayMode.SingleContinuousRow &&
-                    GetIsImageEdgeVisible(previousFocusedImage, Vintasoft.Imaging.UI.AnchorType.Left) &&
-                    GetIsImageEdgeVisible(previousFocusedImage, Vintasoft.Imaging.UI.AnchorType.Right))
-                {
-                    // if scroll moves forward
-                    if (scrollForward)
-                    {
-                        previousImageScrollPoint.X = 0;
-                        previousFocusedImageAnchor = Vintasoft.Imaging.UI.AnchorType.Left;
-                    }
-                    // if scroll moves backward
-                    else
-                    {
-                        previousImageScrollPoint.X = newFocusedImage.Width;
-                        previousFocusedImageAnchor = Vintasoft.Imaging.UI.AnchorType.Right;
-                    }
-                }
-                else
-                {
-                    // get X coordinate of the viewer center
-                    float viewerCenterPointX = ImageViewer.ClientSize.Width / 2.0f;
-
-                    // get image viewer state for focused image
-                    Vintasoft.Imaging.UI.ImageViewerState focusedImageViewerState = ImageViewer.GetViewerState(previousFocusedImage);
-                    // get width of focused image bounding box
-                    previousFocusedImageBoundingBoxWidth = focusedImageViewerState.ImageBoundingBox.Width;
-                    // get X coordinate of central point for next image
-                    previousFocusedImageBoundingBoxCenterX = viewerCenterPointX - focusedImageViewerState.ImageBoundingBox.X;
-                }
-            }
-             
-            return previousImageScrollPoint;
-        }
-
-        /// <summary>
-        /// Returns the scroll point of new focused image.
-        /// </summary>
-        /// <param name="scrollForward">A value, which determines the direction of scrolling.</param>
-        /// <param name="scrollStepSize">A scroll step size.</param>
-        /// <param name="previousImageScrollPoint">The scroll point of previous focused image.</param>
-        /// <param name="scrollAnchor">An anchor to scroll.</param>
-        /// <param name="previousFocusedImageBoundingBoxCenterX">X coordinate of center point of previous focused image bounding box.</param>
-        /// <param name="previousFocusedImageBoundingBoxWidth">The width of previous focused image bounding box.</param>
-        /// <returns>The scroll point of new focused image.</returns>
-        private PointF GetNewFocusedImageScrollPoint(
-            bool scrollForward,
-            float scrollStepSize,
-            PointF previousImageScrollPoint,
-            ref Vintasoft.Imaging.UI.AnchorType scrollAnchor,
-            float previousFocusedImageBoundingBoxCenterX,
-            float previousFocusedImageBoundingBoxWidth)
-        {
-            PointF newFocusedImageScrollPoint = previousImageScrollPoint;
-
-            // if image viewer must NOT use the anchor of previous image when image viewer is scrolled
-            if (!UsePreviousImageAnchorWhenScrolling)
-            {
-                // get image viewer state for the focused image
-                Vintasoft.Imaging.UI.ImageViewerState focusedImageViewerState = ImageViewer.GetViewerState(ImageViewer.Image);
-
-                // get X coordinate of bounding box for focused image
-                float focusedImageBoundingBoxXCoord = focusedImageViewerState.ImageBoundingBox.X;
-                previousFocusedImageBoundingBoxCenterX = previousFocusedImageBoundingBoxCenterX *
-                    focusedImageViewerState.ImageBoundingBox.Width / previousFocusedImageBoundingBoxWidth;
-
-                // calculate the scroll point of new focused image
-                focusedImageBoundingBoxXCoord += previousFocusedImageBoundingBoxCenterX;
-                AffineMatrix transformToNewImageSpace = ImageViewer.GetTransformFromControlToImage();
-                newFocusedImageScrollPoint = PointFAffineTransform.TransformPoint(transformToNewImageSpace, new PointF(focusedImageBoundingBoxXCoord, 0));
-            }
-
-            // if row count is greater than 1
-            // or layout direction is horizontal
-            if (ImageViewer.MultipageDisplayRowCount > 1 ||
-                ImageViewer.MultipageDisplayLayoutDirection == Vintasoft.Imaging.UI.ImagesLayoutDirection.Horizontal)
-            {
-                // if scroll moves forward
-                if (scrollForward)
-                {
-                    newFocusedImageScrollPoint.Y = 0;
-                    scrollAnchor |= Vintasoft.Imaging.UI.AnchorType.Top;
-                }
-                // if scroll moves backward
-                else
-                {
-                    newFocusedImageScrollPoint.Y = ImageViewer.Image.Height;
-                    scrollAnchor |= Vintasoft.Imaging.UI.AnchorType.Bottom;
-                }
-            }
-            else
-            {
-                // get index of previous focused image
-                int previousFocusedImageIndex = ImageViewer.FocusedIndex;
-                // if scroll moves forward
-                if (scrollForward)
-                    previousFocusedImageIndex--;
-                // if scroll moves backward
-                else
-                    previousFocusedImageIndex++;
-
-                // get transform from previous focused image to new focused image
-                AffineMatrix transformFromPreviousImageToFocusedImage = 
-                    ImageViewer.GetTransformFromFocusedImageToImage(ImageViewer.Images[previousFocusedImageIndex]);
-                transformFromPreviousImageToFocusedImage.Invert();
-
-                // get Y coordinate of previous scroll point in focused image space
-                newFocusedImageScrollPoint.Y = PointFAffineTransform.TransformPoint(
-                    transformFromPreviousImageToFocusedImage, new PointF(0, previousImageScrollPoint.Y)).Y;
-                // calculate scroll point for new focused image
-                newFocusedImageScrollPoint.Y += scrollStepSize;
-                // get scroll anchor
-                scrollAnchor = Vintasoft.Imaging.UI.AnchorType.Bottom |
-                        Vintasoft.Imaging.UI.AnchorType.Left |
-                        Vintasoft.Imaging.UI.AnchorType.Right |
-                        Vintasoft.Imaging.UI.AnchorType.Top;
-            }
-
-            return newFocusedImageScrollPoint;
-        }
-
-        /// <summary>
         /// Image is loading in image viewer.
         /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="ImageLoadingEventArgs"/> instance containing the event data.</param>
         private void ImageViewer_ImageLoading(object sender, ImageLoadingEventArgs e)
         {
             // if scrolling is in progress
@@ -651,8 +419,8 @@ namespace DemosCommonCode.Imaging
                 float autoScrollPositionY;
 
                 // autoScrollPositionX
-                float proportion = (float)ImageViewer.Image.Width / _previousFocusedImageWidth;
-                autoScrollPositionX = _previousFocusedImageAutoScrollPositionX * proportion;
+                float proportion = (float)ImageViewer.Image.Width / _previouslyFocusedImageWidth;
+                autoScrollPositionX = _previouslyFocusedImageAutoScrollPositionX * proportion;
 
                 // autoScrollPositionY
                 switch (_scrollAction)
@@ -684,51 +452,43 @@ namespace DemosCommonCode.Imaging
         /// </remarks>
         private void SetFocusToVisibleImage()
         {
-            // if scroll is changed by user
-            if (_isScrollChangedByUser)
+            // if focused image is not visible
+            if (ImageViewer.ViewerState.ImageVisibleRect == RectangleF.Empty)
             {
-                // if focused image is not visible
-                if (ImageViewer.ViewerState.ImageVisibleRect == RectangleF.Empty)
+                // get visible images
+                VintasoftImage[] visibleImages = ImageViewer.GetVisibleImages();
+
+                // get central point of image viewer
+                PointF centerPoint = new PointF(ImageViewer.ClientSize.Width / 2.0f, ImageViewer.ClientSize.Height / 2.0f);
+
+                float minDistance = ImageViewer.ClientSize.Width * ImageViewer.ClientSize.Width +
+                    ImageViewer.ClientSize.Height * ImageViewer.ClientSize.Height;
+                VintasoftImage minDistanceImage = null;
+
+                // for each visible image
+                foreach (VintasoftImage image in visibleImages)
                 {
-                    // get visible images
-                    VintasoftImage[] visibleImages = ImageViewer.GetVisibleImages();
+                    // calculate distance between central point and image rectangle
+                    float distanceBetweenImageAndPoint = GetDistanceBetweenPointAndImageRect(centerPoint, image);
 
-                    // get central point of image viewer
-                    PointF centerPoint = new PointF(ImageViewer.ClientSize.Width / 2.0f, ImageViewer.ClientSize.Height / 2.0f);
-
-                    float minDistance = ImageViewer.ClientSize.Width * ImageViewer.ClientSize.Width +
-                        ImageViewer.ClientSize.Height * ImageViewer.ClientSize.Height;
-                    VintasoftImage minDistanceImage = null;
-
-                    // for each visible image
-                    foreach (VintasoftImage image in visibleImages)
+                    if (distanceBetweenImageAndPoint < minDistance)
                     {
-                        // calculate distance between central point and image rectangle
-                        float distanceBetweenImageAndPoint = GetDistanceBetweenPointAndImageRect(centerPoint, image);
-
-                        if (distanceBetweenImageAndPoint < minDistance)
-                        {
-                            minDistance = distanceBetweenImageAndPoint;
-                            minDistanceImage = image;
-                        }
-                    }
-
-                    // if there is visible image
-                    if (minDistanceImage != null)
-                    {
-                        _isPageChanging = true;
-                        // get index of visible image
-                        int indexOfVisibleImage = ImageViewer.Images.IndexOf(minDistanceImage);
-
-                        // set focus to visible image
-                        ChangeFocusedImage(indexOfVisibleImage);
-
-                        _isPageChanging = false;
+                        minDistance = distanceBetweenImageAndPoint;
+                        minDistanceImage = image;
                     }
                 }
-                else
+
+                // if there is visible image
+                if (minDistanceImage != null)
                 {
-                    _isScrollChangedByUser = false;
+                    _isPageChanging = true;
+                    // get index of visible image
+                    int indexOfVisibleImage = ImageViewer.Images.IndexOf(minDistanceImage);
+
+                    // set focus to visible image
+                    ChangeFocusedImage(indexOfVisibleImage);
+
+                    _isPageChanging = false;
                 }
             }
         }
@@ -770,17 +530,6 @@ namespace DemosCommonCode.Imaging
             float distanceBetweenImageAndPoint = dx * dx + dy * dy;
 
             return distanceBetweenImageAndPoint;
-        }
-
-        /// <summary>
-        /// Focused index is changed in image viewer.
-        /// </summary>
-        private void ImageViewer_FocusedIndexChanged(object sender, Vintasoft.Imaging.UI.FocusedIndexChangedEventArgs e)
-        {
-            // if visual tool is enabled
-            if (Enabled)
-                // specify that scroll is changed not by user
-                _isScrollChangedByUser = false;
         }
 
         #endregion

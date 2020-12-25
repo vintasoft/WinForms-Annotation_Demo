@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Windows.Forms;
 using Vintasoft.Imaging.Codecs.Encoders;
 using Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000;
@@ -30,7 +29,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PdfMrcCompressionControl"/> class.
+        /// Initializes a new instance of the <see cref="PdfImageCompressionControl"/> class.
         /// </summary>
         public PdfImageCompressionControl()
         {
@@ -142,12 +141,15 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
 
         #region Methods
 
+        #region UI
+
         /// <summary>
-        /// Compression type is changed.
+        /// Handles the CheckedChanged event of CompressionRadioButton object.
         /// </summary>
         private void compressionRadioButton_CheckedChanged(object sender, EventArgs e)
         {
 #if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
+            // if MRC compression must be used
             if (compressionMrcRadioButton.Checked)
             {
                 if (_mrcCompressionSettings != null)
@@ -164,137 +166,76 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             UpdateUI();
         }
 
-
         /// <summary>
-        /// Updates the user interface of this form.
-        /// </summary>
-        private void UpdateUI()
-        {
-#if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
-            if (_mrcCompressionSettings != null && _mrcCompressionSettings.EnableMrcCompression)
-            {
-                compressionMrcRadioButton.Checked = true;
-                compressionImageRadioButton.Checked = false;
-                mrcUseImagesLayerRadioButton.Checked = _mrcCompressionSettings.CreateImagesLayer;
-                mrcNotUseImagesLayerRadioButton.Checked = !_mrcCompressionSettings.CreateImagesLayer;
-                mrcUseFrontCheckBox.Checked = _mrcCompressionSettings.CreateFrontLayer;
-                mrcHiQualityMaskCheckBox.Checked = _mrcCompressionSettings.HiQualityMask;
-                mrcHiQualityFrontLayerCheckBox.Checked = _mrcCompressionSettings.HiQualityFrontLayer;
-                mrcHiQualityFrontLayerCheckBox.Enabled = _mrcCompressionSettings.CreateFrontLayer;
-                mrcUseBackgroundLayerCheckBox.Checked = _mrcCompressionSettings.CreateBackgroundLayer;
-                mrcImageSegmentationCheckBox.Checked = _mrcCompressionSettings.ImageSegmentation != null;
-                mrcImageSegmentationSettingsButton.Enabled = _mrcCompressionSettings.ImageSegmentation != null;
-                mrcBackgroundCompressionControl.Enabled = _mrcCompressionSettings.CreateBackgroundLayer;
-                mrcImagesCompressionControl.Enabled = _mrcCompressionSettings.CreateImagesLayer;
-                mrcFrontCompressionControl.Enabled = _mrcCompressionSettings.CreateFrontLayer;
-            }
-            else
-            {
-                compressionMrcRadioButton.Checked = false;
-                compressionImageRadioButton.Checked = true;
-            }
-#endif
-            mrcCompressionSettingsGroupBox.Visible = compressionMrcRadioButton.Checked;
-            mrcCompressionProfileComboBox.Visible = compressionMrcRadioButton.Checked;
-            pdfCompressionControl.Visible = compressionImageRadioButton.Checked;
-        }
-
-        /// <summary>
-        /// Synchronizes the <see cref="EncoderSettings"/> property with UI.
-        /// </summary>
-        private void SyncEncoderSettingsWithUI()
-        {
-#if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
-            if (compressionMrcRadioButton.Checked)
-            {
-                if (_mrcCompressionSettings == null)
-                    _mrcCompressionSettings = new PdfMrcCompressionSettings();
-                _mrcCompressionSettings.EnableMrcCompression = true;
-                _mrcCompressionSettings.CreateImagesLayer = mrcUseImagesLayerRadioButton.Checked;
-                _mrcCompressionSettings.CreateBackgroundLayer = mrcUseBackgroundLayerCheckBox.Checked;
-                _mrcCompressionSettings.HiQualityMask = mrcHiQualityMaskCheckBox.Checked;
-                _mrcCompressionSettings.HiQualityFrontLayer = mrcHiQualityFrontLayerCheckBox.Checked;
-                _mrcCompressionSettings.CreateFrontLayer = mrcUseFrontCheckBox.Checked;
-                _mrcCompressionSettings.BackgroundLayerCompression = mrcBackgroundCompressionControl.Compression;
-                _mrcCompressionSettings.BackgroundLayerCompressionSettings = mrcBackgroundCompressionControl.CompressionSettings;
-                _mrcCompressionSettings.ImagesLayerCompression = mrcImagesCompressionControl.Compression;
-                _mrcCompressionSettings.ImagesLayerCompressionSettings = mrcImagesCompressionControl.CompressionSettings;
-                _mrcCompressionSettings.MaskCompression = mrcMaskCompressionControl.Compression;
-                _mrcCompressionSettings.MaskCompressionSettings = mrcMaskCompressionControl.CompressionSettings;
-                _mrcCompressionSettings.FrontLayerCompression = mrcFrontCompressionControl.Compression;
-                _mrcCompressionSettings.FrontLayerCompressionSettings = mrcFrontCompressionControl.CompressionSettings;
-                if (mrcImageSegmentationCheckBox.Checked)
-                {
-                    if (_mrcCompressionSettings.ImageSegmentation == null)
-                        _mrcCompressionSettings.ImageSegmentation = new Vintasoft.Imaging.ImageProcessing.Info.ImageSegmentationCommand();
-                }
-                else
-                {
-                    _mrcCompressionSettings.ImageSegmentation = null;
-                }
-            }
-            else
-            {
-                if (_mrcCompressionSettings != null)
-                    _mrcCompressionSettings.EnableMrcCompression = false;
-            }
-#endif
-        }
-
-
-        /// <summary>
-        /// "Use front layer" checkbox state is changed.
+        /// Handles the CheckedChanged event of MrcUseFrontCheckBox object.
         /// </summary>
         private void mrcUseFrontCheckBox_CheckedChanged(object sender, EventArgs e)
         {
 #if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
-            _mrcCompressionSettings.CreateFrontLayer = mrcUseFrontCheckBox.Checked;
+            // if 'front layer' must be used
+            if (mrcUseFrontCheckBox.Checked)
+                _mrcCompressionSettings.CreateFrontLayer = true;
+            else
+                _mrcCompressionSettings.CreateFrontLayer = false;
 #endif
             OnMrcCompressionChanged();
             UpdateUI();
         }
 
         /// <summary>
-        /// "High quality mask" checkbox state is changed.
+        /// Handles the CheckedChanged event of MrcHiQualityMaskCheckBox object.
         /// </summary>
         private void mrcHiQualityMaskCheckBox_CheckedChanged(object sender, EventArgs e)
         {
 #if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
-            _mrcCompressionSettings.HiQualityMask = mrcHiQualityMaskCheckBox.Checked;
+            // if the mask layer must created with high quality
+            if (mrcHiQualityMaskCheckBox.Checked)
+                _mrcCompressionSettings.HiQualityMask = true;
+            else
+                _mrcCompressionSettings.HiQualityMask = false;
 #endif
             OnMrcCompressionChanged();
             UpdateUI();
         }
 
         /// <summary>
-        /// "High quality front layer" checkbox state is changed.
+        /// Handles the CheckedChanged event of MrcHiQualityFrontLayerCheckBox object.
         /// </summary>
         private void mrcHiQualityFrontLayerCheckBox_CheckedChanged(object sender, EventArgs e)
         {
 #if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
-            _mrcCompressionSettings.HiQualityFrontLayer = mrcHiQualityFrontLayerCheckBox.Checked;
+            // if the front layer must created with high quality
+            if (mrcHiQualityFrontLayerCheckBox.Checked)
+                _mrcCompressionSettings.HiQualityFrontLayer = true;
+            else
+                _mrcCompressionSettings.HiQualityFrontLayer = false;
 #endif
             OnMrcCompressionChanged();
             UpdateUI();
         }
 
         /// <summary>
-        /// "Use background layer" checkbox state is changed.
+        /// Handles the CheckedChanged event of MrcUseBackgroundLayerCheckBox object.
         /// </summary>
         private void mrcUseBackgroundLayerCheckBox_CheckedChanged(object sender, EventArgs e)
         {
 #if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
-            _mrcCompressionSettings.CreateBackgroundLayer = mrcUseBackgroundLayerCheckBox.Checked;
+            // if background layer must be used
+            if (mrcUseBackgroundLayerCheckBox.Checked)
+                _mrcCompressionSettings.CreateBackgroundLayer = true;
+            else
+                _mrcCompressionSettings.CreateBackgroundLayer = false;
 #endif
             OnMrcCompressionChanged();
             UpdateUI();
         }
 
         /// <summary>
-        /// "Detect images" checkbox state is changed.
+        /// Handles the CheckedChanged event of MrcImageSegmentationCheckBox object.
         /// </summary>
         private void mrcImageSegmentationCheckBox_CheckedChanged(object sender, EventArgs e)
         {
+            // if MRC image segmentation must be used
             if (mrcImageSegmentationCheckBox.Checked)
             {
 #if !REMOVE_DOCCLEANUP_PLUGIN && !REMOVE_PDF_PLUGIN
@@ -315,40 +256,39 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// "Detect images -> background layer" radio button state is changed.
+        /// Handles the CheckedChanged event of MrcNotUseImagesLayerRadioButton object.
         /// </summary>
         private void mrcNotUseImagesLayerRadioButton_CheckedChanged(object sender, EventArgs e)
         {
 #if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
-            _mrcCompressionSettings.CreateImagesLayer = !mrcNotUseImagesLayerRadioButton.Checked;
+            // if images layer can not be used
+            if (mrcNotUseImagesLayerRadioButton.Checked)
+                _mrcCompressionSettings.CreateImagesLayer = false;
+            else
+                _mrcCompressionSettings.CreateImagesLayer = true;
 #endif
             OnMrcCompressionChanged();
             UpdateUI();
         }
 
         /// <summary>
-        /// "Detect images -> images layer (each image as resource)" radio button state is changed.
+        /// Handles the CheckedChanged event of MrcUseImagesLayerRadioButton object.
         /// </summary>
         private void mrcUseImagesLayerRadioButton_CheckedChanged(object sender, EventArgs e)
         {
 #if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
-            _mrcCompressionSettings.CreateImagesLayer = mrcUseImagesLayerRadioButton.Checked;
+            // if image layer can not be used
+            if (mrcUseImagesLayerRadioButton.Checked)
+                _mrcCompressionSettings.CreateImagesLayer = true;
+            else
+                _mrcCompressionSettings.CreateImagesLayer = false;
 #endif
             OnMrcCompressionChanged();
             UpdateUI();
         }
 
         /// <summary>
-        /// MRC compression settings is changed.
-        /// </summary>
-        private void OnMrcCompressionChanged()
-        {
-            if (!_isMrcCompressionProfileInitializing)
-                mrcCompressionProfileComboBox.SelectedIndex = 0;
-        }
-
-        /// <summary>
-        /// Sets the MRC compression settings from predefined profile.
+        /// Handles the SelectedIndexChanged event of MrcCompressionProfileComboBox object.
         /// </summary>
         private void mrcCompressionProfileComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -488,24 +428,106 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Shows the dialog for editing the image segmentation settings.
+        /// Handles the Click event of MrcImageSegmentationSettingsButton object.
         /// </summary>
         private void mrcImageSegmentationSettingsButton_Click(object sender, EventArgs e)
         {
 #if !REMOVE_DOCCLEANUP_PLUGIN && !REMOVE_PDF_PLUGIN
+            // create image segmentation settings dialog
             using (PropertyGridForm dialog = new PropertyGridForm(MrcCompressionSettings.ImageSegmentation, "Image segmentation settings"))
             {
+                // show dialog
                 dialog.ShowDialog();
             }
 #endif
         }
 
-        /// <summary>
-        /// Updates User Interface.
-        /// </summary>
-        private void UpdateUI_Handler(object sender, EventArgs e)
-        {
+        #endregion
 
+
+        /// <summary>
+        /// Updates the user interface of this form.
+        /// </summary>
+        private void UpdateUI()
+        {
+#if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
+            if (_mrcCompressionSettings != null && _mrcCompressionSettings.EnableMrcCompression)
+            {
+                compressionMrcRadioButton.Checked = true;
+                compressionImageRadioButton.Checked = false;
+                mrcUseImagesLayerRadioButton.Checked = _mrcCompressionSettings.CreateImagesLayer;
+                mrcNotUseImagesLayerRadioButton.Checked = !_mrcCompressionSettings.CreateImagesLayer;
+                mrcUseFrontCheckBox.Checked = _mrcCompressionSettings.CreateFrontLayer;
+                mrcHiQualityMaskCheckBox.Checked = _mrcCompressionSettings.HiQualityMask;
+                mrcHiQualityFrontLayerCheckBox.Checked = _mrcCompressionSettings.HiQualityFrontLayer;
+                mrcHiQualityFrontLayerCheckBox.Enabled = _mrcCompressionSettings.CreateFrontLayer;
+                mrcUseBackgroundLayerCheckBox.Checked = _mrcCompressionSettings.CreateBackgroundLayer;
+                mrcImageSegmentationCheckBox.Checked = _mrcCompressionSettings.ImageSegmentation != null;
+                mrcImageSegmentationSettingsButton.Enabled = _mrcCompressionSettings.ImageSegmentation != null;
+                mrcBackgroundCompressionControl.Enabled = _mrcCompressionSettings.CreateBackgroundLayer;
+                mrcImagesCompressionControl.Enabled = _mrcCompressionSettings.CreateImagesLayer;
+                mrcFrontCompressionControl.Enabled = _mrcCompressionSettings.CreateFrontLayer;
+            }
+            else
+            {
+                compressionMrcRadioButton.Checked = false;
+                compressionImageRadioButton.Checked = true;
+            }
+#endif
+            mrcCompressionSettingsGroupBox.Visible = compressionMrcRadioButton.Checked;
+            mrcCompressionProfileComboBox.Visible = compressionMrcRadioButton.Checked;
+            pdfCompressionControl.Visible = compressionImageRadioButton.Checked;
+        }
+
+        /// <summary>
+        /// Synchronizes the <see cref="EncoderSettings"/> property with UI.
+        /// </summary>
+        private void SyncEncoderSettingsWithUI()
+        {
+#if !REMOVE_PDF_PLUGIN && !REMOVE_DOCCLEANUP_PLUGIN
+            if (compressionMrcRadioButton.Checked)
+            {
+                if (_mrcCompressionSettings == null)
+                    _mrcCompressionSettings = new PdfMrcCompressionSettings();
+                _mrcCompressionSettings.EnableMrcCompression = true;
+                _mrcCompressionSettings.CreateImagesLayer = mrcUseImagesLayerRadioButton.Checked;
+                _mrcCompressionSettings.CreateBackgroundLayer = mrcUseBackgroundLayerCheckBox.Checked;
+                _mrcCompressionSettings.HiQualityMask = mrcHiQualityMaskCheckBox.Checked;
+                _mrcCompressionSettings.HiQualityFrontLayer = mrcHiQualityFrontLayerCheckBox.Checked;
+                _mrcCompressionSettings.CreateFrontLayer = mrcUseFrontCheckBox.Checked;
+                _mrcCompressionSettings.BackgroundLayerCompression = mrcBackgroundCompressionControl.Compression;
+                _mrcCompressionSettings.BackgroundLayerCompressionSettings = mrcBackgroundCompressionControl.CompressionSettings;
+                _mrcCompressionSettings.ImagesLayerCompression = mrcImagesCompressionControl.Compression;
+                _mrcCompressionSettings.ImagesLayerCompressionSettings = mrcImagesCompressionControl.CompressionSettings;
+                _mrcCompressionSettings.MaskCompression = mrcMaskCompressionControl.Compression;
+                _mrcCompressionSettings.MaskCompressionSettings = mrcMaskCompressionControl.CompressionSettings;
+                _mrcCompressionSettings.FrontLayerCompression = mrcFrontCompressionControl.Compression;
+                _mrcCompressionSettings.FrontLayerCompressionSettings = mrcFrontCompressionControl.CompressionSettings;
+                if (mrcImageSegmentationCheckBox.Checked)
+                {
+                    if (_mrcCompressionSettings.ImageSegmentation == null)
+                        _mrcCompressionSettings.ImageSegmentation = new Vintasoft.Imaging.ImageProcessing.Info.ImageSegmentationCommand();
+                }
+                else
+                {
+                    _mrcCompressionSettings.ImageSegmentation = null;
+                }
+            }
+            else
+            {
+                if (_mrcCompressionSettings != null)
+                    _mrcCompressionSettings.EnableMrcCompression = false;
+            }
+#endif
+        }
+
+        /// <summary>
+        /// MRC compression settings is changed.
+        /// </summary>
+        private void OnMrcCompressionChanged()
+        {
+            if (!_isMrcCompressionProfileInitializing)
+                mrcCompressionProfileComboBox.SelectedIndex = 0;
         }
 
         #endregion

@@ -57,6 +57,136 @@ namespace DemosCommonCode.Annotation
 
         #region Methods
 
+        #region UI
+
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of TabControl1 object.
+        /// </summary>
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+#if !REMOVE_ANNOTATION_PLUGIN
+            // if selected 'Common' tab page
+            if (tabControl1.SelectedTab == commonTabPage)
+                // update 'Common' tab page items
+                UpdateCommonTabItem();
+            // if selected 'Advanced' tab page
+            else if (tabControl1.SelectedTab == advancedTabPage)
+                // update 'Advanced' tab page items
+                propertyGrid1.Refresh();
+#endif
+        }
+
+        /// <summary>
+        /// Handles the CheckedChanged event of IsReadOnlyCheckBox object.
+        /// </summary>
+        private void isReadOnlyCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+#if !REMOVE_ANNOTATION_PLUGIN
+            // if comment must be locked
+            if (isLockedCheckBox.Checked)
+                _comment.IsReadOnly = true;
+            else
+                _comment.IsReadOnly = false;
+
+            UpdateUI();
+            UpdateModifyDateTime();
+#endif
+        }
+
+        /// <summary>
+        /// Handles the CheckedChanged event of OpenCheckBox object.
+        /// </summary>
+        private void openCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+#if !REMOVE_ANNOTATION_PLUGIN
+            // if comment must be opened
+            if (isOpenCheckBox.Checked)
+                _comment.IsOpen = true;
+            else
+                _comment.IsOpen = false;
+#endif
+        }
+
+        /// <summary>
+        /// Handles the ColorChanged event of ColorPanelControl object.
+        /// </summary>
+        private void colorPanelControl_ColorChanged(object sender, EventArgs e)
+        {
+#if !REMOVE_ANNOTATION_PLUGIN
+            // update comment color
+            _comment.Color = colorPanelControl.Color;
+            // update comment modify date time
+            UpdateModifyDateTime();
+#endif
+        }
+
+        /// <summary>
+        /// Handles the TextChanged event of TypeComboBox object.
+        /// </summary>
+        private void typeComboBox_TextChanged(object sender, EventArgs e)
+        {
+#if !REMOVE_ANNOTATION_PLUGIN
+            if (_comment == null)
+                return;
+
+            // if comment type is changed
+            if (!string.Equals(_comment.Type, typeComboBox.Text))
+            {
+                // update comment type
+                _comment.Type = typeComboBox.Text;
+                UpdateModifyDateTime();
+            }
+#endif
+        }
+
+        /// <summary>
+        /// Handles the TextChanged event of UserNameTextBox object.
+        /// </summary>
+        private void userNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+#if !REMOVE_ANNOTATION_PLUGIN
+            if (_comment == null)
+                return;
+
+            // update comment user name
+            _comment.UserName = userNameTextBox.Text;
+            UpdateModifyDateTime();
+#endif
+        }
+
+        /// <summary>
+        /// Handles the TextChanged event of SubjectTextBox object.
+        /// </summary>
+        private void subjectTextBox_TextChanged(object sender, EventArgs e)
+        {
+#if !REMOVE_ANNOTATION_PLUGIN
+            if (_comment == null)
+                return;
+
+            // update comment subject
+            _comment.Subject = subjectTextBox.Text;
+            UpdateModifyDateTime();
+#endif
+        }
+
+        /// <summary>
+        /// Handles the TextChanged event of TextBox object.
+        /// </summary>
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+#if !REMOVE_ANNOTATION_PLUGIN
+            if (_comment == null)
+                return;
+
+            // update comment text
+            _comment.Text = textBox.Text;
+            UpdateModifyDateTime();
+#endif
+        }
+
+        #endregion
+
+
 #if !REMOVE_ANNOTATION_PLUGIN
         /// <summary>
         /// Updates the user interface of this form.
@@ -134,112 +264,7 @@ namespace DemosCommonCode.Annotation
         }
 #endif
 
-        /// <summary>
-        /// Updates the user interface of tab control.
-        /// </summary>
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-#if !REMOVE_ANNOTATION_PLUGIN
-            if (tabControl1.SelectedTab == commonTabPage)
-                UpdateCommonTabItem();
-            else if (tabControl1.SelectedTab == advancedTabPage)
-                propertyGrid1.Refresh();
-#endif
-        }
-
-        /// <summary>
-        /// Changes the <see cref="Comment.IsReadOnly"/> property.
-        /// </summary>
-        private void isReadOnlyCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-#if !REMOVE_ANNOTATION_PLUGIN
-            _comment.IsReadOnly = isLockedCheckBox.Checked;
-
-            UpdateUI();
-            UpdateModifyDateTime();
-#endif
-        }
-
-        /// <summary>
-        /// Changes the <see cref="Comment.IsOpen"/> property.
-        /// </summary>
-        private void openCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-#if !REMOVE_ANNOTATION_PLUGIN
-            _comment.IsOpen = isOpenCheckBox.Checked;
-#endif
-        }
-
-        /// <summary>
-        /// Changes the <see cref="Comment.Color"/> property.
-        /// </summary>
-        private void colorPanelControl_ColorChanged(object sender, EventArgs e)
-        {
-#if !REMOVE_ANNOTATION_PLUGIN
-            _comment.Color = colorPanelControl.Color;
-            UpdateModifyDateTime();
-#endif
-        }
-
-        /// <summary>
-        /// Changes the <see cref="Comment.Type"/> property.
-        /// </summary>
-        private void typeComboBox_TextChanged(object sender, EventArgs e)
-        {
-#if !REMOVE_ANNOTATION_PLUGIN
-            if (_comment == null)
-                return;
-
-            if (!string.Equals(_comment.Type, typeComboBox.Text))
-            {
-                _comment.Type = typeComboBox.Text;
-                UpdateModifyDateTime();
-            }
-#endif
-        }
-
-        /// <summary>
-        /// Changes the <see cref="Comment.UserName"/> property.
-        /// </summary>
-        private void userNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-#if !REMOVE_ANNOTATION_PLUGIN
-            if (_comment == null)
-                return;
-
-            _comment.UserName = userNameTextBox.Text;
-            UpdateModifyDateTime();
-#endif
-        }
-
-        /// <summary>
-        /// Changes the <see cref="Comment.Subject"/> property.
-        /// </summary>
-        private void subjectTextBox_TextChanged(object sender, EventArgs e)
-        {
-#if !REMOVE_ANNOTATION_PLUGIN
-            if (_comment == null)
-                return;
-
-            _comment.Subject = subjectTextBox.Text;
-            UpdateModifyDateTime();
-#endif
-        }
-
-        /// <summary>
-        /// Changes the <see cref="Comment.Text"/> property.
-        /// </summary>
-        private void textBox_TextChanged(object sender, EventArgs e)
-        {
-#if !REMOVE_ANNOTATION_PLUGIN
-            if (_comment == null)
-                return;
-
-            _comment.Text = textBox.Text;
-            UpdateModifyDateTime();
-#endif
-        }
-
         #endregion
+
     }
 }

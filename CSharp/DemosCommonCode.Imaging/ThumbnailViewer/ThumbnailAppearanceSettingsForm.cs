@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging.UI;
@@ -26,23 +26,6 @@ namespace DemosCommonCode.Imaging
         #region Constructors
 
         /// <summary>
-        /// Prevents a default instance of
-        /// the <see cref="ThumbnailAppearanceSettingsForm"/> class from being created.
-        /// </summary>
-        private ThumbnailAppearanceSettingsForm()
-        {
-            InitializeComponent();
-
-            borderStyleComboBox.Items.Add(ButtonBorderStyle.None);
-            borderStyleComboBox.Items.Add(ButtonBorderStyle.Dotted);
-            borderStyleComboBox.Items.Add(ButtonBorderStyle.Dashed);
-            borderStyleComboBox.Items.Add(ButtonBorderStyle.Solid);
-            borderStyleComboBox.Items.Add(ButtonBorderStyle.Inset);
-            borderStyleComboBox.Items.Add(ButtonBorderStyle.Outset);
-        }
-
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="ThumbnailAppearanceSettingsForm"/> class.
         /// </summary>
         /// <param name="thumbnailAppearance">The appearance of thumbnail.</param>
@@ -68,11 +51,39 @@ namespace DemosCommonCode.Imaging
             ShowSettings();
         }
 
+
+        /// <summary>
+        /// Prevents a default instance of
+        /// the <see cref="ThumbnailAppearanceSettingsForm"/> class from being created.
+        /// </summary>
+        private ThumbnailAppearanceSettingsForm()
+        {
+            InitializeComponent();
+
+            borderStyleComboBox.Items.Add(ButtonBorderStyle.None);
+            borderStyleComboBox.Items.Add(ButtonBorderStyle.Dotted);
+            borderStyleComboBox.Items.Add(ButtonBorderStyle.Dashed);
+            borderStyleComboBox.Items.Add(ButtonBorderStyle.Solid);
+            borderStyleComboBox.Items.Add(ButtonBorderStyle.Inset);
+            borderStyleComboBox.Items.Add(ButtonBorderStyle.Outset);
+        }
+
         #endregion
 
 
 
         #region Methods
+
+        /// <summary>
+        /// Handles the Click event of OkButton object.
+        /// </summary>
+        private void okButton_Click(object sender, EventArgs e)
+        {
+            // if settings is updated
+            if (SetSettings())
+                DialogResult = DialogResult.OK;
+        }
+
 
         /// <summary>
         /// Shows the settings of appearance.
@@ -96,23 +107,6 @@ namespace DemosCommonCode.Imaging
             _thumbnailAppearance.BorderStyle = (ButtonBorderStyle)borderStyleComboBox.SelectedItem;
 
             return true;
-        }
-
-        /// <summary>
-        /// "OK" button is clicked.
-        /// </summary>
-        private void okButton_Click(object sender, EventArgs e)
-        {
-            if (SetSettings())
-                DialogResult = DialogResult.OK;
-        }
-
-        /// <summary>
-        /// "Cancel" button if clicked.
-        /// </summary>
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
         }
 
         #endregion

@@ -32,12 +32,12 @@ namespace DemosCommonCode.Imaging
             ProgressBar[] _progressBars;
 
             /// <summary>
-            /// Progress bar to value dictionary.
+            /// Dictionary: the progress bar => the value.
             /// </summary>
             Dictionary<ProgressBar, int> _progressBarsToValue;
 
             /// <summary>
-            /// Progress bar to progress range dictionary.
+            /// Dictionary: the progress bar => the progress range.
             /// </summary>
             Dictionary<ProgressBar, int> _progressBarsToRange;
 
@@ -47,7 +47,7 @@ namespace DemosCommonCode.Imaging
             Label[] _labels;
 
             /// <summary>
-            /// Labels to value dictionary.
+            /// Dictionary: the label => the lavel value.
             /// </summary>
             Dictionary<Label, string> _labelsToValue;
 
@@ -56,9 +56,15 @@ namespace DemosCommonCode.Imaging
             /// </summary>
             bool _cancelRequested = false;
 
+            /// <summary>
+            /// The text box for logging.
+            /// </summary>
             TextBox _logTextBox;
 
-            Dictionary<int, string> _levelToMessage = new Dictionary<int, string>();
+            /// <summary>
+            /// Dictionary: the aticon level => the message.
+            /// </summary>
+            Dictionary<int, string> _actionLevelToMessage = new Dictionary<int, string>();
 
             #endregion
 
@@ -66,6 +72,12 @@ namespace DemosCommonCode.Imaging
 
             #region Constructors
 
+            /// <summary>
+            /// Initializes a new instance of the <see cref="ActionProgressHandler"/> class.
+            /// </summary>
+            /// <param name="progressBars">The progress bars.</param>
+            /// <param name="labels">The labels.</param>
+            /// <param name="logTextBox">The text box for logging.</param>
             internal ActionProgressHandler(
                 ProgressBar[] progressBars,
                 Label[] labels,
@@ -94,6 +106,8 @@ namespace DemosCommonCode.Imaging
 
 
             #region Methods
+
+            #region PUBLIC
 
             /// <summary>
             /// Resets this action progress controller.
@@ -136,8 +150,11 @@ namespace DemosCommonCode.Imaging
                     {
                         progress = actionStep / actionProgressController.StepCount;
 
-                        SetProgressBarValueSafe(progressBar, progress);
+                        InvokeSetProgressBarValue(progressBar, progress);
                     }
+
+
+                    // get current step precentage description
 
                     string percentageDescription;
                     if (actionProgressController.StepCount > 0)
@@ -145,20 +162,23 @@ namespace DemosCommonCode.Imaging
                     else
                         percentageDescription = "0%";
 
+
+                    // get current label description
+
                     string labelDescription;
                     if (actionDescription != null)
                         labelDescription = string.Format("{0}... ({1})", actionDescription, percentageDescription);
                     else
                         labelDescription = percentageDescription;
 
-                    SetLabelTextSafe(_labels[actionLevel], labelDescription);
+                    InvokeSetLabelText(_labels[actionLevel], labelDescription);
 
                     if (firstStepOfAction)
                     {
                         for (int i = actionLevel + 1; i < _progressBars.Length; i++)
                         {
-                            SetProgressBarValueSafe(_progressBars[i], 0.0);
-                            SetLabelTextSafe(_labels[i], string.Empty);
+                            InvokeSetProgressBarValue(_progressBars[i], 0.0);
+                            InvokeSetLabelText(_labels[i], string.Empty);
                         }
                     }
                 }
@@ -167,10 +187,12 @@ namespace DemosCommonCode.Imaging
                 string logMessage = actionDescription;
                 if (logMessage != null)
                 {
+                    // if action is first step
                     if (firstStepOfAction)
                     {
                         logMessage = string.Format("{0}...", logMessage);
                     }
+                    // if action is finished
                     else if (actionProgressController.IsFinished)
                     {
                         logMessage = string.Format("  Finished ({0}).", logMessage);
@@ -179,14 +201,18 @@ namespace DemosCommonCode.Imaging
                     {
                         logMessage = "";
                     }
+
+                    // if log message is created
                     if (logMessage != "")
                     {
                         string prevMessage = null;
-                        if (!_levelToMessage.TryGetValue(actionLevel, out prevMessage))
+                        if (!_actionLevelToMessage.TryGetValue(actionLevel, out prevMessage))
                             prevMessage = null;
+
+                        // if log message is changed
                         if (prevMessage != logMessage)
                         {
-                            _levelToMessage[actionLevel] = logMessage;
+                            _actionLevelToMessage[actionLevel] = logMessage;
                             logMessage = logMessage.PadLeft(logMessage.Length + actionLevel * 4, ' ');
                             if (_logTextBox.InvokeRequired)
                                 _logTextBox.Invoke(new AddLogMessageDelegate(AddLogMessage), logMessage);
@@ -199,49 +225,56 @@ namespace DemosCommonCode.Imaging
                 return true;
             }
 
+            #endregion
 
-            private void SetLabelTextSafe(Label label, string text)
-            {
-                if (text != _labelsToValue[label])
-                {
-                    _labelsToValue[label] = text;
-                    if (label.InvokeRequired)
-                        label.Invoke(
-                            new SetLabelTextDelegate(SetLabelText),
-                            label,
-                            text);
-                    else
-                        SetLabelText(label, text);
-                }
-            }
 
-            private void SetProgressBarValueSafe(ProgressBar progressBar, double progress)
-            {
-                int value = (int)Math.Round(progress * _progressBarsToRange[progressBar]);
-                if (value != _progressBarsToValue[progressBar])
-                {
-                    _progressBarsToValue[progressBar] = value;
-                    if (progressBar.InvokeRequired)
-                        progressBar.Invoke(
-                            new SetProgressBarValueDelegate(SetProgressBarValue),
-                            progressBar,
-                            value);
-                    else
-                        SetProgressBarValue(progressBar, value);
-                }
-            }
+            #region INTERNAL
 
+            /// <summary>
+            /// Cancels the current action.
+            /// </summary>
             internal void CancelAction()
             {
                 _cancelRequested = true;
             }
 
-            private void SetProgressBarValue(ProgressBar progressBar, int progress)
+            #endregion
+
+
+            #region PRIVATE
+
+            /// <summary>
+            /// Sets the label text thread-safely.
+            /// </summary>
+            /// <param name="label">The label.</param>
+            /// <param name="text">The text.</param>
+            private void InvokeSetLabelText(Label label, string text)
             {
-                int range = progressBar.Maximum - progressBar.Minimum;
-                progressBar.Value = progressBar.Minimum + progress;
+                // if label text is changed
+                if (text != _labelsToValue[label])
+                {
+                    // update label text
+                    _labelsToValue[label] = text;
+
+                    if (label.InvokeRequired)
+                    {
+                        label.Invoke(
+                            new SetLabelTextDelegate(SetLabelText),
+                            label,
+                            text);
+                    }
+                    else
+                    {
+                        SetLabelText(label, text);
+                    }
+                }
             }
 
+            /// <summary>
+            /// Sets the label text.
+            /// </summary>
+            /// <param name="label">The label.</param>
+            /// <param name="text">The text.</param>
             private void SetLabelText(Label label, string text)
             {
                 if (label.Text != text)
@@ -250,6 +283,50 @@ namespace DemosCommonCode.Imaging
                 }
             }
 
+            /// <summary>
+            /// Sets the progress bar value thread-safely.
+            /// </summary>
+            /// <param name="progressBar">The progress bar.</param>
+            /// <param name="progress">The progress.</param>
+            private void InvokeSetProgressBarValue(ProgressBar progressBar, double progress)
+            {
+                // get progress bar value
+                int value = (int)Math.Round(progress * _progressBarsToRange[progressBar]);
+                // if progress bar value is changed
+                if (value != _progressBarsToValue[progressBar])
+                {
+                    // update progress bar value
+                    _progressBarsToValue[progressBar] = value;
+
+                    if (progressBar.InvokeRequired)
+                    {
+                        progressBar.Invoke(
+                            new SetProgressBarValueDelegate(SetProgressBarValue),
+                            progressBar,
+                            value);
+                    }
+                    else
+                    {
+                        SetProgressBarValue(progressBar, value);
+                    }
+                }
+            }
+
+            /// <summary>
+            /// Sets the progress bar value.
+            /// </summary>
+            /// <param name="progressBar">The progress bar.</param>
+            /// <param name="progress">The progress.</param>
+            private void SetProgressBarValue(ProgressBar progressBar, int progress)
+            {
+                int range = progressBar.Maximum - progressBar.Minimum;
+                progressBar.Value = progressBar.Minimum + progress;
+            }
+
+            /// <summary>
+            /// Adds the specified message to the log.
+            /// </summary>
+            /// <param name="message">The message.</param>
             private void AddLogMessage(string message)
             {
                 _logTextBox.AppendText(string.Format("{0}{1}", message, Environment.NewLine));
@@ -258,14 +335,30 @@ namespace DemosCommonCode.Imaging
 
             #endregion
 
+            #endregion
+
 
 
             #region Delegates
 
+            /// <summary>
+            /// The delegate for <see cref="SetProgressBarValue(ProgressBar, int)"/> method.
+            /// </summary>
+            /// <param name="progressBar">The progress bar.</param>
+            /// <param name="progress">The progress.</param>
             delegate void SetProgressBarValueDelegate(ProgressBar progressBar, int progress);
 
+            /// <summary>
+            /// The delegate for <see cref="SetLabelText(Label, string)"/> method.
+            /// </summary>
+            /// <param name="label">The label.</param>
+            /// <param name="text">The text.</param>
             delegate void SetLabelTextDelegate(Label label, string text);
 
+            /// <summary>
+            /// The delegate for <see cref="AddLogMessage(string)"/> method.
+            /// </summary>
+            /// <param name="message">The message.</param>
             delegate void AddLogMessageDelegate(string message);
 
             #endregion
@@ -278,23 +371,50 @@ namespace DemosCommonCode.Imaging
 
         #region Fields
 
+        /// <summary>
+        /// The action progress bars.
+        /// </summary>
         ProgressBar[] _progressBars;
 
+        /// <summary>
+        /// The action labels.
+        /// </summary>
         Label[] _labels;
 
+        /// <summary>
+        /// The text box for logging.
+        /// </summary>
         TextBox _logText;
 
+        /// <summary>
+        /// The cancel button.
+        /// </summary>
         Button _cancelButton;
 
+        /// <summary>
+        /// The background worker.
+        /// </summary>
         BackgroundWorker _backgroundWorker;
 
-        DoBackgroundWorkDelegate _callback;
+        /// <summary>
+        /// The background worker callback.
+        /// </summary>
+        DoBackgroundWorkDelegate _backgroundWorkerCallback;
 
+        /// <summary>
+        /// The action progress handler.
+        /// </summary>
         ActionProgressHandler _progressHandler;
 
+        /// <summary>
+        /// The action progress controller.
+        /// </summary>
         ActionProgressController _progressController;
 
-        bool _errorOccured;
+        /// <summary>
+        /// A value indicating whether the error is occured.
+        /// </summary>
+        bool _isErrorOccured;
 
         #endregion
 
@@ -302,20 +422,29 @@ namespace DemosCommonCode.Imaging
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ActionProgressForm"/> class.
+        /// </summary>
+        /// <param name="callback">The background worker callback.</param>
+        /// <param name="levelCount">The action level count.</param>
+        /// <param name="caption">The form caption.</param>
         public ActionProgressForm(DoBackgroundWorkDelegate callback, int levelCount, string caption)
         {
             if (levelCount <= 0)
                 throw new Exception();
 
-            _callback = callback;
+            _backgroundWorkerCallback = callback;
 
             InitializeComponent();
 
+            // update table layout panel properties
             tableLayoutPanel1.AutoSize = true;
             tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-
             tableLayoutPanel1.RowCount = 2 * levelCount + 2;
             tableLayoutPanel1.ColumnCount = 1;
+
+
+            // create action progress bars
 
             ProgressBar[] progressBars = new ProgressBar[levelCount];
             Label[] labels = new Label[levelCount];
@@ -337,6 +466,9 @@ namespace DemosCommonCode.Imaging
                 tableLayoutPanel1.Controls.Add(progressBar, 0, 2 * i + 1);
             }
 
+
+            // create textbox for logging
+
             TextBox logText = new TextBox();
             _logText = logText;
             logText.Multiline = true;
@@ -345,6 +477,9 @@ namespace DemosCommonCode.Imaging
             logText.ScrollBars = ScrollBars.Vertical;
             logText.ReadOnly = true;
             tableLayoutPanel1.Controls.Add(logText, 0, 2 * levelCount);
+
+
+            // create the button for canceling an action
 
             Button buttonCancel = new Button();
             _cancelButton = buttonCancel;
@@ -357,7 +492,6 @@ namespace DemosCommonCode.Imaging
 
             this.AutoSize = true;
             this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-
             this.Text = caption;
 
             _progressHandler = new ActionProgressHandler(progressBars, labels, logText);
@@ -375,7 +509,7 @@ namespace DemosCommonCode.Imaging
 
         bool _closeAfterComplete = false;
         /// <summary>
-        /// Gets or sets a value indicating whether the form can be closed.
+        /// Gets or sets a value indicating whether the form must be closed when action is completed.
         /// </summary>
         /// <value>
         /// <b>true</b> - form must be closed when action is completed; otherwise, <b>false</b>.
@@ -401,10 +535,15 @@ namespace DemosCommonCode.Imaging
 
         #region PUBLIC
 
-        public DialogResult RunAndShowDialog(Form form)
+        /// <summary>
+        /// Shows this form as a modal dialog with the specified owner.
+        /// </summary>
+        /// <param name="ownerForm">The owner form.</param>
+        /// <returns>One of the System.Windows.Forms.DialogResult values.</returns>
+        public DialogResult RunAndShowDialog(Form ownerForm)
         {
-            _errorOccured = false;
-            return ShowDialog(form);
+            _isErrorOccured = false;
+            return ShowDialog(ownerForm);
         }
 
         #endregion
@@ -412,9 +551,13 @@ namespace DemosCommonCode.Imaging
 
         #region PROTECTED
 
+        /// <summary>
+        /// Raises the <see cref="E:OnFormClosing" /> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            DialogResult result = ClickToCancelButton();
+            DialogResult result = GetActionDialogResult();
             if (result == DialogResult.None)
                 e.Cancel = true;
             else
@@ -426,6 +569,22 @@ namespace DemosCommonCode.Imaging
 
         #region PRIVATE
 
+        /// <summary>
+        /// Handles the Click event of CancelButton object.
+        /// </summary>
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = GetActionDialogResult();
+            if (result != DialogResult.None)
+                DialogResult = result;
+        }
+
+
+        /// <summary>
+        /// Runs the background worker.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void ActionProgressForm_Load(object sender, EventArgs e)
         {
             _backgroundWorker = new BackgroundWorker();
@@ -435,27 +594,40 @@ namespace DemosCommonCode.Imaging
             _backgroundWorker.RunWorkerAsync();
         }
 
+        /// <summary>
+        /// Calls the background worker callback.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="DoWorkEventArgs"/> instance containing the event data.</param>
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            _callback(_progressController);
+            _backgroundWorkerCallback(_progressController);
         }
 
+        /// <summary>
+        /// Shows the action complete result.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RunWorkerCompletedEventArgs"/> instance containing the event data.</param>
         private void backgroundWorker_RunWorkerCompleted(
             object sender,
             RunWorkerCompletedEventArgs e)
         {
             string text;
+            // if action is failed
             if (e.Error != null)
             {
-                _errorOccured = true;
+                _isErrorOccured = true;
                 DemosTools.ShowErrorMessage(e.Error);
                 text = "Error.";
             }
             else
             {
+                // if form must be closed when action is completed
                 if (CloseAfterComplete)
                     this.Close();
 
+                // if action is canceled
                 if (_progressController.IsCanceled)
                     text = "Canceled.";
                 else
@@ -466,20 +638,21 @@ namespace DemosCommonCode.Imaging
                 _labels[i].Text = text;
         }
 
-        private void cancelButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Returns the action dialog result.
+        /// </summary>
+        private DialogResult GetActionDialogResult()
         {
-            DialogResult result = ClickToCancelButton();
-            if (result != DialogResult.None)
-                DialogResult = result;
-        }
-
-        private DialogResult ClickToCancelButton()
-        {
-            if (_progressController.IsCanceled || _errorOccured)
+            // if action is canceled
+            if (_progressController.IsCanceled || _isErrorOccured)
                 return DialogResult.Cancel;
 
+            // if action is finished
             if (_progressController.IsFinished)
                 return DialogResult.OK;
+
+
+            // waiting for the completion of the task
 
             _cancelButton.Enabled = false;
             _progressHandler.CancelAction();
@@ -503,6 +676,10 @@ namespace DemosCommonCode.Imaging
 
         #region Delegates
 
+        /// <summary>
+        /// The background worker callback delegate.
+        /// </summary>
+        /// <param name="progressController">The progress controller.</param>
         public delegate void DoBackgroundWorkDelegate(IActionProgressController progressController);
 
         #endregion

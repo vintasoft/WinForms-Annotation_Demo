@@ -1,15 +1,14 @@
 using System.Drawing;
 
-using Vintasoft.Imaging;
-using Vintasoft.Imaging.UI.VisualTools.UserInteraction;
 using Vintasoft.Imaging.UI;
+using Vintasoft.Imaging.UI.VisualTools.UserInteraction;
 
 namespace DemosCommonCode.Annotation
 {
     /// <summary>
     /// Represents rounded interaction point for vertices of triangle annotation.
     /// </summary>
-    internal class TriangleAnnotationInteractionPoint : InteractionPolygonPoint
+    public class TriangleAnnotationInteractionPoint : InteractionPolygonPoint
     {
 
         #region Constructors
@@ -17,7 +16,7 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// Initializes a new instance of the <see cref="TriangleAnnotationInteractionPoint"/> class.
         /// </summary>
-        internal TriangleAnnotationInteractionPoint()
+        public TriangleAnnotationInteractionPoint()
             : base("Resize")
         {
             BorderColor = Color.Black;

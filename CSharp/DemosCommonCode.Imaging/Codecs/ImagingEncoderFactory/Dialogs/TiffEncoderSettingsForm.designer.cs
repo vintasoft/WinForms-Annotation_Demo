@@ -120,7 +120,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.zipCompressionRadioButton.TabIndex = 4;
             this.zipCompressionRadioButton.Text = "ZIP";
             this.zipCompressionRadioButton.UseVisualStyleBackColor = true;
-            this.zipCompressionRadioButton.CheckedChanged += new System.EventHandler(this.zipCompressionRadioButton_CheckedChanged);
+            this.zipCompressionRadioButton.CheckedChanged += new System.EventHandler(this.UpdateUI);
             // 
             // autoCompressionRadioButton
             // 
@@ -133,7 +133,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.autoCompressionRadioButton.TabStop = true;
             this.autoCompressionRadioButton.Text = "Auto";
             this.autoCompressionRadioButton.UseVisualStyleBackColor = true;
-            this.autoCompressionRadioButton.CheckedChanged += new System.EventHandler(this.autoCompressionRadioButton_CheckedChanged);
+            this.autoCompressionRadioButton.CheckedChanged += new System.EventHandler(this.UpdateUI);
             // 
             // jpegCompressionRadioButton
             // 
@@ -144,7 +144,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.jpegCompressionRadioButton.TabIndex = 5;
             this.jpegCompressionRadioButton.Text = "JPEG";
             this.jpegCompressionRadioButton.UseVisualStyleBackColor = true;
-            this.jpegCompressionRadioButton.CheckedChanged += new System.EventHandler(this.jpegCompressionRadioButton_CheckedChanged);
+            this.jpegCompressionRadioButton.CheckedChanged += new System.EventHandler(this.UpdateUI);
             // 
             // lzwCompressionRadioButton
             // 
@@ -155,7 +155,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.lzwCompressionRadioButton.TabIndex = 3;
             this.lzwCompressionRadioButton.Text = "LZW";
             this.lzwCompressionRadioButton.UseVisualStyleBackColor = true;
-            this.lzwCompressionRadioButton.CheckedChanged += new System.EventHandler(this.lzwCompressionRadioButton_CheckedChanged);
+            this.lzwCompressionRadioButton.CheckedChanged += new System.EventHandler(this.UpdateUI);
             // 
             // ccitt4CompressionRadioButton
             // 
@@ -166,7 +166,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.ccitt4CompressionRadioButton.TabIndex = 2;
             this.ccitt4CompressionRadioButton.Text = "CCITT Group 4";
             this.ccitt4CompressionRadioButton.UseVisualStyleBackColor = true;
-            this.ccitt4CompressionRadioButton.CheckedChanged += new System.EventHandler(this.ccitt4CompressionRadioButton_CheckedChanged);
+            this.ccitt4CompressionRadioButton.CheckedChanged += new System.EventHandler(this.UpdateUI);
             // 
             // noneCompressionRadioButton
             // 
@@ -177,7 +177,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.noneCompressionRadioButton.TabIndex = 1;
             this.noneCompressionRadioButton.Text = "None";
             this.noneCompressionRadioButton.UseVisualStyleBackColor = true;
-            this.noneCompressionRadioButton.CheckedChanged += new System.EventHandler(this.noneCompressionRadioButton_CheckedChanged);
+            this.noneCompressionRadioButton.CheckedChanged += new System.EventHandler(this.UpdateUI);
             // 
             // jpegCompressionAdvancedSettingsGroupBox
             // 
@@ -413,7 +413,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.useTilesRadioButton.TabIndex = 1;
             this.useTilesRadioButton.Text = "Use tiles";
             this.useTilesRadioButton.UseVisualStyleBackColor = true;
-            this.useTilesRadioButton.CheckedChanged += new System.EventHandler(this.useTilesRadioButton_CheckedChanged);
+            this.useTilesRadioButton.CheckedChanged += new System.EventHandler(this.UpdateUI);
             // 
             // useStripsRadioButton
             // 
@@ -426,7 +426,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.useStripsRadioButton.TabStop = true;
             this.useStripsRadioButton.Text = "Use strips";
             this.useStripsRadioButton.UseVisualStyleBackColor = true;
-            this.useStripsRadioButton.CheckedChanged += new System.EventHandler(this.useStripsRadioButton_CheckedChanged);
+            this.useStripsRadioButton.CheckedChanged += new System.EventHandler(this.UpdateUI);
             // 
             // tileWidthLabel
             // 
@@ -489,7 +489,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.jpeg2000CompressionRadioButton.TabStop = true;
             this.jpeg2000CompressionRadioButton.Text = "JPEG 2000";
             this.jpeg2000CompressionRadioButton.UseVisualStyleBackColor = true;
-            this.jpeg2000CompressionRadioButton.CheckedChanged += new System.EventHandler(this.jpeg2000CompressionRadioButton_CheckedChanged);
+            this.jpeg2000CompressionRadioButton.CheckedChanged += new System.EventHandler(this.UpdateUI);
             // 
             // lzwCompressionAdvancedSettingsGroupBox
             // 
@@ -730,6 +730,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "TiffEncoderSettingsForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

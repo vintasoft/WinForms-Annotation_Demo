@@ -121,11 +121,12 @@ namespace DemosCommonCode.CustomControls
         #region Methods
 
         /// <summary>
-        /// Radio button is checked.
+        /// Handles the CheckedChanged event of RadioButton object.
         /// </summary>
         private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
             if (SelectedAnchorTypeChanged != null)
+                // raise selected anchor changed event
                 SelectedAnchorTypeChanged(sender, e);
         }
 

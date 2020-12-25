@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
-using Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000;
-using Vintasoft.Imaging.Codecs;
+
 using Vintasoft.Imaging.Codecs.Encoders;
+using Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000;
 
 namespace DemosCommonCode.Imaging.Codecs.Dialogs
 {
@@ -14,6 +14,9 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Jpeg2000EncoderSettingsForm"/> class.
+        /// </summary>
         public Jpeg2000EncoderSettingsForm()
         {
             InitializeComponent();
@@ -59,28 +62,115 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
 
         #region Methods
 
+        #region PROTECTED
+
+        /// <summary>
+        /// Form is loaded.
+        /// </summary>
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+
             if (EncoderSettings == null)
                 EncoderSettings = new Jpeg2000EncoderSettings();
         }
 
+        #endregion
+
+
+        #region PRIVATE
+
+        #region UI
+
+        /// <summary>
+        /// Handles the ValueChanged event of CompressionRatioNumericUpDown object.
+        /// </summary>
         private void compressionRatioNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
+            // update the "Compression ratio" label
             compressionRatioLabel.Text = string.Format("(1 : {0})", compressionRatioNumericUpDown.Value);
         }
 
+        /// <summary>
+        /// Handles the CheckedChanged event of WaveletTransformCheckBox object.
+        /// </summary>
         private void waveletTransformCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            waveletLevelsNumericUpDown.Enabled = waveletTransformCheckBox.Checked;
+            if (waveletTransformCheckBox.Checked)
+                waveletLevelsNumericUpDown.Enabled = true;
+            else
+                waveletLevelsNumericUpDown.Enabled = false;
+
             if (waveletLevelsNumericUpDown.Value == 0)
                 waveletLevelsNumericUpDown.Value = 5;
         }
 
+        /// <summary>
+        /// Handles the Click event of ButtonOk object.
+        /// </summary>
+        private void buttonOk_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // update encoder settings
+                SetEncoderSettings();
+                DialogResult = DialogResult.OK;
+            }
+            catch (Exception ex)
+            {
+                DemosTools.ShowErrorMessage(ex);
+            }
+        }
+
+        /// <summary>
+        /// Handles the Click event of ButtonCancel object.
+        /// </summary>
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+        }
+
+        /// <summary>
+        /// Handles the CheckedChanged event of LossyCompressionCheckBox object.
+        /// </summary>
+        private void lossyCompressionCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateEnabledState();
+        }
+
+        /// <summary>
+        /// Handles the CheckedChanged event of ImageDataSizeRadioButton object.
+        /// </summary>
+        private void imageDataSizeRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateEnabledState();
+        }
+
+        /// <summary>
+        /// Handles the CheckedChanged event of CompressionRatioRadioButton object.
+        /// </summary>
+        private void compressionRatioRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateEnabledState();
+        }
+
+        /// <summary>
+        /// Handles the CheckedChanged event of UseTilesCheckBox object.
+        /// </summary>
+        private void useTilesCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateEnabledState();
+        }
+
+        #endregion
+
+
+        /// <summary>
+        /// Updates the user interface of this form.
+        /// </summary>
         private void UpdateUI()
         {
-            formatComboBox.SelectedItem = _encoderSettings.FileFormat;            
+            formatComboBox.SelectedItem = _encoderSettings.FileFormat;
             waveletLevelsNumericUpDown.Value = _encoderSettings.WaveletLevels;
             waveletTransformCheckBox.Checked = _encoderSettings.WaveletLevels > 0;
             qualityLayersNumericUpDown.Value = _encoderSettings.QualityLayers.Length;
@@ -101,6 +191,21 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             UpdateEnabledState();
         }
 
+        /// <summary>
+        /// Updates the enabled state of UI controls.
+        /// </summary>
+        private void UpdateEnabledState()
+        {
+            lossyGroupBox.Enabled = lossyCompressionCheckBox.Checked;
+            imageDataSizeNumericUpDown.Enabled = imageDataSizeRadioButton.Checked;
+            compressionRatioNumericUpDown.Enabled = compressionRatioRadioButton.Checked;
+            tileWidthNumericUpDown.Enabled = useTilesCheckBox.Checked;
+            tileHeightNumericUpDown.Enabled = useTilesCheckBox.Checked;
+        }
+
+        /// <summary>
+        /// Updates the encoder settings.
+        /// </summary>
         private void SetEncoderSettings()
         {
             _encoderSettings.FileFormat = (Jpeg2000FileFormat)formatComboBox.SelectedItem;
@@ -140,40 +245,9 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             }
         }
 
-        private void UpdateEnabledState(object sender, EventArgs e)
-        {
-            UpdateEnabledState();
-        }
-       
+        #endregion
 
-        private void UpdateEnabledState()
-        {
-            lossyGroupBox.Enabled = lossyCompressionCheckBox.Checked;
-            imageDataSizeNumericUpDown.Enabled = imageDataSizeRadioButton.Checked;
-            compressionRatioNumericUpDown.Enabled = compressionRatioRadioButton.Checked;
-            tileWidthNumericUpDown.Enabled = useTilesCheckBox.Checked;
-            tileHeightNumericUpDown.Enabled = useTilesCheckBox.Checked;
-        }
-
-        private void buttonOk_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                SetEncoderSettings();
-                DialogResult = DialogResult.OK;
-            }
-            catch (Exception ex)
-            {
-                DemosTools.ShowErrorMessage(ex);
-            }
-        }        
-
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-        }
-
-        #endregion       
+        #endregion
 
     }
 }

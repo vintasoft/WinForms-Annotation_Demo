@@ -23,9 +23,9 @@ namespace DemosCommonCode.Annotation
         AnnotationCommentBuilder _annotationCommentBuilder;
 
         /// <summary>
-        /// A value indicating whether the comment tool was enabled (<see cref="CommentVisualTool.IsEnabled"/>) before annotation building is started.
+        /// A value indicating whether the comment tool was enabled (<see cref="CommentVisualTool.Enabled"/>) before annotation building is started.
         /// </summary>
-        bool _commentToolEnabledBeforeAnnotationBuilding = false;
+        bool? _commentToolEnabledBeforeAnnotationBuilding;
 
         #endregion
 
@@ -147,6 +147,70 @@ namespace DemosCommonCode.Annotation
 
         #region Methods
 
+        #region UI
+
+        /// <summary>
+        /// Handles the Click event of AddNewCommentButton object.
+        /// </summary>
+        private void addNewCommentButton_Click(object sender, EventArgs e)
+        {
+            // if comment tool is enabled
+            if (CommentTool.Enabled)
+            {
+                // add new comment
+                _annotationCommentBuilder.AddNewComment();
+
+                UpdateUI();
+            }
+        }
+
+        /// <summary>
+        /// Handles the Click event of AddCommentToAnnotationButton object.
+        /// </summary>
+        private void addCommentToAnnotationButton_Click(object sender, EventArgs e)
+        {
+            // if comment tool is enabled
+            if (CommentTool.Enabled)
+            {
+                // add comment to annotation
+                _annotationCommentBuilder.AddCommentToAnnotation(AnnotationTool.FocusedAnnotationView);
+
+                UpdateUI();
+            }
+        }
+
+        /// <summary>
+        /// Handles the Click event of RemoveCommentFromAnnotationButton object.
+        /// </summary>
+        private void removeCommentFromAnnotationButton_Click(object sender, EventArgs e)
+        {
+            // if comment tool is enabled
+            if (CommentTool.Enabled)
+            {
+                // remove comment from selected annotation
+                AnnotationTool.FocusedAnnotationView.Data.Comment.Remove();
+
+                UpdateUI();
+            }
+        }
+
+        /// <summary>
+        /// Handles the Click event of CloseAllCommentsButton object.
+        /// </summary>
+        private void closeAllCommentsButton_Click(object sender, EventArgs e)
+        {
+            // get comments
+            CommentCollection comments = CommentTool.CommentController.GetComments(ImageViewer.Image);
+
+            // for each comment in comments
+            foreach (Comment comment in comments)
+                // close comment
+                comment.IsOpen = false;
+        }
+
+        #endregion
+
+
         /// <summary>
         /// Updates the user interface of this control.
         /// </summary>
@@ -182,70 +246,21 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// "Add New Comment" button is clicked.
-        /// </summary>
-        private void addNewCommentButton_Click(object sender, EventArgs e)
-        {
-            if (CommentTool.Enabled)
-            {
-                _annotationCommentBuilder.AddNewComment();
-
-                UpdateUI();
-            }
-        }
-
-        /// <summary>
-        /// "Add Comment To Annotation" button is clicked.
-        /// </summary>
-        private void addCommentToAnnotationButton_Click(object sender, EventArgs e)
-        {
-            if (CommentTool.Enabled)
-            {
-                _annotationCommentBuilder.AddCommentToAnnotation(AnnotationTool.FocusedAnnotationView);
-
-                UpdateUI();
-            }
-        }
-
-        /// <summary>
-        /// "Remove Comment From Annotation" button is clicked.
-        /// </summary>
-        private void removeCommentFromAnnotationButton_Click(object sender, EventArgs e)
-        {
-            if (CommentTool.Enabled)
-            {
-                // remove comment from selected annotation
-                AnnotationTool.FocusedAnnotationView.Data.Comment.Remove();
-
-                UpdateUI();
-            }
-        }
-
-        /// <summary>
-        /// "Close All Comments" button is clicked.
-        /// </summary>
-        private void closeAllCommentsButton_Click(object sender, EventArgs e)
-        {
-            CommentCollection comments =
-                CommentTool.CommentController.GetComments(ImageViewer.Image);
-
-            foreach (Comment comment in comments)
-                comment.IsOpen = false;
-        }
-
-        /// <summary>
         /// Annotation building is started.
         /// </summary>
         private void AnnotationTool_AnnotationBuildingStarted(object sender, AnnotationViewEventArgs e)
         {
-            if (commentsControl1.IsCommentsOnViewerVisible &&
-                AnnotationTool.AnnotationInteractionMode == AnnotationInteractionMode.Author)
+            if (_commentToolEnabledBeforeAnnotationBuilding == null)
             {
-                _commentToolEnabledBeforeAnnotationBuilding = CommentTool.Enabled;
+                if (commentsControl1.IsCommentsOnViewerVisible &&
+                AnnotationTool.AnnotationInteractionMode == AnnotationInteractionMode.Author)
+                {
+                    _commentToolEnabledBeforeAnnotationBuilding = CommentTool.Enabled;
 
-                CommentTool.Enabled = false;
+                    CommentTool.Enabled = false;
 
-                UpdateUI();
+                    UpdateUI();
+                }
             }
         }
 
@@ -254,12 +269,15 @@ namespace DemosCommonCode.Annotation
         /// </summary>
         private void AnnotationTool_AnnotationBuildingFinished(object sender, AnnotationViewEventArgs e)
         {
-            if (commentsControl1.IsCommentsOnViewerVisible &&
-                AnnotationTool.AnnotationInteractionMode == AnnotationInteractionMode.Author)
+            if (_commentToolEnabledBeforeAnnotationBuilding != null)
             {
-                CommentTool.Enabled = _commentToolEnabledBeforeAnnotationBuilding;
+                if (commentsControl1.IsCommentsOnViewerVisible &&
+                    AnnotationTool.AnnotationInteractionMode == AnnotationInteractionMode.Author)
+                {
+                    CommentTool.Enabled = _commentToolEnabledBeforeAnnotationBuilding.Value;
 
-                UpdateUI();
+                    UpdateUI();
+                }
             }
 
             SelectComment(e.AnnotationView);

@@ -4,12 +4,19 @@ using System.Drawing;
 
 namespace DemosCommonCode.Annotation
 {
-    /// <summary> 
-    /// Annotations math.
+    /// <summary>
+    /// Contains collection of helper-algorithms for annotations.
     /// </summary>
     internal static class AnnotationsMath
     {
-     
+
+        /// <summary>
+        /// Returns the bounding box for specified points.
+        /// </summary>
+        /// <param name="points">The points.</param>
+        /// <returns>
+        /// Bounding box for specified points.
+        /// </returns>
         internal static RectangleF GetBoundingBox(PointF[] points)
         {
             if (points.Length == 0)
@@ -33,6 +40,12 @@ namespace DemosCommonCode.Annotation
             return new RectangleF(x1, y1, x2 - x1, y2 - y1);
         }
 
+        /// <summary>
+        /// Rotates points around a specified point by a given angle.
+        /// </summary>
+        /// <param name="points">The points to rotate.</param>
+        /// <param name="atPoint">The rotation point.</param>
+        /// <param name="alpha">The rotation angle.</param>
         internal static void RotatePointsAt(PointF[] points, PointF atPoint, float alpha)
         {
             float sin = (float)Math.Sin(-GradToRad(alpha));
@@ -47,6 +60,12 @@ namespace DemosCommonCode.Annotation
             }
         }
 
+        /// <summary>
+        /// Translates the points.
+        /// </summary>
+        /// <param name="points">The points.</param>
+        /// <param name="dx">The horizontal translation.</param>
+        /// <param name="dy">The vertical translation.</param>
         internal static void TranslatePoints(PointF[] points, float dx, float dy)
         {
             for (int i = 0; i < points.Length; i++)
@@ -56,11 +75,12 @@ namespace DemosCommonCode.Annotation
             }
         }
 
-        internal static float GradToRad(float grad)
-        {
-            return (float)(Math.PI / 180.0) * grad;
-        }
-
+        /// <summary>
+        /// Scales the points.
+        /// </summary>
+        /// <param name="points">The points.</param>
+        /// <param name="sx">The horizontal scale.</param>
+        /// <param name="sy">The vertical scale.</param>
         internal static void ScalePoints(PointF[] points, float sx, float sy)
         {
             for (int i = 0; i < points.Length; i++)
@@ -68,6 +88,18 @@ namespace DemosCommonCode.Annotation
                 points[i].X *= sx;
                 points[i].Y *= sy;
             }
+        }
+
+        /// <summary>
+        /// Converts the specified degree to radians.
+        /// </summary>
+        /// <param name="grad">The degree.</param>
+        /// <returns>
+        /// A value in radians.
+        /// </returns>
+        internal static float GradToRad(float grad)
+        {
+            return (float)(Math.PI / 180.0) * grad;
         }
 
     }

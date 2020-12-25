@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace AnnotationDemo
@@ -13,8 +12,6 @@ namespace AnnotationDemo
         [STAThread]
         static void Main()
         {
-            VintasoftImaging.VintasoftImagingLicense.Register();
-
             DemosCommonCode.DemosTools.EnableLicenseExceptionDisplaying();
 
             Application.EnableVisualStyles();

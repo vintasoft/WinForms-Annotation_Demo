@@ -2,8 +2,6 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 
-using Vintasoft.Imaging.Codecs;
-
 #if !REMOVE_PDF_PLUGIN
 using Vintasoft.Imaging.Pdf;
 #endif
@@ -106,6 +104,166 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
 
         #region Methods
 
+        #region UI
+
+        /// <summary>
+        /// Handles the CheckedChanged event of CompressionRadioButton object.
+        /// </summary>
+        private void compressionRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+#if !REMOVE_PDF_PLUGIN
+            // if 'Auto' compression must be used
+            if (compressionAutoRadioButton.Checked)
+                _compression = PdfCompression.Auto;
+            // if 'CcittFax' compression must be used
+            else if (compressionCcittRadioButton.Checked)
+                _compression = PdfCompression.CcittFax;
+            // if 'JBIG2' compression must be used
+            else if (compressionJbig2RadioButton.Checked)
+                _compression = PdfCompression.Jbig2;
+            // if 'JPEG2000' compression must be used
+            else if (compressionJpeg2000RadioButton.Checked)
+                _compression = PdfCompression.Jpeg2000;
+            // if 'Jpeg' compression must be used
+            else if (compressionJpegRadioButton.Checked)
+                _compression = PdfCompression.Jpeg;
+            // if 'Lzw' compression must be used
+            else if (compressionLzwRadioButton.Checked)
+                _compression = PdfCompression.Lzw;
+            // if compression should not be used
+            else if (compressionNoneRadioButton.Checked)
+                _compression = PdfCompression.None;
+            // if 'Zip' compression must be used
+            else if (compressionZipRadioButton.Checked)
+                _compression = PdfCompression.Zip;
+            // if 'Jpeg' and 'Zip' compression must be used
+            else if (compressionJpegZipRadioButton.Checked)
+                _compression = PdfCompression.Jpeg | PdfCompression.Zip;
+#endif
+            UpdateUI();
+        }
+
+        /// <summary>
+        /// Handles the ValueChanged event of JpegQualityNumericUpDown object.
+        /// </summary>
+        private void jpegQualityNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+#if !REMOVE_PDF_PLUGIN
+            // update compression jpeg quality
+            _compressionSettings.JpegQuality = (int)jpegQualityNumericUpDown.Value;
+#endif
+        }
+
+        /// <summary>
+        /// Handles the CheckedChanged event of JpegGrayscaleCheckBox object.
+        /// </summary>
+        private void jpegGrayscaleCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+#if !REMOVE_PDF_PLUGIN
+            // if 'Jpeg' image must be saved as grayscale image
+            if (jpegGrayscaleCheckBox.Checked)
+                _compressionSettings.JpegSaveAsGrayscale = true;
+            else
+                _compressionSettings.JpegSaveAsGrayscale = false;
+#endif
+        }
+
+        /// <summary>
+        /// Handles the CheckedChanged event of Jbig2UseGlobalsCheckBox object.
+        /// </summary>
+        private void jbig2UseGlobalsCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+#if !REMOVE_PDF_PLUGIN
+            // if JBIG2 must be used global settings
+            if (jbig2UseGlobalsCheckBox.Checked)
+                _compressionSettings.Jbig2UseGlobals = true;
+            else
+                _compressionSettings.Jbig2UseGlobals = false;
+#endif
+        }
+
+        /// <summary>
+        /// Handles the ValueChanged event of ZipLevelNumericUpDown object.
+        /// </summary>
+        private void zipLevelNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+#if !REMOVE_PDF_PLUGIN
+            // update the 'Zip' compression level
+            _compressionSettings.ZipCompressionLevel = (int)zipLevelNumericUpDown.Value;
+#endif
+        }
+
+        /// <summary>
+        /// Handles the Click event of Jpeg2000SettingsButton object.
+        /// </summary>
+        private void jpeg2000SettingsButton_Click(object sender, EventArgs e)
+        {
+            // create JPEG2000 encoding settings
+            using (Jpeg2000EncoderSettingsForm jpeg2000SettingsDialog = new Jpeg2000EncoderSettingsForm())
+            {
+#if !REMOVE_PDF_PLUGIN
+                jpeg2000SettingsDialog.EncoderSettings = _compressionSettings.Jpeg2000Settings;
+#endif
+                // show dialog
+                jpeg2000SettingsDialog.ShowDialog();
+            }
+        }
+
+        /// <summary>
+        /// Handles the Click event of Jbig2SettingsButton object.
+        /// </summary>
+        private void jbig2SettingsButton_Click(object sender, EventArgs e)
+        {
+            // create JBIG2 encoding settings
+            using (Jbig2EncoderSettingsForm jbig2SettingsDialog = new Jbig2EncoderSettingsForm())
+            {
+#if !REMOVE_PDF_PLUGIN
+                jbig2SettingsDialog.EncoderSettings = _compressionSettings.Jbig2Settings;
+#endif
+                jbig2SettingsDialog.AppendExistingDocumentEnabled = false;
+
+                // show dialog
+                jbig2SettingsDialog.ShowDialog();
+            }
+        }
+
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of BinarizationModeComboBox object.
+        /// </summary>
+        private void binarizationModeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // get binarization mode
+            BinarizationMode mode = (BinarizationMode)binarizationModeComboBox.SelectedItem;
+#if !REMOVE_PDF_PLUGIN
+            _compressionSettings.BinarizationCommand.BinarizationMode = mode;
+#endif
+
+            if (mode == BinarizationMode.Threshold)
+            {
+                thresholdNumericUpDown.Visible = true;
+                thresholdLabel.Visible = true;
+            }
+            else
+            {
+                thresholdNumericUpDown.Visible = false;
+                thresholdLabel.Visible = false;
+            }
+        }
+
+        /// <summary>
+        /// Handles the ValueChanged event of ThresholdNumericUpDown object.
+        /// </summary>
+        private void thresholdNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+#if !REMOVE_PDF_PLUGIN
+            // update binarization threshold
+            _compressionSettings.BinarizationCommand.Threshold = (int)thresholdNumericUpDown.Value;
+#endif
+        }
+
+        #endregion
+
+
         /// <summary>
         /// Updates the user interface of this form.
         /// </summary>
@@ -170,129 +328,6 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             else if (_compression == (PdfCompression.Zip | PdfCompression.Jpeg) ||
                 _compression == (PdfCompression.Zip | PdfCompression.Jpeg | PdfCompression.Predictor))
                 compressionJpegZipRadioButton.Checked = true;
-#endif
-        }
-
-        /// <summary>
-        /// Compression radio button is checked.
-        /// </summary>
-        private void compressionRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-#if !REMOVE_PDF_PLUGIN
-            if (compressionAutoRadioButton.Checked)
-                _compression = PdfCompression.Auto;
-            else if (compressionCcittRadioButton.Checked)
-                _compression = PdfCompression.CcittFax;
-            else if (compressionJbig2RadioButton.Checked)
-                _compression = PdfCompression.Jbig2;
-            else if (compressionJpeg2000RadioButton.Checked)
-                _compression = PdfCompression.Jpeg2000;
-            else if (compressionJpegRadioButton.Checked)
-                _compression = PdfCompression.Jpeg;
-            else if (compressionLzwRadioButton.Checked)
-                _compression = PdfCompression.Lzw;
-            else if (compressionNoneRadioButton.Checked)
-                _compression = PdfCompression.None;
-            else if (compressionZipRadioButton.Checked)
-                _compression = PdfCompression.Zip;
-            else if (compressionJpegZipRadioButton.Checked)
-                _compression = PdfCompression.Jpeg | PdfCompression.Zip;
-#endif
-            UpdateUI();
-        }
-
-        /// <summary>
-        /// JPEG quality is changed.
-        /// </summary>
-        private void jpegQualityNumericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-#if !REMOVE_PDF_PLUGIN
-            _compressionSettings.JpegQuality = (int)jpegQualityNumericUpDown.Value;
-#endif
-        }
-
-        /// <summary>
-        /// JPEG grayscale flag is changed.
-        /// </summary>
-        private void jpegGrayscaleCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-#if !REMOVE_PDF_PLUGIN
-            _compressionSettings.JpegSaveAsGrayscale = jpegGrayscaleCheckBox.Checked;
-#endif
-        }
-
-        /// <summary>
-        /// JBIG2 UseGlobals flag is changed.
-        /// </summary>
-        private void jbig2UseGlobalsCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-#if !REMOVE_PDF_PLUGIN
-            _compressionSettings.Jbig2UseGlobals = jbig2UseGlobalsCheckBox.Checked;
-#endif
-        }
-
-        /// <summary>
-        /// Zip compression level is changed.
-        /// </summary>
-        private void zipLevelNumericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-#if !REMOVE_PDF_PLUGIN
-            _compressionSettings.ZipCompressionLevel = (int)zipLevelNumericUpDown.Value;
-#endif
-        }
-
-
-        /// <summary>
-        /// Shows the JPEG2000 settings dialog.
-        /// </summary>
-        private void jpeg2000SettingsButton_Click(object sender, EventArgs e)
-        {
-            using (Jpeg2000EncoderSettingsForm jpeg2000SettingsDialog = new Jpeg2000EncoderSettingsForm())
-            {
-#if !REMOVE_PDF_PLUGIN
-                jpeg2000SettingsDialog.EncoderSettings = _compressionSettings.Jpeg2000Settings;
-#endif
-                jpeg2000SettingsDialog.ShowDialog();
-            }
-        }
-
-        /// <summary>
-        /// Shows the JBIG2 settings dialog.
-        /// </summary>
-        private void jbig2SettingsButton_Click(object sender, EventArgs e)
-        {
-            using (Jbig2EncoderSettingsForm jbig2SettingsDialog = new Jbig2EncoderSettingsForm())
-            {
-#if !REMOVE_PDF_PLUGIN
-                jbig2SettingsDialog.EncoderSettings = _compressionSettings.Jbig2Settings;
-#endif
-                jbig2SettingsDialog.AppendExistingDocumentEnabled = false;
-                jbig2SettingsDialog.ShowDialog();
-            }
-        }
-
-        private void binarizationModeComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            BinarizationMode mode = (BinarizationMode)binarizationModeComboBox.SelectedItem;
-#if !REMOVE_PDF_PLUGIN
-            _compressionSettings.BinarizationCommand.BinarizationMode = mode;
-#endif
-            if (mode == BinarizationMode.Threshold)
-            {
-                thresholdNumericUpDown.Visible = true;
-                thresholdLabel.Visible = true;
-            }
-            else
-            {
-                thresholdNumericUpDown.Visible = false;
-                thresholdLabel.Visible = false;
-            }
-        }
-
-        private void thresholdNumericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-#if !REMOVE_PDF_PLUGIN
-            _compressionSettings.BinarizationCommand.Threshold = (int)thresholdNumericUpDown.Value;
 #endif
         }
 

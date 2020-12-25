@@ -120,6 +120,8 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Selects the selection region.
         /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void Action_Activated(object sender, EventArgs e)
         {
             CustomSelectionRegionTypeAction regionTypeAction = (CustomSelectionRegionTypeAction)sender;
@@ -134,6 +136,8 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Updates visual tool status.
         /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="CustomSelectionChangedEventArgs"/> instance containing the event data.</param>
         private void customSelectionTool_SelectionChanged(object sender, CustomSelectionChangedEventArgs e)
         {
             Rectangle bbox = Rectangle.Round(e.Selection.GetBoundingBox());

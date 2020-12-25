@@ -9,7 +9,7 @@ namespace DemosCommonCode.Imaging
     public partial class PropertyGridForm : Form
     {
 
-        #region Constructor
+        #region Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PropertyGridForm"/> class.
@@ -32,8 +32,8 @@ namespace DemosCommonCode.Imaging
             InitializeComponent();
             Text = formTitle;
             buttonCancel.Enabled = canCancel;
-            _propertyGrid.SelectedObject = obj;
-            _propertyGrid.PropertyValueChanged += new PropertyValueChangedEventHandler(propertyGrid_PropertyValueChanged);
+            propertyGrid1.SelectedObject = obj;
+            propertyGrid1.PropertyValueChanged += new PropertyValueChangedEventHandler(propertyGrid_PropertyValueChanged);
         }
 
         #endregion
@@ -42,11 +42,14 @@ namespace DemosCommonCode.Imaging
 
         #region Properties
 
+        /// <summary>
+        /// Gets the <see cref="PropertyGrid"/>.
+        /// </summary>
         public PropertyGrid PropertyGrid
         {
             get
             {
-                return _propertyGrid;
+                return propertyGrid1;
             }
         }
 
@@ -71,23 +74,9 @@ namespace DemosCommonCode.Imaging
 
         #region Methods
 
-        private void buttonOk_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.OK;
-            Close();
-        }
-
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-            Close();
-        }
-
-        /// <summary>
-        /// Handles the PropertyValueChanged event of the _propertyGrid control.
-        /// </summary>
         private void propertyGrid_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
         {
+            // property value is changed
             _propertyValueChanged = true;
         }
 

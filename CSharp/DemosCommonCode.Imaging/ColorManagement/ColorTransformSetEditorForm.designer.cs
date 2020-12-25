@@ -30,10 +30,10 @@ namespace DemosCommonCode.Imaging.ColorManagement
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.colorTransformsListBox = new System.Windows.Forms.ListBox();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.availableColorTransformsListBox = new System.Windows.Forms.ListBox();
             this.copyToTransformSetButton = new System.Windows.Forms.Button();
-            this.deleteButton = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -42,9 +42,9 @@ namespace DemosCommonCode.Imaging.ColorManagement
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.colorTransformsListBox);
             this.groupBox1.Controls.Add(this.deleteButton);
             this.groupBox1.Location = new System.Drawing.Point(9, 6);
@@ -56,9 +56,9 @@ namespace DemosCommonCode.Imaging.ColorManagement
             // 
             // colorTransformsListBox
             // 
-            this.colorTransformsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.colorTransformsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.colorTransformsListBox.FormattingEnabled = true;
             this.colorTransformsListBox.HorizontalScrollbar = true;
             this.colorTransformsListBox.Location = new System.Drawing.Point(3, 16);
@@ -66,10 +66,21 @@ namespace DemosCommonCode.Imaging.ColorManagement
             this.colorTransformsListBox.Size = new System.Drawing.Size(340, 186);
             this.colorTransformsListBox.TabIndex = 0;
             // 
+            // deleteButton
+            // 
+            this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.deleteButton.Location = new System.Drawing.Point(3, 208);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(117, 23);
+            this.deleteButton.TabIndex = 4;
+            this.deleteButton.Text = "Delete selected";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.availableColorTransformsListBox);
             this.groupBox3.Controls.Add(this.copyToTransformSetButton);
             this.groupBox3.Location = new System.Drawing.Point(361, 6);
@@ -81,9 +92,9 @@ namespace DemosCommonCode.Imaging.ColorManagement
             // 
             // availableColorTransformsListBox
             // 
-            this.availableColorTransformsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.availableColorTransformsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.availableColorTransformsListBox.FormattingEnabled = true;
             this.availableColorTransformsListBox.HorizontalScrollbar = true;
             this.availableColorTransformsListBox.Location = new System.Drawing.Point(3, 16);
@@ -102,27 +113,16 @@ namespace DemosCommonCode.Imaging.ColorManagement
             this.copyToTransformSetButton.UseVisualStyleBackColor = true;
             this.copyToTransformSetButton.Click += new System.EventHandler(this.copyToTransformSetButton_Click);
             // 
-            // deleteButton
-            // 
-            this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.deleteButton.Location = new System.Drawing.Point(3, 208);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(117, 23);
-            this.deleteButton.TabIndex = 4;
-            this.deleteButton.Text = "Delete selected";
-            this.deleteButton.UseVisualStyleBackColor = true;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
-            // 
             // buttonOk
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOk.Location = new System.Drawing.Point(418, 251);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(75, 23);
             this.buttonOk.TabIndex = 7;
             this.buttonOk.Text = "OK";
             this.buttonOk.UseVisualStyleBackColor = true;
-            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
             // buttonCancel
             // 
@@ -134,7 +134,6 @@ namespace DemosCommonCode.Imaging.ColorManagement
             this.buttonCancel.TabIndex = 8;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // ColorTransformSetEditorForm
             // 
@@ -147,6 +146,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.MinimumSize = new System.Drawing.Size(470, 250);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "ColorTransformSetEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Color Transform Set";

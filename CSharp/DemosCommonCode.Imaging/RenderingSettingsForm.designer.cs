@@ -28,64 +28,66 @@ namespace DemosCommonCode.Imaging
         /// </summary>
         private void InitializeComponent()
         {
-            this.cbDefault = new System.Windows.Forms.CheckBox();
-            this.gbCustomSettings = new System.Windows.Forms.GroupBox();
+            this.defaultCheckBox = new System.Windows.Forms.CheckBox();
+            this.customSettingsGroupBox = new System.Windows.Forms.GroupBox();
             this.optimizeImageDrawingCheckBox = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.interpolationModeComboBox = new System.Windows.Forms.ComboBox();
             this.smoothingModeComboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.verticalResolution = new System.Windows.Forms.NumericUpDown();
-            this.horizontalResolution = new System.Windows.Forms.NumericUpDown();
+            this.verticalResolutionNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.horizontalResolutionNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btOk = new System.Windows.Forms.Button();
-            this.btCancel = new System.Windows.Forms.Button();
-            this.gbCustomSettings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.verticalResolution)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.horizontalResolution)).BeginInit();
+            this.okButton = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.drawSharpImageBordersCheckBox = new System.Windows.Forms.CheckBox();
+            this.customSettingsGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.verticalResolutionNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.horizontalResolutionNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
-            // cbDefault
+            // defaultCheckBox
             // 
-            this.cbDefault.AutoSize = true;
-            this.cbDefault.Location = new System.Drawing.Point(12, 12);
-            this.cbDefault.Name = "cbDefault";
-            this.cbDefault.Size = new System.Drawing.Size(101, 17);
-            this.cbDefault.TabIndex = 0;
-            this.cbDefault.Text = "Default Settings";
-            this.cbDefault.UseVisualStyleBackColor = true;
-            this.cbDefault.CheckedChanged += new System.EventHandler(this.cbDefault_CheckedChanged);
+            this.defaultCheckBox.AutoSize = true;
+            this.defaultCheckBox.Location = new System.Drawing.Point(12, 12);
+            this.defaultCheckBox.Name = "defaultCheckBox";
+            this.defaultCheckBox.Size = new System.Drawing.Size(101, 17);
+            this.defaultCheckBox.TabIndex = 0;
+            this.defaultCheckBox.Text = "Default Settings";
+            this.defaultCheckBox.UseVisualStyleBackColor = true;
+            this.defaultCheckBox.CheckedChanged += new System.EventHandler(this.defaultCheckBox_CheckedChanged);
             // 
-            // gbCustomSettings
+            // customSettingsGroupBox
             // 
-            this.gbCustomSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.customSettingsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbCustomSettings.Controls.Add(this.optimizeImageDrawingCheckBox);
-            this.gbCustomSettings.Controls.Add(this.label6);
-            this.gbCustomSettings.Controls.Add(this.interpolationModeComboBox);
-            this.gbCustomSettings.Controls.Add(this.smoothingModeComboBox);
-            this.gbCustomSettings.Controls.Add(this.label5);
-            this.gbCustomSettings.Controls.Add(this.verticalResolution);
-            this.gbCustomSettings.Controls.Add(this.horizontalResolution);
-            this.gbCustomSettings.Controls.Add(this.label4);
-            this.gbCustomSettings.Controls.Add(this.label3);
-            this.gbCustomSettings.Controls.Add(this.label2);
-            this.gbCustomSettings.Controls.Add(this.label1);
-            this.gbCustomSettings.Location = new System.Drawing.Point(12, 35);
-            this.gbCustomSettings.Name = "gbCustomSettings";
-            this.gbCustomSettings.Size = new System.Drawing.Size(275, 144);
-            this.gbCustomSettings.TabIndex = 1;
-            this.gbCustomSettings.TabStop = false;
-            this.gbCustomSettings.Text = "Custom Settings";
+            this.customSettingsGroupBox.Controls.Add(this.drawSharpImageBordersCheckBox);
+            this.customSettingsGroupBox.Controls.Add(this.optimizeImageDrawingCheckBox);
+            this.customSettingsGroupBox.Controls.Add(this.label6);
+            this.customSettingsGroupBox.Controls.Add(this.interpolationModeComboBox);
+            this.customSettingsGroupBox.Controls.Add(this.smoothingModeComboBox);
+            this.customSettingsGroupBox.Controls.Add(this.label5);
+            this.customSettingsGroupBox.Controls.Add(this.verticalResolutionNumericUpDown);
+            this.customSettingsGroupBox.Controls.Add(this.horizontalResolutionNumericUpDown);
+            this.customSettingsGroupBox.Controls.Add(this.label4);
+            this.customSettingsGroupBox.Controls.Add(this.label3);
+            this.customSettingsGroupBox.Controls.Add(this.label2);
+            this.customSettingsGroupBox.Controls.Add(this.label1);
+            this.customSettingsGroupBox.Location = new System.Drawing.Point(12, 35);
+            this.customSettingsGroupBox.Name = "customSettingsGroupBox";
+            this.customSettingsGroupBox.Size = new System.Drawing.Size(275, 164);
+            this.customSettingsGroupBox.TabIndex = 1;
+            this.customSettingsGroupBox.TabStop = false;
+            this.customSettingsGroupBox.Text = "Custom Settings";
             // 
             // optimizeImageDrawingCheckBox
             // 
             this.optimizeImageDrawingCheckBox.AutoSize = true;
-            this.optimizeImageDrawingCheckBox.Location = new System.Drawing.Point(9, 121);
+            this.optimizeImageDrawingCheckBox.Location = new System.Drawing.Point(9, 141);
             this.optimizeImageDrawingCheckBox.Name = "optimizeImageDrawingCheckBox";
             this.optimizeImageDrawingCheckBox.Size = new System.Drawing.Size(140, 17);
             this.optimizeImageDrawingCheckBox.TabIndex = 10;
@@ -128,46 +130,46 @@ namespace DemosCommonCode.Imaging
             this.label5.TabIndex = 6;
             this.label5.Text = "dpi";
             // 
-            // verticalResolution
+            // verticalResolutionNumericUpDown
             // 
-            this.verticalResolution.AccessibleName = "";
-            this.verticalResolution.Location = new System.Drawing.Point(119, 40);
-            this.verticalResolution.Maximum = new decimal(new int[] {
+            this.verticalResolutionNumericUpDown.AccessibleName = "";
+            this.verticalResolutionNumericUpDown.Location = new System.Drawing.Point(119, 40);
+            this.verticalResolutionNumericUpDown.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.verticalResolution.Minimum = new decimal(new int[] {
+            this.verticalResolutionNumericUpDown.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.verticalResolution.Name = "verticalResolution";
-            this.verticalResolution.Size = new System.Drawing.Size(67, 20);
-            this.verticalResolution.TabIndex = 5;
-            this.verticalResolution.Value = new decimal(new int[] {
+            this.verticalResolutionNumericUpDown.Name = "verticalResolutionNumericUpDown";
+            this.verticalResolutionNumericUpDown.Size = new System.Drawing.Size(67, 20);
+            this.verticalResolutionNumericUpDown.TabIndex = 5;
+            this.verticalResolutionNumericUpDown.Value = new decimal(new int[] {
             96,
             0,
             0,
             0});
             // 
-            // horizontalResolution
+            // horizontalResolutionNumericUpDown
             // 
-            this.horizontalResolution.Location = new System.Drawing.Point(119, 14);
-            this.horizontalResolution.Maximum = new decimal(new int[] {
+            this.horizontalResolutionNumericUpDown.Location = new System.Drawing.Point(119, 14);
+            this.horizontalResolutionNumericUpDown.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.horizontalResolution.Minimum = new decimal(new int[] {
+            this.horizontalResolutionNumericUpDown.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.horizontalResolution.Name = "horizontalResolution";
-            this.horizontalResolution.Size = new System.Drawing.Size(67, 20);
-            this.horizontalResolution.TabIndex = 4;
-            this.horizontalResolution.Value = new decimal(new int[] {
+            this.horizontalResolutionNumericUpDown.Name = "horizontalResolutionNumericUpDown";
+            this.horizontalResolutionNumericUpDown.Size = new System.Drawing.Size(67, 20);
+            this.horizontalResolutionNumericUpDown.TabIndex = 4;
+            this.horizontalResolutionNumericUpDown.Value = new decimal(new int[] {
             96,
             0,
             0,
@@ -209,50 +211,60 @@ namespace DemosCommonCode.Imaging
             this.label1.TabIndex = 0;
             this.label1.Text = "Horizontal Resolution";
             // 
-            // btOk
+            // okButton
             // 
-            this.btOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btOk.Location = new System.Drawing.Point(131, 187);
-            this.btOk.Name = "btOk";
-            this.btOk.Size = new System.Drawing.Size(74, 27);
-            this.btOk.TabIndex = 2;
-            this.btOk.Text = "OK";
-            this.btOk.UseVisualStyleBackColor = true;
-            this.btOk.Click += new System.EventHandler(this.btOk_Click);
+            this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.okButton.Location = new System.Drawing.Point(131, 207);
+            this.okButton.Name = "okButton";
+            this.okButton.Size = new System.Drawing.Size(74, 27);
+            this.okButton.TabIndex = 2;
+            this.okButton.Text = "OK";
+            this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
-            // btCancel
+            // buttonCancel
             // 
-            this.btCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btCancel.Location = new System.Drawing.Point(211, 187);
-            this.btCancel.Name = "btCancel";
-            this.btCancel.Size = new System.Drawing.Size(75, 27);
-            this.btCancel.TabIndex = 3;
-            this.btCancel.Text = "Cancel";
-            this.btCancel.UseVisualStyleBackColor = true;
-            this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Location = new System.Drawing.Point(211, 207);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(75, 27);
+            this.buttonCancel.TabIndex = 3;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            // 
+            // drawSharpImageBordersCheckBox
+            // 
+            this.drawSharpImageBordersCheckBox.AutoSize = true;
+            this.drawSharpImageBordersCheckBox.Location = new System.Drawing.Point(9, 120);
+            this.drawSharpImageBordersCheckBox.Name = "drawSharpImageBordersCheckBox";
+            this.drawSharpImageBordersCheckBox.Size = new System.Drawing.Size(153, 17);
+            this.drawSharpImageBordersCheckBox.TabIndex = 11;
+            this.drawSharpImageBordersCheckBox.Text = "Draw Sharp Image Borders";
+            this.drawSharpImageBordersCheckBox.UseVisualStyleBackColor = true;
             // 
             // RenderingSettingsForm
             // 
-            this.AcceptButton = this.btOk;
+            this.AcceptButton = this.okButton;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btCancel;
-            this.ClientSize = new System.Drawing.Size(297, 222);
-            this.Controls.Add(this.btCancel);
-            this.Controls.Add(this.btOk);
-            this.Controls.Add(this.gbCustomSettings);
-            this.Controls.Add(this.cbDefault);
+            this.CancelButton = this.buttonCancel;
+            this.ClientSize = new System.Drawing.Size(297, 242);
+            this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.okButton);
+            this.Controls.Add(this.customSettingsGroupBox);
+            this.Controls.Add(this.defaultCheckBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "RenderingSettingsForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Rendering Settings";
-            this.gbCustomSettings.ResumeLayout(false);
-            this.gbCustomSettings.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.verticalResolution)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.horizontalResolution)).EndInit();
+            this.customSettingsGroupBox.ResumeLayout(false);
+            this.customSettingsGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.verticalResolutionNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.horizontalResolutionNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,20 +272,21 @@ namespace DemosCommonCode.Imaging
 
         #endregion
 
-        private System.Windows.Forms.CheckBox cbDefault;
-        private System.Windows.Forms.GroupBox gbCustomSettings;
-        private System.Windows.Forms.Button btOk;
+        private System.Windows.Forms.CheckBox defaultCheckBox;
+        private System.Windows.Forms.GroupBox customSettingsGroupBox;
+        private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.ComboBox interpolationModeComboBox;
         private System.Windows.Forms.ComboBox smoothingModeComboBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown verticalResolution;
-        private System.Windows.Forms.NumericUpDown horizontalResolution;
+        private System.Windows.Forms.NumericUpDown verticalResolutionNumericUpDown;
+        private System.Windows.Forms.NumericUpDown horizontalResolutionNumericUpDown;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btCancel;
+        private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.CheckBox optimizeImageDrawingCheckBox;
+        private System.Windows.Forms.CheckBox drawSharpImageBordersCheckBox;
     }
 }

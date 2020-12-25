@@ -40,7 +40,7 @@ namespace DemosCommonCode.Imaging
         /// <param name="text">The text.</param>
         /// <param name="toolTip">The tool tip.</param>
         /// <param name="icon">The icon.</param>
-        /// <param name="isCheckOnActivate">Indicate whether the action must be checked after activate.</param>
+        /// <param name="isCheckOnActivate">A value indicating whether the action must be checked after activation.</param>
         /// <param name="subActions">The sub action of the action.</param>
         public VisualToolAction(
             string text,
@@ -60,7 +60,7 @@ namespace DemosCommonCode.Imaging
         /// <param name="text">The action text.</param>
         /// <param name="toolTip">The action tool tip.</param>
         /// <param name="icon">The action icon.</param>
-        /// <param name="isCheckOnActivate">Indicate whether the action must be checked after activate.</param>
+        /// <param name="isCheckOnActivate">A value indicating whether the action must be checked after activation.</param>
         /// <param name="subActions">The sub-actions of the action.</param>
         public VisualToolAction(
             VisualTool visualTool,

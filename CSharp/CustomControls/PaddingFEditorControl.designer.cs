@@ -33,17 +33,19 @@ namespace DemosCommonCode.CustomControls
             this.allNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.topNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.leftNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.rightNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bottomNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.topNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftNumericUpDown)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // rightNumericUpDown
             // 
-            this.rightNumericUpDown.Location = new System.Drawing.Point(89, 28);
+            this.rightNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rightNumericUpDown.Location = new System.Drawing.Point(87, 28);
             this.rightNumericUpDown.Maximum = new decimal(new int[] {
             9999999,
             0,
@@ -55,13 +57,14 @@ namespace DemosCommonCode.CustomControls
             0,
             -2147483648});
             this.rightNumericUpDown.Name = "rightNumericUpDown";
-            this.rightNumericUpDown.Size = new System.Drawing.Size(37, 20);
+            this.rightNumericUpDown.Size = new System.Drawing.Size(38, 20);
             this.rightNumericUpDown.TabIndex = 15;
             this.rightNumericUpDown.ValueChanged += new System.EventHandler(this.numericUpDown_ValueChanged);
             // 
             // bottomNumericUpDown
             // 
-            this.bottomNumericUpDown.Location = new System.Drawing.Point(46, 54);
+            this.bottomNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.bottomNumericUpDown.Location = new System.Drawing.Point(45, 53);
             this.bottomNumericUpDown.Maximum = new decimal(new int[] {
             9999999,
             0,
@@ -73,13 +76,14 @@ namespace DemosCommonCode.CustomControls
             0,
             -2147483648});
             this.bottomNumericUpDown.Name = "bottomNumericUpDown";
-            this.bottomNumericUpDown.Size = new System.Drawing.Size(37, 20);
+            this.bottomNumericUpDown.Size = new System.Drawing.Size(36, 20);
             this.bottomNumericUpDown.TabIndex = 14;
             this.bottomNumericUpDown.ValueChanged += new System.EventHandler(this.numericUpDown_ValueChanged);
             // 
             // allNumericUpDown
             // 
-            this.allNumericUpDown.Location = new System.Drawing.Point(46, 28);
+            this.allNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.allNumericUpDown.Location = new System.Drawing.Point(45, 28);
             this.allNumericUpDown.Maximum = new decimal(new int[] {
             9999999,
             0,
@@ -91,13 +95,14 @@ namespace DemosCommonCode.CustomControls
             0,
             -2147483648});
             this.allNumericUpDown.Name = "allNumericUpDown";
-            this.allNumericUpDown.Size = new System.Drawing.Size(37, 20);
+            this.allNumericUpDown.Size = new System.Drawing.Size(36, 20);
             this.allNumericUpDown.TabIndex = 13;
             this.allNumericUpDown.ValueChanged += new System.EventHandler(this.allNumericUpDown_ValueChanged);
             // 
             // topNumericUpDown
             // 
-            this.topNumericUpDown.Location = new System.Drawing.Point(46, 2);
+            this.topNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.topNumericUpDown.Location = new System.Drawing.Point(45, 3);
             this.topNumericUpDown.Maximum = new decimal(new int[] {
             9999999,
             0,
@@ -109,12 +114,13 @@ namespace DemosCommonCode.CustomControls
             0,
             -2147483648});
             this.topNumericUpDown.Name = "topNumericUpDown";
-            this.topNumericUpDown.Size = new System.Drawing.Size(37, 20);
+            this.topNumericUpDown.Size = new System.Drawing.Size(36, 20);
             this.topNumericUpDown.TabIndex = 12;
             this.topNumericUpDown.ValueChanged += new System.EventHandler(this.numericUpDown_ValueChanged);
             // 
             // leftNumericUpDown
             // 
+            this.leftNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.leftNumericUpDown.Location = new System.Drawing.Point(3, 28);
             this.leftNumericUpDown.Maximum = new decimal(new int[] {
             9999999,
@@ -127,36 +133,46 @@ namespace DemosCommonCode.CustomControls
             0,
             -2147483648});
             this.leftNumericUpDown.Name = "leftNumericUpDown";
-            this.leftNumericUpDown.Size = new System.Drawing.Size(37, 20);
+            this.leftNumericUpDown.Size = new System.Drawing.Size(36, 20);
             this.leftNumericUpDown.TabIndex = 11;
             this.leftNumericUpDown.ValueChanged += new System.EventHandler(this.numericUpDown_ValueChanged);
             // 
-            // groupBox1
+            // tableLayoutPanel1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(17, 8);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(95, 55);
-            this.groupBox1.TabIndex = 16;
-            this.groupBox1.TabStop = false;
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.Controls.Add(this.bottomNumericUpDown, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.topNumericUpDown, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.rightNumericUpDown, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.leftNumericUpDown, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.allNumericUpDown, 1, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(128, 75);
+            this.tableLayoutPanel1.TabIndex = 17;
             // 
-            // PaddingPanelControl
+            // PaddingFEditorControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.rightNumericUpDown);
-            this.Controls.Add(this.bottomNumericUpDown);
-            this.Controls.Add(this.allNumericUpDown);
-            this.Controls.Add(this.topNumericUpDown);
-            this.Controls.Add(this.leftNumericUpDown);
-            this.Controls.Add(this.groupBox1);
-            this.MaximumSize = new System.Drawing.Size(128, 75);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.MaximumSize = new System.Drawing.Size(180, 75);
             this.MinimumSize = new System.Drawing.Size(128, 75);
-            this.Name = "PaddingPanelControl";
+            this.Name = "PaddingFEditorControl";
             this.Size = new System.Drawing.Size(128, 75);
             ((System.ComponentModel.ISupportInitialize)(this.rightNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bottomNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.allNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.topNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftNumericUpDown)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -168,6 +184,6 @@ namespace DemosCommonCode.CustomControls
         private System.Windows.Forms.NumericUpDown allNumericUpDown;
         private System.Windows.Forms.NumericUpDown topNumericUpDown;
         private System.Windows.Forms.NumericUpDown leftNumericUpDown;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

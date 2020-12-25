@@ -1,8 +1,7 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging;
-using Vintasoft.Imaging.Codecs;
 using Vintasoft.Imaging.Codecs.Encoders;
 
 namespace DemosCommonCode.Imaging.Codecs.Dialogs
@@ -13,12 +12,19 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
     public partial class JpegEncoderSettingsForm : Form
     {
 
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="JpegEncoderSettingsForm"/> class.
+        /// </summary>
         public JpegEncoderSettingsForm()
         {
             InitializeComponent();
             EditAnnotationSettings = false;
 
-        }
+        } 
+
+        #endregion
 
 
 
@@ -46,7 +52,12 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             }
         }
 
-
+        /// <summary>
+        /// Gets or sets a value indicating whether the annotation format must be changed.
+        /// </summary>
+        /// <value>
+        /// <b>True</b> if annotation format must be changed; otherwise, <b>false</b>.
+        /// </value>
         public bool EditAnnotationSettings
         {
             get
@@ -71,6 +82,12 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
 
         #region Methods
 
+        #region PROTECTED
+
+        /// <summary>
+        /// Creates the encoder settings.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -83,6 +100,34 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             }
         }
 
+        #endregion
+
+
+        #region PRIVATE
+
+        /// <summary>
+        /// Handles the Click event of ButtonOk object.
+        /// </summary>
+        private void buttonOk_Click(object sender, EventArgs e)
+        {
+            // update encoder settings
+            SetEncoderSettings();
+
+            DialogResult = DialogResult.OK;
+        }
+
+        /// <summary>
+        /// Handles the Click event of ButtonCancel object.
+        /// </summary>
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+        }
+
+
+        /// <summary> 
+        /// Updates the user interface of this form.
+        /// </summary>
         private void UpdateUI()
         {
             jpegGrayscaleCheckBox.Checked = EncoderSettings.SaveAsGrayscale;
@@ -98,6 +143,9 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             annotationXmpCheckBox.Checked = (EncoderSettings.AnnotationsFormat & AnnotationsFormat.VintasoftXmp) != 0;
         }
 
+        /// <summary>
+        /// Updates the encoder settings.
+        /// </summary>
         private void SetEncoderSettings()
         {
             EncoderSettings.SaveAsGrayscale = jpegGrayscaleCheckBox.Checked;
@@ -118,18 +166,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             }
         }
 
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-        }
-
-        private void buttonOk_Click(object sender, EventArgs e)
-        {
-            SetEncoderSettings();
-
-            DialogResult = DialogResult.OK;
-        }
-
+        #endregion
 
         #endregion
 

@@ -11,6 +11,8 @@ namespace DemosCommonCode.Imaging
     public partial class SpellCheckManagerViewSettingsForm : Form
     {
 
+        #region Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SpellCheckManagerViewSettingsForm"/> class.
         /// </summary>
@@ -19,11 +21,18 @@ namespace DemosCommonCode.Imaging
             InitializeComponent();
         }
 
+        #endregion
 
+
+
+        #region Properties
 
         /// <summary>
         /// Gets or sets the interaction area settings.
         /// </summary>
+        /// <value>
+        /// Default value is <b>null</b>.
+        /// </value>
         public InteractionAreaAppearanceManager InteractionAreaSettings
         {
             get
@@ -36,17 +45,24 @@ namespace DemosCommonCode.Imaging
             }
         }
 
+        #endregion
 
+
+
+        #region Methods
 
         /// <summary>
-        /// "OK" button is clicked.
+        /// Handles the Click event of OkButton object.
         /// </summary>
         private void okButton_Click(object sender, EventArgs e)
         {
+            // update spell check manager settings
             spellCheckManagerViewSettingsControl1.ApplySpellCheckManagerSetting();
 
             DialogResult = DialogResult.OK;
         }
+
+        #endregion
 
     }
 }

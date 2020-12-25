@@ -57,8 +57,14 @@ namespace DemosCommonCode.Annotation
         [DefaultValue(MarkAnnotationType.Tick)]
         public MarkAnnotationType MarkType
         {
-            get { return MarkAnnoData.MarkType; }
-            set { MarkAnnoData.MarkType = value; }
+            get
+            { 
+                return MarkAnnoData.MarkType;
+            }
+            set 
+            { 
+                MarkAnnoData.MarkType = value;
+            }
         }
 
         /// <summary>
@@ -66,7 +72,10 @@ namespace DemosCommonCode.Annotation
         /// </summary>
         MarkAnnotationData MarkAnnoData
         {
-            get { return (MarkAnnotationData)Data; }
+            get 
+            { 
+                return (MarkAnnotationData)Data;
+            }
         }
 
         /// <summary>
@@ -74,8 +83,14 @@ namespace DemosCommonCode.Annotation
         /// </summary>
         double IRectangularInteractiveObject.RotationAngle
         {
-            get { return Rotation; }
-            set { Rotation = (float)value; }
+            get 
+            { 
+                return Rotation; 
+            }
+            set 
+            { 
+                Rotation = (float)value;
+            }
         }
 
         #endregion
@@ -107,21 +122,15 @@ namespace DemosCommonCode.Annotation
 
         /// <summary>
         /// Creates a new object that is a copy of the current 
-        /// <see cref="LineAnnotation"/> instance.
+        /// <see cref="MarkAnnotationView"/> instance.
         /// </summary>
-        /// <returns>A new object that is a copy of this <see cref="LineAnnotation"/>
+        /// <returns>A new object that is a copy of this <see cref="MarkAnnotationView"/>
         /// instance.</returns>
         public override object Clone()
         {
             return new MarkAnnotationView((MarkAnnotationData)this.Data.Clone());
         }
 
-        #endregion
-
-
-        #region PROTECTED
-
-    
         /// <summary>
         /// Returns an annotation selection as <see cref="GraphicsPath"/> in annotation content space.
         /// </summary>
@@ -134,6 +143,11 @@ namespace DemosCommonCode.Annotation
                 path.Transform(transform);
             return path;
         }
+
+        #endregion
+
+
+        #region PROTECTED
 
         /// <summary>
         /// Sets the properties of interaction controller according to the properties of annotation.
@@ -154,10 +168,10 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Raises the <see cref="StateChanged"/> event. 
-        /// Called when the property of annotation is changed.
+        /// Raises the <see cref="AnnotationView.StateChanged" /> event.
+        /// Invoked when the property of annotation is changed.
         /// </summary>
-        /// <param name="e">An <see cref="ObjectPropertyChangedEventArgs"/>
+        /// <param name="e">An <see cref="ObjectPropertyChangedEventArgs" />
         /// that contains the event data.</param>
         protected override void OnDataPropertyChanged(ObjectPropertyChangedEventArgs e)
         {

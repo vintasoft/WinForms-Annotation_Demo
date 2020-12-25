@@ -103,7 +103,6 @@ namespace DemosCommonCode.Imaging
             this.buttonCancel.TabIndex = 11;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // thumbnailSizeComboBox
             // 
@@ -448,7 +447,9 @@ namespace DemosCommonCode.Imaging
             // 
             this.captionAnchorTypeEditor.Location = new System.Drawing.Point(101, 44);
             this.captionAnchorTypeEditor.Name = "captionAnchorTypeEditor";
-            this.captionAnchorTypeEditor.SelectedAnchorType = Vintasoft.Imaging.UI.AnchorType.None;
+            this.captionAnchorTypeEditor.SelectedAnchorType = ((Vintasoft.Imaging.UI.AnchorType)((((Vintasoft.Imaging.UI.AnchorType.Top | Vintasoft.Imaging.UI.AnchorType.Bottom) 
+            | Vintasoft.Imaging.UI.AnchorType.Left) 
+            | Vintasoft.Imaging.UI.AnchorType.Right)));
             this.captionAnchorTypeEditor.Size = new System.Drawing.Size(63, 63);
             this.captionAnchorTypeEditor.TabIndex = 33;
             // 
@@ -573,6 +574,7 @@ namespace DemosCommonCode.Imaging
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "ThumbnailViewerSettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Thumbnail Viewer Settings";

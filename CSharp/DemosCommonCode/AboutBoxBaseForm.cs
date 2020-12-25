@@ -1,6 +1,5 @@
-using System;
+﻿using System;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -11,16 +10,23 @@ namespace DemosCommonCode
     /// </summary>
     public partial class AboutBoxBaseForm : Form
     {
-        
+
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AboutBoxBaseForm"/> class.
+        /// </summary>
         public AboutBoxBaseForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AboutBoxBaseForm"/> class.
+        /// </summary>
+        /// <param name="productPrefix">Product prefix.</param>
         public AboutBoxBaseForm(string productPrefix)
-            :this()
+            : this()
         {
             nameLabel.Text = string.Format(nameLabel.Text, AssemblyTitle, AssemblyShortVersion);
             imagingSDKVersionLabel.Text = string.Format(imagingSDKVersionLabel.Text, ImagingSDKVersion);
@@ -33,6 +39,9 @@ namespace DemosCommonCode
 
         #region Properties
 
+        /// <summary>
+        /// Gets the assembly title.
+        /// </summary>
         [Browsable(false)]
         public string AssemblyTitle
         {
@@ -52,6 +61,9 @@ namespace DemosCommonCode
             }
         }
 
+        /// <summary>
+        /// Gets the assembly version.
+        /// </summary>
         [Browsable(false)]
         public string AssemblyVersion
         {
@@ -61,6 +73,9 @@ namespace DemosCommonCode
             }
         }
 
+        /// <summary>
+        /// Gets the aseembly short version.
+        /// </summary>
         [Browsable(false)]
         public string AssemblyShortVersion
         {
@@ -71,6 +86,9 @@ namespace DemosCommonCode
             }
         }
 
+        /// <summary>
+        /// Gets the version of VintaSoft Imaging .NET SDK.
+        /// </summary>
         [Browsable(false)]
         public string ImagingSDKVersion
         {
@@ -83,29 +101,49 @@ namespace DemosCommonCode
 
         #endregion
 
-        
-        
+
+
         #region Methods
 
+        #region UI
+
+        /// <summary>
+        /// Handles the Click event of OkButton object.
+        /// </summary>
+        private void okButton_Click(object sender, EventArgs e)
+        {
+            // close the form
+            Close();
+        }
+
+        /// <summary>
+        /// Handles the LinkClicked event of LinkLabel object.
+        /// </summary>
+        private void linkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // open link in browser
+            DemosTools.OpenBrowser(((LinkLabel)sender).Text);
+        }
+
+        /// <summary>
+        /// Handles the Click event of VintasoftLogoPictureBox object.
+        /// </summary>
+        private void vintasoftLogoPictureBox_Click(object sender, EventArgs e)
+        {
+            // opens the VintaSoft web page in browser
+            DemosTools.OpenBrowser("https://www.vintasoft.com");
+        }
+
+        #endregion
+
+
+        /// <summary>
+        /// Updates the form title.
+        /// </summary>
         protected override void OnLoad(EventArgs e)
         {
             Text = "About...";
             base.OnLoad(e);
-        }
-
-        private void okButton_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void linkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            DemosTools.OpenBrowser(((LinkLabel)sender).Text);
-        }
-
-        private void vintasoftLogoPictureBox_Click(object sender, EventArgs e)
-        {
-            DemosTools.OpenBrowser("https://www.vintasoft.com");
         }
 
         #endregion
