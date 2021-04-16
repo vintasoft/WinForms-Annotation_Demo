@@ -12,7 +12,7 @@
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>    
     <EnableDefaultItems>false</EnableDefaultItems>
-    <Version>10.0.10.1</Version>
+    <Version>10.0.11.1</Version>
     <AssemblyName>AnnotationDemo</AssemblyName>
     <RootNamespace>AnnotationDemo</RootNamespace>
     <StartupObject>AnnotationDemo.Program</StartupObject>
@@ -39,19 +39,19 @@
     <Reference Include="NHunspell">
       <HintPath>.\NHunspell\DotNet4\NHunspell.dll</HintPath>
     </Reference>
-    <PackageReference Include="Vintasoft.Imaging" Version="10.0.10.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation" Version="10.0.10.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf" Version="4.0.10.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.UI" Version="10.0.10.1" />
-    <PackageReference Include="Vintasoft.Imaging.Dicom" Version="3.0.10.1" />
-    <PackageReference Include="Vintasoft.Imaging.DocCleanup" Version="5.0.10.1" />
-    <PackageReference Include="Vintasoft.Imaging.Jbig2Codec" Version="7.0.10.1" />
-    <PackageReference Include="Vintasoft.Imaging.Jpeg2000Codec" Version="6.0.10.1" />
+    <PackageReference Include="Vintasoft.Imaging" Version="10.0.11.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation" Version="10.0.11.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf" Version="4.0.11.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.UI" Version="10.0.11.1" />
+    <PackageReference Include="Vintasoft.Imaging.Dicom" Version="3.0.11.1" />
+    <PackageReference Include="Vintasoft.Imaging.DocCleanup" Version="5.0.11.1" />
+    <PackageReference Include="Vintasoft.Imaging.Jbig2Codec" Version="7.0.11.1" />
+    <PackageReference Include="Vintasoft.Imaging.Jpeg2000Codec" Version="6.0.11.1" />
     <PackageReference Include="Vintasoft.Imaging.Office.OpenXml" Version="2.0.2.3" />
-    <PackageReference Include="Vintasoft.Imaging.Pdf" Version="7.0.10.1" />
-    <PackageReference Include="Vintasoft.Imaging.Pdf.Mrc" Version="7.0.10.1" />
-    <PackageReference Include="Vintasoft.Imaging.RawCodec" Version="4.0.10.1" />
-    <PackageReference Include="Vintasoft.Imaging.UI" Version="10.0.10.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf" Version="7.0.11.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf.Mrc" Version="7.0.11.1" />
+    <PackageReference Include="Vintasoft.Imaging.RawCodec" Version="4.0.11.1" />
+    <PackageReference Include="Vintasoft.Imaging.UI" Version="10.0.11.1" />
     <PackageReference Include="Vintasoft.Shared" Version="2.0.2.3" />
   </ItemGroup>
 
