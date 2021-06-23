@@ -1,11 +1,15 @@
-#if !REMOVE_PDF_PLUGIN
-
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Vintasoft.Imaging.Pdf;
 
-namespace DemosCommonCode.Pdf
+using Vintasoft.Imaging.Fonts;
+
+#if !REMOVE_PDF_PLUGIN
+using Vintasoft.Imaging.Pdf;
+#endif
+
+
+namespace DemosCommonCode.Imaging
 {
     /// <summary>
     /// Provides access to the fonts, which are located in the specified directory, and system fonts.
@@ -87,6 +91,8 @@ namespace DemosCommonCode.Pdf
             return systemFonts[trueTypeFontName];
         }
 
+
+#if !REMOVE_PDF_PLUGIN
         /// <summary>
         /// Enables usage of default custom font programs controller for all opened PDF documents.
         /// </summary>
@@ -105,6 +111,15 @@ namespace DemosCommonCode.Pdf
             PdfDocumentController.DocumentOpened -= PdfDocumentController_DocumentOpened;
         }
 
+        /// <summary>
+        /// PDF document is opened.
+        /// </summary>
+        private static void PdfDocumentController_DocumentOpened(object sender, Vintasoft.Imaging.Pdf.PdfDocumentEventArgs e)
+        {
+            // set the default custom font programs controller as a document font programs controller
+            e.Document.FontProgramsController = CustomFontProgramsController.Default;
+        }
+#endif
 
 #if NETCORE
         /// <summary>
@@ -126,19 +141,7 @@ namespace DemosCommonCode.Pdf
 
             return result;
         }
-#endif
 
-
-        /// <summary>
-        /// PDF document is opened.
-        /// </summary>
-        private static void PdfDocumentController_DocumentOpened(object sender, Vintasoft.Imaging.Pdf.PdfDocumentEventArgs e)
-        {
-            // set the default custom font programs controller as a document font programs controller
-            e.Document.FontProgramsController = Default;
-        }
-
-#if NETCORE
         /// <summary>
         /// Returns information about installed fonts from the system registry key.
         /// </summary>
@@ -200,5 +203,3 @@ namespace DemosCommonCode.Pdf
 
     }
 }
-
-#endif

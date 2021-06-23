@@ -74,7 +74,7 @@ namespace DemosCommonCode.Annotation
             // 
             this.userNameLabel.AutoSize = true;
             this.userNameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.userNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.userNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.userNameLabel.Location = new System.Drawing.Point(0, 6);
             this.userNameLabel.Name = "userNameLabel";
             this.userNameLabel.Size = new System.Drawing.Size(63, 13);
@@ -85,6 +85,7 @@ namespace DemosCommonCode.Annotation
             // 
             this.modifyDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.modifyDateLabel.BackColor = System.Drawing.Color.Transparent;
+            this.modifyDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.modifyDateLabel.Location = new System.Drawing.Point(162, 20);
             this.modifyDateLabel.Margin = new System.Windows.Forms.Padding(0);
             this.modifyDateLabel.Name = "modifyDateLabel";
@@ -96,7 +97,7 @@ namespace DemosCommonCode.Annotation
             // textTextBox
             // 
             this.textTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textTextBox.ForeColor = System.Drawing.Color.Black;
             this.textTextBox.Location = new System.Drawing.Point(4, 29);
             this.textTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 3, 0);
@@ -318,7 +319,7 @@ namespace DemosCommonCode.Annotation
             // 
             this.nameLabel.AutoSize = true;
             this.nameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.nameLabel.Location = new System.Drawing.Point(0, 25);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(37, 13);

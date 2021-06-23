@@ -838,7 +838,7 @@ namespace DemosCommonCode.Annotation
         {
             if (InvokeRequired)
             {
-                Invoke(new EventHandler<ObjectPropertyChangedEventArgs>(Comment_PropertyChanged), sender, e);
+                BeginInvoke(new EventHandler<ObjectPropertyChangedEventArgs>(Comment_PropertyChanged), sender, e);
             }
             else
             {

@@ -36,7 +36,7 @@ namespace DemosCommonCode
         #region Methods
 
         /// <summary>
-        /// Opens the browser with specified URL.
+        /// Opens the web browser with specified URL.
         /// </summary>
         /// <param name="url">The URL.</param>
         public static void OpenBrowser(string url)

@@ -283,7 +283,7 @@ namespace DemosCommonCode.Annotation
             PointF locationInViewerSpace = e.Location;
 
             // transformation from annotation space (DIP) to the viewer space
-            PointFTransform toViewerTransform = annotationView.GetPointTransform(AnnotationViewer);
+            PointFTransform toViewerTransform = annotationView.GetPointTransform(AnnotationViewer, AnnotationViewer.Image);
             PointFTransform inverseTransform = toViewerTransform.GetInverseTransform();
 
             // location in annotation space (DIP)

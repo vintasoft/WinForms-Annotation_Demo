@@ -6,7 +6,7 @@ using System.Windows.Forms;
 namespace DemosCommonCode
 {
     /// <summary>
-    /// A base form for the application about dialog.
+    /// A base form for the application "About" dialog.
     /// </summary>
     public partial class AboutBoxBaseForm : Form
     {
@@ -121,7 +121,7 @@ namespace DemosCommonCode
         /// </summary>
         private void linkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // open link in browser
+            // open link in web browser
             DemosTools.OpenBrowser(((LinkLabel)sender).Text);
         }
 
@@ -130,7 +130,7 @@ namespace DemosCommonCode
         /// </summary>
         private void vintasoftLogoPictureBox_Click(object sender, EventArgs e)
         {
-            // opens the VintaSoft web page in browser
+            // open the VintaSoft web page in web browser
             DemosTools.OpenBrowser("https://www.vintasoft.com");
         }
 

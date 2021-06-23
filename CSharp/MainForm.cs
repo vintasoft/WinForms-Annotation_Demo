@@ -36,9 +36,6 @@ using DemosCommonCode.Imaging.Codecs;
 using DemosCommonCode.Imaging.Codecs.Dialogs;
 using DemosCommonCode.Imaging.ColorManagement;
 using DemosCommonCode.Spelling;
-#if !REMOVE_PDF_PLUGIN
-using DemosCommonCode.Pdf;
-#endif
 
 namespace AnnotationDemo
 {
@@ -2810,6 +2807,7 @@ namespace AnnotationDemo
         {
             try
             {
+                UseWaitCursor = true;
                 annotationViewer1.Images.Add(_sourceFilename, _isFileReadOnlyMode);
             }
             catch (Exception ex)
@@ -2817,6 +2815,8 @@ namespace AnnotationDemo
                 DemosTools.ShowErrorMessage(ex);
                 Invoke(new CloseCurrentFileDelegate(CloseCurrentFile));
             }
+
+            UseWaitCursor = false;
 
             // update the UI
             InvokeUpdateUI();

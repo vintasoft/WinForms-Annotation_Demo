@@ -107,6 +107,8 @@ namespace DemosCommonCode.Imaging.ColorManagement
                 else
                     colorManagementSettingsForm.ColorManagementSettings = imageViewer.ImageDecodingSettings.ColorManagement;
 
+                colorManagementSettingsForm.TopMost = true;
+
                 if (colorManagementSettingsForm.ShowDialog() == DialogResult.OK)
                 {
                     DecodingSettings settings = imageViewer.ImageDecodingSettings;

@@ -296,6 +296,7 @@ namespace DemosCommonCode.Imaging
         /// </summary>
         public virtual void ShowVisualToolSettings()
         {
+            OnShowSettings(EventArgs.Empty);
         }
 
         /// <summary>
@@ -387,6 +388,15 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
+        /// Raises the <see cref="E:ShowSettings" /> event.
+        /// </summary>
+        protected virtual void OnShowSettings(EventArgs e)
+        {
+            if (ShowSettings != null)
+                ShowSettings(this, e);
+        }
+
+        /// <summary>
         /// Raises the <see cref="E:Deactivated" /> event.
         /// </summary>
         protected virtual void OnDeactivated(EventArgs e)
@@ -460,6 +470,11 @@ namespace DemosCommonCode.Imaging
         /// Occurs when action is activated.
         /// </summary>
         public event EventHandler Activated;
+
+        /// <summary>
+        /// Occurs when action is shows settings.
+        /// </summary>
+        public event EventHandler ShowSettings;
 
         /// <summary>
         /// Occurs when action is deactivated.

@@ -216,6 +216,12 @@ namespace DemosCommonCode.Annotation
             new Dictionary<AnnotationType, ToolStripItem>();
 
         /// <summary>
+        /// Dictionary: annotation data => annotation view.
+        /// </summary>
+        Dictionary<AnnotationData, AnnotationView> _annotationDataToAnnotationView =
+            new Dictionary<AnnotationData, AnnotationView>();
+
+        /// <summary>
         /// The open image file dialog.
         /// </summary>
         OpenFileDialog _openImageDialog;
@@ -384,13 +390,6 @@ namespace DemosCommonCode.Annotation
                 {
                     // start the annotation building
                     AnnotationViewer.AddAndBuildAnnotation(annotationView);
-
-                    // if annotation is link annotation
-                    if (annotationView is LinkAnnotationView)
-                    {
-                        // subscribe to the Link annotation events
-                        SubscribeToLinkAnnotationViewEvents((LinkAnnotationView)annotationView);
-                    }
                 }
             }
             catch (InvalidOperationException ex)
@@ -542,8 +541,10 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the AnnotationViewCollectionChanged event of AnnotationViewer object.
+        /// Handles the AnnotationViewCollectionChanged event of the AnnotationViewer control.
         /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="AnnotationViewCollectionChangedEventArgs"/> instance containing the event data.</param>
         private void annotationViewer_AnnotationViewCollectionChanged(
             object sender,
             AnnotationViewCollectionChangedEventArgs e)
@@ -551,6 +552,9 @@ namespace DemosCommonCode.Annotation
             // is previous annotation collection exists
             if (e.OldValue != null)
             {
+                // unsubscribe from annotation collection changed event
+                e.OldValue.DataCollection.Changed -= AnnotationDataCollection_Changed;
+
                 // for each annotation in previous annotation collection
                 foreach (AnnotationView annotationView in e.OldValue)
                 {
@@ -566,6 +570,10 @@ namespace DemosCommonCode.Annotation
             // is new annotation collection exists
             if (e.NewValue != null)
             {
+                // subscribe to annotation collection changed event
+                e.NewValue.DataCollection.Changed += 
+                    new CollectionChangeEventHandler<AnnotationData>(AnnotationDataCollection_Changed);
+
                 // for each annotation in new annotation collection
                 foreach (AnnotationView annotationView in e.NewValue)
                 {
@@ -596,6 +604,58 @@ namespace DemosCommonCode.Annotation
                     {
                         // cancel the annotation building
                         annotationVisualTool.CancelAnnotationBuilding();
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Handles the Changed event of the AnnotationDataCollection.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="CollectionChangeEventArgs{AnnotationData}"/> instance containing the event data.</param>
+        private void AnnotationDataCollection_Changed(
+            object sender, 
+            CollectionChangeEventArgs<AnnotationData> e)
+        {
+            // if annotation was deleted
+            if (e.OldValue != null)
+            {
+                // if annotation dictionary contains annotation data
+                if (_annotationDataToAnnotationView.ContainsKey(e.OldValue))
+                {
+                    // get annotation view
+                    LinkAnnotationView linkAnnotationView = _annotationDataToAnnotationView[e.OldValue] as LinkAnnotationView;
+
+                    // if link annotation view found 
+                    if (linkAnnotationView != null)
+                    {
+                        // unsubscribe from the Link annotation events
+                        UnsubscribeFromLinkAnnotationViewEvents(linkAnnotationView);
+                    }
+
+                    // remove annotation data from dictionary
+                    _annotationDataToAnnotationView.Remove(e.OldValue);
+                }
+            }
+
+            // if annotation was added
+            if (e.NewValue != null)
+            {
+                // get annotation view
+                AnnotationView annotationView = _annotationViewer.AnnotationViewCollection.FindView(e.NewValue);
+
+                // if annotation view found
+                if (annotationView != null)
+                {
+                    // add annotation data in the annotation dictionary
+                    _annotationDataToAnnotationView.Add(e.NewValue, annotationView);
+
+                    // if annotation view is a Link annotation
+                    if (annotationView is LinkAnnotationView)
+                    {
+                        // subscribe to the Link annotation events
+                        SubscribeToLinkAnnotationViewEvents((LinkAnnotationView)annotationView);
                     }
                 }
             }

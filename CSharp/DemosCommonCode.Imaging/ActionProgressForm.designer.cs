@@ -57,7 +57,7 @@ namespace DemosCommonCode.Imaging
             this.Name = "ActionProgressForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ActionProgressForm";
+            this.Text = "Action Progress";
             this.Load += new System.EventHandler(this.ActionProgressForm_Load);
             this.ResumeLayout(false);
 

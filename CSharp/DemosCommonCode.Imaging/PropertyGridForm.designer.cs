@@ -100,7 +100,7 @@ namespace DemosCommonCode.Imaging
             this.Name = "PropertyGridForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "PropertyGridForm";
+            this.Text = "Properties";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);

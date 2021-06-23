@@ -224,6 +224,11 @@ namespace DemosCommonCode.Imaging
         /// </summary>
         bool _canChangeVisualTool = true;
 
+        /// <summary>
+        /// The previous action of visual tool.
+        /// </summary>
+        VisualToolAction _previousActionOfVisualTool = null;
+
         #endregion
 
 
@@ -339,7 +344,7 @@ namespace DemosCommonCode.Imaging
             {
                 if (_mandatoryVisualTool != value)
                 {
-                    VisualToolAction currentAction = _currentSelectedVisualToolAction;
+                    VisualToolAction currentAction = _currentActionOfVisualTool;
 
                     if (currentAction != null)
                         currentAction.Deactivate();
@@ -388,15 +393,15 @@ namespace DemosCommonCode.Imaging
 
         #region PROTECTED
 
-        VisualToolAction _currentSelectedVisualToolAction = null;
+        VisualToolAction _currentActionOfVisualTool = null;
         /// <summary>
-        /// The currently selected visual tool action.
+        /// The currently action of visual tool.
         /// </summary>
-        protected VisualToolAction CurrentSelectedVisualToolAction
+        protected VisualToolAction CurrentActionOfVisualTool
         {
             get
             {
-                return _currentSelectedVisualToolAction;
+                return _currentActionOfVisualTool;
             }
         }
 
@@ -474,6 +479,24 @@ namespace DemosCommonCode.Imaging
         {
             if (FindAction<T>() == null)
                 return false;
+
+            return true;
+        }
+
+        /// <summary>
+        /// Sets the previous action of visual tool.
+        /// </summary>
+        /// <returns>
+        /// <b>True</b> the action is changed; otherwise, <b>false</b>.
+        /// </returns>
+        public bool SetPreviousAction()
+        {
+            // if previous action of visual tool is not defined
+            if (_previousActionOfVisualTool == null)
+                return false;
+
+            // activate previous action of visual tool
+            _previousActionOfVisualTool.Activate();
 
             return true;
         }
@@ -698,6 +721,9 @@ namespace DemosCommonCode.Imaging
         /// </summary>
         private void visualToolAction_Activated(object sender, EventArgs e)
         {
+            // update previous action of visual tool
+            _previousActionOfVisualTool = _currentActionOfVisualTool;
+
             _actionActivationCount++;
 
             VisualToolAction action = (VisualToolAction)sender;
@@ -708,9 +734,9 @@ namespace DemosCommonCode.Imaging
             // if visual tool must be changed
             if (action.CanChangeImageViewerVisualTool)
             {
-                if (_currentSelectedVisualToolAction != null)
+                if (_currentActionOfVisualTool != null)
                     // deactivate previous visual tool action
-                    _currentSelectedVisualToolAction.Deactivate();
+                    _currentActionOfVisualTool.Deactivate();
 
                 if (_canChangeVisualTool && ImageViewer != null)
                 {
@@ -721,7 +747,7 @@ namespace DemosCommonCode.Imaging
                         ChangeActiveTool((CompositeVisualTool)ImageViewer.VisualTool, action.VisualTool);
                 }
 
-                _currentSelectedVisualToolAction = action;
+                _currentActionOfVisualTool = action;
             }
 
             _actionActivationCount--;
@@ -755,9 +781,9 @@ namespace DemosCommonCode.Imaging
                 }
             }
 
-            if (_currentSelectedVisualToolAction == action)
+            if (_currentActionOfVisualTool == action)
                 // remove current visual tool action
-                _currentSelectedVisualToolAction = null;
+                _currentActionOfVisualTool = null;
         }
 
         /// <summary>
@@ -1058,10 +1084,10 @@ namespace DemosCommonCode.Imaging
                 return;
 
             // if current visual tool action is specified
-            if (_currentSelectedVisualToolAction != null)
+            if (_currentActionOfVisualTool != null)
             {
                 // if visual tool action is selected
-                if (ImageViewer.VisualTool == GetVisualTool(_currentSelectedVisualToolAction))
+                if (ImageViewer.VisualTool == GetVisualTool(_currentActionOfVisualTool))
                     return;
             }
 
