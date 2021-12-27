@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
@@ -2008,5 +2007,4 @@
     <Content Include="directives.txt" />
   </ItemGroup>
   
->>>>>>> 8e6da322c7efe4c4ffe726f05a210ad8ea70e203
 </Project>
