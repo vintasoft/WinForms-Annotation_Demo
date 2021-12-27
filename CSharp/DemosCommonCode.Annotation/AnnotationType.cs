@@ -228,5 +228,20 @@ namespace DemosCommonCode.Annotation
         /// The arc annotation with double arrow.
         /// </summary>
         ArcWithDoubleArrow,
+
+        /// <summary>
+        /// The Office annotation that represents page in existing DOCX document.
+        /// </summary>
+        OfficeDocument,
+
+        /// <summary>
+        /// The Office annotation that represents page with chart in DOCX document.
+        /// </summary>
+        Chart,
+
+        /// <summary>
+        /// The Office annotation that represents page in empty DOCX document.
+        /// </summary>
+        EmptyDocument,
     }
 }

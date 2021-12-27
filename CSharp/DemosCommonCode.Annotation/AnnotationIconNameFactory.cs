@@ -53,6 +53,15 @@
                 case AnnotationType.ReferencedImage:
                     return "ReferencedImage";
 
+                case AnnotationType.OfficeDocument:
+                    return "Office";
+
+                case AnnotationType.Chart:
+                    return "Chart";
+
+                case AnnotationType.EmptyDocument:
+                    return "EmptyDocument";
+
                 case AnnotationType.Text:
                     return "Text";
 

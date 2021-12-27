@@ -119,6 +119,7 @@ namespace DemosCommonCode.CustomControls
             this.colorNameLabel.Size = new System.Drawing.Size(84, 18);
             this.colorNameLabel.TabIndex = 0;
             this.colorNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.colorNameLabel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.colorNameLabel_MouseClick);
             this.colorNameLabel.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.colorPanel_MouseDoubleClick);
             // 
             // ColorPanelControl

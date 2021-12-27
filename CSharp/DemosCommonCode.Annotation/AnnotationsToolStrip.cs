@@ -12,9 +12,20 @@ using Vintasoft.Imaging.Annotation.UI.VisualTools.UserInteraction;
 using Vintasoft.Imaging.ImageProcessing;
 using Vintasoft.Imaging.UI;
 using Vintasoft.Imaging.UI.VisualTools;
+using Vintasoft.Imaging.UI.VisualTools.UserInteraction;
 
 using DemosCommonCode.CustomControls;
 using DemosCommonCode.Imaging.Codecs;
+using DemosCommonCode.Imaging;
+#if !REMOVE_OFFICE_PLUGIN
+using DemosCommonCode.Office;
+#endif
+using Vintasoft.Imaging.Codecs.Decoders;
+
+#if !REMOVE_OFFICE_PLUGIN
+using Vintasoft.Imaging.Office.OpenXml.UI.VisualTools.UserInteraction;
+using Vintasoft.Imaging.Office.OpenXml.Editor;
+#endif
 
 namespace DemosCommonCode.Annotation
 {
@@ -523,9 +534,26 @@ namespace DemosCommonCode.Annotation
                     // clear file name of refereced image annotation
                     _embeddedOrReferencedImageFileName = string.Empty;
 
+#if !REMOVE_OFFICE_PLUGIN
+                    // if is chart annotation
+                    if (_buildingAnnotationType == AnnotationType.Chart)
+                    {
+                        e.AnnotationView.InteractionController = e.AnnotationView.Transformer;
+                        OfficeDocumentVisualEditor visualEditor = CompositeInteractionController.FindInteractionController<OfficeDocumentVisualEditor>(e.AnnotationView.InteractionController);
+                        if (visualEditor != null)
+                        {
+                            OpenXmlDocumentChartDataForm chartForm = new OpenXmlDocumentChartDataForm();
+                            chartForm.Location = FindForm().Location;
+                            chartForm.VisualEditor = visualEditor;
+                            chartForm.ShowDialog();
+                        }
+                    }
+#endif
+
                     // stop building
                     EndAnnotationBuilding();
                 }
+
             }
         }
 
@@ -571,7 +599,7 @@ namespace DemosCommonCode.Annotation
             if (e.NewValue != null)
             {
                 // subscribe to annotation collection changed event
-                e.NewValue.DataCollection.Changed += 
+                e.NewValue.DataCollection.Changed +=
                     new CollectionChangeEventHandler<AnnotationData>(AnnotationDataCollection_Changed);
 
                 // for each annotation in new annotation collection
@@ -615,7 +643,7 @@ namespace DemosCommonCode.Annotation
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="CollectionChangeEventArgs{AnnotationData}"/> instance containing the event data.</param>
         private void AnnotationDataCollection_Changed(
-            object sender, 
+            object sender,
             CollectionChangeEventArgs<AnnotationData> e)
         {
             // if annotation was deleted
@@ -700,6 +728,7 @@ namespace DemosCommonCode.Annotation
                     // Text Highlight -> Freehand Polygon Highlight
                     new AnnotationButtonInfo(AnnotationType.FreehandPolygonHighlight)),
 
+                // -----
                 new SeparatorButtonInfo(),
 
 
@@ -708,7 +737,20 @@ namespace DemosCommonCode.Annotation
 
                 // Referenced Image
                 new AnnotationButtonInfo(AnnotationType.ReferencedImage),
+                
+                // -----
+                new SeparatorButtonInfo(),
 
+                // Empty Document Annotation
+                new AnnotationButtonInfo(AnnotationType.EmptyDocument),
+                
+                // Chart Annotation
+                new AnnotationButtonInfo(AnnotationType.Chart),
+
+                // Office Annotation
+                new AnnotationButtonInfo(AnnotationType.OfficeDocument),
+
+                // -----
                 new SeparatorButtonInfo(),
                 
 
@@ -737,8 +779,8 @@ namespace DemosCommonCode.Annotation
                 // Double Arrow
                 new AnnotationButtonInfo(AnnotationType.DoubleArrow),
 
+                // -----
                 new SeparatorButtonInfo(),
-
 
                 // Line
                 new AnnotationButtonInfo(AnnotationType.Line),
@@ -800,8 +842,8 @@ namespace DemosCommonCode.Annotation
                 // Mark
                 new AnnotationButtonInfo(AnnotationType.Mark),
 
+                // -----
                 new SeparatorButtonInfo(),
-
 
                 new CustomButtonInfo(
                     "Add New Comment",
@@ -1038,6 +1080,45 @@ namespace DemosCommonCode.Annotation
                     data = referencedImage;
                     break;
 
+#if !REMOVE_OFFICE_PLUGIN
+
+                case AnnotationType.OfficeDocument:
+                    try
+                    {
+                        Stream documentStream = OfficeDemosTools.SelectOfficeDocument();
+                        if (documentStream == null)
+                            return null;
+                        data = new Vintasoft.Imaging.Annotation.Office.OfficeAnnotationData(documentStream, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        DemosTools.ShowErrorMessage("Office annotation", ex);
+                        return null;
+                    }
+                    break;
+
+                case AnnotationType.EmptyDocument:
+                    data = new Vintasoft.Imaging.Annotation.Office.OfficeAnnotationData(DemosResourcesManager.GetResourceAsStream("EmptyDocument.docx"), true);
+                    break;
+
+                case AnnotationType.Chart:
+                    try
+                    {
+                        Stream documentStream = OfficeDemosTools.SelectChartResource();
+                        if (documentStream == null)
+                            return null;
+                        Vintasoft.Imaging.Annotation.Office.OfficeAnnotationData officeAnnotation = new Vintasoft.Imaging.Annotation.Office.OfficeAnnotationData(documentStream, true);
+                        officeAnnotation.UseGraphicObjectRelativeSize = true;
+                        data = officeAnnotation;
+                    }
+                    catch (Exception ex)
+                    {
+                        DemosTools.ShowErrorMessage("Chart annotation", ex);
+                        return null;
+                    }
+                    break;
+#endif
+
                 case AnnotationType.EmbeddedImage:
                     if (string.IsNullOrEmpty(_embeddedOrReferencedImageFileName))
                         _embeddedOrReferencedImageFileName = GetImageFilePath();
@@ -1221,6 +1302,7 @@ namespace DemosCommonCode.Annotation
             // create the annotation view for specified annotation data
             return AnnotationViewFactory.CreateView(data);
         }
+
 
         /// <summary>
         /// Subscribes to the link annotation view events.

@@ -348,6 +348,42 @@ namespace DemosCommonCode.CustomControls
             }
         }
 
+        bool _showColorDialogOnDoubleClick = true;
+        /// <summary>
+        /// Gets or sets a value indicating whether control must show color dialog when mouse is double clicked.
+        /// </summary>
+        [Description("Indicates whether control must show color dialog when mouse is double clicked.")]
+        [DefaultValue(true)]
+        public bool ShowColorDialogOnDoubleClick
+        {
+            get
+            {
+                return _showColorDialogOnDoubleClick;
+            }
+            set
+            {
+                _showColorDialogOnDoubleClick = value;
+            }
+        }
+
+        bool _showColorDialogOnClick = false;
+        /// <summary>
+        /// Gets or sets a value indicating whether control must show color dialog when mouse is clicked.
+        /// </summary>
+        [Description("Indicates whether control must show color dialog when mouse is clicked.")]
+        [DefaultValue(false)]
+        public bool ShowColorDialogOnClick
+        {
+            get
+            {
+                return _showColorDialogOnClick;
+            }
+            set
+            {
+                _showColorDialogOnClick = value;
+            }
+        }
+
         #endregion
 
 
@@ -371,7 +407,18 @@ namespace DemosCommonCode.CustomControls
         private void colorPanel_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             // if color can be changed
-            if (CanSetColor && e.Button == MouseButtons.Left)
+            if (CanSetColor && ShowColorDialogOnDoubleClick && e.Button == MouseButtons.Left)
+                // show color dialog
+                ShowColorDialog();
+        }
+
+        /// <summary>
+        /// Handles the MouseClick event of ColorNameLabel object.
+        /// </summary>
+        private void colorNameLabel_MouseClick(object sender, MouseEventArgs e)
+        {
+            // if color can be changed
+            if (CanSetColor && ShowColorDialogOnClick && e.Button == MouseButtons.Left)
                 // show color dialog
                 ShowColorDialog();
         }
@@ -489,5 +536,6 @@ namespace DemosCommonCode.CustomControls
 
         #endregion
 
+        
     }
 }

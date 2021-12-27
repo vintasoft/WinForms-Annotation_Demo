@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
@@ -34,6 +35,51 @@ namespace DemosCommonCode
 
 
         #region Methods
+
+        /// <summary>
+        /// Parses the float value.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        /// <param name="fieldName">The field name.</param>
+        /// <param name="value">The value.</param>
+        public static bool ParseFloat(string text, string fieldName, out float value)
+        {
+            if (ParseFloat(text, out value))
+                return true;
+            ShowErrorMessage(string.Format("{0} has invalid format.", fieldName));
+            return false;
+        }
+
+        /// <summary>
+        /// Parses the float value.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        /// <param name="value">The value.</param>
+        public static bool ParseFloat(string text, out float value)
+        {
+            return float.TryParse(text, NumberStyles.Float, CultureInfo.InvariantCulture, out value);
+        }
+
+        /// <summary>
+        /// Convert float value to string.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        public static string ToString(float value)
+        {
+            return value.ToString(CultureInfo.InvariantCulture);
+        }
+
+        /// <summary>
+        /// Convert float value to string.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        public static string ToString(float? value)
+        {
+            if(value.HasValue)
+                return ToString(value.Value);
+            return "";
+        }
+
 
         /// <summary>
         /// Opens the web browser with specified URL.

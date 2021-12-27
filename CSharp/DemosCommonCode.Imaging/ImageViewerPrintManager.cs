@@ -215,7 +215,7 @@ namespace DemosCommonCode.Imaging
         /// Handles the BeginPrint event of the printDocument control.
         /// </summary>
         private void printDocument_BeginPrint(object sender, PrintEventArgs e)
-        {
+        {            
             if (_imagesToPrint.Length == 0)
                 e.Cancel = true;
 

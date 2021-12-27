@@ -12,7 +12,7 @@
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>    
     <EnableDefaultItems>false</EnableDefaultItems>
-    <Version>10.1.17.1</Version>
+    <Version>11.0.0.1</Version>
     <AssemblyName>AnnotationDemo</AssemblyName>
     <RootNamespace>AnnotationDemo</RootNamespace>
     <StartupObject>AnnotationDemo.Program</StartupObject>
@@ -39,20 +39,23 @@
     <Reference Include="NHunspell">
       <HintPath>.\NHunspell\DotNet4\NHunspell.dll</HintPath>
     </Reference>
-    <PackageReference Include="Vintasoft.Imaging" Version="10.1.17.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation" Version="10.1.17.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf" Version="4.1.17.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.UI" Version="10.1.17.1" />
-    <PackageReference Include="Vintasoft.Imaging.Dicom" Version="3.1.17.1" />
-    <PackageReference Include="Vintasoft.Imaging.DocCleanup" Version="5.1.17.1" />
-    <PackageReference Include="Vintasoft.Imaging.Jbig2Codec" Version="7.1.17.1" />
-    <PackageReference Include="Vintasoft.Imaging.Jpeg2000Codec" Version="6.1.17.1" />
-    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml" Version="2.1.17.1" />
-    <PackageReference Include="Vintasoft.Imaging.Pdf" Version="7.1.17.1" />
-    <PackageReference Include="Vintasoft.Imaging.Pdf.Mrc" Version="7.1.17.1" />
-    <PackageReference Include="Vintasoft.Imaging.RawCodec" Version="4.1.17.1" />
-    <PackageReference Include="Vintasoft.Imaging.UI" Version="10.1.17.1" />
-    <PackageReference Include="Vintasoft.Shared" Version="3.1.0.1" />
+    <PackageReference Include="Vintasoft.Imaging" Version="11.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation" Version="11.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Office" Version="11.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Office.UI" Version="11.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf" Version="11.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.UI" Version="11.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Dicom" Version="4.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.DocCleanup" Version="6.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Jbig2Codec" Version="8.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Jpeg2000Codec" Version="7.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml" Version="3.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml.UI" Version="3.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf" Version="8.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf.Mrc" Version="8.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.RawCodec" Version="11.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.UI" Version="11.0.0.1" />
+    <PackageReference Include="Vintasoft.Shared" Version="3.1.1.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -307,6 +310,12 @@
     </Compile>
     <Compile Include="DemosCommonCode.Imaging\Resources\DemosResourcesManager.cs">
     </Compile>
+    <Compile Include="DemosCommonCode.Imaging\SelectImageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\SelectImageForm.designer.cs">
+      <DependentUpon>SelectImageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DemosCommonCode.Imaging\ThumbnailViewer\ThumbnailAppearanceSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -397,6 +406,56 @@
     <Compile Include="DemosCommonCode.Imaging\VisualTools\UserInteraction\SpellCheckManagerViewSettingsForm.designer.cs">
       <DependentUpon>SpellCheckManagerViewSettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDemosTools.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentFontPropertiesVisualEditorToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentFontPropertiesVisualEditorToolStrip.designer.cs">
+      <DependentUpon>OfficeDocumentFontPropertiesVisualEditorToolStrip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentParagraphPropertiesVisualEditorToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentParagraphPropertiesVisualEditorToolStrip.designer.cs">
+      <DependentUpon>OfficeDocumentParagraphPropertiesVisualEditorToolStrip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentTextPropertiesVisualEditorToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentTextPropertiesVisualEditorToolStrip.designer.cs">
+      <DependentUpon>OfficeDocumentTextPropertiesVisualEditorToolStrip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentVisualEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentVisualEditorForm.designer.cs">
+      <DependentUpon>OfficeDocumentVisualEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OpenXmlDocumentChartDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OpenXmlDocumentChartDataForm.designer.cs">
+      <DependentUpon>OpenXmlDocumentChartDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OpenXmlParagraphPropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OpenXmlParagraphPropertiesForm.designer.cs">
+      <DependentUpon>OpenXmlParagraphPropertiesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OpenXmlTextPropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OpenXmlTextPropertiesForm.designer.cs">
+      <DependentUpon>OpenXmlTextPropertiesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\SetOpenXmlParagraphNumerationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\SetOpenXmlParagraphNumerationForm.designer.cs">
+      <DependentUpon>SetOpenXmlParagraphNumerationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DemosCommonCode.Spelling\Dialogs\SpellCheckManagerSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -462,6 +521,33 @@
     <EmbeddedResource Include="DemosCommonCode.Imaging\DocumentPasswordForm.resx">
       <DependentUpon>DocumentPasswordForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\SelectImageForm.resx">
+      <DependentUpon>SelectImageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentFontPropertiesVisualEditorToolStrip.resx">
+      <DependentUpon>OfficeDocumentFontPropertiesVisualEditorToolStrip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentParagraphPropertiesVisualEditorToolStrip.resx">
+      <DependentUpon>OfficeDocumentParagraphPropertiesVisualEditorToolStrip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentTextPropertiesVisualEditorToolStrip.resx">
+      <DependentUpon>OfficeDocumentTextPropertiesVisualEditorToolStrip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentVisualEditorForm.resx">
+      <DependentUpon>OfficeDocumentVisualEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OpenXmlDocumentChartDataForm.resx">
+      <DependentUpon>OpenXmlDocumentChartDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OpenXmlParagraphPropertiesForm.resx">
+      <DependentUpon>OpenXmlParagraphPropertiesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OpenXmlTextPropertiesForm.resx">
+      <DependentUpon>OpenXmlTextPropertiesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\SetOpenXmlParagraphNumerationForm.resx">
+      <DependentUpon>SetOpenXmlParagraphNumerationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -478,6 +564,80 @@
     <None Include="en_US.dic">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <EmbeddedResource Include="Resources\Charts\Chart_GroupedHistogram.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GroupedHistogramWithAccumulation.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GroupedHistogramWithAccumulationNormalized.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_StickDiagram.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_StickDiagramWithAccumulation.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_StickDiagramWithAccumulationNormalized.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Numerations\CheckList.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Numerations\NumberedList.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Numerations\SimpleList.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagram.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagramWithAccumulation.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagramWithAccumulationAndMarkers.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagramWithAccumulationAndMarkersNormalized.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagramWithAccumulationNormalized.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagramWithMarkers.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\EmptyDocument.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_Areas.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_AreasWithAccumulation.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_AreasWithAccumulationNormalized.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_Dotted.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagramCurvedLines.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagramWithAccumulationAndMarkersCurvedLines.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagramWithAccumulationAndMarkersNormalizedCurvedLines.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagramWithAccumulationCurvedLines.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagramWithAccumulationNormalizedCurvedLines.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagramWithMarkersCurvedLines.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_DottedWithCurvedLines.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_DottedWithCurvedLinesAndMarkers.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_DottedWithLines.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_DottedWithLinesAmdMarkers.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_Pie.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GroupedHistogram3D.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_StickDiagram3D.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GroupedHistogram3DWithAccumulation.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GroupedHistogram3DWithAccumulationNormalized.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_StickDiagram3DWithAccumulation.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_StickDiagram3DWithAccumulationNormalized.docx">
+    </EmbeddedResource>
     <None Include="ru_RU.aff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -789,6 +949,56 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\AnnotationCommentBuilder\CommentIcon.png">
     </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Office.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Chart.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\EmptyDocument.png">
+    </EmbeddedResource>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\BoldText.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\Chart.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\DecreaseContentScale.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\DecreaseTextSize.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\IncreaseContentScale.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\IncreaseTextSize.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\ItalicText.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\ParagraphDecreaseFirstLineIndentation.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\ParagraphDecreaseLeftIndentation.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\ParagraphIncreaseFirstLineIndentation.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\ParagraphIncreaseLeftIndentation.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\ParagraphJustificationBoth.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\ParagraphJustificationCenter.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\ParagraphJustificationLeft.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\ParagraphJustificationRight.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\ParagraphNumbering.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\ParagraphProperties.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\StrikeoutText.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\SubscriptText.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\SuperscriptText.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\TextProperties.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\UnderlinedText.png">
+    </Content>
     <Content Include="directives.txt" />
   </ItemGroup>
   

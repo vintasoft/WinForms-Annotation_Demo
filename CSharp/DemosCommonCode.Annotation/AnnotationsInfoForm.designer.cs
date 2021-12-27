@@ -85,7 +85,6 @@ namespace DemosCommonCode.Annotation
             this.ClientSize = new System.Drawing.Size(605, 346);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.annoInfoListView);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "AnnotationsInfoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Information about annotations";

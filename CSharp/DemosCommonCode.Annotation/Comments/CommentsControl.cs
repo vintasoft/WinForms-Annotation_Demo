@@ -343,8 +343,8 @@ namespace DemosCommonCode.Annotation
             CommentCollection comments = _commentController.GetComments(ImageViewer.Image);
             if (comments != _comments)
             {
-                if (comments != null)
-                    comments.Changed -= Comments_Changed;
+                if (_comments != null)
+                    _comments.Changed -= Comments_Changed;
                 _comments = comments;
                 if (comments != null)
                 {

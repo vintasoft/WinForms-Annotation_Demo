@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
@@ -178,6 +179,28 @@ namespace DemosCommonCode
             string filePath = Path.Combine(applicationPath, filename);
 
             return File.ReadAllBytes(filePath);
+        }
+
+        /// <summary>
+        /// Finds the resource names that contains specified part of name.
+        /// </summary>
+        /// <param name="namePart">The name part.</param>
+        internal static string[] FindResourceNames(string namePart)
+        {
+            // get assembly
+            Assembly assembly = typeof(DemosResourcesManager).Module.Assembly;
+
+            // get resource names of assembly
+            string[] resourceNames = assembly.GetManifestResourceNames();
+
+            List<string> result = new List<string>();
+            foreach (string resourceName in resourceNames)
+                if (resourceName.Contains(namePart))
+                    result.Add(resourceName);
+
+            result.Sort();
+
+            return result.ToArray();
         }
 
         #endregion

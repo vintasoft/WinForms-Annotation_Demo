@@ -326,6 +326,8 @@ namespace DemosCommonCode.Imaging.ColorManagement
             // create color transform editor
             using (ColorTransformSetEditorForm editorForm = new ColorTransformSetEditorForm(_colorManagementSettings.ColorSpaceTransforms))
             {
+                editorForm.TopMost = TopMost;
+
                 // if color transform must be updated
                 if (editorForm.ShowDialog() == DialogResult.OK)
                 {

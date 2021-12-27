@@ -64,7 +64,6 @@ namespace DemosCommonCode.Annotation
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.commentStateHistoryControl1);
             this.MinimumSize = new System.Drawing.Size(300, 252);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "CommentStateHistoryForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

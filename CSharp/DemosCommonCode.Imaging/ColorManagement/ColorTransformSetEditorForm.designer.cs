@@ -146,7 +146,6 @@ namespace DemosCommonCode.Imaging.ColorManagement
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.MinimumSize = new System.Drawing.Size(470, 250);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "ColorTransformSetEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Color Transform Set";

@@ -169,10 +169,14 @@ namespace DemosCommonCode.Annotation
         private void SetAnnotationCommentLocation(AnnotationComment comment)
         {
             VintasoftImage focusedImage = _annotationVisualTool.ImageViewer.Image;
-            float x = (float)UnitOfMeasureConverter.ConvertToDeviceIndependentPixels(focusedImage.Width, UnitOfMeasure.Pixels, focusedImage.Resolution.Horizontal);
-            comment.BoundingBox = new RectangleF(
-                x, comment.Annotation.Location.Y,
-                AnnotationComment.DefaultCommentSize.Width, AnnotationComment.DefaultCommentSize.Height);
+
+            if (focusedImage != null)
+            {
+                float x = (float)UnitOfMeasureConverter.ConvertToDeviceIndependentPixels(focusedImage.Width, UnitOfMeasure.Pixels, focusedImage.Resolution.Horizontal);
+                comment.BoundingBox = new RectangleF(
+                    x, comment.Annotation.Location.Y,
+                    AnnotationComment.DefaultCommentSize.Width, AnnotationComment.DefaultCommentSize.Height);
+            }
         }
 
         #endregion

@@ -189,6 +189,15 @@ namespace AnnotationDemo
             ImagingTypeEditorRegistrator.Register();
             AnnotationTypeEditorRegistrator.Register();
 
+#if !REMOVE_OFFICE_PLUGIN
+            AnnotationOfficeUIAssembly.Init();
+
+            DemosCommonCode.Office.OfficeDocumentVisualEditorForm documentVisualEditorForm = new DemosCommonCode.Office.OfficeDocumentVisualEditorForm();
+            documentVisualEditorForm.Owner = this;
+            documentVisualEditorForm.AddVisualTool(annotationViewer1.AnnotationVisualTool);
+#endif            
+
+
             annotationViewer1.AnnotationVisualTool.ChangeFocusedItemBeforeInteraction = true;
 
             InitializeAddAnnotationMenuItems();
@@ -212,7 +221,12 @@ namespace AnnotationDemo
             commentsControl1.AnnotationTool = annotationViewer1.AnnotationVisualTool;
 
             // add comment visual tool to the annotation viewer
-            annotationViewer1.VisualTool = new CompositeVisualTool(_commentVisualTool, annotationViewer1.VisualTool);
+            annotationViewer1.VisualTool = new CompositeVisualTool(
+                _commentVisualTool,
+#if !REMOVE_OFFICE_PLUGIN
+               new Vintasoft.Imaging.Office.OpenXml.UI.VisualTools.UserInteraction.OfficeDocumentVisualEditorTextTool(),
+#endif
+                annotationViewer1.VisualTool);
             visualToolsToolStrip1.MandatoryVisualTool = annotationViewer1.VisualTool;
             visualToolsToolStrip1.ImageViewer = annotationViewer1;
 
@@ -443,7 +457,7 @@ namespace AnnotationDemo
 
 
         #region PRIVATE
-
+      
         /// <summary>
         /// Initializes the "Annotation" -> "Menu" menu items.
         /// </summary>
@@ -680,7 +694,7 @@ namespace AnnotationDemo
         /// </summary>
         private void viewerToolStrip_Print(object sender, EventArgs e)
         {
-
+            Print();
         }
 
         /// <summary>
@@ -1715,7 +1729,9 @@ namespace AnnotationDemo
                 }
             }
             // if annotation must be removed
-            else if (deleteToolStripMenuItem.Enabled &&
+            else if (
+                CanInteractWithFocusedAnnotationUseKeyboard() &&
+                deleteToolStripMenuItem.Enabled &&
                 e.KeyCode == Keys.Delete && e.Modifiers == Keys.None)
             {
                 // delete the selected annotation from image
@@ -1729,7 +1745,8 @@ namespace AnnotationDemo
 
             // if annotation is focused
             if (!e.Handled && annotationViewer1.Focused &&
-                annotationViewer1.FocusedAnnotationView != null)
+                annotationViewer1.FocusedAnnotationView != null &&
+                CanInteractWithFocusedAnnotationUseKeyboard())
             {
                 // get transformation from AnnotationViewer space to DIP space
                 AffineMatrix matrix = annotationViewer1.GetTransformFromControlToDip();
@@ -1783,6 +1800,25 @@ namespace AnnotationDemo
                 // update annotations property grid
                 annotationsPropertyGrid1.Refresh();
             }
+        }
+
+        /// <summary>
+        /// Determines whether can move focused annotation use keyboard.
+        /// </summary>
+        private bool CanInteractWithFocusedAnnotationUseKeyboard()
+        {
+            if (annotationViewer1.FocusedAnnotationView == null)
+                return false;
+
+#if !REMOVE_OFFICE_PLUGIN
+            Vintasoft.Imaging.Office.OpenXml.UI.VisualTools.UserInteraction.OfficeDocumentVisualEditor documentEditor =
+                UserInteractionVisualTool.GetActiveInteractionController<Vintasoft.Imaging.Office.OpenXml.UI.VisualTools.UserInteraction.OfficeDocumentVisualEditor>(annotationViewer1.VisualTool);
+            if (documentEditor != null && documentEditor.IsEditingEnabled)
+            {
+                return false;
+            }
+#endif
+            return true;
         }
 
         /// <summary>
@@ -2682,39 +2718,11 @@ namespace AnnotationDemo
         private T GetUIAction<T>(VisualTool visualTool)
             where T : UIAction
         {
-            IList<UIAction> uiActions = null;
-            // if visual tool has actions
-            if (TryGetCurrentToolActions(visualTool, out uiActions))
-            {
-                // for each action in list
-                foreach (UIAction uiAction in uiActions)
-                {
-                    if (uiAction is T)
-                        return (T)uiAction;
-                }
-            }
+            ISupportUIActions actionSource = visualTool as ISupportUIActions;
+            if (actionSource != null)
+                return UIAction.GetFirstUIAction<T>(actionSource);
             return default(T);
-        }
-
-        /// <summary>
-        /// Returns the UI actions of visual tool.
-        /// </summary>
-        /// <param name="visualTool">The visual tool.</param>
-        /// <param name="uiActions">The list of UI actions supported by the current visual tool.</param>
-        /// <returns>
-        /// <b>true</b> - UI actions are found; otherwise, <b>false</b>.
-        /// </returns>
-        private bool TryGetCurrentToolActions(
-            VisualTool visualTool,
-            out IList<UIAction> uiActions)
-        {
-            uiActions = null;
-            ISupportUIActions currentToolWithUIActions = visualTool as ISupportUIActions;
-            if (currentToolWithUIActions != null)
-                uiActions = currentToolWithUIActions.GetSupportedUIActions();
-
-            return uiActions != null;
-        }
+        }       
 
         /// <summary>
         /// Selects all annotations.

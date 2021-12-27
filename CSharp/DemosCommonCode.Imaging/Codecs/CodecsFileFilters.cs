@@ -116,6 +116,15 @@ namespace DemosCommonCode.Imaging.Codecs
         const string DOCX_FILE_DIALOG_FILTER = "DOCX files|" + DOCX_FILE_EXTENSIONS;
 
         /// <summary>
+        /// The DOCX file extensions.
+        /// </summary>
+        const string DOC_FILE_EXTENSIONS = "*.doc";
+        /// <summary>
+        /// The file filter for DOC files.
+        /// </summary>
+        const string DOC_FILE_DIALOG_FILTER = "DOC files|" + DOC_FILE_EXTENSIONS;
+
+        /// <summary>
         /// The XLSX file extensions.
         /// </summary>
         const string XLSX_FILE_EXTENSIONS = "*.xlsx";
@@ -412,6 +421,10 @@ namespace DemosCommonCode.Imaging.Codecs
             {
                 filter1 += "|" + DOCX_FILE_DIALOG_FILTER;
                 filter2 += DOCX_FILE_EXTENSIONS + ";";
+                _imageDecoderFilterDefaultIndex++;
+
+                filter1 += "|" + DOC_FILE_DIALOG_FILTER;
+                filter2 += DOC_FILE_EXTENSIONS + ";";
                 _imageDecoderFilterDefaultIndex++;
             }
 
