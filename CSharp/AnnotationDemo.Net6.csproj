@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
@@ -1002,4 +1003,1010 @@
     <Content Include="directives.txt" />
   </ItemGroup>
   
+=======
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>  
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>    
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <Version>11.0.0.1</Version>
+    <AssemblyName>AnnotationDemo</AssemblyName>
+    <RootNamespace>AnnotationDemo</RootNamespace>
+    <StartupObject>AnnotationDemo.Program</StartupObject>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>NETCORE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>NETCORE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Win32.Registry" Version="6.0.0-preview.5.21301.5" />
+    <PackageReference Include="System.IO.Packaging" Version="6.0.0" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="NHunspell">
+      <HintPath>.\NHunspell\DotNet4\NHunspell.dll</HintPath>
+    </Reference>
+    <PackageReference Include="Vintasoft.Imaging" Version="11.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation" Version="11.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Office" Version="11.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Office.UI" Version="11.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf" Version="11.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.UI" Version="11.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Dicom" Version="4.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.DocCleanup" Version="6.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Jbig2Codec" Version="8.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Jpeg2000Codec" Version="7.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml" Version="3.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml.UI" Version="3.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf" Version="8.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf.Mrc" Version="8.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.RawCodec" Version="11.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.UI" Version="11.0.0.1" />
+    <PackageReference Include="Vintasoft.Shared" Version="3.1.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="CustomControls\AnchorTypeEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\AnchorTypeEditorControl.designer.cs">
+      <DependentUpon>AnchorTypeEditorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\CheckedToolStripSplitButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ColorPanelControl\ColorPanelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ColorPanelControl\ColorPanelControl.designer.cs">
+      <DependentUpon>ColorPanelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\CursorPanelControl\CursorPanelControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControls\PaddingFEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\PaddingFEditorControl.designer.cs">
+      <DependentUpon>PaddingFEditorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\AnnotationDemosTools.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\AnnotationEventHandler\AnnotationsEventsHandler.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\AnnotationEventHandler\AnnotationsLogger.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\AnnotationEventHandler\RulerAnnotationPropertyChangedEventHandler.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\AnnotationIconNameFactory.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\AnnotationInteractionArea\AnnotationInteractionAreaAppearanceManager.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\AnnotationNameFactory.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\AnnotationsInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\AnnotationsInfoForm.designer.cs">
+      <DependentUpon>AnnotationsInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\AnnotationsToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\AnnotationType.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\AnnotationCommentBuilder\AnnotationCommentBuilder.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\AnnotationCommentsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\AnnotationCommentsControl.designer.cs">
+      <DependentUpon>AnnotationCommentsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\AnnotationCommentTypeFactory.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\CommentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\CommentControl.designer.cs">
+      <DependentUpon>CommentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\CommentControlFactory.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\CommentControlTransformer.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\CommentPropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\CommentPropertiesForm.designer.cs">
+      <DependentUpon>CommentPropertiesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\CommentsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\CommentsControl.designer.cs">
+      <DependentUpon>CommentsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\CommentTools.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\StateHistory\CommentStateHistoryControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\StateHistory\CommentStateHistoryControl.designer.cs">
+      <DependentUpon>CommentStateHistoryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\StateHistory\CommentStateHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\Comments\StateHistory\CommentStateHistoryForm.designer.cs">
+      <DependentUpon>CommentStateHistoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\CustomAnnotations\AnnotationsMath.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\CustomAnnotations\CustomAnnotationSerializationBinder.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\CustomAnnotations\MarkAnnotation\MarkAnnotationBuilder.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\CustomAnnotations\MarkAnnotation\MarkAnnotationData.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\CustomAnnotations\MarkAnnotation\MarkAnnotationRenderer.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\CustomAnnotations\MarkAnnotation\MarkAnnotationType.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\CustomAnnotations\MarkAnnotation\MarkAnnotationView.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\CustomAnnotations\TriangleAnnotation\TriangleAnnotationData.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\CustomAnnotations\TriangleAnnotation\TriangleAnnotationInteractionPoint.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\CustomAnnotations\TriangleAnnotation\TriangleAnnotationView.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\CustomAnnotationViewerUndoMonitor.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\CustomAnnotationVisualToolUndoMonitor.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\RotateImageWithAnnotationsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Annotation\RotateImageWithAnnotationsForm.designer.cs">
+      <DependentUpon>RotateImageWithAnnotationsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ActionProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ActionProgressForm.designer.cs">
+      <DependentUpon>ActionProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\AssembliesLoader\DicomAssemblyLoader.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\AssembliesLoader\Jbig2AssemblyLoader.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\AssembliesLoader\Jpeg2000AssemblyLoader.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\AssembliesLoader\PdfAnnotationsAssemblyLoader.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\Codecs\CodecsFileFilters.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\JpegEncoderSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\JpegEncoderSettingsForm.designer.cs">
+      <DependentUpon>JpegEncoderSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\PngEncoderSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\PngEncoderSettingsForm.designer.cs">
+      <DependentUpon>PngEncoderSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\TiffEncoderSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\TiffEncoderSettingsForm.designer.cs">
+      <DependentUpon>TiffEncoderSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\Jbig2EncoderSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\Jbig2EncoderSettingsForm.designer.cs">
+      <DependentUpon>Jbig2EncoderSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\Jpeg2000EncoderSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\Jpeg2000EncoderSettingsForm.designer.cs">
+      <DependentUpon>Jpeg2000EncoderSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\PdfCompressionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\PdfCompressionControl.designer.cs">
+      <DependentUpon>PdfCompressionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\PdfEncoderSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\PdfEncoderSettingsForm.designer.cs">
+      <DependentUpon>PdfEncoderSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\PdfImageCompressionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\PdfImageCompressionControl.designer.cs">
+      <DependentUpon>PdfImageCompressionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ColorManagement\ColorManagementSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ColorManagement\ColorManagementSettingsForm.designer.cs">
+      <DependentUpon>ColorManagementSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ColorManagement\ColorTransformSetEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ColorManagement\ColorTransformSetEditorForm.designer.cs">
+      <DependentUpon>ColorTransformSetEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\DocumentPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\DocumentPasswordForm.designer.cs">
+      <DependentUpon>DocumentPasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\Fonts\CustomFontProgramsController.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ImageViewerPrintManager.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ImageViewerToolStrip\ImageViewerToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ImageViewerToolStrip\ImageViewerToolStrip.designer.cs">
+      <DependentUpon>ImageViewerToolStrip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ImageViewerToolStrip\PageIndexChangedEventArgs.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ImageViewer\ImageRenderingRequirementAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ImageViewer\ImageRenderingRequirementAddForm.designer.cs">
+      <DependentUpon>ImageRenderingRequirementAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ImageViewer\ImageRenderingRequirementsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ImageViewer\ImageRenderingRequirementsForm.designer.cs">
+      <DependentUpon>ImageRenderingRequirementsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ImageViewer\ImageViewerSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ImageViewer\ImageViewerSettingsForm.designer.cs">
+      <DependentUpon>ImageViewerSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\PropertyGridForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\PropertyGridForm.designer.cs">
+      <DependentUpon>PropertyGridForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\RenderingSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\RenderingSettingsForm.designer.cs">
+      <DependentUpon>RenderingSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\Resources\DemosResourcesManager.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\SelectImageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\SelectImageForm.designer.cs">
+      <DependentUpon>SelectImageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ThumbnailViewer\ThumbnailAppearanceSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ThumbnailViewer\ThumbnailAppearanceSettingsForm.designer.cs">
+      <DependentUpon>ThumbnailAppearanceSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ThumbnailViewer\ThumbnailViewerSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ThumbnailViewer\ThumbnailViewerSettingsForm.designer.cs">
+      <DependentUpon>ThumbnailViewerSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\TypeEditorRegistrator\AnnotationTypeEditorRegistrator.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\TypeEditorRegistrator\ImagingTypeEditorRegistrator.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\UndoManager\UndoManagerHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\UndoManager\UndoManagerHistoryForm.designer.cs">
+      <DependentUpon>UndoManagerHistoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\UndoManager\UndoManagerSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\UndoManager\UndoManagerSettingsForm.designer.cs">
+      <DependentUpon>UndoManagerSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualToolsToolStrip\Actions\NoneAction.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualToolsToolStrip\Actions\SeparatorToolStripAction.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualToolsToolStrip\Actions\VisualToolAction.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualToolsToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualToolsToolStrip.designer.cs">
+      <DependentUpon>VisualToolsToolStrip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\CustomVisualTools\CustomVisualToolActionFactory.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\ImageProcessingVisualTools\Actions\OverlayImageToolAction.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\ImageProcessingVisualTools\ImageProcessingVisualToolActionFactory.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\MeasurementVisualTools\Actions\ImageMeasureToolAction.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\MeasurementVisualTools\Actions\ImageMeasureToolUnitsOfMeasureAction.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\MeasurementVisualTools\MeasurementVisualToolActionFactory.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\SelectionVisualTools\Actions\CustomSelectionAction.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\SelectionVisualTools\Actions\CustomSelectionRegionTypeAction.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\SelectionVisualTools\Actions\RectangularSelectionAction.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\SelectionVisualTools\SelectionVisualToolActionFactory.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\ZoomVisualTools\Actions\MagnifierToolAction.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\ZoomVisualTools\ZoomVisualToolActionFactory.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualTools\MagnifierToolSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualTools\MagnifierToolSettingsForm.designer.cs">
+      <DependentUpon>MagnifierToolSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualTools\ScrollPages.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualTools\UserInteraction\InteractionAreaAppearanceManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualTools\UserInteraction\InteractionAreaAppearanceManagerForm.designer.cs">
+      <DependentUpon>InteractionAreaAppearanceManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualTools\UserInteraction\SpellCheckManagerViewSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualTools\UserInteraction\SpellCheckManagerViewSettingsControl.designer.cs">
+      <DependentUpon>SpellCheckManagerViewSettingsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualTools\UserInteraction\SpellCheckManagerViewSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\VisualTools\UserInteraction\SpellCheckManagerViewSettingsForm.designer.cs">
+      <DependentUpon>SpellCheckManagerViewSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDemosTools.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentFontPropertiesVisualEditorToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentFontPropertiesVisualEditorToolStrip.designer.cs">
+      <DependentUpon>OfficeDocumentFontPropertiesVisualEditorToolStrip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentParagraphPropertiesVisualEditorToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentParagraphPropertiesVisualEditorToolStrip.designer.cs">
+      <DependentUpon>OfficeDocumentParagraphPropertiesVisualEditorToolStrip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentTextPropertiesVisualEditorToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentTextPropertiesVisualEditorToolStrip.designer.cs">
+      <DependentUpon>OfficeDocumentTextPropertiesVisualEditorToolStrip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentVisualEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentVisualEditorForm.designer.cs">
+      <DependentUpon>OfficeDocumentVisualEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OpenXmlDocumentChartDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OpenXmlDocumentChartDataForm.designer.cs">
+      <DependentUpon>OpenXmlDocumentChartDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OpenXmlParagraphPropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OpenXmlParagraphPropertiesForm.designer.cs">
+      <DependentUpon>OpenXmlParagraphPropertiesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OpenXmlTextPropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OpenXmlTextPropertiesForm.designer.cs">
+      <DependentUpon>OpenXmlTextPropertiesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\SetOpenXmlParagraphNumerationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\SetOpenXmlParagraphNumerationForm.designer.cs">
+      <DependentUpon>SetOpenXmlParagraphNumerationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Spelling\Dialogs\SpellCheckManagerSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Spelling\Dialogs\SpellCheckManagerSettingsForm.designer.cs">
+      <DependentUpon>SpellCheckManagerSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Spelling\NHunspellSpellCheckEngine.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Spelling\SpellCheckTools.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode\AboutBoxBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode\AboutBoxBaseForm.designer.cs">
+      <DependentUpon>AboutBoxBaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode\DemosTools.cs">
+    </Compile>
+    <Compile Include="Dialogs\AboutBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AboutBoxForm.Designer.cs">
+      <DependentUpon>AboutBoxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CustomControls\AnchorTypeEditorControl.resx">
+      <DependentUpon>AnchorTypeEditorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\AnnotationsInfoForm.resx">
+      <DependentUpon>AnnotationsInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\AnnotationsToolStrip.resx">
+      <DependentUpon>AnnotationsToolStrip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\AnnotationCommentsControl.resx">
+      <DependentUpon>AnnotationCommentsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\CommentControl.resx">
+      <DependentUpon>CommentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\CommentPropertiesForm.resx">
+      <DependentUpon>CommentPropertiesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\CommentsControl.resx">
+      <DependentUpon>CommentsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\StateHistory\CommentStateHistoryControl.resx">
+      <DependentUpon>CommentStateHistoryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\StateHistory\CommentStateHistoryForm.resx">
+      <DependentUpon>CommentStateHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\RotateImageWithAnnotationsForm.resx">
+      <DependentUpon>RotateImageWithAnnotationsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\DocumentPasswordForm.resx">
+      <DependentUpon>DocumentPasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\SelectImageForm.resx">
+      <DependentUpon>SelectImageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentFontPropertiesVisualEditorToolStrip.resx">
+      <DependentUpon>OfficeDocumentFontPropertiesVisualEditorToolStrip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentParagraphPropertiesVisualEditorToolStrip.resx">
+      <DependentUpon>OfficeDocumentParagraphPropertiesVisualEditorToolStrip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentTextPropertiesVisualEditorToolStrip.resx">
+      <DependentUpon>OfficeDocumentTextPropertiesVisualEditorToolStrip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentVisualEditorForm.resx">
+      <DependentUpon>OfficeDocumentVisualEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OpenXmlDocumentChartDataForm.resx">
+      <DependentUpon>OpenXmlDocumentChartDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OpenXmlParagraphPropertiesForm.resx">
+      <DependentUpon>OpenXmlParagraphPropertiesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OpenXmlTextPropertiesForm.resx">
+      <DependentUpon>OpenXmlTextPropertiesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\SetOpenXmlParagraphNumerationForm.resx">
+      <DependentUpon>SetOpenXmlParagraphNumerationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DefaultCMYK.icc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="DefaultRGB.icc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="en_US.aff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="en_US.dic">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <EmbeddedResource Include="Resources\Charts\Chart_GroupedHistogram.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GroupedHistogramWithAccumulation.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GroupedHistogramWithAccumulationNormalized.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_StickDiagram.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_StickDiagramWithAccumulation.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_StickDiagramWithAccumulationNormalized.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Numerations\CheckList.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Numerations\NumberedList.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Numerations\SimpleList.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagram.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagramWithAccumulation.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagramWithAccumulationAndMarkers.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagramWithAccumulationAndMarkersNormalized.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagramWithAccumulationNormalized.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagramWithMarkers.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\EmptyDocument.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_Areas.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_AreasWithAccumulation.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_AreasWithAccumulationNormalized.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_Dotted.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagramCurvedLines.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagramWithAccumulationAndMarkersCurvedLines.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagramWithAccumulationAndMarkersNormalizedCurvedLines.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagramWithAccumulationCurvedLines.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagramWithAccumulationNormalizedCurvedLines.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GraphDiagramWithMarkersCurvedLines.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_DottedWithCurvedLines.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_DottedWithCurvedLinesAndMarkers.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_DottedWithLines.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_DottedWithLinesAmdMarkers.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_Pie.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GroupedHistogram3D.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_StickDiagram3D.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GroupedHistogram3DWithAccumulation.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_GroupedHistogram3DWithAccumulationNormalized.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_StickDiagram3DWithAccumulation.docx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Charts\Chart_StickDiagram3DWithAccumulationNormalized.docx">
+    </EmbeddedResource>
+    <None Include="ru_RU.aff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ru_RU.dic">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include=".\NHunspell\Hunspellx64.dll">
+      <Link>Hunspellx64.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include=".\NHunspell\Hunspellx86.dll">
+      <Link>Hunspellx86.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="App.ico" />
+    <EmbeddedResource Include="Dialogs\AboutBoxForm.resx">
+      <DependentUpon>AboutBoxForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\ColorManagement\ColorManagementSettingsForm.resx">
+      <DependentUpon>ColorManagementSettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\ColorManagement\ColorTransformSetEditorForm.resx">
+      <DependentUpon>ColorTransformSetEditorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\ImageViewerToolStrip\ImageViewerToolStrip.resx">
+      <DependentUpon>ImageViewerToolStrip.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\UndoManager\UndoManagerHistoryForm.resx">
+      <DependentUpon>UndoManagerHistoryForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\UndoManager\UndoManagerSettingsForm.resx">
+      <DependentUpon>UndoManagerSettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Spelling\Dialogs\SpellCheckManagerSettingsForm.resx">
+      <DependentUpon>SpellCheckManagerSettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode\AboutBoxBaseForm.resx">
+      <DependentUpon>AboutBoxBaseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ColorPanelControl\ColorPanelControl.resx">
+      <DependentUpon>ColorPanelControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\PaddingFEditorControl.resx">
+      <DependentUpon>PaddingFEditorControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\ActionProgressForm.resx">
+      <DependentUpon>ActionProgressForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\JpegEncoderSettingsForm.resx">
+      <DependentUpon>JpegEncoderSettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\PngEncoderSettingsForm.resx">
+      <DependentUpon>PngEncoderSettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\Codecs\ImagingEncoderFactory\Dialogs\TiffEncoderSettingsForm.resx">
+      <DependentUpon>TiffEncoderSettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\Jbig2EncoderSettingsForm.resx">
+      <DependentUpon>Jbig2EncoderSettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\Jpeg2000EncoderSettingsForm.resx">
+      <DependentUpon>Jpeg2000EncoderSettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\PdfCompressionControl.resx">
+      <DependentUpon>PdfCompressionControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\PdfEncoderSettingsForm.resx">
+      <DependentUpon>PdfEncoderSettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\PdfImageCompressionControl.resx">
+      <DependentUpon>PdfImageCompressionControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\ImageViewerToolStrip\Resources\camera.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\ImageViewerToolStrip\Resources\navigate_beginning.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\ImageViewerToolStrip\Resources\navigate_end.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\ImageViewerToolStrip\Resources\navigate_left.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\ImageViewerToolStrip\Resources\navigate_right.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\ImageViewerToolStrip\Resources\open.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\ImageViewerToolStrip\Resources\printer.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\ImageViewerToolStrip\Resources\save.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\ImageViewerToolStrip\Resources\scanner.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\ImageViewerToolStrip\Resources\zoom_in.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\ImageViewerToolStrip\Resources\zoom_out.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\ImageViewer\ImageRenderingRequirementAddForm.resx">
+      <DependentUpon>ImageRenderingRequirementAddForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\ImageViewer\ImageRenderingRequirementsForm.resx">
+      <DependentUpon>ImageRenderingRequirementsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\ImageViewer\ImageViewerSettingsForm.resx">
+      <DependentUpon>ImageViewerSettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\PropertyGridForm.resx">
+      <DependentUpon>PropertyGridForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\RenderingSettingsForm.resx">
+      <DependentUpon>RenderingSettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\ThumbnailViewer\ThumbnailAppearanceSettingsForm.resx">
+      <DependentUpon>ThumbnailAppearanceSettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\ThumbnailViewer\ThumbnailViewerSettingsForm.resx">
+      <DependentUpon>ThumbnailViewerSettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualToolsToolStrip.resx">
+      <DependentUpon>VisualToolsToolStrip.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\VisualToolsToolStrip\Resources\None.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\CustomVisualTools\Resources\ScrollPagesTool.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\CustomVisualTools\Resources\SelectionScrollingTool.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\ImageProcessingVisualTools\Resources\CropSelectionTool.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\ImageProcessingVisualTools\Resources\DragDropTool.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\ImageProcessingVisualTools\Resources\OverlayTool.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\ImageProcessingVisualTools\Resources\PanTool.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\MeasurementVisualTools\Resources\ImageMeasureTool.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\SelectionVisualTools\Resources\CustomSelectionToolCurves.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\SelectionVisualTools\Resources\CustomSelectionToolEllipse.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\SelectionVisualTools\Resources\CustomSelectionToolLasso.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\SelectionVisualTools\Resources\CustomSelectionToolPolygon.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\SelectionVisualTools\Resources\CustomSelectionToolRectangle.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\SelectionVisualTools\Resources\RectangularSelectionTool.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\ZoomVisualTools\Resources\MagnifierTool.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\ZoomVisualTools\Resources\ZoomSelection.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\VisualToolsToolStrip\VisualTools\ZoomVisualTools\Resources\ZoomTool.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\VisualTools\MagnifierToolSettingsForm.resx">
+      <DependentUpon>MagnifierToolSettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\VisualTools\UserInteraction\InteractionAreaAppearanceManagerForm.resx">
+      <DependentUpon>InteractionAreaAppearanceManagerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\VisualTools\UserInteraction\SpellCheckManagerViewSettingsControl.resx">
+      <DependentUpon>SpellCheckManagerViewSettingsControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\VisualTools\UserInteraction\SpellCheckManagerViewSettingsForm.resx">
+      <DependentUpon>SpellCheckManagerViewSettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ColorPanelControl\ColorPanelBackground.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\Resources\CommentClose.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\Resources\CommentCollapse.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\Resources\CommentExpand.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\Resources\CommentLock.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\Resources\CommentSettings.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\Resources\CommentState_ReviewAccepted.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\Resources\CommentState_ReviewCancelled.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\Resources\CommentState_ReviewCompleted.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\Resources\CommentState_ReviewNone.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\Resources\CommentState_ReviewRejected.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\AddNewComment.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\AddNewCommentToAnnotation.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Angle.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\AnnotationSelection.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Arc.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\ArcWithArrow.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\ArcWithDoubleArrow.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Arrow.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\CloudEllipse.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\CloudFreeText.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\CloudHighlight.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\CloudLines.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\CloudLinesWithInterpolation.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\CloudPolygon.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\CloudPolygonWithInterpolation.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\CloudRectangle.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\CloudText.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\CloudTriangle.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\DoubleArrow.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Ellipse.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\EmbeddedImage.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\FreehandHighlight.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\FreehandLines.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\FreehandPolygon.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\FreehandPolygonHighlight.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\FreeText.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Gears.bmp">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Highlight.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Line.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Lines.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Link.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Mark.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Polygon.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\PolygonHighlight.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Rectangle.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\ReferencedImage.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\RubberStamp.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Ruler.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Rulers.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Selection.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\StickyNote.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Text.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\TextHighlight.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Triangle.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\TriangleLines.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\TrianglePolygon.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\AnnotationCommentBuilder\CommentIcon.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Office.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\Chart.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\EmptyDocument.png">
+    </EmbeddedResource>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\BoldText.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\Chart.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\DecreaseContentScale.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\DecreaseTextSize.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\IncreaseContentScale.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\IncreaseTextSize.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\ItalicText.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\ParagraphDecreaseFirstLineIndentation.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\ParagraphDecreaseLeftIndentation.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\ParagraphIncreaseFirstLineIndentation.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\ParagraphIncreaseLeftIndentation.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\ParagraphJustificationBoth.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\ParagraphJustificationCenter.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\ParagraphJustificationLeft.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\ParagraphJustificationRight.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\ParagraphNumbering.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\ParagraphProperties.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\StrikeoutText.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\SubscriptText.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\SuperscriptText.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\TextProperties.png">
+    </Content>
+    <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\UnderlinedText.png">
+    </Content>
+    <Content Include="directives.txt" />
+  </ItemGroup>
+  
+>>>>>>> 8e6da322c7efe4c4ffe726f05a210ad8ea70e203
 </Project>
