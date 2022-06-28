@@ -89,7 +89,7 @@ namespace DemosCommonCode.Imaging
             // PropertyGridForm
             // 
             this.AcceptButton = this.buttonOk;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(441, 319);
             this.Controls.Add(this.panel2);

@@ -47,7 +47,7 @@ namespace DemosCommonCode.Imaging
             this.borderStyleLabel.AutoSize = true;
             this.borderStyleLabel.Location = new System.Drawing.Point(11, 91);
             this.borderStyleLabel.Name = "borderStyleLabel";
-            this.borderStyleLabel.Size = new System.Drawing.Size(64, 13);
+            this.borderStyleLabel.Size = new System.Drawing.Size(70, 15);
             this.borderStyleLabel.TabIndex = 35;
             this.borderStyleLabel.Text = "Border Style";
             // 
@@ -56,7 +56,7 @@ namespace DemosCommonCode.Imaging
             this.borderWidthLabel.AutoSize = true;
             this.borderWidthLabel.Location = new System.Drawing.Point(11, 64);
             this.borderWidthLabel.Name = "borderWidthLabel";
-            this.borderWidthLabel.Size = new System.Drawing.Size(69, 13);
+            this.borderWidthLabel.Size = new System.Drawing.Size(77, 15);
             this.borderWidthLabel.TabIndex = 34;
             this.borderWidthLabel.Text = "Border Width";
             // 
@@ -65,7 +65,7 @@ namespace DemosCommonCode.Imaging
             this.borderColorLabel.AutoSize = true;
             this.borderColorLabel.Location = new System.Drawing.Point(12, 36);
             this.borderColorLabel.Name = "borderColorLabel";
-            this.borderColorLabel.Size = new System.Drawing.Size(65, 13);
+            this.borderColorLabel.Size = new System.Drawing.Size(74, 15);
             this.borderColorLabel.TabIndex = 32;
             this.borderColorLabel.Text = "Border Color";
             // 
@@ -74,7 +74,7 @@ namespace DemosCommonCode.Imaging
             this.backColorLabel.AutoSize = true;
             this.backColorLabel.Location = new System.Drawing.Point(12, 9);
             this.backColorLabel.Name = "backColorLabel";
-            this.backColorLabel.Size = new System.Drawing.Size(59, 13);
+            this.backColorLabel.Size = new System.Drawing.Size(64, 15);
             this.backColorLabel.TabIndex = 30;
             this.backColorLabel.Text = "Back Color";
             // 
@@ -87,7 +87,7 @@ namespace DemosCommonCode.Imaging
             0,
             0});
             this.borderWidthNumericUpDown.Name = "borderWidthNumericUpDown";
-            this.borderWidthNumericUpDown.Size = new System.Drawing.Size(92, 20);
+            this.borderWidthNumericUpDown.Size = new System.Drawing.Size(92, 23);
             this.borderWidthNumericUpDown.TabIndex = 40;
             // 
             // borderStyleComboBox
@@ -96,7 +96,7 @@ namespace DemosCommonCode.Imaging
             this.borderStyleComboBox.FormattingEnabled = true;
             this.borderStyleComboBox.Location = new System.Drawing.Point(105, 88);
             this.borderStyleComboBox.Name = "borderStyleComboBox";
-            this.borderStyleComboBox.Size = new System.Drawing.Size(92, 21);
+            this.borderStyleComboBox.Size = new System.Drawing.Size(92, 23);
             this.borderStyleComboBox.TabIndex = 41;
             // 
             // buttonCancel
@@ -154,7 +154,7 @@ namespace DemosCommonCode.Imaging
             // ThumbnailAppearanceSettingsForm
             // 
             this.AcceptButton = this.buttonOk;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(265, 158);
             this.Controls.Add(this.backColorPanelControl);

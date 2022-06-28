@@ -33,20 +33,21 @@ namespace DemosCommonCode.Imaging
             // 
             // undoManagerHistoryListBox
             // 
-            this.undoManagerHistoryListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.undoManagerHistoryListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.undoManagerHistoryListBox.FormattingEnabled = true;
             this.undoManagerHistoryListBox.HorizontalScrollbar = true;
+            this.undoManagerHistoryListBox.ItemHeight = 15;
             this.undoManagerHistoryListBox.Location = new System.Drawing.Point(12, 9);
             this.undoManagerHistoryListBox.Name = "undoManagerHistoryListBox";
-            this.undoManagerHistoryListBox.Size = new System.Drawing.Size(250, 316);
+            this.undoManagerHistoryListBox.Size = new System.Drawing.Size(250, 304);
             this.undoManagerHistoryListBox.TabIndex = 0;
             this.undoManagerHistoryListBox.SelectedIndexChanged += new System.EventHandler(this.undoManagerHistoryListBox_SelectedIndexChanged);
             // 
             // UndoManagerHistoryForm
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(274, 334);
             this.Controls.Add(this.undoManagerHistoryListBox);
             this.MaximizeBox = false;

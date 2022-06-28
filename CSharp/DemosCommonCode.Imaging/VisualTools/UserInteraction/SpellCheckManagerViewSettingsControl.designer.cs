@@ -29,13 +29,13 @@ namespace DemosCommonCode.Imaging
         private void InitializeComponent()
         {
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.spellCheckMnagerUnderlineColorColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
             this.spellCheckManagerSuggestMenuEnabledCheckBox = new System.Windows.Forms.CheckBox();
             this.label37 = new System.Windows.Forms.Label();
             this.spellCheckManagerUnderlineTypeComboBox = new System.Windows.Forms.ComboBox();
             this.label36 = new System.Windows.Forms.Label();
             this.spellCheckManagerUnderlineThicknessNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label35 = new System.Windows.Forms.Label();
-            this.spellCheckMnagerUnderlineColorColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spellCheckManagerUnderlineThicknessNumericUpDown)).BeginInit();
             this.SuspendLayout();
@@ -55,6 +55,18 @@ namespace DemosCommonCode.Imaging
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(212, 100);
             this.mainPanel.TabIndex = 0;
+            // 
+            // spellCheckMnagerUnderlineColorColorPanelControl
+            // 
+            this.spellCheckMnagerUnderlineColorColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.spellCheckMnagerUnderlineColorColorPanelControl.CanEditAlphaChannel = false;
+            this.spellCheckMnagerUnderlineColorColorPanelControl.Color = System.Drawing.Color.Transparent;
+            this.spellCheckMnagerUnderlineColorColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
+            this.spellCheckMnagerUnderlineColorColorPanelControl.Location = new System.Drawing.Point(117, 0);
+            this.spellCheckMnagerUnderlineColorColorPanelControl.Name = "spellCheckMnagerUnderlineColorColorPanelControl";
+            this.spellCheckMnagerUnderlineColorColorPanelControl.Size = new System.Drawing.Size(92, 22);
+            this.spellCheckMnagerUnderlineColorColorPanelControl.TabIndex = 46;
             // 
             // spellCheckManagerSuggestMenuEnabledCheckBox
             // 
@@ -79,8 +91,8 @@ namespace DemosCommonCode.Imaging
             // 
             // spellCheckManagerUnderlineTypeComboBox
             // 
-            this.spellCheckManagerUnderlineTypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.spellCheckManagerUnderlineTypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.spellCheckManagerUnderlineTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.spellCheckManagerUnderlineTypeComboBox.FormattingEnabled = true;
             this.spellCheckManagerUnderlineTypeComboBox.Location = new System.Drawing.Point(117, 54);
@@ -99,8 +111,8 @@ namespace DemosCommonCode.Imaging
             // 
             // spellCheckManagerUnderlineThicknessNumericUpDown
             // 
-            this.spellCheckManagerUnderlineThicknessNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.spellCheckManagerUnderlineThicknessNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.spellCheckManagerUnderlineThicknessNumericUpDown.DecimalPlaces = 1;
             this.spellCheckManagerUnderlineThicknessNumericUpDown.Location = new System.Drawing.Point(117, 28);
             this.spellCheckManagerUnderlineThicknessNumericUpDown.Minimum = new decimal(new int[] {
@@ -125,17 +137,6 @@ namespace DemosCommonCode.Imaging
             this.label35.Size = new System.Drawing.Size(78, 13);
             this.label35.TabIndex = 39;
             this.label35.Text = "Underline color";
-            // 
-            // spellCheckMnagerUnderlineColorColorPanelControl
-            // 
-            this.spellCheckMnagerUnderlineColorColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.spellCheckMnagerUnderlineColorColorPanelControl.Color = System.Drawing.Color.Transparent;
-            this.spellCheckMnagerUnderlineColorColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
-            this.spellCheckMnagerUnderlineColorColorPanelControl.Location = new System.Drawing.Point(117, 0);
-            this.spellCheckMnagerUnderlineColorColorPanelControl.Name = "spellCheckMnagerUnderlineColorColorPanelControl";
-            this.spellCheckMnagerUnderlineColorColorPanelControl.Size = new System.Drawing.Size(92, 22);
-            this.spellCheckMnagerUnderlineColorColorPanelControl.TabIndex = 46;
             // 
             // SpellCheckManagerViewSettingsControl
             // 

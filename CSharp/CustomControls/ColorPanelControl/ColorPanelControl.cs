@@ -3,14 +3,15 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
+using DemosCommonCode.Imaging;
 
 namespace DemosCommonCode.CustomControls
 {
     /// <summary>
     /// A panel that allows to show the selected color and change the selected color.
     /// </summary>
-    [DefaultEvent("ColorChanged")]
     [DefaultProperty("Color")]
+    [DefaultEvent("ColorChanged")]
     public partial class ColorPanelControl : UserControl
     {
 
@@ -34,7 +35,6 @@ namespace DemosCommonCode.CustomControls
 
         #region Properties
 
-        Color _color = Color.Transparent;
         /// <summary>
         /// Gets or sets the current color.
         /// </summary>
@@ -46,16 +46,32 @@ namespace DemosCommonCode.CustomControls
         {
             get
             {
-                return _color;
+                return colorSampleControl.Color;
             }
             set
             {
-                if (_color != value)
-                {
-                    _color = value;
+                colorSampleControl.Color = value;
+            }
+        }
 
-                    UpdateColorPanel();
-                }
+        bool _canEditAlphaChannel = true;
+        /// <summary>
+        /// Gets or sets a value indicating whether the alpha channel, of color, can be edited.
+        /// </summary>
+        /// <value>
+        /// <b>true</b> if the alpha channel, of color, can be edited; otherwise, <b>false</b>.
+        /// </value>
+        [Description("A value indicating whether the alpha channel, of color, can be edited.")]
+        [DefaultValue(true)]
+        public bool CanEditAlphaChannel
+        {
+            get
+            {
+                return _canEditAlphaChannel;
+            }
+            set
+            {
+                _canEditAlphaChannel = value;
             }
         }
 
@@ -66,7 +82,7 @@ namespace DemosCommonCode.CustomControls
         /// <b>True</b> if the button, which allows to change the current color, is visible;
         /// otherwise, <b>false</b>.
         /// </value>
-        [Description("Indicates whether the current color can be changed.")]
+        [Description("A value indicating whether the current color can be changed.")]
         [DefaultValue(true)]
         public bool CanSetColor
         {
@@ -86,10 +102,8 @@ namespace DemosCommonCode.CustomControls
                     cursor = Cursors.Hand;
                 }
 
-                toolTip1.SetToolTip(colorPanel, toolTip);
-                colorPanel.Cursor = cursor;
-                toolTip1.SetToolTip(colorNameLabel, toolTip);
-                colorNameLabel.Cursor = cursor;
+                colorSampleControl.Cursor = cursor;
+                colorSampleControl.ToolTip = toolTip;
             }
         }
 
@@ -160,28 +174,23 @@ namespace DemosCommonCode.CustomControls
             }
         }
 
-        bool _showColorName = false;
         /// <summary>
         /// Gets or sets a value indicating whether the color must can be shown.
         /// </summary>
         /// <value>
         /// <b>true</b> - the color name must be shown; otherwise, <b>false</b>.
         /// </value>
-        [Description("Indicates whether the color name must be shown.")]
+        [Description("A value indicating whether the color name must be shown.")]
         [DefaultValue(false)]
         public bool ShowColorName
         {
             get
             {
-                return _showColorName;
+                return colorSampleControl.ShowColorName;
             }
             set
             {
-                if (_showColorName != value)
-                {
-                    _showColorName = value;
-                    UpdateColorPanel();
-                }
+                colorSampleControl.ShowColorName = value;
             }
         }
 
@@ -211,7 +220,7 @@ namespace DemosCommonCode.CustomControls
         /// <value>
         /// <b>True</b> - the default color can be changed; otherwise, <b>false</b>.
         /// </value>
-        [Description("Indicates whether the default color can be changed.")]
+        [Description("A value indicating whether the default color can be changed.")]
         [DefaultValue(false)]
         public bool CanSetDefaultColor
         {
@@ -300,7 +309,7 @@ namespace DemosCommonCode.CustomControls
         /// <value>
         /// Default value is <b>false</b>.
         /// </value>
-        [Description("Indicates that the color panel and buttons must be positioned from the right to the left.")]
+        [Description("A value indicating whether the color panel and buttons must be positioned from the right to the left.")]
         [DefaultValue(false)]
         public bool ColorRightToLeft
         {
@@ -327,13 +336,13 @@ namespace DemosCommonCode.CustomControls
 
                         tableLayoutPanel1.ColumnStyles[2].SizeType = SizeType.Percent;
                         tableLayoutPanel1.ColumnStyles[2].Width = 100;
-                        tableLayoutPanel1.SetColumn(backgroundPanel, 2);
+                        tableLayoutPanel1.SetColumn(colorSampleControl, 2);
                     }
                     else
                     {
                         tableLayoutPanel1.ColumnStyles[0].SizeType = SizeType.Percent;
                         tableLayoutPanel1.ColumnStyles[0].Width = 100;
-                        tableLayoutPanel1.SetColumn(backgroundPanel, 0);
+                        tableLayoutPanel1.SetColumn(colorSampleControl, 0);
 
                         tableLayoutPanel1.ColumnStyles[1].SizeType = SizeType.AutoSize;
                         tableLayoutPanel1.SetColumn(colorButton, 1);
@@ -352,7 +361,7 @@ namespace DemosCommonCode.CustomControls
         /// <summary>
         /// Gets or sets a value indicating whether control must show color dialog when mouse is double clicked.
         /// </summary>
-        [Description("Indicates whether control must show color dialog when mouse is double clicked.")]
+        [Description("A value indicating whether control must show color dialog when mouse is double clicked.")]
         [DefaultValue(true)]
         public bool ShowColorDialogOnDoubleClick
         {
@@ -370,7 +379,7 @@ namespace DemosCommonCode.CustomControls
         /// <summary>
         /// Gets or sets a value indicating whether control must show color dialog when mouse is clicked.
         /// </summary>
-        [Description("Indicates whether control must show color dialog when mouse is clicked.")]
+        [Description("A value indicating whether control must show color dialog when mouse is clicked.")]
         [DefaultValue(false)]
         public bool ShowColorDialogOnClick
         {
@@ -402,23 +411,23 @@ namespace DemosCommonCode.CustomControls
         }
 
         /// <summary>
-        /// Handles the MouseDoubleClick event of ColorPanel object.
+        /// Handles the MouseClick event of ColorSampleControl object.
         /// </summary>
-        private void colorPanel_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void colorSampleControl_MouseClick(object sender, MouseEventArgs e)
         {
             // if color can be changed
-            if (CanSetColor && ShowColorDialogOnDoubleClick && e.Button == MouseButtons.Left)
+            if (CanSetColor && ShowColorDialogOnClick && e.Button == MouseButtons.Left)
                 // show color dialog
                 ShowColorDialog();
         }
 
         /// <summary>
-        /// Handles the MouseClick event of ColorNameLabel object.
+        /// Handles the MouseDoubleClick event of ColorSampleControl object.
         /// </summary>
-        private void colorNameLabel_MouseClick(object sender, MouseEventArgs e)
+        private void colorSampleControl_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             // if color can be changed
-            if (CanSetColor && ShowColorDialogOnClick && e.Button == MouseButtons.Left)
+            if (CanSetColor && ShowColorDialogOnDoubleClick && e.Button == MouseButtons.Left)
                 // show color dialog
                 ShowColorDialog();
         }
@@ -444,81 +453,27 @@ namespace DemosCommonCode.CustomControls
 
 
         /// <summary>
-        /// Updates the color panel.
-        /// </summary>
-        private void UpdateColorPanel()
-        {
-            Color color = Color;
-            colorPanel.BackColor = color;
-
-            // if color name must be shown
-            if (ShowColorName)
-            {
-                Color foreColor;
-                // if color is empty
-                if (color.IsEmpty)
-                {
-                    foreColor = Color.Black;
-                }
-                // if color is white
-                else if (Math.Abs(color.R - 128) < 30 &&
-                         Math.Abs(color.G - 128) < 30 &&
-                         Math.Abs(color.B - 128) < 30)
-                {
-                    foreColor = Color.White;
-                }
-                else
-                {
-                    // get inverted color
-                    foreColor = Color.FromArgb(0xFFFFFF ^ color.ToArgb());
-                    // if current color has transparency
-                    if (foreColor.A != 255)
-                        // remove transparency
-                        foreColor = Color.FromArgb(255, foreColor);
-                }
-
-                string colorName;
-                // if selected color is default color
-                if (CanSetDefaultColor &&
-                    color == DefaultColor)
-                {
-                    colorName = "Default";
-                }
-                // if color name is known
-                else if (color.IsNamedColor)
-                {
-                    colorName = color.Name;
-                }
-                else
-                {
-                    // get HEX color value
-                    colorName = String.Format("#{0}{1}{2}",
-                            color.R.ToString("X2"),
-                            color.G.ToString("X2"),
-                            color.B.ToString("X2"));
-                }
-
-                colorNameLabel.ForeColor = foreColor;
-                colorNameLabel.Text = colorName;
-            }
-            else if (!string.IsNullOrEmpty(colorNameLabel.Text))
-                colorNameLabel.Text = string.Empty;
-        }
-
-        /// <summary>
         /// Shows the color dialog.
         /// </summary>
         private void ShowColorDialog()
         {
-            colorDialog.Color = Color;
-            if (colorDialog.ShowDialog() == DialogResult.OK)
+            using (ColorPickerDialogForm form = new ColorPickerDialogForm())
             {
-                if (Color != colorDialog.Color)
-                {
-                    Color = colorDialog.Color;
+                form.StartPosition = FormStartPosition.CenterParent;
+                form.Owner = ParentForm;
+                form.Color = Color;
+                form.CanEditAlphaChannel = CanEditAlphaChannel;
+                form.TopMost = ParentForm.TopMost;
 
-                    if (ColorChanged != null)
-                        ColorChanged(this, EventArgs.Empty);
+                if(form.ShowDialog() == DialogResult.OK)
+                {
+                    if (Color != form.Color)
+                    {
+                        Color = form.Color;
+
+                        if (ColorChanged != null)
+                            ColorChanged(this, EventArgs.Empty);
+                    }
                 }
             }
         }
@@ -535,7 +490,5 @@ namespace DemosCommonCode.CustomControls
         public event EventHandler ColorChanged;
 
         #endregion
-
-        
     }
 }

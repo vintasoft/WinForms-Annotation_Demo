@@ -17,7 +17,7 @@ namespace DemosCommonCode.CustomControls
         #region Fields
 
         /// <summary>
-        /// Determines that the the padding value is changing.
+        /// Determines that the padding value is changing.
         /// </summary>
         bool _paddingValueUpdating = false;
 

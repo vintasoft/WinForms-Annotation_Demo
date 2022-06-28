@@ -55,7 +55,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.jpegGrayscaleCheckBox.AutoSize = true;
             this.jpegGrayscaleCheckBox.Location = new System.Drawing.Point(6, 33);
             this.jpegGrayscaleCheckBox.Name = "jpegGrayscaleCheckBox";
-            this.jpegGrayscaleCheckBox.Size = new System.Drawing.Size(109, 17);
+            this.jpegGrayscaleCheckBox.Size = new System.Drawing.Size(117, 19);
             this.jpegGrayscaleCheckBox.TabIndex = 12;
             this.jpegGrayscaleCheckBox.Text = "Grayscale (8 bpp)";
             this.jpegGrayscaleCheckBox.UseVisualStyleBackColor = true;
@@ -69,7 +69,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             0,
             0});
             this.jpegQualityNumericUpDown.Name = "jpegQualityNumericUpDown";
-            this.jpegQualityNumericUpDown.Size = new System.Drawing.Size(65, 20);
+            this.jpegQualityNumericUpDown.Size = new System.Drawing.Size(65, 23);
             this.jpegQualityNumericUpDown.TabIndex = 1;
             this.jpegQualityNumericUpDown.Value = new decimal(new int[] {
             90,
@@ -82,7 +82,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(4, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.Size = new System.Drawing.Size(45, 15);
             this.label1.TabIndex = 2;
             this.label1.Text = "Quality";
             // 
@@ -91,7 +91,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.disableSubsamplingCheckBox.AutoSize = true;
             this.disableSubsamplingCheckBox.Location = new System.Drawing.Point(6, 56);
             this.disableSubsamplingCheckBox.Name = "disableSubsamplingCheckBox";
-            this.disableSubsamplingCheckBox.Size = new System.Drawing.Size(122, 17);
+            this.disableSubsamplingCheckBox.Size = new System.Drawing.Size(135, 19);
             this.disableSubsamplingCheckBox.TabIndex = 13;
             this.disableSubsamplingCheckBox.Text = "Disable subsampling";
             this.disableSubsamplingCheckBox.UseVisualStyleBackColor = true;
@@ -104,7 +104,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(226, 227);
+            this.tabControl1.Size = new System.Drawing.Size(235, 227);
             this.tabControl1.TabIndex = 8;
             // 
             // compressionTabPage
@@ -118,10 +118,10 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.compressionTabPage.Controls.Add(this.jpegGrayscaleCheckBox);
             this.compressionTabPage.Controls.Add(this.label1);
             this.compressionTabPage.Controls.Add(this.jpegQualityNumericUpDown);
-            this.compressionTabPage.Location = new System.Drawing.Point(4, 22);
+            this.compressionTabPage.Location = new System.Drawing.Point(4, 24);
             this.compressionTabPage.Name = "compressionTabPage";
             this.compressionTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.compressionTabPage.Size = new System.Drawing.Size(218, 201);
+            this.compressionTabPage.Size = new System.Drawing.Size(227, 199);
             this.compressionTabPage.TabIndex = 0;
             this.compressionTabPage.Text = "Compression";
             this.compressionTabPage.UseVisualStyleBackColor = true;
@@ -131,7 +131,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.saveCommentsCheckBox.AutoSize = true;
             this.saveCommentsCheckBox.Location = new System.Drawing.Point(6, 125);
             this.saveCommentsCheckBox.Name = "saveCommentsCheckBox";
-            this.saveCommentsCheckBox.Size = new System.Drawing.Size(102, 17);
+            this.saveCommentsCheckBox.Size = new System.Drawing.Size(110, 19);
             this.saveCommentsCheckBox.TabIndex = 18;
             this.saveCommentsCheckBox.Text = "Save comments";
             this.saveCommentsCheckBox.UseVisualStyleBackColor = true;
@@ -141,7 +141,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.optimizeHuffmanTablesCheckBox.AutoSize = true;
             this.optimizeHuffmanTablesCheckBox.Location = new System.Drawing.Point(6, 79);
             this.optimizeHuffmanTablesCheckBox.Name = "optimizeHuffmanTablesCheckBox";
-            this.optimizeHuffmanTablesCheckBox.Size = new System.Drawing.Size(140, 17);
+            this.optimizeHuffmanTablesCheckBox.Size = new System.Drawing.Size(159, 19);
             this.optimizeHuffmanTablesCheckBox.TabIndex = 17;
             this.optimizeHuffmanTablesCheckBox.Text = "Optimize Huffman tables";
             this.optimizeHuffmanTablesCheckBox.UseVisualStyleBackColor = true;
@@ -151,7 +151,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.copyUnkwonwnApplicationMetadataCheckBox.AutoSize = true;
             this.copyUnkwonwnApplicationMetadataCheckBox.Location = new System.Drawing.Point(6, 171);
             this.copyUnkwonwnApplicationMetadataCheckBox.Name = "copyUnkwonwnApplicationMetadataCheckBox";
-            this.copyUnkwonwnApplicationMetadataCheckBox.Size = new System.Drawing.Size(198, 17);
+            this.copyUnkwonwnApplicationMetadataCheckBox.Size = new System.Drawing.Size(222, 19);
             this.copyUnkwonwnApplicationMetadataCheckBox.TabIndex = 16;
             this.copyUnkwonwnApplicationMetadataCheckBox.Text = "Copy unknown application metadata";
             this.copyUnkwonwnApplicationMetadataCheckBox.UseVisualStyleBackColor = true;
@@ -161,7 +161,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.createThumbnailCheckBox.AutoSize = true;
             this.createThumbnailCheckBox.Location = new System.Drawing.Point(6, 102);
             this.createThumbnailCheckBox.Name = "createThumbnailCheckBox";
-            this.createThumbnailCheckBox.Size = new System.Drawing.Size(105, 17);
+            this.createThumbnailCheckBox.Size = new System.Drawing.Size(118, 19);
             this.createThumbnailCheckBox.TabIndex = 15;
             this.createThumbnailCheckBox.Text = "Create thumbnail";
             this.createThumbnailCheckBox.UseVisualStyleBackColor = true;
@@ -171,7 +171,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.copyExifMetadataCheckBox.AutoSize = true;
             this.copyExifMetadataCheckBox.Location = new System.Drawing.Point(6, 148);
             this.copyExifMetadataCheckBox.Name = "copyExifMetadataCheckBox";
-            this.copyExifMetadataCheckBox.Size = new System.Drawing.Size(123, 17);
+            this.copyExifMetadataCheckBox.Size = new System.Drawing.Size(132, 19);
             this.copyExifMetadataCheckBox.TabIndex = 14;
             this.copyExifMetadataCheckBox.Text = "Copy EXIF metadata";
             this.copyExifMetadataCheckBox.UseVisualStyleBackColor = true;
@@ -180,10 +180,10 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // 
             this.annotationsTabPage.Controls.Add(this.annotationXmpCheckBox);
             this.annotationsTabPage.Controls.Add(this.annotationsBinaryCheckBox);
-            this.annotationsTabPage.Location = new System.Drawing.Point(4, 22);
+            this.annotationsTabPage.Location = new System.Drawing.Point(4, 24);
             this.annotationsTabPage.Name = "annotationsTabPage";
             this.annotationsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.annotationsTabPage.Size = new System.Drawing.Size(218, 201);
+            this.annotationsTabPage.Size = new System.Drawing.Size(227, 199);
             this.annotationsTabPage.TabIndex = 1;
             this.annotationsTabPage.Text = "Annotations Format";
             this.annotationsTabPage.UseVisualStyleBackColor = true;
@@ -193,7 +193,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.annotationXmpCheckBox.AutoSize = true;
             this.annotationXmpCheckBox.Location = new System.Drawing.Point(8, 31);
             this.annotationXmpCheckBox.Name = "annotationXmpCheckBox";
-            this.annotationXmpCheckBox.Size = new System.Drawing.Size(93, 17);
+            this.annotationXmpCheckBox.Size = new System.Drawing.Size(101, 19);
             this.annotationXmpCheckBox.TabIndex = 12;
             this.annotationXmpCheckBox.Text = "Vintasoft XMP";
             this.annotationXmpCheckBox.UseVisualStyleBackColor = true;
@@ -203,7 +203,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.annotationsBinaryCheckBox.AutoSize = true;
             this.annotationsBinaryCheckBox.Location = new System.Drawing.Point(8, 8);
             this.annotationsBinaryCheckBox.Name = "annotationsBinaryCheckBox";
-            this.annotationsBinaryCheckBox.Size = new System.Drawing.Size(99, 17);
+            this.annotationsBinaryCheckBox.Size = new System.Drawing.Size(109, 19);
             this.annotationsBinaryCheckBox.TabIndex = 11;
             this.annotationsBinaryCheckBox.Text = "Vintasoft Binary";
             this.annotationsBinaryCheckBox.UseVisualStyleBackColor = true;
@@ -232,9 +232,9 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // JpegEncoderSettingsForm
             // 
             this.AcceptButton = this.buttonOk;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(226, 267);
+            this.ClientSize = new System.Drawing.Size(235, 267);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.tabControl1);

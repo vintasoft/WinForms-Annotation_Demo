@@ -165,11 +165,17 @@ namespace DemosCommonCode.Office
             VisualEditor = visualEditor;
         }
 
+        /// <summary>
+        /// Handles the EditingEnabled event of VisualEditor object.
+        /// </summary>
         private void _visualEditor_EditingEnabled(object sender, EventArgs e)
         {
             OnEditingEnabled();
         }
 
+        /// <summary>
+        /// Handles the EditingDisabled event of VisualEditor object.
+        /// </summary>
         private void _visualEditor_EditingDisabled(object sender, EventArgs e)
         {
             OnEditingDisabled();

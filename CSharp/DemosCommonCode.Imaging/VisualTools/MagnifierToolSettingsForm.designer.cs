@@ -64,7 +64,7 @@ namespace DemosCommonCode.Imaging
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(39, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Width";
             // 
@@ -73,7 +73,7 @@ namespace DemosCommonCode.Imaging
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(9, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.Size = new System.Drawing.Size(39, 15);
             this.label2.TabIndex = 1;
             this.label2.Text = "Zoom";
             // 
@@ -91,7 +91,7 @@ namespace DemosCommonCode.Imaging
             0,
             0});
             this.widthNumericUpDown.Name = "widthNumericUpDown";
-            this.widthNumericUpDown.Size = new System.Drawing.Size(78, 20);
+            this.widthNumericUpDown.Size = new System.Drawing.Size(78, 23);
             this.widthNumericUpDown.TabIndex = 3;
             this.widthNumericUpDown.Value = new decimal(new int[] {
             1,
@@ -113,7 +113,7 @@ namespace DemosCommonCode.Imaging
             0,
             0});
             this.heightNumericUpDown.Name = "heightNumericUpDown";
-            this.heightNumericUpDown.Size = new System.Drawing.Size(78, 20);
+            this.heightNumericUpDown.Size = new System.Drawing.Size(78, 23);
             this.heightNumericUpDown.TabIndex = 4;
             this.heightNumericUpDown.Value = new decimal(new int[] {
             1,
@@ -135,7 +135,7 @@ namespace DemosCommonCode.Imaging
             0,
             0});
             this.zoomNumericUpDown.Name = "zoomNumericUpDown";
-            this.zoomNumericUpDown.Size = new System.Drawing.Size(78, 20);
+            this.zoomNumericUpDown.Size = new System.Drawing.Size(78, 23);
             this.zoomNumericUpDown.TabIndex = 5;
             this.zoomNumericUpDown.Value = new decimal(new int[] {
             100,
@@ -169,7 +169,7 @@ namespace DemosCommonCode.Imaging
             // 
             this.borderWidthNumericUpDown.Location = new System.Drawing.Point(58, 52);
             this.borderWidthNumericUpDown.Name = "borderWidthNumericUpDown";
-            this.borderWidthNumericUpDown.Size = new System.Drawing.Size(78, 20);
+            this.borderWidthNumericUpDown.Size = new System.Drawing.Size(78, 23);
             this.borderWidthNumericUpDown.TabIndex = 3;
             // 
             // label4
@@ -177,7 +177,7 @@ namespace DemosCommonCode.Imaging
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(7, 54);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(39, 15);
             this.label4.TabIndex = 2;
             this.label4.Text = "Width";
             // 
@@ -186,7 +186,7 @@ namespace DemosCommonCode.Imaging
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(7, 27);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 13);
+            this.label3.Size = new System.Drawing.Size(36, 15);
             this.label3.TabIndex = 1;
             this.label3.Text = "Color";
             // 
@@ -195,7 +195,7 @@ namespace DemosCommonCode.Imaging
             this.ellipticalOutlineCheckBox.AutoSize = true;
             this.ellipticalOutlineCheckBox.Location = new System.Drawing.Point(12, 85);
             this.ellipticalOutlineCheckBox.Name = "ellipticalOutlineCheckBox";
-            this.ellipticalOutlineCheckBox.Size = new System.Drawing.Size(100, 17);
+            this.ellipticalOutlineCheckBox.Size = new System.Drawing.Size(112, 19);
             this.ellipticalOutlineCheckBox.TabIndex = 7;
             this.ellipticalOutlineCheckBox.Text = "Elliptical Outline";
             this.ellipticalOutlineCheckBox.UseVisualStyleBackColor = true;
@@ -218,7 +218,7 @@ namespace DemosCommonCode.Imaging
             this.grayscaleCheckBox.AutoSize = true;
             this.grayscaleCheckBox.Location = new System.Drawing.Point(165, 43);
             this.grayscaleCheckBox.Name = "grayscaleCheckBox";
-            this.grayscaleCheckBox.Size = new System.Drawing.Size(73, 17);
+            this.grayscaleCheckBox.Size = new System.Drawing.Size(76, 19);
             this.grayscaleCheckBox.TabIndex = 3;
             this.grayscaleCheckBox.Text = "Grayscale";
             this.grayscaleCheckBox.UseVisualStyleBackColor = true;
@@ -228,7 +228,7 @@ namespace DemosCommonCode.Imaging
             this.oilPaintingCheckBox.AutoSize = true;
             this.oilPaintingCheckBox.Location = new System.Drawing.Point(165, 20);
             this.oilPaintingCheckBox.Name = "oilPaintingCheckBox";
-            this.oilPaintingCheckBox.Size = new System.Drawing.Size(79, 17);
+            this.oilPaintingCheckBox.Size = new System.Drawing.Size(88, 19);
             this.oilPaintingCheckBox.TabIndex = 2;
             this.oilPaintingCheckBox.Text = "Oil Painting";
             this.oilPaintingCheckBox.UseVisualStyleBackColor = true;
@@ -238,7 +238,7 @@ namespace DemosCommonCode.Imaging
             this.posterizeCheckBox.AutoSize = true;
             this.posterizeCheckBox.Location = new System.Drawing.Point(6, 43);
             this.posterizeCheckBox.Name = "posterizeCheckBox";
-            this.posterizeCheckBox.Size = new System.Drawing.Size(69, 17);
+            this.posterizeCheckBox.Size = new System.Drawing.Size(73, 19);
             this.posterizeCheckBox.TabIndex = 1;
             this.posterizeCheckBox.Text = "Posterize";
             this.posterizeCheckBox.UseVisualStyleBackColor = true;
@@ -248,7 +248,7 @@ namespace DemosCommonCode.Imaging
             this.invertCheckBox.AutoSize = true;
             this.invertCheckBox.Location = new System.Drawing.Point(6, 20);
             this.invertCheckBox.Name = "invertCheckBox";
-            this.invertCheckBox.Size = new System.Drawing.Size(53, 17);
+            this.invertCheckBox.Size = new System.Drawing.Size(56, 19);
             this.invertCheckBox.TabIndex = 0;
             this.invertCheckBox.Text = "Invert";
             this.invertCheckBox.UseVisualStyleBackColor = true;
@@ -279,7 +279,7 @@ namespace DemosCommonCode.Imaging
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(9, 36);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.Size = new System.Drawing.Size(43, 15);
             this.label5.TabIndex = 11;
             this.label5.Text = "Height";
             // 
@@ -288,7 +288,7 @@ namespace DemosCommonCode.Imaging
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(141, 10);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(24, 13);
+            this.label6.Size = new System.Drawing.Size(28, 15);
             this.label6.TabIndex = 12;
             this.label6.Text = "(px)";
             // 
@@ -297,7 +297,7 @@ namespace DemosCommonCode.Imaging
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(141, 36);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(24, 13);
+            this.label7.Size = new System.Drawing.Size(28, 15);
             this.label7.TabIndex = 13;
             this.label7.Text = "(px)";
             // 
@@ -306,7 +306,7 @@ namespace DemosCommonCode.Imaging
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(141, 62);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(21, 13);
+            this.label8.Size = new System.Drawing.Size(25, 15);
             this.label8.TabIndex = 14;
             this.label8.Text = "(%)";
             // 
@@ -315,7 +315,7 @@ namespace DemosCommonCode.Imaging
             this.showVisualToolsCheckBox.AutoSize = true;
             this.showVisualToolsCheckBox.Location = new System.Drawing.Point(171, 85);
             this.showVisualToolsCheckBox.Name = "showVisualToolsCheckBox";
-            this.showVisualToolsCheckBox.Size = new System.Drawing.Size(113, 17);
+            this.showVisualToolsCheckBox.Size = new System.Drawing.Size(119, 19);
             this.showVisualToolsCheckBox.TabIndex = 15;
             this.showVisualToolsCheckBox.Text = "Show Visual Tools";
             this.showVisualToolsCheckBox.UseVisualStyleBackColor = true;
@@ -323,7 +323,7 @@ namespace DemosCommonCode.Imaging
             // MagnifierToolSettingsForm
             // 
             this.AcceptButton = this.buttonOk;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(348, 213);
             this.Controls.Add(this.showVisualToolsCheckBox);

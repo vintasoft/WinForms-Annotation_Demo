@@ -256,6 +256,7 @@ namespace DemosCommonCode.Office
             // 
             // fillColorPanel
             // 
+            this.fillColorPanel.CanEditAlphaChannel = false;
             this.fillColorPanel.Color = System.Drawing.Color.Transparent;
             this.fillColorPanel.DefaultColor = System.Drawing.Color.Empty;
             this.fillColorPanel.Location = new System.Drawing.Point(141, 24);

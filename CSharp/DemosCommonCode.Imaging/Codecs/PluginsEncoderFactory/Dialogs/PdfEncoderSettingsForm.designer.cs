@@ -80,17 +80,17 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.tabControl1.Location = new System.Drawing.Point(1, 102);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(350, 306);
+            this.tabControl1.Size = new System.Drawing.Size(411, 325);
             this.tabControl1.TabIndex = 7;
             // 
             // compressionTabPage
             // 
             this.compressionTabPage.Controls.Add(this.pdfImageCompressionControl1);
             this.compressionTabPage.Controls.Add(this.imageTilesGroupBox);
-            this.compressionTabPage.Location = new System.Drawing.Point(4, 22);
+            this.compressionTabPage.Location = new System.Drawing.Point(4, 24);
             this.compressionTabPage.Name = "compressionTabPage";
             this.compressionTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.compressionTabPage.Size = new System.Drawing.Size(342, 280);
+            this.compressionTabPage.Size = new System.Drawing.Size(403, 297);
             this.compressionTabPage.TabIndex = 0;
             this.compressionTabPage.Text = "Compression";
             this.compressionTabPage.UseVisualStyleBackColor = true;
@@ -107,7 +107,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.pdfImageCompressionControl1.MrcCompressionSettings = null;
 #endif
             this.pdfImageCompressionControl1.Name = "pdfImageCompressionControl1";
-            this.pdfImageCompressionControl1.Size = new System.Drawing.Size(332, 205);
+            this.pdfImageCompressionControl1.Size = new System.Drawing.Size(390, 226);
             this.pdfImageCompressionControl1.TabIndex = 29;
             // 
             // imageTilesGroupBox
@@ -120,7 +120,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.imageTilesGroupBox.Controls.Add(this.tileHeightNumericUpDown);
             this.imageTilesGroupBox.Location = new System.Drawing.Point(8, 6);
             this.imageTilesGroupBox.Name = "imageTilesGroupBox";
-            this.imageTilesGroupBox.Size = new System.Drawing.Size(325, 63);
+            this.imageTilesGroupBox.Size = new System.Drawing.Size(389, 63);
             this.imageTilesGroupBox.TabIndex = 28;
             this.imageTilesGroupBox.TabStop = false;
             this.imageTilesGroupBox.Text = "Split image to tiles";
@@ -128,9 +128,9 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(245, 41);
+            this.label8.Location = new System.Drawing.Point(264, 41);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(33, 13);
+            this.label8.Size = new System.Drawing.Size(37, 15);
             this.label8.TabIndex = 29;
             this.label8.Text = "pixels";
             // 
@@ -139,7 +139,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.tileHeightCheckBox.AutoSize = true;
             this.tileHeightCheckBox.Location = new System.Drawing.Point(8, 40);
             this.tileHeightCheckBox.Name = "tileHeightCheckBox";
-            this.tileHeightCheckBox.Size = new System.Drawing.Size(154, 17);
+            this.tileHeightCheckBox.Size = new System.Drawing.Size(173, 19);
             this.tileHeightCheckBox.TabIndex = 28;
             this.tileHeightCheckBox.Text = "vertical direction, tile height";
             this.tileHeightCheckBox.UseVisualStyleBackColor = true;
@@ -148,9 +148,9 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(245, 19);
+            this.label1.Location = new System.Drawing.Point(264, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.Size = new System.Drawing.Size(37, 15);
             this.label1.TabIndex = 27;
             this.label1.Text = "pixels";
             // 
@@ -159,7 +159,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.tileWidthCheckBox.AutoSize = true;
             this.tileWidthCheckBox.Location = new System.Drawing.Point(8, 19);
             this.tileWidthCheckBox.Name = "tileWidthCheckBox";
-            this.tileWidthCheckBox.Size = new System.Drawing.Size(161, 17);
+            this.tileWidthCheckBox.Size = new System.Drawing.Size(184, 19);
             this.tileWidthCheckBox.TabIndex = 26;
             this.tileWidthCheckBox.Text = "horizontal direction, tile width";
             this.tileWidthCheckBox.UseVisualStyleBackColor = true;
@@ -167,14 +167,14 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // 
             // tileWidthNumericUpDown
             // 
-            this.tileWidthNumericUpDown.Location = new System.Drawing.Point(179, 15);
+            this.tileWidthNumericUpDown.Location = new System.Drawing.Point(197, 18);
             this.tileWidthNumericUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
             this.tileWidthNumericUpDown.Name = "tileWidthNumericUpDown";
-            this.tileWidthNumericUpDown.Size = new System.Drawing.Size(61, 20);
+            this.tileWidthNumericUpDown.Size = new System.Drawing.Size(61, 23);
             this.tileWidthNumericUpDown.TabIndex = 24;
             this.tileWidthNumericUpDown.Value = new decimal(new int[] {
             1024,
@@ -184,14 +184,14 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // 
             // tileHeightNumericUpDown
             // 
-            this.tileHeightNumericUpDown.Location = new System.Drawing.Point(179, 37);
+            this.tileHeightNumericUpDown.Location = new System.Drawing.Point(197, 39);
             this.tileHeightNumericUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
             this.tileHeightNumericUpDown.Name = "tileHeightNumericUpDown";
-            this.tileHeightNumericUpDown.Size = new System.Drawing.Size(61, 20);
+            this.tileHeightNumericUpDown.Size = new System.Drawing.Size(61, 23);
             this.tileHeightNumericUpDown.TabIndex = 25;
             this.tileHeightNumericUpDown.Value = new decimal(new int[] {
             1024,
@@ -204,9 +204,9 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.annotationsTabPage.Controls.Add(this.annotationsPdfAppearanceCheckBox);
             this.annotationsTabPage.Controls.Add(this.annotationXmpCheckBox);
             this.annotationsTabPage.Controls.Add(this.annotationsBinaryCheckBox);
-            this.annotationsTabPage.Location = new System.Drawing.Point(4, 22);
+            this.annotationsTabPage.Location = new System.Drawing.Point(4, 24);
             this.annotationsTabPage.Name = "annotationsTabPage";
-            this.annotationsTabPage.Size = new System.Drawing.Size(342, 280);
+            this.annotationsTabPage.Size = new System.Drawing.Size(403, 297);
             this.annotationsTabPage.TabIndex = 2;
             this.annotationsTabPage.Text = "Annotations";
             this.annotationsTabPage.UseVisualStyleBackColor = true;
@@ -216,7 +216,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.annotationsPdfAppearanceCheckBox.AutoSize = true;
             this.annotationsPdfAppearanceCheckBox.Location = new System.Drawing.Point(7, 67);
             this.annotationsPdfAppearanceCheckBox.Name = "annotationsPdfAppearanceCheckBox";
-            this.annotationsPdfAppearanceCheckBox.Size = new System.Drawing.Size(154, 17);
+            this.annotationsPdfAppearanceCheckBox.Size = new System.Drawing.Size(161, 19);
             this.annotationsPdfAppearanceCheckBox.TabIndex = 11;
             this.annotationsPdfAppearanceCheckBox.Text = "Generate PDF appearance";
             this.annotationsPdfAppearanceCheckBox.UseVisualStyleBackColor = true;
@@ -226,7 +226,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.annotationXmpCheckBox.AutoSize = true;
             this.annotationXmpCheckBox.Location = new System.Drawing.Point(7, 44);
             this.annotationXmpCheckBox.Name = "annotationXmpCheckBox";
-            this.annotationXmpCheckBox.Size = new System.Drawing.Size(93, 17);
+            this.annotationXmpCheckBox.Size = new System.Drawing.Size(101, 19);
             this.annotationXmpCheckBox.TabIndex = 10;
             this.annotationXmpCheckBox.Text = "Vintasoft XMP";
             this.annotationXmpCheckBox.UseVisualStyleBackColor = true;
@@ -236,7 +236,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.annotationsBinaryCheckBox.AutoSize = true;
             this.annotationsBinaryCheckBox.Location = new System.Drawing.Point(7, 21);
             this.annotationsBinaryCheckBox.Name = "annotationsBinaryCheckBox";
-            this.annotationsBinaryCheckBox.Size = new System.Drawing.Size(99, 17);
+            this.annotationsBinaryCheckBox.Size = new System.Drawing.Size(109, 19);
             this.annotationsBinaryCheckBox.TabIndex = 9;
             this.annotationsBinaryCheckBox.Text = "Vintasoft Binary";
             this.annotationsBinaryCheckBox.UseVisualStyleBackColor = true;
@@ -255,10 +255,10 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.documentInformationTabPage.Controls.Add(this.subjectTextBox);
             this.documentInformationTabPage.Controls.Add(this.authorTextBox);
             this.documentInformationTabPage.Controls.Add(this.titleTextBox);
-            this.documentInformationTabPage.Location = new System.Drawing.Point(4, 22);
+            this.documentInformationTabPage.Location = new System.Drawing.Point(4, 24);
             this.documentInformationTabPage.Name = "documentInformationTabPage";
             this.documentInformationTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.documentInformationTabPage.Size = new System.Drawing.Size(342, 280);
+            this.documentInformationTabPage.Size = new System.Drawing.Size(403, 297);
             this.documentInformationTabPage.TabIndex = 1;
             this.documentInformationTabPage.Text = "Document information";
             this.documentInformationTabPage.UseVisualStyleBackColor = true;
@@ -268,7 +268,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(7, 138);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 13);
+            this.label7.Size = new System.Drawing.Size(55, 15);
             this.label7.TabIndex = 11;
             this.label7.Text = "Producer";
             // 
@@ -277,7 +277,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(7, 112);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 13);
+            this.label6.Size = new System.Drawing.Size(58, 15);
             this.label6.TabIndex = 10;
             this.label6.Text = "Keywords";
             // 
@@ -286,7 +286,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(6, 60);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.Size = new System.Drawing.Size(46, 15);
             this.label5.TabIndex = 9;
             this.label5.Text = "Subject";
             // 
@@ -295,7 +295,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(8, 86);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.Size = new System.Drawing.Size(46, 15);
             this.label4.TabIndex = 8;
             this.label4.Text = "Creator";
             // 
@@ -304,7 +304,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 35);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.Size = new System.Drawing.Size(44, 15);
             this.label3.TabIndex = 7;
             this.label3.Text = "Author";
             // 
@@ -313,7 +313,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 13);
+            this.label2.Size = new System.Drawing.Size(29, 15);
             this.label2.TabIndex = 6;
             this.label2.Text = "Title";
             // 
@@ -321,42 +321,42 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // 
             this.producerTextBox.Location = new System.Drawing.Point(69, 135);
             this.producerTextBox.Name = "producerTextBox";
-            this.producerTextBox.Size = new System.Drawing.Size(280, 20);
+            this.producerTextBox.Size = new System.Drawing.Size(328, 23);
             this.producerTextBox.TabIndex = 5;
             // 
             // keywordsTextBox
             // 
             this.keywordsTextBox.Location = new System.Drawing.Point(69, 109);
             this.keywordsTextBox.Name = "keywordsTextBox";
-            this.keywordsTextBox.Size = new System.Drawing.Size(280, 20);
+            this.keywordsTextBox.Size = new System.Drawing.Size(328, 23);
             this.keywordsTextBox.TabIndex = 4;
             // 
             // creatorTextBox
             // 
             this.creatorTextBox.Location = new System.Drawing.Point(69, 83);
             this.creatorTextBox.Name = "creatorTextBox";
-            this.creatorTextBox.Size = new System.Drawing.Size(280, 20);
+            this.creatorTextBox.Size = new System.Drawing.Size(328, 23);
             this.creatorTextBox.TabIndex = 3;
             // 
             // subjectTextBox
             // 
             this.subjectTextBox.Location = new System.Drawing.Point(69, 57);
             this.subjectTextBox.Name = "subjectTextBox";
-            this.subjectTextBox.Size = new System.Drawing.Size(280, 20);
+            this.subjectTextBox.Size = new System.Drawing.Size(328, 23);
             this.subjectTextBox.TabIndex = 2;
             // 
             // authorTextBox
             // 
             this.authorTextBox.Location = new System.Drawing.Point(69, 32);
             this.authorTextBox.Name = "authorTextBox";
-            this.authorTextBox.Size = new System.Drawing.Size(280, 20);
+            this.authorTextBox.Size = new System.Drawing.Size(328, 23);
             this.authorTextBox.TabIndex = 1;
             // 
             // titleTextBox
             // 
             this.titleTextBox.Location = new System.Drawing.Point(69, 6);
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(280, 20);
+            this.titleTextBox.Size = new System.Drawing.Size(328, 23);
             this.titleTextBox.TabIndex = 0;
             // 
             // appendCheckBox
@@ -364,7 +364,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.appendCheckBox.AutoSize = true;
             this.appendCheckBox.Location = new System.Drawing.Point(8, 7);
             this.appendCheckBox.Name = "appendCheckBox";
-            this.appendCheckBox.Size = new System.Drawing.Size(163, 17);
+            this.appendCheckBox.Size = new System.Drawing.Size(184, 19);
             this.appendCheckBox.TabIndex = 8;
             this.appendCheckBox.Text = "Append to existing document";
             this.appendCheckBox.UseVisualStyleBackColor = true;
@@ -372,7 +372,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // 
             // buttonOk
             // 
-            this.buttonOk.Location = new System.Drawing.Point(191, 414);
+            this.buttonOk.Location = new System.Drawing.Point(191, 433);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(75, 23);
             this.buttonOk.TabIndex = 9;
@@ -383,7 +383,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(272, 414);
+            this.buttonCancel.Location = new System.Drawing.Point(269, 433);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 10;
@@ -396,7 +396,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.pdfaCheckBox.AutoSize = true;
             this.pdfaCheckBox.Location = new System.Drawing.Point(8, 28);
             this.pdfaCheckBox.Name = "pdfaCheckBox";
-            this.pdfaCheckBox.Size = new System.Drawing.Size(114, 17);
+            this.pdfaCheckBox.Size = new System.Drawing.Size(125, 19);
             this.pdfaCheckBox.TabIndex = 11;
             this.pdfaCheckBox.Text = "PDF/A Compatible";
             this.pdfaCheckBox.UseVisualStyleBackColor = true;
@@ -407,7 +407,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.createThumbnailsCheckBox.AutoSize = true;
             this.createThumbnailsCheckBox.Location = new System.Drawing.Point(8, 50);
             this.createThumbnailsCheckBox.Name = "createThumbnailsCheckBox";
-            this.createThumbnailsCheckBox.Size = new System.Drawing.Size(110, 17);
+            this.createThumbnailsCheckBox.Size = new System.Drawing.Size(123, 19);
             this.createThumbnailsCheckBox.TabIndex = 12;
             this.createThumbnailsCheckBox.Text = "Create thumbnails";
             this.createThumbnailsCheckBox.UseVisualStyleBackColor = true;
@@ -416,9 +416,9 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // 
             this.updateModeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.updateModeComboBox.FormattingEnabled = true;
-            this.updateModeComboBox.Location = new System.Drawing.Point(134, 70);
+            this.updateModeComboBox.Location = new System.Drawing.Point(150, 71);
             this.updateModeComboBox.Name = "updateModeComboBox";
-            this.updateModeComboBox.Size = new System.Drawing.Size(121, 21);
+            this.updateModeComboBox.Size = new System.Drawing.Size(121, 23);
             this.updateModeComboBox.TabIndex = 13;
             // 
             // label9
@@ -426,7 +426,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(7, 74);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(121, 13);
+            this.label9.Size = new System.Drawing.Size(137, 15);
             this.label9.TabIndex = 14;
             this.label9.Text = "Document update mode";
             // 
@@ -435,17 +435,17 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.conformanceComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.conformanceComboBox.Enabled = false;
             this.conformanceComboBox.FormattingEnabled = true;
-            this.conformanceComboBox.Location = new System.Drawing.Point(134, 24);
+            this.conformanceComboBox.Location = new System.Drawing.Point(150, 26);
             this.conformanceComboBox.Name = "conformanceComboBox";
-            this.conformanceComboBox.Size = new System.Drawing.Size(121, 21);
+            this.conformanceComboBox.Size = new System.Drawing.Size(121, 23);
             this.conformanceComboBox.TabIndex = 15;
             // 
             // PdfEncoderSettingsForm
             // 
             this.AcceptButton = this.buttonOk;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(353, 446);
+            this.ClientSize = new System.Drawing.Size(424, 468);
             this.Controls.Add(this.conformanceComboBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.updateModeComboBox);

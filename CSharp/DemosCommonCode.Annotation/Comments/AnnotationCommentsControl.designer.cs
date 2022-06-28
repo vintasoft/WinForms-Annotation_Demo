@@ -113,7 +113,7 @@ namespace DemosCommonCode.Annotation
             // 
             // AnnotationCommentsControl
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.mainPanel);
             this.MinimumSize = new System.Drawing.Size(190, 180);
             this.Name = "AnnotationCommentsControl";

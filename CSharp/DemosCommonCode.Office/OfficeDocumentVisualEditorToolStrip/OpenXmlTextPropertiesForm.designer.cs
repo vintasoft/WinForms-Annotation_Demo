@@ -287,6 +287,7 @@ namespace DemosCommonCode.Office
             // underlineColorPanel
             // 
             this.underlineColorPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.underlineColorPanel.CanEditAlphaChannel = false;
             this.underlineColorPanel.Color = System.Drawing.Color.Transparent;
             this.underlineColorPanel.DefaultColor = System.Drawing.Color.Empty;
             this.underlineColorPanel.Location = new System.Drawing.Point(175, 280);
@@ -297,6 +298,7 @@ namespace DemosCommonCode.Office
             // fontColorPanel
             // 
             this.fontColorPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.fontColorPanel.CanEditAlphaChannel = false;
             this.fontColorPanel.Color = System.Drawing.Color.Transparent;
             this.fontColorPanel.DefaultColor = System.Drawing.Color.Empty;
             this.fontColorPanel.Location = new System.Drawing.Point(12, 236);

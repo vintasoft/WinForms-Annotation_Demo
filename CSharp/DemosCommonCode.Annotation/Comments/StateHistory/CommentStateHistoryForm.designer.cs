@@ -59,7 +59,7 @@ namespace DemosCommonCode.Annotation
             // CommentStateHistoryForm
             // 
             this.AcceptButton = this.okButton;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(367, 420);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.commentStateHistoryControl1);

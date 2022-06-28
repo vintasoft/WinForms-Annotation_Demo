@@ -720,7 +720,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // 
             // TiffEncoderSettingsForm
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(390, 251);
             this.Controls.Add(this.tabControl1);

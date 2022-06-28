@@ -207,7 +207,7 @@ namespace DemosCommonCode.Imaging
             this.panel1.Controls.Add(this.resizePointsNeswCursorPanelControl);
             this.panel1.Location = new System.Drawing.Point(8, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(432, 231);
+            this.panel1.Size = new System.Drawing.Size(432, 233);
             this.panel1.TabIndex = 37;
             // 
             // resizePointsRadiusNumericUpDown
@@ -574,7 +574,7 @@ namespace DemosCommonCode.Imaging
             this.panel2.Controls.Add(this.label7);
             this.panel2.Location = new System.Drawing.Point(8, 6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(432, 231);
+            this.panel2.Size = new System.Drawing.Size(432, 233);
             this.panel2.TabIndex = 30;
             // 
             // polygonPointRadiusNumericUpDown
@@ -788,7 +788,7 @@ namespace DemosCommonCode.Imaging
             this.panel3.Controls.Add(this.label28);
             this.panel3.Location = new System.Drawing.Point(8, 6);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(432, 231);
+            this.panel3.Size = new System.Drawing.Size(432, 233);
             this.panel3.TabIndex = 30;
             // 
             // moveAreaCursorPanelControl
@@ -875,7 +875,7 @@ namespace DemosCommonCode.Imaging
             this.panel4.Controls.Add(this.label23);
             this.panel4.Location = new System.Drawing.Point(8, 6);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(432, 231);
+            this.panel4.Size = new System.Drawing.Size(432, 233);
             this.panel4.TabIndex = 26;
             // 
             // rotationAssistantRadiusNumericUpDown
@@ -1031,7 +1031,7 @@ namespace DemosCommonCode.Imaging
             this.panel5.Controls.Add(this.label21);
             this.panel5.Location = new System.Drawing.Point(8, 6);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(432, 231);
+            this.panel5.Size = new System.Drawing.Size(432, 233);
             this.panel5.TabIndex = 28;
             // 
             // rotationPointRadiusNumericUpDown
@@ -1239,7 +1239,7 @@ namespace DemosCommonCode.Imaging
             this.panel6.Controls.Add(this.label25);
             this.panel6.Location = new System.Drawing.Point(8, 6);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(432, 237);
+            this.panel6.Size = new System.Drawing.Size(432, 239);
             this.panel6.TabIndex = 32;
             // 
             // groupBox1
@@ -1250,7 +1250,7 @@ namespace DemosCommonCode.Imaging
             this.groupBox1.Controls.Add(this.spellCheckManagerViewSettingsControl1);
             this.groupBox1.Location = new System.Drawing.Point(0, 113);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(432, 121);
+            this.groupBox1.Size = new System.Drawing.Size(432, 123);
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Spell Check Manager";
@@ -1264,7 +1264,7 @@ namespace DemosCommonCode.Imaging
             this.spellCheckManagerViewSettingsControl1.Location = new System.Drawing.Point(0, 19);
             this.spellCheckManagerViewSettingsControl1.MinimumSize = new System.Drawing.Size(212, 100);
             this.spellCheckManagerViewSettingsControl1.Name = "spellCheckManagerViewSettingsControl1";
-            this.spellCheckManagerViewSettingsControl1.Size = new System.Drawing.Size(432, 100);
+            this.spellCheckManagerViewSettingsControl1.Size = new System.Drawing.Size(432, 102);
             this.spellCheckManagerViewSettingsControl1.TabIndex = 0;
             // 
             // fontButton
@@ -1331,6 +1331,7 @@ namespace DemosCommonCode.Imaging
             // 
             this.textBoxForeColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxForeColorPanelControl.CanEditAlphaChannel = false;
             this.textBoxForeColorPanelControl.CanSetColor = false;
             this.textBoxForeColorPanelControl.Color = System.Drawing.SystemColors.Control;
             this.textBoxForeColorPanelControl.ColorButtonMargin = 2;
@@ -1354,6 +1355,7 @@ namespace DemosCommonCode.Imaging
             // 
             this.textBoxBackColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxBackColorPanelControl.CanEditAlphaChannel = false;
             this.textBoxBackColorPanelControl.CanSetColor = false;
             this.textBoxBackColorPanelControl.Color = System.Drawing.SystemColors.Control;
             this.textBoxBackColorPanelControl.ColorButtonMargin = 2;
@@ -1988,7 +1990,7 @@ namespace DemosCommonCode.Imaging
             // InteractionAreaAppearanceManagerForm
             // 
             this.AcceptButton = this.okButton;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(458, 308);
             this.Controls.Add(this.buttonCancel);

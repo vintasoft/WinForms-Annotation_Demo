@@ -4,12 +4,11 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 
 using Vintasoft.Imaging;
-using Vintasoft.Imaging.UI.VisualTools.UserInteraction;
-
 using Vintasoft.Imaging.Annotation;
 using Vintasoft.Imaging.Annotation.UI;
 using Vintasoft.Imaging.Annotation.UI.VisualTools.UserInteraction;
-
+using Vintasoft.Imaging.Drawing;
+using Vintasoft.Imaging.UI.VisualTools.UserInteraction;
 
 namespace DemosCommonCode.Annotation
 {
@@ -109,13 +108,12 @@ namespace DemosCommonCode.Annotation
         /// otherwise, <b>false</b>.</returns>
         public override bool IsPointOnFigure(PointF point)
         {
-            using (Matrix m = VintasoftDrawingConverter.Convert(GetTransformFromContentToImageSpace()))
-            using (GraphicsPath path = ((MarkAnnotationRenderer)Renderer).GetAsGraphicsPath())
+            using (IGraphicsPath path = ((MarkAnnotationRenderer)Renderer).GetAsGraphicsPath(DrawingFactory.Default))
             {
-                path.Transform(m);
-                using (Pen pen = ObjectConverter.CreateDrawingPen(Outline))
+                path.Transform(GetTransformFromContentToImageSpace());
+                using (IDrawingPen pen = DrawingFactory.Default.CreatePen(Outline))
                 {
-                    return path.IsVisible(point) || path.IsOutlineVisible(point, pen);
+                    return path.Contains(point) || path.OutlineContains(point, pen);
                 }
             }
         }
@@ -139,7 +137,7 @@ namespace DemosCommonCode.Annotation
             GraphicsPath path = new GraphicsPath();
             SizeF size = Size;
             path.AddRectangle(new RectangleF(-size.Width / 2, -size.Height / 2, size.Width, size.Height));
-            using (Matrix transform = VintasoftDrawingConverter.Convert(GetTransformFromContentToImageSpace()))
+            using (Matrix transform = GdiConverter.Convert(GetTransformFromContentToImageSpace()))
                 path.Transform(transform);
             return path;
         }

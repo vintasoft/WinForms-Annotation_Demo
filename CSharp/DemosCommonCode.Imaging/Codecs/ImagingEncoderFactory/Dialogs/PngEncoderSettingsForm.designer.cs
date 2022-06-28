@@ -44,6 +44,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.compressionTabPage = new System.Windows.Forms.TabPage();
             this.annotationsTabPage = new System.Windows.Forms.TabPage();
             this.annotationsBinaryCheckBox = new System.Windows.Forms.CheckBox();
+            this.adam7InterlacingCheckBox = new System.Windows.Forms.CheckBox();
             this.customGroupBox.SuspendLayout();
             this.settingsTabControl.SuspendLayout();
             this.compressionTabPage.SuspendLayout();
@@ -58,7 +59,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.customGroupBox.Controls.Add(this.label1);
             this.customGroupBox.Location = new System.Drawing.Point(129, 4);
             this.customGroupBox.Name = "customGroupBox";
-            this.customGroupBox.Size = new System.Drawing.Size(198, 86);
+            this.customGroupBox.Size = new System.Drawing.Size(206, 86);
             this.customGroupBox.TabIndex = 11;
             this.customGroupBox.TabStop = false;
             // 
@@ -66,7 +67,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // 
             this.filterMethodComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.filterMethodComboBox.FormattingEnabled = true;
-            this.filterMethodComboBox.Location = new System.Drawing.Point(101, 20);
+            this.filterMethodComboBox.Location = new System.Drawing.Point(112, 22);
             this.filterMethodComboBox.Name = "filterMethodComboBox";
             this.filterMethodComboBox.Size = new System.Drawing.Size(88, 21);
             this.filterMethodComboBox.TabIndex = 5;
@@ -75,7 +76,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // 
             this.compressionLevelComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.compressionLevelComboBox.FormattingEnabled = true;
-            this.compressionLevelComboBox.Location = new System.Drawing.Point(101, 47);
+            this.compressionLevelComboBox.Location = new System.Drawing.Point(113, 52);
             this.compressionLevelComboBox.Name = "compressionLevelComboBox";
             this.compressionLevelComboBox.Size = new System.Drawing.Size(88, 21);
             this.compressionLevelComboBox.TabIndex = 6;
@@ -113,7 +114,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(182, 142);
+            this.buttonCancel.Location = new System.Drawing.Point(182, 162);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 8;
@@ -123,7 +124,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // 
             // buttonOk
             // 
-            this.buttonOk.Location = new System.Drawing.Point(101, 142);
+            this.buttonOk.Location = new System.Drawing.Point(101, 162);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(75, 23);
             this.buttonOk.TabIndex = 7;
@@ -182,11 +183,12 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.settingsTabControl.Location = new System.Drawing.Point(7, 9);
             this.settingsTabControl.Name = "settingsTabControl";
             this.settingsTabControl.SelectedIndex = 0;
-            this.settingsTabControl.Size = new System.Drawing.Size(343, 127);
+            this.settingsTabControl.Size = new System.Drawing.Size(350, 147);
             this.settingsTabControl.TabIndex = 12;
             // 
             // compressionTabPage
             // 
+            this.compressionTabPage.Controls.Add(this.adam7InterlacingCheckBox);
             this.compressionTabPage.Controls.Add(this.bestSpeedRadioButton);
             this.compressionTabPage.Controls.Add(this.fastRadioButton);
             this.compressionTabPage.Controls.Add(this.normalRadioButton);
@@ -196,7 +198,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.compressionTabPage.Location = new System.Drawing.Point(4, 22);
             this.compressionTabPage.Name = "compressionTabPage";
             this.compressionTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.compressionTabPage.Size = new System.Drawing.Size(335, 101);
+            this.compressionTabPage.Size = new System.Drawing.Size(342, 121);
             this.compressionTabPage.TabIndex = 0;
             this.compressionTabPage.Text = "Compression";
             this.compressionTabPage.UseVisualStyleBackColor = true;
@@ -207,7 +209,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.annotationsTabPage.Location = new System.Drawing.Point(4, 22);
             this.annotationsTabPage.Name = "annotationsTabPage";
             this.annotationsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.annotationsTabPage.Size = new System.Drawing.Size(335, 101);
+            this.annotationsTabPage.Size = new System.Drawing.Size(342, 101);
             this.annotationsTabPage.TabIndex = 1;
             this.annotationsTabPage.Text = "Annotations Format";
             this.annotationsTabPage.UseVisualStyleBackColor = true;
@@ -222,12 +224,22 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.annotationsBinaryCheckBox.Text = "Vintasoft Binary";
             this.annotationsBinaryCheckBox.UseVisualStyleBackColor = true;
             // 
+            // adam7InterlacingCheckBox
+            // 
+            this.adam7InterlacingCheckBox.AutoSize = true;
+            this.adam7InterlacingCheckBox.Location = new System.Drawing.Point(6, 100);
+            this.adam7InterlacingCheckBox.Name = "adam7InterlacingCheckBox";
+            this.adam7InterlacingCheckBox.Size = new System.Drawing.Size(110, 17);
+            this.adam7InterlacingCheckBox.TabIndex = 12;
+            this.adam7InterlacingCheckBox.Text = "Adam7 Interlace";
+            this.adam7InterlacingCheckBox.UseVisualStyleBackColor = true;
+            // 
             // PngEncoderSettingsForm
             // 
             this.AcceptButton = this.buttonOk;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(358, 176);
+            this.ClientSize = new System.Drawing.Size(365, 196);
             this.Controls.Add(this.settingsTabControl);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.buttonCancel);
@@ -267,5 +279,6 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         private System.Windows.Forms.TabPage compressionTabPage;
         private System.Windows.Forms.TabPage annotationsTabPage;
         private System.Windows.Forms.CheckBox annotationsBinaryCheckBox;
+        private System.Windows.Forms.CheckBox adam7InterlacingCheckBox;
     }
 }

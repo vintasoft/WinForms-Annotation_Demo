@@ -189,6 +189,7 @@ namespace DemosCommonCode.Imaging
                 "'{ImageSizeMpx:f2} MPX'\n" +
                 "\n" +
                 "List of predefined format variables:\n" +
+                "{PageLabel} - page label\n" +
                 "{PageNumber} - page number, in source image file\n" +
                 "{PageIndex} - page index, in source image file\n" +
                 "{ImageNumber} - image number, in image collection\n" +

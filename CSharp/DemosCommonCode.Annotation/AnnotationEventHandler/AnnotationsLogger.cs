@@ -292,7 +292,7 @@ namespace DemosCommonCode.Annotation
             // location in annotation content space
             PointF locationInAnnotationContentSpace;
             // matrix from annotation content space to the annotation space (DIP)
-            using (Matrix fromDipToContentSpace = VintasoftDrawingConverter.Convert(annotationView.GetTransformFromContentToImageSpace()))
+            using (Matrix fromDipToContentSpace = GdiConverter.Convert(annotationView.GetTransformFromContentToImageSpace()))
             {
                 // DIP space -> annotation content space
                 fromDipToContentSpace.Invert();

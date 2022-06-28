@@ -58,9 +58,9 @@ namespace DemosCommonCode.Imaging
             // 
             // spellCheckManagerViewSettingsControl1
             // 
-            this.spellCheckManagerViewSettingsControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.spellCheckManagerViewSettingsControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             interactionAreaAppearanceManager7.MoveAreaCursor = System.Windows.Forms.Cursors.SizeAll;
             interactionAreaAppearanceManager7.NortheastSouthwestResizePointCursor = System.Windows.Forms.Cursors.SizeNESW;
             interactionAreaAppearanceManager7.NorthSouthResizePointCursor = System.Windows.Forms.Cursors.SizeNS;
@@ -81,7 +81,7 @@ namespace DemosCommonCode.Imaging
             interactionAreaAppearanceManager7.RotationPointRadius = 4F;
             interactionAreaAppearanceManager7.TextBoxBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             interactionAreaAppearanceManager7.TextBoxCursor = System.Windows.Forms.Cursors.IBeam;
-            interactionAreaAppearanceManager7.TextBoxFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            interactionAreaAppearanceManager7.TextBoxFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             interactionAreaAppearanceManager7.TextBoxForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             interactionAreaAppearanceManager7.VisualTool = null;
             interactionAreaAppearanceManager7.WestEastResizePointCursor = System.Windows.Forms.Cursors.SizeWE;
@@ -94,7 +94,7 @@ namespace DemosCommonCode.Imaging
             // 
             // SpellCheckManagerViewSettingsForm
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(306, 149);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.okButton);

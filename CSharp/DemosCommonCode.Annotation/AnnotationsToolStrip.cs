@@ -402,6 +402,11 @@ namespace DemosCommonCode.Annotation
                     // start the annotation building
                     AnnotationViewer.AddAndBuildAnnotation(annotationView);
                 }
+                else
+                {
+                    if (annotationType != AnnotationType.Unknown)
+                        EndAnnotationBuilding();
+                }
             }
             catch (InvalidOperationException ex)
             {
@@ -646,14 +651,13 @@ namespace DemosCommonCode.Annotation
             object sender,
             CollectionChangeEventArgs<AnnotationData> e)
         {
-            // if annotation was deleted
-            if (e.OldValue != null)
+            if (e.Action == CollectionChangeActionType.Clear ||
+                e.Action == CollectionChangeActionType.ClearAndAddItems)
             {
-                // if annotation dictionary contains annotation data
-                if (_annotationDataToAnnotationView.ContainsKey(e.OldValue))
+                foreach (AnnotationView view in _annotationDataToAnnotationView.Values)
                 {
                     // get annotation view
-                    LinkAnnotationView linkAnnotationView = _annotationDataToAnnotationView[e.OldValue] as LinkAnnotationView;
+                    LinkAnnotationView linkAnnotationView = view as LinkAnnotationView;
 
                     // if link annotation view found 
                     if (linkAnnotationView != null)
@@ -661,9 +665,31 @@ namespace DemosCommonCode.Annotation
                         // unsubscribe from the Link annotation events
                         UnsubscribeFromLinkAnnotationViewEvents(linkAnnotationView);
                     }
+                }
 
-                    // remove annotation data from dictionary
-                    _annotationDataToAnnotationView.Remove(e.OldValue);
+                _annotationDataToAnnotationView.Clear();
+            }
+            else
+            {
+                // if annotation was deleted
+                if (e.OldValue != null)
+                {
+                    // if annotation dictionary contains annotation data
+                    if (_annotationDataToAnnotationView.ContainsKey(e.OldValue))
+                    {
+                        // get annotation view
+                        LinkAnnotationView linkAnnotationView = _annotationDataToAnnotationView[e.OldValue] as LinkAnnotationView;
+
+                        // if link annotation view found 
+                        if (linkAnnotationView != null)
+                        {
+                            // unsubscribe from the Link annotation events
+                            UnsubscribeFromLinkAnnotationViewEvents(linkAnnotationView);
+                        }
+
+                        // remove annotation data from dictionary
+                        _annotationDataToAnnotationView.Remove(e.OldValue);
+                    }
                 }
             }
 
@@ -1123,17 +1149,22 @@ namespace DemosCommonCode.Annotation
                     if (string.IsNullOrEmpty(_embeddedOrReferencedImageFileName))
                         _embeddedOrReferencedImageFileName = GetImageFilePath();
 
+                    if (string.IsNullOrEmpty(_embeddedOrReferencedImageFileName))
+                        return null;
+
+                    VintasoftImage embeddedImage;
                     try
                     {
-                        VintasoftImage embeddedImage = new VintasoftImage(_embeddedOrReferencedImageFileName, true);
-
-                        data = new EmbeddedImageAnnotationData(embeddedImage, true);
+                        embeddedImage = new VintasoftImage(_embeddedOrReferencedImageFileName, true);
                     }
                     catch (Exception ex)
                     {
+                        _embeddedOrReferencedImageFileName = string.Empty;
                         DemosTools.ShowErrorMessage("Embedded annotation", ex);
                         return null;
                     }
+
+                    data = new EmbeddedImageAnnotationData(embeddedImage, true);
                     break;
 
                 case AnnotationType.Text:

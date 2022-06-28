@@ -55,7 +55,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.appendCheckBox.AutoSize = true;
             this.appendCheckBox.Location = new System.Drawing.Point(8, 12);
             this.appendCheckBox.Name = "appendCheckBox";
-            this.appendCheckBox.Size = new System.Drawing.Size(163, 17);
+            this.appendCheckBox.Size = new System.Drawing.Size(184, 19);
             this.appendCheckBox.TabIndex = 10;
             this.appendCheckBox.Text = "Append to existing document";
             this.appendCheckBox.UseVisualStyleBackColor = true;
@@ -68,7 +68,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.groupBox1.Controls.Add(this.lossyGroupBox);
             this.groupBox1.Location = new System.Drawing.Point(8, 35);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(222, 186);
+            this.groupBox1.Size = new System.Drawing.Size(245, 186);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Compression";
@@ -79,7 +79,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.groupBox2.Controls.Add(this.arithmeticRadioButton);
             this.groupBox2.Location = new System.Drawing.Point(8, 16);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(206, 50);
+            this.groupBox2.Size = new System.Drawing.Size(231, 50);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Bitmap encoding algorithm";
@@ -87,9 +87,9 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // mmrRadioButton
             // 
             this.mmrRadioButton.AutoSize = true;
-            this.mmrRadioButton.Location = new System.Drawing.Point(109, 19);
+            this.mmrRadioButton.Location = new System.Drawing.Point(124, 19);
             this.mmrRadioButton.Name = "mmrRadioButton";
-            this.mmrRadioButton.Size = new System.Drawing.Size(91, 17);
+            this.mmrRadioButton.Size = new System.Drawing.Size(99, 19);
             this.mmrRadioButton.TabIndex = 3;
             this.mmrRadioButton.Text = "Mmr (CCITT4)";
             this.mmrRadioButton.UseVisualStyleBackColor = true;
@@ -100,7 +100,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.arithmeticRadioButton.Checked = true;
             this.arithmeticRadioButton.Location = new System.Drawing.Point(6, 19);
             this.arithmeticRadioButton.Name = "arithmeticRadioButton";
-            this.arithmeticRadioButton.Size = new System.Drawing.Size(97, 17);
+            this.arithmeticRadioButton.Size = new System.Drawing.Size(112, 19);
             this.arithmeticRadioButton.TabIndex = 2;
             this.arithmeticRadioButton.TabStop = true;
             this.arithmeticRadioButton.Text = "MQ (Arithmetic)";
@@ -111,7 +111,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.useLossyCheckBox.AutoSize = true;
             this.useLossyCheckBox.Location = new System.Drawing.Point(14, 71);
             this.useLossyCheckBox.Name = "useLossyCheckBox";
-            this.useLossyCheckBox.Size = new System.Drawing.Size(53, 17);
+            this.useLossyCheckBox.Size = new System.Drawing.Size(55, 19);
             this.useLossyCheckBox.TabIndex = 7;
             this.useLossyCheckBox.Text = "Lossy";
             this.useLossyCheckBox.UseVisualStyleBackColor = true;
@@ -123,7 +123,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.symbolDictionaryGroupBox.Controls.Add(this.sdSizeComboBox);
             this.symbolDictionaryGroupBox.Location = new System.Drawing.Point(8, 128);
             this.symbolDictionaryGroupBox.Name = "symbolDictionaryGroupBox";
-            this.symbolDictionaryGroupBox.Size = new System.Drawing.Size(206, 50);
+            this.symbolDictionaryGroupBox.Size = new System.Drawing.Size(231, 50);
             this.symbolDictionaryGroupBox.TabIndex = 14;
             this.symbolDictionaryGroupBox.TabStop = false;
             // 
@@ -132,7 +132,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.Size = new System.Drawing.Size(83, 15);
             this.label2.TabIndex = 5;
             this.label2.Text = "Dictionary size";
             // 
@@ -146,9 +146,9 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             "3000",
             "6500",
             "10000"});
-            this.sdSizeComboBox.Location = new System.Drawing.Point(111, 17);
+            this.sdSizeComboBox.Location = new System.Drawing.Point(138, 17);
             this.sdSizeComboBox.Name = "sdSizeComboBox";
-            this.sdSizeComboBox.Size = new System.Drawing.Size(85, 21);
+            this.sdSizeComboBox.Size = new System.Drawing.Size(85, 23);
             this.sdSizeComboBox.TabIndex = 6;
             // 
             // lossyGroupBox
@@ -157,20 +157,20 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.lossyGroupBox.Controls.Add(this.label1);
             this.lossyGroupBox.Location = new System.Drawing.Point(8, 72);
             this.lossyGroupBox.Name = "lossyGroupBox";
-            this.lossyGroupBox.Size = new System.Drawing.Size(206, 50);
+            this.lossyGroupBox.Size = new System.Drawing.Size(231, 50);
             this.lossyGroupBox.TabIndex = 15;
             this.lossyGroupBox.TabStop = false;
             // 
             // inaccuracyPercentNumericUpDown
             // 
-            this.inaccuracyPercentNumericUpDown.Location = new System.Drawing.Point(111, 18);
+            this.inaccuracyPercentNumericUpDown.Location = new System.Drawing.Point(138, 18);
             this.inaccuracyPercentNumericUpDown.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.inaccuracyPercentNumericUpDown.Name = "inaccuracyPercentNumericUpDown";
-            this.inaccuracyPercentNumericUpDown.Size = new System.Drawing.Size(85, 20);
+            this.inaccuracyPercentNumericUpDown.Size = new System.Drawing.Size(85, 23);
             this.inaccuracyPercentNumericUpDown.TabIndex = 8;
             this.inaccuracyPercentNumericUpDown.Value = new decimal(new int[] {
             50,
@@ -183,7 +183,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 13);
+            this.label1.Size = new System.Drawing.Size(107, 15);
             this.label1.TabIndex = 7;
             this.label1.Text = "Inaccuracy percent";
             // 
@@ -194,7 +194,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.useSymbolDictionaryCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.useSymbolDictionaryCheckBox.Location = new System.Drawing.Point(22, 162);
             this.useSymbolDictionaryCheckBox.Name = "useSymbolDictionaryCheckBox";
-            this.useSymbolDictionaryCheckBox.Size = new System.Drawing.Size(108, 17);
+            this.useSymbolDictionaryCheckBox.Size = new System.Drawing.Size(122, 19);
             this.useSymbolDictionaryCheckBox.TabIndex = 0;
             this.useSymbolDictionaryCheckBox.Text = "Symbol dictionary";
             this.useSymbolDictionaryCheckBox.UseVisualStyleBackColor = true;
@@ -224,9 +224,9 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // Jbig2EncoderSettingsForm
             // 
             this.AcceptButton = this.buttonOk;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(238, 259);
+            this.ClientSize = new System.Drawing.Size(260, 259);
             this.Controls.Add(this.useSymbolDictionaryCheckBox);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOk);

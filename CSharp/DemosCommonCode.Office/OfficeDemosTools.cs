@@ -106,12 +106,12 @@ namespace DemosCommonCode.Office
             e.LayoutSettings.PageLayoutSettings = new PageLayoutSettings(ImageSize.FromMillimeters(70, 70, new Resolution(96)));
         }
 
-#if !REMOVE_OFFICE_PLUGIN
         /// <summary>
         /// Selects the Office document.
         /// </summary>
         public static Stream SelectOfficeDocument()
         {
+#if !REMOVE_OFFICE_PLUGIN
             // if image is selected
             if (_openDocumentDialog.ShowDialog() == DialogResult.OK)
             {
@@ -132,6 +132,7 @@ namespace DemosCommonCode.Office
                 // use empty document
                 return DemosResourcesManager.GetResourceAsStream("EmptyDocument.docx");
             }
+#endif
             return null;
         }
 
@@ -142,6 +143,7 @@ namespace DemosCommonCode.Office
         /// <returns>Stream that contains converted DOCX document.</returns>
         public static Stream ConvertTxtFileToDocxDocument(string txtFilename)
         {
+#if !REMOVE_OFFICE_PLUGIN
             // get "EmptyDocument.docx" resource
             using (Stream documentStream = DemosResourcesManager.GetResourceAsStream("EmptyDocument.docx"))
             {
@@ -161,8 +163,9 @@ namespace DemosCommonCode.Office
 
                 return tempStream;
             }
-        }
 #endif
+            return null;
+        }
 
         #endregion
 

@@ -12,7 +12,7 @@
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>    
     <EnableDefaultItems>false</EnableDefaultItems>
-    <Version>11.0.16.1</Version>
+    <Version>12.0.0.1</Version>
     <AssemblyName>AnnotationDemo</AssemblyName>
     <RootNamespace>AnnotationDemo</RootNamespace>
     <StartupObject>AnnotationDemo.Program</StartupObject>
@@ -37,25 +37,27 @@
 
   <ItemGroup>
     <Reference Include="NHunspell">
-      <HintPath>.\NHunspell\DotNet4\NHunspell.dll</HintPath>
+      <HintPath>.\NHunspell\DotNetCore3\NHunspell.dll</HintPath>
     </Reference>
-    <PackageReference Include="Vintasoft.Imaging" Version="11.0.16.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation" Version="11.0.16.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.Office" Version="11.0.16.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.Office.UI" Version="11.0.16.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf" Version="11.0.16.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.UI" Version="11.0.16.1" />
-    <PackageReference Include="Vintasoft.Imaging.Dicom" Version="4.0.16.1" />
-    <PackageReference Include="Vintasoft.Imaging.DocCleanup" Version="6.0.16.1" />
-    <PackageReference Include="Vintasoft.Imaging.Jbig2Codec" Version="8.0.16.1" />
-    <PackageReference Include="Vintasoft.Imaging.Jpeg2000Codec" Version="7.0.16.1" />
-    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml" Version="3.0.16.1" />
-    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml.UI" Version="3.0.16.1" />
-    <PackageReference Include="Vintasoft.Imaging.Pdf" Version="8.0.16.1" />
-    <PackageReference Include="Vintasoft.Imaging.Pdf.Mrc" Version="8.0.16.1" />
-    <PackageReference Include="Vintasoft.Imaging.RawCodec" Version="11.0.16.1" />
-    <PackageReference Include="Vintasoft.Imaging.UI" Version="11.0.16.1" />
-    <PackageReference Include="Vintasoft.Shared" Version="3.1.2.1" />
+    <PackageReference Include="Vintasoft.Imaging" Version="12.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation" Version="12.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Office" Version="12.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Office.UI" Version="12.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf" Version="12.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf.UI" Version="12.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.UI" Version="12.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Dicom" Version="5.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.DocCleanup" Version="7.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Gdi" Version="12.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Jbig2Codec" Version="9.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Jpeg2000Codec" Version="8.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml" Version="4.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml.UI" Version="4.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf" Version="9.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf.Mrc" Version="9.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.RawCodec" Version="12.0.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.UI" Version="12.0.0.1" />
+    <PackageReference Include="Vintasoft.Shared" Version="3.2.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -74,6 +76,18 @@
     <Compile Include="CustomControls\ColorPanelControl\ColorPanelControl.designer.cs">
       <DependentUpon>ColorPanelControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\ColorPickerControl\ColorPickerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ColorPickerControl\ColorPickerControl.designer.cs">
+      <DependentUpon>ColorPickerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ColorSampleControl\ColorSampleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ColorSampleControl\ColorSampleControl.designer.cs">
+      <DependentUpon>ColorSampleControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\CursorPanelControl\CursorPanelControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -82,6 +96,12 @@
     </Compile>
     <Compile Include="CustomControls\PaddingFEditorControl.designer.cs">
       <DependentUpon>PaddingFEditorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ValueEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ValueEditorControl.designer.cs">
+      <DependentUpon>ValueEditorControl.cs</DependentUpon>
     </Compile>
     <Compile Include="DemosCommonCode.Annotation\AnnotationDemosTools.cs">
     </Compile>
@@ -248,6 +268,8 @@
     <Compile Include="DemosCommonCode.Imaging\Codecs\PluginsEncoderFactory\Dialogs\PdfImageCompressionControl.designer.cs">
       <DependentUpon>PdfImageCompressionControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ColorManagementHelper.cs">
+    </Compile>
     <Compile Include="DemosCommonCode.Imaging\ColorManagement\ColorManagementSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +281,12 @@
     </Compile>
     <Compile Include="DemosCommonCode.Imaging\ColorManagement\ColorTransformSetEditorForm.designer.cs">
       <DependentUpon>ColorTransformSetEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ColorPickerDialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ColorPickerDialogForm.designer.cs">
+      <DependentUpon>ColorPickerDialogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DemosCommonCode.Imaging\DocumentPasswordForm.cs">
       <SubType>Form</SubType>
@@ -491,6 +519,15 @@
     <EmbeddedResource Include="CustomControls\AnchorTypeEditorControl.resx">
       <DependentUpon>AnchorTypeEditorControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ColorPickerControl\ColorPickerControl.resx">
+      <DependentUpon>ColorPickerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ColorSampleControl\ColorSampleControl.resx">
+      <DependentUpon>ColorSampleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ValueEditorControl.resx">
+      <DependentUpon>ValueEditorControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DemosCommonCode.Annotation\AnnotationsInfoForm.resx">
       <DependentUpon>AnnotationsInfoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -517,6 +554,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DemosCommonCode.Annotation\RotateImageWithAnnotationsForm.resx">
       <DependentUpon>RotateImageWithAnnotationsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\ColorPickerDialogForm.resx">
+      <DependentUpon>ColorPickerDialogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DemosCommonCode.Imaging\DocumentPasswordForm.resx">
       <DependentUpon>DocumentPasswordForm.cs</DependentUpon>
@@ -833,8 +873,6 @@
       <DependentUpon>SpellCheckManagerViewSettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\ColorPanelControl\ColorPanelBackground.png">
-    </EmbeddedResource>
     <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\Resources\CommentClose.png">
     </EmbeddedResource>
     <EmbeddedResource Include="DemosCommonCode.Annotation\Comments\Resources\CommentCollapse.png">
@@ -955,6 +993,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DemosCommonCode.Annotation\Icons\EmptyDocument.png">
     </EmbeddedResource>
+    <Content Include="CustomControls\ColorSampleControl\ColorSampleBackground.png">
+    </Content>
     <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\BoldText.png">
     </Content>
     <Content Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\Icons\Chart.png">

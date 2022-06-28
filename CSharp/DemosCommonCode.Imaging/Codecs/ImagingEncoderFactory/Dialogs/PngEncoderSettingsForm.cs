@@ -3,6 +3,7 @@ using System.Windows.Forms;
 
 using Vintasoft.Imaging;
 using Vintasoft.Imaging.Codecs.Encoders;
+using Vintasoft.Imaging.Codecs.ImageFiles.Png;
 
 namespace DemosCommonCode.Imaging.Codecs.Dialogs
 {
@@ -220,6 +221,8 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             filterMethodComboBox.SelectedItem = EncoderSettings.FilterMethod;
             compressionLevelComboBox.SelectedItem = EncoderSettings.CompressionLevel;
 
+            adam7InterlacingCheckBox.Checked = EncoderSettings.InterlaceMethod == PngInterlaceMethod.Adam7;
+
             if (EditAnnotationSettings)
             {
                 annotationsBinaryCheckBox.Checked = (EncoderSettings.AnnotationsFormat | AnnotationsFormat.VintasoftBinary) != 0;
@@ -256,6 +259,11 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
                 EncoderSettings.FilterMethod = (PngFilterMethod)filterMethodComboBox.SelectedItem;
                 EncoderSettings.CompressionLevel = (int)compressionLevelComboBox.SelectedItem;
             }
+
+            if (adam7InterlacingCheckBox.Checked)
+                EncoderSettings.InterlaceMethod = PngInterlaceMethod.Adam7;
+            else
+                EncoderSettings.InterlaceMethod = PngInterlaceMethod.NoInterlace;
 
             EncoderSettings.AnnotationsFormat = AnnotationsFormat.None;
             if (annotationsBinaryCheckBox.Checked)

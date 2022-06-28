@@ -231,7 +231,7 @@ namespace DemosCommonCode.Imaging
             minImageSizeWhenZoomBufferUsedNumericUpDown.Value = (int)Math.Round(_viewer.MinImageSizeWhenZoomBufferUsed);
 
             // backgroud color
-            backgoundColorPanelControl.Color = _viewer.BackColor;
+            backgroundColorPanelControl.Color = _viewer.BackColor;
 
             // rendering
             _renderingSettings = _viewer.ImageRenderingSettings;
@@ -305,7 +305,7 @@ namespace DemosCommonCode.Imaging
             _viewer.RenderOnlyVisibleImages = renderOnlyVisibleImagesCheckBox.Checked;
 
             // backgroud color
-            _viewer.BackColor = backgoundColorPanelControl.Color;
+            _viewer.BackColor = backgroundColorPanelControl.Color;
 
             // image display mode
             _viewer.MultipageDisplayMode = (ImageViewerMultipageDisplayMode)multipageDisplayModeComboBox.SelectedItem;

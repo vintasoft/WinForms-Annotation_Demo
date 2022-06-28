@@ -294,6 +294,11 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
                     break;
             }
 
+            // strips and tiles
+            rowsPerStripNumericUpDown.Value = EncoderSettings.RowsPerStrip;
+            tileWidthNumericUpDown.Value = EncoderSettings.TileSize.Width;
+            tileHeightNumericUpDown.Value = EncoderSettings.TileSize.Height;
+
             // JPEG advanced settings
             jpegGrayscaleCheckBox.Checked = EncoderSettings.SaveJpegAsGrayscale;
             jpegQualityNumericUpDown.Value = EncoderSettings.JpegQuality;

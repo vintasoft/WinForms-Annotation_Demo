@@ -191,6 +191,7 @@ namespace DemosCommonCode.Annotation
             // 
             this.colorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.colorPanelControl.CanEditAlphaChannel = false;
             this.colorPanelControl.Color = System.Drawing.Color.Transparent;
             this.colorPanelControl.DefaultColor = System.Drawing.Color.Empty;
             this.colorPanelControl.Location = new System.Drawing.Point(89, 105);
@@ -329,7 +330,7 @@ namespace DemosCommonCode.Annotation
             // 
             // CommentPropertiesForm
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(484, 350);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.tabControl1);

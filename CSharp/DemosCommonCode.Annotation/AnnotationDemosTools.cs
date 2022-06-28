@@ -155,6 +155,9 @@ namespace DemosCommonCode.Annotation
             // get selected annotations
             Collection<AnnotationView> selectedAnnotations = annotationViewer.AnnotationVisualTool.SelectedAnnotations;
 
+            if (selectedAnnotations.Count == 0)
+                return;
+
             // if several annotations are selected
             if (selectedAnnotations.Count > 1)
             {
@@ -191,7 +194,7 @@ namespace DemosCommonCode.Annotation
             }
             else
             {
-                GroupAnnotationView groupAnnotationView = annotationViewer.FocusedAnnotationView as GroupAnnotationView;
+                GroupAnnotationView groupAnnotationView = annotationViewer.AnnotationVisualTool.SelectedAnnotations[0] as GroupAnnotationView;
                 // if focused annotation is group
                 if (groupAnnotationView != null)
                 {

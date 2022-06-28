@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using Vintasoft.Imaging;
 using Vintasoft.Imaging.Codecs.Decoders;
 using Vintasoft.Imaging.Codecs.Encoders;
+using Vintasoft.Imaging.Drawing;
 
 namespace DemosCommonCode.Imaging
 {
@@ -29,27 +30,21 @@ namespace DemosCommonCode.Imaging
 
             _renderingSettings = renderingSettings;
 
-            interpolationModeComboBox.Items.Add(InterpolationMode.Bicubic);
-            interpolationModeComboBox.Items.Add(InterpolationMode.Bilinear);
-            interpolationModeComboBox.Items.Add(InterpolationMode.Default);
-            interpolationModeComboBox.Items.Add(InterpolationMode.High);
-            interpolationModeComboBox.Items.Add(InterpolationMode.HighQualityBicubic);
-            interpolationModeComboBox.Items.Add(InterpolationMode.HighQualityBilinear);
-            interpolationModeComboBox.Items.Add(InterpolationMode.Low);
-            interpolationModeComboBox.Items.Add(InterpolationMode.NearestNeighbor);
+            interpolationModeComboBox.Items.Add(ImageInterpolationMode.Bicubic);
+            interpolationModeComboBox.Items.Add(ImageInterpolationMode.Bilinear);
+            interpolationModeComboBox.Items.Add(ImageInterpolationMode.HighQualityBicubic);
+            interpolationModeComboBox.Items.Add(ImageInterpolationMode.HighQualityBilinear);
+            interpolationModeComboBox.Items.Add(ImageInterpolationMode.NearestNeighbor);
 
-            smoothingModeComboBox.Items.Add(SmoothingMode.AntiAlias);
-            smoothingModeComboBox.Items.Add(SmoothingMode.Default);
-            smoothingModeComboBox.Items.Add(SmoothingMode.HighQuality);
-            smoothingModeComboBox.Items.Add(SmoothingMode.HighSpeed);
-            smoothingModeComboBox.Items.Add(SmoothingMode.None);
+            smoothingModeComboBox.Items.Add(DrawingSmoothingMode.AntiAlias);
+            smoothingModeComboBox.Items.Add(DrawingSmoothingMode.None);
 
             // if rendering settings are empty
             if (renderingSettings.IsEmpty || renderingSettings.Resolution.IsEmpty())
             {
                 defaultCheckBox.Checked = true;
-                smoothingModeComboBox.SelectedItem = SmoothingMode.HighQuality;
-                interpolationModeComboBox.SelectedItem = InterpolationMode.HighQualityBilinear;
+                smoothingModeComboBox.SelectedItem = DrawingSmoothingMode.AntiAlias;
+                interpolationModeComboBox.SelectedItem = ImageInterpolationMode.HighQualityBilinear;
                 optimizeImageDrawingCheckBox.Checked = true;
                 drawSharpImageBordersCheckBox.Checked = true;
             }
@@ -159,9 +154,9 @@ namespace DemosCommonCode.Imaging
                     (float)horizontalResolutionNumericUpDown.Value,
                     (float)verticalResolutionNumericUpDown.Value);
                 // get rendering interpolation mode
-                _renderingSettings.InterpolationMode = (InterpolationMode)interpolationModeComboBox.SelectedItem;
+                _renderingSettings.InterpolationMode = (ImageInterpolationMode)interpolationModeComboBox.SelectedItem;
                 // get rendering smotthing mode
-                _renderingSettings.SmoothingMode = (SmoothingMode)smoothingModeComboBox.SelectedItem;
+                _renderingSettings.SmoothingMode = (DrawingSmoothingMode)smoothingModeComboBox.SelectedItem;
 
                 // optimize image drawing
                 _renderingSettings.OptimizeImageDrawing = optimizeImageDrawingCheckBox.Checked;

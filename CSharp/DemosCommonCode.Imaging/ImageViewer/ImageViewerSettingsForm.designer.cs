@@ -79,7 +79,7 @@ namespace DemosCommonCode.Imaging
             this.label21 = new System.Windows.Forms.Label();
             this.keyboardNavigationScrollStepNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.keyboardNavigationCheckBox = new System.Windows.Forms.CheckBox();
-            this.backgoundColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
+            this.backgroundColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
             this.imageAnchorTypeEditor = new DemosCommonCode.CustomControls.AnchorTypeEditorControl();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -114,9 +114,9 @@ namespace DemosCommonCode.Imaging
             // 
             this.focusPointAnchorTypeEditor.Location = new System.Drawing.Point(177, 14);
             this.focusPointAnchorTypeEditor.Name = "focusPointAnchorTypeEditor";
-            this.focusPointAnchorTypeEditor.SelectedAnchorType = ((Vintasoft.Imaging.UI.AnchorType)((((Vintasoft.Imaging.UI.AnchorType.Top | Vintasoft.Imaging.UI.AnchorType.Bottom) 
-            | Vintasoft.Imaging.UI.AnchorType.Left) 
-            | Vintasoft.Imaging.UI.AnchorType.Right)));
+            this.focusPointAnchorTypeEditor.SelectedAnchorType = ((Vintasoft.Imaging.AnchorType)((((Vintasoft.Imaging.AnchorType.Top | Vintasoft.Imaging.AnchorType.Bottom) 
+            | Vintasoft.Imaging.AnchorType.Left) 
+            | Vintasoft.Imaging.AnchorType.Right)));
             this.focusPointAnchorTypeEditor.Size = new System.Drawing.Size(63, 63);
             this.focusPointAnchorTypeEditor.TabIndex = 8;
             // 
@@ -327,7 +327,7 @@ namespace DemosCommonCode.Imaging
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 13);
             this.label7.TabIndex = 11;
-            this.label7.Text = "Backgound Color";
+            this.label7.Text = "Background Color";
             // 
             // renderingRequirementsButton
             // 
@@ -685,24 +685,25 @@ namespace DemosCommonCode.Imaging
             this.keyboardNavigationCheckBox.UseVisualStyleBackColor = true;
             this.keyboardNavigationCheckBox.CheckedChanged += new System.EventHandler(this.keyboardNavigationCheckBox_CheckedChanged);
             // 
-            // backgoundColorPanelControl
+            // backgroundColorPanelControl
             // 
-            this.backgoundColorPanelControl.Color = System.Drawing.SystemColors.Control;
-            this.backgoundColorPanelControl.ColorButtonMargin = 6;
-            this.backgoundColorPanelControl.ColorButtonWidth = 32;
-            this.backgoundColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
-            this.backgoundColorPanelControl.Location = new System.Drawing.Point(194, 78);
-            this.backgoundColorPanelControl.Name = "backgoundColorPanelControl";
-            this.backgoundColorPanelControl.Size = new System.Drawing.Size(165, 22);
-            this.backgoundColorPanelControl.TabIndex = 8;
+            this.backgroundColorPanelControl.CanEditAlphaChannel = false;
+            this.backgroundColorPanelControl.Color = System.Drawing.SystemColors.Control;
+            this.backgroundColorPanelControl.ColorButtonMargin = 6;
+            this.backgroundColorPanelControl.ColorButtonWidth = 32;
+            this.backgroundColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
+            this.backgroundColorPanelControl.Location = new System.Drawing.Point(194, 78);
+            this.backgroundColorPanelControl.Name = "backgroundColorPanelControl";
+            this.backgroundColorPanelControl.Size = new System.Drawing.Size(165, 22);
+            this.backgroundColorPanelControl.TabIndex = 8;
             // 
             // imageAnchorTypeEditor
             // 
             this.imageAnchorTypeEditor.Location = new System.Drawing.Point(188, 6);
             this.imageAnchorTypeEditor.Name = "imageAnchorTypeEditor";
-            this.imageAnchorTypeEditor.SelectedAnchorType = ((Vintasoft.Imaging.UI.AnchorType)((((Vintasoft.Imaging.UI.AnchorType.Top | Vintasoft.Imaging.UI.AnchorType.Bottom) 
-            | Vintasoft.Imaging.UI.AnchorType.Left) 
-            | Vintasoft.Imaging.UI.AnchorType.Right)));
+            this.imageAnchorTypeEditor.SelectedAnchorType = ((Vintasoft.Imaging.AnchorType)((((Vintasoft.Imaging.AnchorType.Top | Vintasoft.Imaging.AnchorType.Bottom) 
+            | Vintasoft.Imaging.AnchorType.Left) 
+            | Vintasoft.Imaging.AnchorType.Right)));
             this.imageAnchorTypeEditor.Size = new System.Drawing.Size(63, 63);
             this.imageAnchorTypeEditor.TabIndex = 26;
             // 
@@ -716,7 +717,7 @@ namespace DemosCommonCode.Imaging
             this.Controls.Add(this.keyboardNavigationCheckBox);
             this.Controls.Add(this.keyboardNavigationGroupBox);
             this.Controls.Add(this.imagesDisplayModeGroupBox);
-            this.Controls.Add(this.backgoundColorPanelControl);
+            this.Controls.Add(this.backgroundColorPanelControl);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.buttonCancel);
@@ -786,7 +787,7 @@ namespace DemosCommonCode.Imaging
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TrackBar vectorRenderingQualityFactorTrackBar;
         private System.Windows.Forms.Label label13;
-        private DemosCommonCode.CustomControls.ColorPanelControl backgoundColorPanelControl;
+        private DemosCommonCode.CustomControls.ColorPanelControl backgroundColorPanelControl;
         private System.Windows.Forms.GroupBox imagesDisplayModeGroupBox;
         private System.Windows.Forms.CheckBox useImageAppearancesInSinglepageModeCheckBox;
         private System.Windows.Forms.NumericUpDown imagesPaddingNumericUpDown;

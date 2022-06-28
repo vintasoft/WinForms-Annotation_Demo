@@ -451,6 +451,9 @@ namespace DemosCommonCode.Office
             }
         }
 
+        /// <summary>
+        /// Handles the ColumnChanged event of DataTable object.
+        /// </summary>
         private void DataTable_ColumnChanged(object sender, DataColumnChangeEventArgs e)
         {
             OnChartDataChanged();

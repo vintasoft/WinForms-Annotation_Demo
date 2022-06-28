@@ -44,7 +44,7 @@ namespace DemosCommonCode.Imaging
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(11, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.Size = new System.Drawing.Size(41, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Codec";
             // 
@@ -52,9 +52,9 @@ namespace DemosCommonCode.Imaging
             // 
             this.codecComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.codecComboBox.FormattingEnabled = true;
-            this.codecComboBox.Location = new System.Drawing.Point(135, 17);
+            this.codecComboBox.Location = new System.Drawing.Point(139, 17);
             this.codecComboBox.Name = "codecComboBox";
-            this.codecComboBox.Size = new System.Drawing.Size(121, 21);
+            this.codecComboBox.Size = new System.Drawing.Size(121, 23);
             this.codecComboBox.TabIndex = 1;
             this.codecComboBox.SelectedIndexChanged += new System.EventHandler(this.codecComboBox_SelectedIndexChanged);
             // 
@@ -63,7 +63,7 @@ namespace DemosCommonCode.Imaging
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(11, 49);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 13);
+            this.label2.Size = new System.Drawing.Size(128, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "Enable Rendering from";
             // 
@@ -78,25 +78,25 @@ namespace DemosCommonCode.Imaging
             "25",
             "50",
             "100"});
-            this.imageSizeComboBox.Location = new System.Drawing.Point(135, 44);
+            this.imageSizeComboBox.Location = new System.Drawing.Point(139, 46);
             this.imageSizeComboBox.Name = "megapixelsComboBox";
-            this.imageSizeComboBox.Size = new System.Drawing.Size(121, 21);
+            this.imageSizeComboBox.Size = new System.Drawing.Size(121, 23);
             this.imageSizeComboBox.TabIndex = 3;
             this.imageSizeComboBox.TextChanged += new System.EventHandler(this.imageSizeComboBox_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(262, 49);
+            this.label3.Location = new System.Drawing.Point(266, 49);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.Size = new System.Drawing.Size(67, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "Megapixels";
             // 
             // buttonOk
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOk.Location = new System.Drawing.Point(119, 77);
+            this.buttonOk.Location = new System.Drawing.Point(129, 77);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(75, 23);
             this.buttonOk.TabIndex = 5;
@@ -108,7 +108,7 @@ namespace DemosCommonCode.Imaging
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(200, 77);
+            this.buttonCancel.Location = new System.Drawing.Point(210, 77);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 6;
@@ -117,7 +117,7 @@ namespace DemosCommonCode.Imaging
             // 
             // removeButton
             // 
-            this.removeButton.Location = new System.Drawing.Point(328, 15);
+            this.removeButton.Location = new System.Drawing.Point(332, 16);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(60, 23);
             this.removeButton.TabIndex = 7;
@@ -127,7 +127,7 @@ namespace DemosCommonCode.Imaging
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(262, 15);
+            this.addButton.Location = new System.Drawing.Point(266, 16);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(60, 23);
             this.addButton.TabIndex = 8;
@@ -138,9 +138,9 @@ namespace DemosCommonCode.Imaging
             // ImageRenderingRequirementsForm
             // 
             this.AcceptButton = this.buttonOk;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(394, 112);
+            this.ClientSize = new System.Drawing.Size(404, 112);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.buttonCancel);

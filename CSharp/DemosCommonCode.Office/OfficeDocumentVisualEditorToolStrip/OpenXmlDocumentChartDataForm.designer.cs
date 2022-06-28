@@ -217,12 +217,12 @@ namespace DemosCommonCode.Office
             this.addColumnButton.UseVisualStyleBackColor = true;
             this.addColumnButton.Click += new System.EventHandler(this.addColumnButton_Click);
             // 
-            // seriesMarkerColorLabel
+            // markerColorLabel
             // 
             this.markerColorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.markerColorLabel.AutoSize = true;
             this.markerColorLabel.Location = new System.Drawing.Point(597, 6);
-            this.markerColorLabel.Name = "seriesMarkerColorLabel";
+            this.markerColorLabel.Name = "markerColorLabel";
             this.markerColorLabel.Size = new System.Drawing.Size(99, 13);
             this.markerColorLabel.TabIndex = 23;
             this.markerColorLabel.Text = "Series Marker Color";
@@ -261,6 +261,7 @@ namespace DemosCommonCode.Office
             // dataPointColorPanelControl
             // 
             this.dataPointColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataPointColorPanelControl.CanEditAlphaChannel = false;
             this.dataPointColorPanelControl.Color = System.Drawing.Color.Transparent;
             this.dataPointColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
             this.dataPointColorPanelControl.Location = new System.Drawing.Point(495, 109);
@@ -274,6 +275,7 @@ namespace DemosCommonCode.Office
             // markerColorPanelControl
             // 
             this.markerColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.markerColorPanelControl.CanEditAlphaChannel = false;
             this.markerColorPanelControl.Color = System.Drawing.Color.Transparent;
             this.markerColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
             this.markerColorPanelControl.Location = new System.Drawing.Point(600, 22);
@@ -287,6 +289,7 @@ namespace DemosCommonCode.Office
             // seriesColorPanelControl
             // 
             this.seriesColorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.seriesColorPanelControl.CanEditAlphaChannel = false;
             this.seriesColorPanelControl.Color = System.Drawing.Color.Transparent;
             this.seriesColorPanelControl.DefaultColor = System.Drawing.Color.Empty;
             this.seriesColorPanelControl.Location = new System.Drawing.Point(495, 22);

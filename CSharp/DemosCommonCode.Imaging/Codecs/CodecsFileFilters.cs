@@ -13,25 +13,37 @@ namespace DemosCommonCode.Imaging.Codecs
 
         #region Constants
 
+#if NETCOREAPP
         /// <summary>
         /// The file filter for image files.
         /// </summary>
-        const string IMAGE_FILES_DIALOG_FILTER = "BMP Files|*.bmp|JPEG Files|*.jpg;*.jpeg|PNG Files|*.png|TIFF Files|*.tif;*.tiff|GIF Files|*.gif|PCX Files|*.pcx";
+        const string IMAGE_FILES_DIALOG_FILTER = "BMP Files|*.bmp|GIF Files|*.gif|JPEG Files|*.jpg;*.jpeg|PBM/PGM/PPM files|*.pbm;*.pgm;*.ppm|PCX Files|*.pcx|PNG Files|*.png|TGA files|*.tga|TIFF Files|*.tif;*.tiff|WEBP files|*.webp";
 
         /// <summary>
         /// The file filter for all image files.
         /// </summary>
-        const string ALL_IMAGE_FILES_DIALOG_FILTER = "All Image Files|*.bmp;*.jpg;*.jpeg;*.png;*.tif;*.tiff;*.gif;*.pcx;";
+        const string ALL_IMAGE_FILES_DIALOG_FILTER = "All Image Files|*.bmp;*.gif;*.jpg;*.jpeg;*.pbm;*.pgm;*.ppm;*.pcx;*.png;*.tga;*.tif;*.tiff;*.webp";
+#else
+        /// <summary>
+        /// The file filter for image files.
+        /// </summary>
+        const string IMAGE_FILES_DIALOG_FILTER = "BMP Files|*.bmp|GIF Files|*.gif|JPEG Files|*.jpg;*.jpeg|PBM/PGM/PPM files|*.pbm;*.pgm;*.ppm|PCX Files|*.pcx|PNG Files|*.png|TGA files|*.tga|TIFF Files|*.tif;*.tiff";
+
+        /// <summary>
+        /// The file filter for all image files.
+        /// </summary>
+        const string ALL_IMAGE_FILES_DIALOG_FILTER = "All Image Files|*.bmp;*.gif;*.jpg;*.jpeg;*.pbm;*.pgm;*.ppm;*.pcx;*.png;*.tga;*.tif;*.tiff";
+#endif
 
         /// <summary>
         /// The other image files extensions.
         /// </summary>
-        const string OTHER_IMAGE_FILES_EXTENSIONS = "*.wmf;*.emf;*.ico;*.cur;*.jls;";
+        const string OTHER_IMAGE_FILES_EXTENSIONS = "*.cur;*.emf;*.ico;*.jls;*.wmf;";
 
         /// <summary>
         /// The file filter for other image files.
         /// </summary>
-        const string OTHER_IMAGE_FILES_DIALOG_FILTER = "EMF Files|*.emf|WMF Files|*.wmf|Icon Files|*.ico|Cursor Files|*.cur|JPEG-LS Files|*.jls";
+        const string OTHER_IMAGE_FILES_DIALOG_FILTER = "Cursor Files|*.cur|EMF Files|*.emf|Icon Files|*.ico|JPEG-LS Files|*.jls|WMF Files|*.wmf";
 
         /// <summary>
         /// The file filter for TIFF files.
@@ -97,6 +109,17 @@ namespace DemosCommonCode.Imaging.Codecs
         /// </summary>
         const string RAW_FILE_DIALOG_FILTER = "RAW Image Files|" + RAW_FILE_EXTENSIONS;
 
+#if NETCOREAPP
+        /// <summary>
+        /// The WEBP file extensions.
+        /// </summary>
+        const string WEBP_FILE_EXTENSIONS = "*.webp";
+        /// <summary>
+        /// The file filter for WEBP files.
+        /// </summary>
+        const string WEBP_FILE_DIALOG_FILTER = "WEBP Image Files|" + WEBP_FILE_EXTENSIONS;
+#endif
+
         /// <summary>
         /// The DICOM file extensions.
         /// </summary>
@@ -154,7 +177,7 @@ namespace DemosCommonCode.Imaging.Codecs
         /// </summary>
         public CodecsFileFilters()
         {
-        } 
+        }
 
         #endregion
 
@@ -398,7 +421,7 @@ namespace DemosCommonCode.Imaging.Codecs
         {
             string filter1 = string.Format("{0}|{1}", IMAGE_FILES_DIALOG_FILTER, OTHER_IMAGE_FILES_DIALOG_FILTER);
             string filter2 = ALL_IMAGE_FILES_DIALOG_FILTER + OTHER_IMAGE_FILES_EXTENSIONS;
-            _imageDecoderFilterDefaultIndex = 12;
+            _imageDecoderFilterDefaultIndex = 15;
 
             // if JBIG2 decoder is available
             if (AvailableDecoders.IsDecoderAvailable("Jbig2"))
@@ -451,6 +474,16 @@ namespace DemosCommonCode.Imaging.Codecs
                 filter2 += RAW_FILE_EXTENSIONS + ";";
                 _imageDecoderFilterDefaultIndex++;
             }
+
+#if NETCOREAPP
+            // if WEBP decoder is available
+            if (AvailableDecoders.IsDecoderAvailable("Webp"))
+            {
+                filter1 += "|" + WEBP_FILE_DIALOG_FILTER;
+                filter2 += WEBP_FILE_EXTENSIONS + ";";
+                _imageDecoderFilterDefaultIndex++;
+            }
+#endif
 
             // if DICOM decoder is available
             if (AvailableDecoders.IsDecoderAvailable("Dicom"))

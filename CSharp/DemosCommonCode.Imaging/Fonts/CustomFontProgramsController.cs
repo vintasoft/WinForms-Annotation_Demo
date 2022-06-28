@@ -4,10 +4,6 @@ using System.IO;
 
 using Vintasoft.Imaging.Fonts;
 
-#if !REMOVE_PDF_PLUGIN
-using Vintasoft.Imaging.Pdf;
-#endif
-
 
 namespace DemosCommonCode.Imaging
 {
@@ -35,32 +31,8 @@ namespace DemosCommonCode.Imaging
         /// Initializes a new instance of the <see cref="CustomFontProgramsController"/> class.
         /// </summary>
         public CustomFontProgramsController()
-            : base(true, @"fonts\")
+            : base(true, "fonts")
         {
-        }
-
-        #endregion
-
-
-
-        #region Properties
-
-        static CustomFontProgramsController _default;
-        /// <summary>
-        /// Gets or sets the default custom font programs controller.
-        /// </summary>
-        public static CustomFontProgramsController Default
-        {
-            get
-            {
-                if (_default == null)
-                    _default = new CustomFontProgramsController();
-                return _default;
-            }
-            set
-            {
-                _default = value;
-            }
         }
 
         #endregion
@@ -75,11 +47,11 @@ namespace DemosCommonCode.Imaging
         public static string[] GetSystemInstalledFontNames()
         {
             Dictionary<string, string> systemFonts = GetSystemFonts();
-            string[] names = new string[_systemFonts.Count];
-            _systemFonts.Keys.CopyTo(names, 0);
+            string[] names = new string[systemFonts.Count];
+            systemFonts.Keys.CopyTo(names, 0);
             return names;
         }
-      
+
         /// <summary>
         /// Returns a filename of the TrueType font by font name.
         /// </summary>
@@ -92,35 +64,15 @@ namespace DemosCommonCode.Imaging
         }
 
 
-#if !REMOVE_PDF_PLUGIN
         /// <summary>
-        /// Enables usage of default custom font programs controller for all opened PDF documents.
+        /// Sets <see cref="CustomFontProgramsController"/> as default font programs controller.
         /// </summary>
-        public static void EnableUsageOfDefaultFontProgramsController()
+        public static void SetDefaultFontProgramsController()
         {
-            // subscribe to the PdfDocumentController.DocumentOpened event
-            PdfDocumentController.DocumentOpened += PdfDocumentController_DocumentOpened;
+            Default = new CustomFontProgramsController();
         }
 
-        /// <summary>
-        /// Disables usage of default custom font programs controller for all opened PDF documents.
-        /// </summary>
-        public static void DisableUsageOfDefaultFontProgramsController()
-        {
-            // unsubscribe from the PdfDocumentController.DocumentOpened event
-            PdfDocumentController.DocumentOpened -= PdfDocumentController_DocumentOpened;
-        }
-
-        /// <summary>
-        /// PDF document is opened.
-        /// </summary>
-        private static void PdfDocumentController_DocumentOpened(object sender, Vintasoft.Imaging.Pdf.PdfDocumentEventArgs e)
-        {
-            // set the default custom font programs controller as a document font programs controller
-            e.Document.FontProgramsController = CustomFontProgramsController.Default;
-        }
-#endif
-
+   
 #if NETCORE
         /// <summary>
         /// Returns the dictionary, which contains information ("full font name" => "font file path") about all fonts installed in system.
@@ -161,9 +113,9 @@ namespace DemosCommonCode.Imaging
                 }
 
                 Microsoft.Win32.RegistryKey fontsRegistry = registryKey.OpenSubKey(@"Software\Microsoft\Windows NT\CurrentVersion\Fonts");
-                foreach (string fontName in fontsRegistry.GetValueNames())
+                foreach (string fullFontName in fontsRegistry.GetValueNames())
                 {
-                    string fontFilename = (string)fontsRegistry.GetValue(fontName);
+                    string fontFilename = (string)fontsRegistry.GetValue(fullFontName);
 
                     string fontExt = Path.GetExtension(fontFilename).ToUpperInvariant();
                     if (fontExt != ".TTF" && fontExt != ".TTC")
@@ -173,6 +125,9 @@ namespace DemosCommonCode.Imaging
                     {
                         fontFilename = Path.Combine(systemFontsDirectory, fontFilename);
                     }
+
+                    string fontName = fullFontName.Replace("(TrueType)", "").Trim();
+                    fontName = fontName.Replace("(OpenType)", "").Trim();
 
                     fonts[fontName] = fontFilename;
                 }
@@ -194,7 +149,10 @@ namespace DemosCommonCode.Imaging
             if (_systemFonts == null)
             {
                 // get installed fonts
-                _systemFonts = Default.GetSystemInstalledFonts();
+                if (Default is FileFontProgramsController)
+                    _systemFonts = ((FileFontProgramsController)Default).GetSystemInstalledFonts();
+                else
+                    _systemFonts = new Dictionary<string, string>();
             }
             return _systemFonts;
         }

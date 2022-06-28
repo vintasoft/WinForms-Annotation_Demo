@@ -47,7 +47,7 @@ namespace DemosCommonCode.Annotation
         static MarkAnnotationData()
         {
             // register renderer form this annotation
-            AnnotationGraphicsRendererFactory.RegisterRendererForAnnotationData(typeof(MarkAnnotationData), typeof(MarkAnnotationRenderer));
+            AnnotationRendererFactory.RegisterRendererForAnnotationData(typeof(MarkAnnotationData), typeof(MarkAnnotationRenderer));
         }
 
         #endregion
@@ -177,15 +177,13 @@ namespace DemosCommonCode.Annotation
                     throw new NotImplementedException();
             }
 
-            using (Matrix m = new Matrix())
-            {
-                if (HorizontalMirrored)
-                    m.Scale(-1, 1);
-                if (VerticalMirrored)
-                    m.Scale(1, -1);
-                if (!m.IsIdentity)
-                    m.TransformPoints(points);
-            }
+            AffineMatrix matrix = new AffineMatrix();
+            if (HorizontalMirrored)
+                matrix.ScalePrepend(-1, 1);
+            if (VerticalMirrored)
+                matrix.ScalePrepend(1, -1);
+
+            PointFAffineTransform.TransformPoints(matrix, points);
 
             return points;
         }
@@ -218,12 +216,15 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// Copies the state of the current object to the target object.
         /// </summary>
-        /// <param name="obj">Object to copy the state of the current object to.</param>
-        public override void CopyTo(AnnotationData obj)
+        /// <param name="target">Object to copy the state of the current object to.</param>
+        public override void CopyTo(AnnotationData target)
         {
-            MarkAnnotationData typedTarget = (MarkAnnotationData)obj;
-            base.CopyTo(typedTarget);
-            typedTarget.MarkType = MarkType;
+            base.CopyTo(target);
+
+            if (target is MarkAnnotationData)
+            {
+                ((MarkAnnotationData)target).MarkType = MarkType;
+            }
         }
 
         #endregion

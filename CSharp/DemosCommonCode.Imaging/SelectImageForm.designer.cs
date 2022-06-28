@@ -79,20 +79,20 @@ namespace DemosCommonCode.Imaging
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 13);
+            this.label1.Size = new System.Drawing.Size(96, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Selected number";
             // 
             // selectedImageNumericUpDown
             // 
-            this.selectedImageNumericUpDown.Location = new System.Drawing.Point(105, 7);
+            this.selectedImageNumericUpDown.Location = new System.Drawing.Point(114, 7);
             this.selectedImageNumericUpDown.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.selectedImageNumericUpDown.Name = "selectedImageNumericUpDown";
-            this.selectedImageNumericUpDown.Size = new System.Drawing.Size(62, 20);
+            this.selectedImageNumericUpDown.Size = new System.Drawing.Size(62, 23);
             this.selectedImageNumericUpDown.TabIndex = 0;
             this.selectedImageNumericUpDown.Value = new decimal(new int[] {
             1,
@@ -156,12 +156,12 @@ namespace DemosCommonCode.Imaging
             this.ImagePreviewViewer.ThumbnailMargin = new System.Windows.Forms.Padding(3);
             this.ImagePreviewViewer.ThumbnailSize = new System.Drawing.Size(150, 150);
             this.ImagePreviewViewer.FocusedIndexChanged += new System.EventHandler<Vintasoft.Imaging.UI.FocusedIndexChangedEventArgs>(this.ImagePreviewViewer_FocusedIndexChanged);
-            this.ImagePreviewViewer.DoubleClick += new System.EventHandler(this.ImagePreviewViewer_DoubleClick);        
+            this.ImagePreviewViewer.DoubleClick += new System.EventHandler(this.ImagePreviewViewer_DoubleClick);
             // 
             // SelectImageForm
             // 
             this.AcceptButton = this.buttonOk;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(471, 261);
             this.Controls.Add(this.selectedImageNumericUpDown);

@@ -50,14 +50,14 @@ namespace DemosCommonCode.Imaging
             this.undoLevelLabel.AutoSize = true;
             this.undoLevelLabel.Location = new System.Drawing.Point(10, 14);
             this.undoLevelLabel.Name = "undoLevelLabel";
-            this.undoLevelLabel.Size = new System.Drawing.Size(61, 13);
+            this.undoLevelLabel.Size = new System.Drawing.Size(66, 15);
             this.undoLevelLabel.TabIndex = 1;
             this.undoLevelLabel.Text = "Undo level:";
             // 
             // undoLevelNumericUpDown
             // 
-            this.undoLevelNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.undoLevelNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.undoLevelNumericUpDown.Location = new System.Drawing.Point(78, 11);
             this.undoLevelNumericUpDown.Maximum = new decimal(new int[] {
             999999,
@@ -70,7 +70,7 @@ namespace DemosCommonCode.Imaging
             0,
             0});
             this.undoLevelNumericUpDown.Name = "undoLevelNumericUpDown";
-            this.undoLevelNumericUpDown.Size = new System.Drawing.Size(162, 20);
+            this.undoLevelNumericUpDown.Size = new System.Drawing.Size(178, 23);
             this.undoLevelNumericUpDown.TabIndex = 2;
             this.undoLevelNumericUpDown.Value = new decimal(new int[] {
             1,
@@ -82,7 +82,7 @@ namespace DemosCommonCode.Imaging
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.okButton.Location = new System.Drawing.Point(84, 176);
+            this.okButton.Location = new System.Drawing.Point(100, 176);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 6;
@@ -94,7 +94,7 @@ namespace DemosCommonCode.Imaging
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(165, 176);
+            this.buttonCancel.Location = new System.Drawing.Point(181, 176);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 7;
@@ -103,15 +103,15 @@ namespace DemosCommonCode.Imaging
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.compressedVintasoftImageOnDiskRadioButton);
             this.groupBox1.Controls.Add(this.storageGroupBox);
             this.groupBox1.Controls.Add(this.compressedVintasoftImageInMemoryRadioButton);
             this.groupBox1.Controls.Add(this.vintasoftImageInMemoryRadioButton);
             this.groupBox1.Location = new System.Drawing.Point(13, 49);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(227, 119);
+            this.groupBox1.Size = new System.Drawing.Size(243, 119);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "History storage";
@@ -121,7 +121,7 @@ namespace DemosCommonCode.Imaging
             this.compressedVintasoftImageOnDiskRadioButton.AutoSize = true;
             this.compressedVintasoftImageOnDiskRadioButton.Location = new System.Drawing.Point(6, 65);
             this.compressedVintasoftImageOnDiskRadioButton.Name = "compressedVintasoftImageOnDiscRadioButton";
-            this.compressedVintasoftImageOnDiskRadioButton.Size = new System.Drawing.Size(193, 17);
+            this.compressedVintasoftImageOnDiskRadioButton.Size = new System.Drawing.Size(215, 19);
             this.compressedVintasoftImageOnDiskRadioButton.TabIndex = 2;
             this.compressedVintasoftImageOnDiskRadioButton.TabStop = true;
             this.compressedVintasoftImageOnDiskRadioButton.Text = "Compressed VintasoftImage on disk";
@@ -130,32 +130,32 @@ namespace DemosCommonCode.Imaging
             // 
             // storageGroupBox
             // 
-            this.storageGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.storageGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.storageGroupBox.Controls.Add(this.storagePathTextBox);
             this.storageGroupBox.Controls.Add(this.storageFolderButton);
             this.storageGroupBox.Enabled = false;
             this.storageGroupBox.Location = new System.Drawing.Point(6, 73);
             this.storageGroupBox.Name = "storageGroupBox";
-            this.storageGroupBox.Size = new System.Drawing.Size(215, 40);
+            this.storageGroupBox.Size = new System.Drawing.Size(231, 40);
             this.storageGroupBox.TabIndex = 3;
             this.storageGroupBox.TabStop = false;
             // 
             // storagePathTextBox
             // 
-            this.storagePathTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.storagePathTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.storagePathTextBox.Location = new System.Drawing.Point(6, 15);
             this.storagePathTextBox.Name = "storagePathTextBox";
             this.storagePathTextBox.ReadOnly = true;
-            this.storagePathTextBox.Size = new System.Drawing.Size(172, 20);
+            this.storagePathTextBox.Size = new System.Drawing.Size(188, 23);
             this.storagePathTextBox.TabIndex = 1;
             // 
             // storageFolderButton
             // 
             this.storageFolderButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.storageFolderButton.Location = new System.Drawing.Point(184, 13);
+            this.storageFolderButton.Location = new System.Drawing.Point(200, 13);
             this.storageFolderButton.Name = "storageFolderButton";
             this.storageFolderButton.Size = new System.Drawing.Size(25, 23);
             this.storageFolderButton.TabIndex = 0;
@@ -168,7 +168,7 @@ namespace DemosCommonCode.Imaging
             this.compressedVintasoftImageInMemoryRadioButton.AutoSize = true;
             this.compressedVintasoftImageInMemoryRadioButton.Location = new System.Drawing.Point(6, 42);
             this.compressedVintasoftImageInMemoryRadioButton.Name = "compressedVintasoftImageInMemoryRadioButton";
-            this.compressedVintasoftImageInMemoryRadioButton.Size = new System.Drawing.Size(206, 17);
+            this.compressedVintasoftImageInMemoryRadioButton.Size = new System.Drawing.Size(235, 19);
             this.compressedVintasoftImageInMemoryRadioButton.TabIndex = 1;
             this.compressedVintasoftImageInMemoryRadioButton.TabStop = true;
             this.compressedVintasoftImageInMemoryRadioButton.Text = "Compressed VintasoftImage in memory";
@@ -179,7 +179,7 @@ namespace DemosCommonCode.Imaging
             this.vintasoftImageInMemoryRadioButton.AutoSize = true;
             this.vintasoftImageInMemoryRadioButton.Location = new System.Drawing.Point(6, 19);
             this.vintasoftImageInMemoryRadioButton.Name = "vintasoftImageInMemoryRadioButton";
-            this.vintasoftImageInMemoryRadioButton.Size = new System.Drawing.Size(145, 17);
+            this.vintasoftImageInMemoryRadioButton.Size = new System.Drawing.Size(166, 19);
             this.vintasoftImageInMemoryRadioButton.TabIndex = 0;
             this.vintasoftImageInMemoryRadioButton.TabStop = true;
             this.vintasoftImageInMemoryRadioButton.Text = "VintasoftImage in memory";
@@ -188,9 +188,9 @@ namespace DemosCommonCode.Imaging
             // UndoManagerSettingsForm
             // 
             this.AcceptButton = this.okButton;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(252, 211);
+            this.ClientSize = new System.Drawing.Size(268, 211);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.okButton);

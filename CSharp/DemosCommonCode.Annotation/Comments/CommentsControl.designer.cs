@@ -61,7 +61,7 @@ namespace DemosCommonCode.Annotation
             // 
             // CommentsControl
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.visibleOnViewerCheckBox);
             this.Controls.Add(this.commentsLayoutPanel);
             this.Name = "CommentsControl";

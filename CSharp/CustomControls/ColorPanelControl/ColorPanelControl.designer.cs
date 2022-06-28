@@ -29,24 +29,18 @@ namespace DemosCommonCode.CustomControls
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ColorPanelControl));
             this.colorButton = new System.Windows.Forms.Button();
-            this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.defaultColorButton = new System.Windows.Forms.Button();
-            this.backgroundPanel = new System.Windows.Forms.Panel();
-            this.colorPanel = new System.Windows.Forms.Panel();
-            this.colorNameLabel = new System.Windows.Forms.Label();
+            this.colorSampleControl = new DemosCommonCode.CustomControls.ColorSampleControl();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
-            this.backgroundPanel.SuspendLayout();
-            this.colorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // colorButton
             // 
             this.colorButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.colorButton.Location = new System.Drawing.Point(89, 0);
+            this.colorButton.Location = new System.Drawing.Point(84, 0);
             this.colorButton.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.colorButton.Name = "colorButton";
             this.colorButton.Size = new System.Drawing.Size(25, 22);
@@ -63,20 +57,20 @@ namespace DemosCommonCode.CustomControls
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.defaultColorButton, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.colorButton, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.backgroundPanel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.colorSampleControl, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(142, 22);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(137, 22);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // defaultColorButton
             // 
             this.defaultColorButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.defaultColorButton.Location = new System.Drawing.Point(117, 0);
+            this.defaultColorButton.Location = new System.Drawing.Point(112, 0);
             this.defaultColorButton.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.defaultColorButton.Name = "defaultColorButton";
             this.defaultColorButton.Size = new System.Drawing.Size(25, 22);
@@ -86,51 +80,25 @@ namespace DemosCommonCode.CustomControls
             this.defaultColorButton.Visible = false;
             this.defaultColorButton.Click += new System.EventHandler(this.defaultColorButton_Click);
             // 
-            // backgroundPanel
+            // colorSampleControl
             // 
-            this.backgroundPanel.BackColor = System.Drawing.Color.Transparent;
-            this.backgroundPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backgroundPanel.BackgroundImage")));
-            this.backgroundPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.backgroundPanel.Controls.Add(this.colorPanel);
-            this.backgroundPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.backgroundPanel.Location = new System.Drawing.Point(0, 1);
-            this.backgroundPanel.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
-            this.backgroundPanel.Name = "backgroundPanel";
-            this.backgroundPanel.Size = new System.Drawing.Size(86, 20);
-            this.backgroundPanel.TabIndex = 3;
-            // 
-            // colorPanel
-            // 
-            this.colorPanel.Controls.Add(this.colorNameLabel);
-            this.colorPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.colorPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.colorPanel.Location = new System.Drawing.Point(0, 0);
-            this.colorPanel.Name = "colorPanel";
-            this.colorPanel.Size = new System.Drawing.Size(84, 18);
-            this.colorPanel.TabIndex = 0;
-            this.colorPanel.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.colorPanel_MouseDoubleClick);
-            // 
-            // colorNameLabel
-            // 
-            this.colorNameLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.colorNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.colorNameLabel.Location = new System.Drawing.Point(0, 0);
-            this.colorNameLabel.Name = "colorNameLabel";
-            this.colorNameLabel.Size = new System.Drawing.Size(84, 18);
-            this.colorNameLabel.TabIndex = 0;
-            this.colorNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.colorNameLabel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.colorNameLabel_MouseClick);
-            this.colorNameLabel.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.colorPanel_MouseDoubleClick);
+            this.colorSampleControl.Color = System.Drawing.Color.Transparent;
+            this.colorSampleControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.colorSampleControl.Location = new System.Drawing.Point(0, 0);
+            this.colorSampleControl.Margin = new System.Windows.Forms.Padding(0);
+            this.colorSampleControl.Name = "colorSampleControl";
+            this.colorSampleControl.Size = new System.Drawing.Size(81, 22);
+            this.colorSampleControl.TabIndex = 3;
+            this.colorSampleControl.MouseClick += new System.Windows.Forms.MouseEventHandler(this.colorSampleControl_MouseClick);
+            this.colorSampleControl.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.colorSampleControl_MouseDoubleClick);
             // 
             // ColorPanelControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ColorPanelControl";
-            this.Size = new System.Drawing.Size(142, 22);
+            this.Size = new System.Drawing.Size(137, 22);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.backgroundPanel.ResumeLayout(false);
-            this.colorPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -138,12 +106,9 @@ namespace DemosCommonCode.CustomControls
         #endregion
 
         private System.Windows.Forms.Button colorButton;
-        private System.Windows.Forms.ColorDialog colorDialog;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button defaultColorButton;
-        private System.Windows.Forms.Panel backgroundPanel;
-        private System.Windows.Forms.Panel colorPanel;
-        private System.Windows.Forms.Label colorNameLabel;
+        private ColorSampleControl colorSampleControl;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -195,8 +195,10 @@ namespace AnnotationDemo
             DemosCommonCode.Office.OfficeDocumentVisualEditorForm documentVisualEditorForm = new DemosCommonCode.Office.OfficeDocumentVisualEditorForm();
             documentVisualEditorForm.Owner = this;
             documentVisualEditorForm.AddVisualTool(annotationViewer1.AnnotationVisualTool);
-#endif            
+#endif
 
+            // set CustomFontProgramsController for all opened documents
+            CustomFontProgramsController.SetDefaultFontProgramsController();
 
             annotationViewer1.AnnotationVisualTool.ChangeFocusedItemBeforeInteraction = true;
 
@@ -256,11 +258,12 @@ namespace AnnotationDemo
             annotationViewer1.SelectedAnnotations.Changed += new EventHandler(SelectedAnnotations_Changed);
             annotationViewer1.AnnotationInteractionModeChanged += new EventHandler<AnnotationInteractionModeChangedEventArgs>(annotationViewer1_AnnotationInteractionModeChanged);
             annotationViewer1.AnnotationVisualTool.ActiveInteractionControllerChanged += new PropertyChangedEventHandler<IInteractionController>(AnnotationVisualTool_ActiveInteractionControllerChanged);
-            annotationViewer1.AutoScrollPositionExChanging += new EventHandler<PropertyChangingEventArgs<PointF>>(annotationViewer1_AutoScrollPositionExChanging);
+            annotationViewer1.AutoScrollPositionExChanging += new PropertyChangingEventHandler<PointF>(annotationViewer1_AutoScrollPositionExChanging);
             annotationViewer1.AnnotationBuildingStarted += new EventHandler<AnnotationViewEventArgs>(annotationViewer1_AnnotationBuildingStarted);
             annotationViewer1.AnnotationBuildingFinished += new EventHandler<AnnotationViewEventArgs>(annotationViewer1_AnnotationBuildingFinished);
             annotationViewer1.AnnotationBuildingCanceled += new EventHandler<AnnotationViewEventArgs>(annotationViewer1_AnnotationBuildingCanceled);
             // subscribe to the image collection events
+            annotationViewer1.Images.ImageCollectionChanged += new EventHandler<ImageCollectionChangeEventArgs>(annotationViewer1_Images_ImageCollectionChanged);
             annotationViewer1.Images.ImageCollectionSavingProgress += new EventHandler<ProgressEventArgs>(SavingProgress);
             annotationViewer1.Images.ImageCollectionSavingFinished += new EventHandler(images_ImageCollectionSavingFinished);
             annotationViewer1.Images.ImageSavingException += new EventHandler<ExceptionEventArgs>(Images_ImageSavingException);
@@ -304,6 +307,9 @@ namespace AnnotationDemo
             _annotationViewerUndoMonitor.ShowHistoryForDisplayedImages =
                 showHistoryForDisplayedImagesToolStripMenuItem.Checked;
 
+            // initialize color management in viewer
+            ColorManagementHelper.EnableColorManagement(annotationViewer1);
+
             // update the UI
             UpdateUI();
 
@@ -322,10 +328,7 @@ namespace AnnotationDemo
 
             annotationViewer1.AnnotationDataController.AnnotationDataDeserializationException +=
                 new EventHandler<AnnotationDataDeserializationExceptionEventArgs>(AnnotationDataController_AnnotationDataDeserializationException);
-#if !REMOVE_PDF_PLUGIN
-            // set CustomFontProgramsController for all opened PDF documents
-            CustomFontProgramsController.EnableUsageOfDefaultFontProgramsController();
-#endif
+
             DocumentPasswordForm.EnableAuthentication(annotationViewer1);
 
             // define custom serialization binder for correct deserialization of TriangleAnnotation v6.1 and earlier
@@ -457,7 +460,7 @@ namespace AnnotationDemo
 
 
         #region PRIVATE
-      
+
         /// <summary>
         /// Initializes the "Annotation" -> "Menu" menu items.
         /// </summary>
@@ -1876,6 +1879,15 @@ namespace AnnotationDemo
             UpdateUI();
         }
 
+        /// <summary>
+        /// Handles the ImageCollectionChanged event of Images property of AnnotationViewer1 object.
+        /// </summary>
+        private void annotationViewer1_Images_ImageCollectionChanged(object sender, ImageCollectionChangeEventArgs e)
+        {
+            // update the UI
+            InvokeUpdateUI();
+        }
+
         #endregion
 
 
@@ -2055,9 +2067,7 @@ namespace AnnotationDemo
         /// <summary>
         /// Handles the AnnotationTransformingFinished event of AnnotationViewer1 object.
         /// </summary>
-        private void annotationViewer1_AnnotationTransformingFinished(
-            object sender,
-            AnnotationViewEventArgs e)
+        private void annotationViewer1_AnnotationTransformingFinished(object sender, AnnotationViewEventArgs e)
         {
             _isAnnotationTransforming = false;
 
@@ -2075,9 +2085,7 @@ namespace AnnotationDemo
         /// <summary>
         /// Handles the ActiveInteractionControllerChanged event of AnnotationVisualTool object.
         /// </summary>
-        private void AnnotationVisualTool_ActiveInteractionControllerChanged(
-            object sender,
-            PropertyChangedEventArgs<IInteractionController> e)
+        private void AnnotationVisualTool_ActiveInteractionControllerChanged(object sender, PropertyChangedEventArgs<IInteractionController> e)
         {
             // get text box transformer of old text object
             TextObjectTextBoxTransformer oldTextObjectTextBoxTransformer = GetTextObjectTextBoxTransformer(e.OldValue);
@@ -2640,15 +2648,19 @@ namespace AnnotationDemo
                 UpdateEditMenuItem(cutToolStripMenuItem, null, "Cut");
                 UpdateEditMenuItem(copyToolStripMenuItem, null, "Copy");
                 UpdateEditMenuItem(pasteToolStripMenuItem, null, "Paste");
+
                 deleteToolStripMenuItem.Enabled = true;
                 deleteToolStripMenuItem.Text = "Delete Page(s)";
+
                 deleteAllToolStripMenuItem.Enabled = false;
                 deleteAllToolStripMenuItem.Text = "Delete All";
+
                 bool isFileEmpty = true;
                 if (annotationViewer1.Images != null)
                     isFileEmpty = annotationViewer1.Images.Count <= 0;
                 selectAllToolStripMenuItem.Enabled = !isFileEmpty && !IsFileOpening;
                 selectAllToolStripMenuItem.Text = "Select All Pages";
+
                 UpdateEditMenuItem(deselectAllToolStripMenuItem, null, "Deselect All");
             }
             // if the thumbnail viewer does NOT have the input focus
@@ -2722,7 +2734,7 @@ namespace AnnotationDemo
             if (actionSource != null)
                 return UIAction.GetFirstUIAction<T>(actionSource);
             return default(T);
-        }       
+        }
 
         /// <summary>
         /// Selects all annotations.

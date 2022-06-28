@@ -73,9 +73,9 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             "Document, best quality",
             "Document, optimal",
             "Document, best compression"});
-            this.mrcCompressionProfileComboBox.Location = new System.Drawing.Point(110, 2);
+            this.mrcCompressionProfileComboBox.Location = new System.Drawing.Point(133, 2);
             this.mrcCompressionProfileComboBox.Name = "mrcCompressionProfileComboBox";
-            this.mrcCompressionProfileComboBox.Size = new System.Drawing.Size(218, 21);
+            this.mrcCompressionProfileComboBox.Size = new System.Drawing.Size(254, 23);
             this.mrcCompressionProfileComboBox.TabIndex = 23;
             this.mrcCompressionProfileComboBox.SelectedIndexChanged += new System.EventHandler(this.mrcCompressionProfileComboBox_SelectedIndexChanged);
             // 
@@ -84,7 +84,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.compressionImageRadioButton.AutoSize = true;
             this.compressionImageRadioButton.Location = new System.Drawing.Point(0, 3);
             this.compressionImageRadioButton.Name = "compressionImageRadioButton";
-            this.compressionImageRadioButton.Size = new System.Drawing.Size(54, 17);
+            this.compressionImageRadioButton.Size = new System.Drawing.Size(58, 19);
             this.compressionImageRadioButton.TabIndex = 26;
             this.compressionImageRadioButton.Text = "Image";
             this.compressionImageRadioButton.UseVisualStyleBackColor = true;
@@ -93,9 +93,9 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // compressionMrcRadioButton
             // 
             this.compressionMrcRadioButton.AutoSize = true;
-            this.compressionMrcRadioButton.Location = new System.Drawing.Point(55, 3);
+            this.compressionMrcRadioButton.Location = new System.Drawing.Point(64, 3);
             this.compressionMrcRadioButton.Name = "compressionMrcRadioButton";
-            this.compressionMrcRadioButton.Size = new System.Drawing.Size(49, 17);
+            this.compressionMrcRadioButton.Size = new System.Drawing.Size(51, 19);
             this.compressionMrcRadioButton.TabIndex = 25;
             this.compressionMrcRadioButton.Text = "MRC";
             this.compressionMrcRadioButton.UseVisualStyleBackColor = true;
@@ -106,7 +106,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.mrcCompressionSettingsGroupBox.Controls.Add(this.mrcTabControl);
             this.mrcCompressionSettingsGroupBox.Location = new System.Drawing.Point(3, 24);
             this.mrcCompressionSettingsGroupBox.Name = "mrcCompressionSettingsGroupBox";
-            this.mrcCompressionSettingsGroupBox.Size = new System.Drawing.Size(325, 177);
+            this.mrcCompressionSettingsGroupBox.Size = new System.Drawing.Size(384, 202);
             this.mrcCompressionSettingsGroupBox.TabIndex = 24;
             this.mrcCompressionSettingsGroupBox.TabStop = false;
             this.mrcCompressionSettingsGroupBox.Text = "MRC layers compression settings";
@@ -122,7 +122,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.mrcTabControl.Location = new System.Drawing.Point(3, 16);
             this.mrcTabControl.Name = "mrcTabControl";
             this.mrcTabControl.SelectedIndex = 0;
-            this.mrcTabControl.Size = new System.Drawing.Size(321, 158);
+            this.mrcTabControl.Size = new System.Drawing.Size(375, 178);
             this.mrcTabControl.TabIndex = 0;
             // 
             // mrcCommonTabPage
@@ -135,9 +135,9 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.mrcCommonTabPage.Controls.Add(this.mrcUseBackgroundLayerCheckBox);
             this.mrcCommonTabPage.Controls.Add(this.mrcHiQualityMaskCheckBox);
             this.mrcCommonTabPage.Controls.Add(this.mrcUseFrontCheckBox);
-            this.mrcCommonTabPage.Location = new System.Drawing.Point(4, 22);
+            this.mrcCommonTabPage.Location = new System.Drawing.Point(4, 24);
             this.mrcCommonTabPage.Name = "mrcCommonTabPage";
-            this.mrcCommonTabPage.Size = new System.Drawing.Size(313, 132);
+            this.mrcCommonTabPage.Size = new System.Drawing.Size(367, 150);
             this.mrcCommonTabPage.TabIndex = 4;
             this.mrcCommonTabPage.Text = "Common";
             this.mrcCommonTabPage.UseVisualStyleBackColor = true;
@@ -157,7 +157,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.mrcHiQualityFrontLayerCheckBox.AutoSize = true;
             this.mrcHiQualityFrontLayerCheckBox.Location = new System.Drawing.Point(31, 113);
             this.mrcHiQualityFrontLayerCheckBox.Name = "mrcHiQualityFrontLayerCheckBox";
-            this.mrcHiQualityFrontLayerCheckBox.Size = new System.Drawing.Size(130, 17);
+            this.mrcHiQualityFrontLayerCheckBox.Size = new System.Drawing.Size(148, 19);
             this.mrcHiQualityFrontLayerCheckBox.TabIndex = 30;
             this.mrcHiQualityFrontLayerCheckBox.Text = "High quality front layer";
             this.mrcHiQualityFrontLayerCheckBox.UseVisualStyleBackColor = true;
@@ -168,7 +168,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.mrcUseImagesLayerRadioButton.AutoSize = true;
             this.mrcUseImagesLayerRadioButton.Location = new System.Drawing.Point(30, 56);
             this.mrcUseImagesLayerRadioButton.Name = "mrcUseImagesLayerRadioButton";
-            this.mrcUseImagesLayerRadioButton.Size = new System.Drawing.Size(205, 17);
+            this.mrcUseImagesLayerRadioButton.Size = new System.Drawing.Size(225, 19);
             this.mrcUseImagesLayerRadioButton.TabIndex = 29;
             this.mrcUseImagesLayerRadioButton.Text = "images layer (each image as resource)";
             this.mrcUseImagesLayerRadioButton.UseVisualStyleBackColor = true;
@@ -179,7 +179,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.mrcNotUseImagesLayerRadioButton.AutoSize = true;
             this.mrcNotUseImagesLayerRadioButton.Location = new System.Drawing.Point(30, 38);
             this.mrcNotUseImagesLayerRadioButton.Name = "mrcNotUseImagesLayerRadioButton";
-            this.mrcNotUseImagesLayerRadioButton.Size = new System.Drawing.Size(107, 17);
+            this.mrcNotUseImagesLayerRadioButton.Size = new System.Drawing.Size(117, 19);
             this.mrcNotUseImagesLayerRadioButton.TabIndex = 28;
             this.mrcNotUseImagesLayerRadioButton.Text = "background layer";
             this.mrcNotUseImagesLayerRadioButton.UseVisualStyleBackColor = true;
@@ -190,7 +190,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.mrcImageSegmentationCheckBox.AutoSize = true;
             this.mrcImageSegmentationCheckBox.Location = new System.Drawing.Point(11, 23);
             this.mrcImageSegmentationCheckBox.Name = "mrcImageSegmentationCheckBox";
-            this.mrcImageSegmentationCheckBox.Size = new System.Drawing.Size(174, 17);
+            this.mrcImageSegmentationCheckBox.Size = new System.Drawing.Size(190, 19);
             this.mrcImageSegmentationCheckBox.TabIndex = 27;
             this.mrcImageSegmentationCheckBox.Text = "Detect images, place images to";
             this.mrcImageSegmentationCheckBox.UseVisualStyleBackColor = true;
@@ -201,7 +201,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.mrcUseBackgroundLayerCheckBox.AutoSize = true;
             this.mrcUseBackgroundLayerCheckBox.Location = new System.Drawing.Point(11, 5);
             this.mrcUseBackgroundLayerCheckBox.Name = "mrcUseBackgroundLayerCheckBox";
-            this.mrcUseBackgroundLayerCheckBox.Size = new System.Drawing.Size(130, 17);
+            this.mrcUseBackgroundLayerCheckBox.Size = new System.Drawing.Size(140, 19);
             this.mrcUseBackgroundLayerCheckBox.TabIndex = 26;
             this.mrcUseBackgroundLayerCheckBox.Text = "Use background layer";
             this.mrcUseBackgroundLayerCheckBox.UseVisualStyleBackColor = true;
@@ -212,7 +212,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.mrcHiQualityMaskCheckBox.AutoSize = true;
             this.mrcHiQualityMaskCheckBox.Location = new System.Drawing.Point(11, 76);
             this.mrcHiQualityMaskCheckBox.Name = "mrcHiQualityMaskCheckBox";
-            this.mrcHiQualityMaskCheckBox.Size = new System.Drawing.Size(109, 17);
+            this.mrcHiQualityMaskCheckBox.Size = new System.Drawing.Size(122, 19);
             this.mrcHiQualityMaskCheckBox.TabIndex = 25;
             this.mrcHiQualityMaskCheckBox.Text = "High quality mask";
             this.mrcHiQualityMaskCheckBox.UseVisualStyleBackColor = true;
@@ -223,7 +223,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.mrcUseFrontCheckBox.AutoSize = true;
             this.mrcUseFrontCheckBox.Location = new System.Drawing.Point(11, 95);
             this.mrcUseFrontCheckBox.Name = "mrcUseFrontCheckBox";
-            this.mrcUseFrontCheckBox.Size = new System.Drawing.Size(171, 17);
+            this.mrcUseFrontCheckBox.Size = new System.Drawing.Size(191, 19);
             this.mrcUseFrontCheckBox.TabIndex = 24;
             this.mrcUseFrontCheckBox.Text = "Use front layer (text color layer)";
             this.mrcUseFrontCheckBox.UseVisualStyleBackColor = true;
@@ -232,10 +232,10 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // mrcBackgroundTabPage
             // 
             this.mrcBackgroundTabPage.Controls.Add(this.mrcBackgroundCompressionControl);
-            this.mrcBackgroundTabPage.Location = new System.Drawing.Point(4, 22);
+            this.mrcBackgroundTabPage.Location = new System.Drawing.Point(4, 24);
             this.mrcBackgroundTabPage.Name = "mrcBackgroundTabPage";
             this.mrcBackgroundTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.mrcBackgroundTabPage.Size = new System.Drawing.Size(313, 132);
+            this.mrcBackgroundTabPage.Size = new System.Drawing.Size(367, 150);
             this.mrcBackgroundTabPage.TabIndex = 0;
             this.mrcBackgroundTabPage.Text = "Background";
             this.mrcBackgroundTabPage.UseVisualStyleBackColor = true;
@@ -246,16 +246,16 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.mrcBackgroundCompressionControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mrcBackgroundCompressionControl.Location = new System.Drawing.Point(3, 3);
             this.mrcBackgroundCompressionControl.Name = "mrcBackgroundCompressionControl";
-            this.mrcBackgroundCompressionControl.Size = new System.Drawing.Size(307, 126);
+            this.mrcBackgroundCompressionControl.Size = new System.Drawing.Size(361, 144);
             this.mrcBackgroundCompressionControl.TabIndex = 0;
             // 
             // mrcImagesTabPage
             // 
             this.mrcImagesTabPage.Controls.Add(this.mrcImagesCompressionControl);
-            this.mrcImagesTabPage.Location = new System.Drawing.Point(4, 22);
+            this.mrcImagesTabPage.Location = new System.Drawing.Point(4, 24);
             this.mrcImagesTabPage.Name = "mrcImagesTabPage";
             this.mrcImagesTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.mrcImagesTabPage.Size = new System.Drawing.Size(313, 132);
+            this.mrcImagesTabPage.Size = new System.Drawing.Size(367, 150);
             this.mrcImagesTabPage.TabIndex = 1;
             this.mrcImagesTabPage.Text = "Images";
             this.mrcImagesTabPage.UseVisualStyleBackColor = true;
@@ -266,15 +266,15 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.mrcImagesCompressionControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mrcImagesCompressionControl.Location = new System.Drawing.Point(3, 3);
             this.mrcImagesCompressionControl.Name = "mrcImagesCompressionControl";
-            this.mrcImagesCompressionControl.Size = new System.Drawing.Size(307, 126);
+            this.mrcImagesCompressionControl.Size = new System.Drawing.Size(361, 144);
             this.mrcImagesCompressionControl.TabIndex = 0;
             // 
             // mrcMaskTabPage
             // 
             this.mrcMaskTabPage.Controls.Add(this.mrcMaskCompressionControl);
-            this.mrcMaskTabPage.Location = new System.Drawing.Point(4, 22);
+            this.mrcMaskTabPage.Location = new System.Drawing.Point(4, 24);
             this.mrcMaskTabPage.Name = "mrcMaskTabPage";
-            this.mrcMaskTabPage.Size = new System.Drawing.Size(313, 132);
+            this.mrcMaskTabPage.Size = new System.Drawing.Size(367, 150);
             this.mrcMaskTabPage.TabIndex = 2;
             this.mrcMaskTabPage.Text = "Mask";
             this.mrcMaskTabPage.UseVisualStyleBackColor = true;
@@ -284,15 +284,15 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.mrcMaskCompressionControl.CanUseAutoCompression = false;
             this.mrcMaskCompressionControl.Location = new System.Drawing.Point(3, 3);
             this.mrcMaskCompressionControl.Name = "mrcMaskCompressionControl";
-            this.mrcMaskCompressionControl.Size = new System.Drawing.Size(310, 126);
+            this.mrcMaskCompressionControl.Size = new System.Drawing.Size(361, 144);
             this.mrcMaskCompressionControl.TabIndex = 1;
             // 
             // mrcFrontTabPage
             // 
             this.mrcFrontTabPage.Controls.Add(this.mrcFrontCompressionControl);
-            this.mrcFrontTabPage.Location = new System.Drawing.Point(4, 22);
+            this.mrcFrontTabPage.Location = new System.Drawing.Point(4, 24);
             this.mrcFrontTabPage.Name = "mrcFrontTabPage";
-            this.mrcFrontTabPage.Size = new System.Drawing.Size(313, 132);
+            this.mrcFrontTabPage.Size = new System.Drawing.Size(367, 150);
             this.mrcFrontTabPage.TabIndex = 3;
             this.mrcFrontTabPage.Text = "Front";
             this.mrcFrontTabPage.UseVisualStyleBackColor = true;
@@ -302,26 +302,26 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.mrcFrontCompressionControl.CanUseAutoCompression = false;
             this.mrcFrontCompressionControl.Location = new System.Drawing.Point(3, 3);
             this.mrcFrontCompressionControl.Name = "mrcFrontCompressionControl";
-            this.mrcFrontCompressionControl.Size = new System.Drawing.Size(310, 126);
+            this.mrcFrontCompressionControl.Size = new System.Drawing.Size(361, 144);
             this.mrcFrontCompressionControl.TabIndex = 1;
             // 
             // pdfImageCompressionControl
             // 
             this.pdfCompressionControl.Location = new System.Drawing.Point(13, 48);
             this.pdfCompressionControl.Name = "pdfImageCompressionControl";
-            this.pdfCompressionControl.Size = new System.Drawing.Size(313, 129);
+            this.pdfCompressionControl.Size = new System.Drawing.Size(364, 166);
             this.pdfCompressionControl.TabIndex = 27;
             // 
             // PdfMrcCompressionControl
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.mrcCompressionProfileComboBox);
             this.Controls.Add(this.compressionImageRadioButton);
             this.Controls.Add(this.compressionMrcRadioButton);
             this.Controls.Add(this.mrcCompressionSettingsGroupBox);
             this.Controls.Add(this.pdfCompressionControl);
             this.Name = "PdfMrcCompressionControl";
-            this.Size = new System.Drawing.Size(330, 202);
+            this.Size = new System.Drawing.Size(390, 226);
             this.mrcCompressionSettingsGroupBox.ResumeLayout(false);
             this.mrcTabControl.ResumeLayout(false);
             this.mrcCommonTabPage.ResumeLayout(false);

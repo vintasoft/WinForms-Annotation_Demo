@@ -196,7 +196,7 @@ namespace DemosCommonCode.Imaging
         /// <b>true</b> - if image edge is visible.
         /// <b>false</b> - if image edge is not visible.
         /// </returns>
-        private bool GetIsImageEdgeVisible(VintasoftImage image, Vintasoft.Imaging.UI.AnchorType imageEdge)
+        private bool GetIsImageEdgeVisible(VintasoftImage image, Vintasoft.Imaging.AnchorType imageEdge)
         {
             // get image viewer state for the image
             Vintasoft.Imaging.UI.ImageViewerState focusedImageViewerState = ImageViewer.GetViewerState(image);
@@ -227,22 +227,22 @@ namespace DemosCommonCode.Imaging
 
             // get the image "anchor" line
             RectangleF imageLine = RectangleF.Empty;
-            if (imageEdge == Vintasoft.Imaging.UI.AnchorType.Bottom)
+            if (imageEdge == Vintasoft.Imaging.AnchorType.Bottom)
             {
                 // get bottom line of image
                 imageLine = new RectangleF(imageRect.X, imageRect.Y + imageRect.Height - 1, imageRect.Width, 1);
             }
-            else if (imageEdge == Vintasoft.Imaging.UI.AnchorType.Top)
+            else if (imageEdge == Vintasoft.Imaging.AnchorType.Top)
             {
                 // get top line of image
                 imageLine = new RectangleF(imageRect.X, imageRect.Y, imageRect.Width, 1);
             }
-            else if (imageEdge == Vintasoft.Imaging.UI.AnchorType.Left)
+            else if (imageEdge == Vintasoft.Imaging.AnchorType.Left)
             {
                 // get left line of image
                 imageLine = new RectangleF(0, 0, 1, ImageViewer.Image.Height);
             }
-            else if (imageEdge == Vintasoft.Imaging.UI.AnchorType.Right)
+            else if (imageEdge == Vintasoft.Imaging.AnchorType.Right)
             {
                 // get right line of image
                 imageLine = new RectangleF(ImageViewer.Image.Width - 1, 0, 1, ImageViewer.Image.Height);
@@ -265,7 +265,7 @@ namespace DemosCommonCode.Imaging
             // determine the scroll direction
             bool scrollForward = true;
             _scrollAction = ScrollAction.MoveToNextPage;
-            Vintasoft.Imaging.UI.AnchorType imageEdge = Vintasoft.Imaging.UI.AnchorType.Bottom;
+            Vintasoft.Imaging.AnchorType imageEdge = Vintasoft.Imaging.AnchorType.Bottom;
 
             // if scroll step size is negative 
             if (scrollStepSize < 0)
@@ -355,10 +355,10 @@ namespace DemosCommonCode.Imaging
 
             // scroll to the scroll point on new focused image
             ImageViewer.ScrollToPoint(newFocusedImageScrollPoint,
-                    Vintasoft.Imaging.UI.AnchorType.Bottom |
-                    Vintasoft.Imaging.UI.AnchorType.Left |
-                    Vintasoft.Imaging.UI.AnchorType.Right |
-                    Vintasoft.Imaging.UI.AnchorType.Top);
+                    Vintasoft.Imaging.AnchorType.Bottom |
+                    Vintasoft.Imaging.AnchorType.Left |
+                    Vintasoft.Imaging.AnchorType.Right |
+                    Vintasoft.Imaging.AnchorType.Top);
 
             _scrollAction = ScrollAction.None;
             SetFocusToVisibleImage();
@@ -371,21 +371,21 @@ namespace DemosCommonCode.Imaging
         /// <returns>
         /// The inverted value.
         /// </returns>
-        private Vintasoft.Imaging.UI.AnchorType Invert(Vintasoft.Imaging.UI.AnchorType anchor)
+        private Vintasoft.Imaging.AnchorType Invert(Vintasoft.Imaging.AnchorType anchor)
         {
             switch (anchor)
             {
-                case Vintasoft.Imaging.UI.AnchorType.Top:
-                    return Vintasoft.Imaging.UI.AnchorType.Bottom;
+                case Vintasoft.Imaging.AnchorType.Top:
+                    return Vintasoft.Imaging.AnchorType.Bottom;
 
-                case Vintasoft.Imaging.UI.AnchorType.Bottom:
-                    return Vintasoft.Imaging.UI.AnchorType.Top;
+                case Vintasoft.Imaging.AnchorType.Bottom:
+                    return Vintasoft.Imaging.AnchorType.Top;
 
-                case Vintasoft.Imaging.UI.AnchorType.Left:
-                    return Vintasoft.Imaging.UI.AnchorType.Right;
+                case Vintasoft.Imaging.AnchorType.Left:
+                    return Vintasoft.Imaging.AnchorType.Right;
 
-                case Vintasoft.Imaging.UI.AnchorType.Right:
-                    return Vintasoft.Imaging.UI.AnchorType.Left;
+                case Vintasoft.Imaging.AnchorType.Right:
+                    return Vintasoft.Imaging.AnchorType.Left;
 
                 default:
                     throw new NotImplementedException();

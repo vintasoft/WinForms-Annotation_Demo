@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-using Vintasoft.Imaging.UI;
+using Vintasoft.Imaging;
 
 namespace DemosCommonCode.CustomControls
 {
