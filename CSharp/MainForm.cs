@@ -1733,7 +1733,7 @@ namespace AnnotationDemo
             }
             // if annotation must be removed
             else if (
-                CanInteractWithFocusedAnnotationUseKeyboard() &&
+                (CanInteractWithFocusedAnnotationUseKeyboard() || annotationViewer1.FocusedAnnotationView == null) &&
                 deleteToolStripMenuItem.Enabled &&
                 e.KeyCode == Keys.Delete && e.Modifiers == Keys.None)
             {

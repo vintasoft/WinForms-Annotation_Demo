@@ -17,22 +17,22 @@ namespace DemosCommonCode.Imaging.Codecs
         /// <summary>
         /// The file filter for image files.
         /// </summary>
-        const string IMAGE_FILES_DIALOG_FILTER = "BMP Files|*.bmp|GIF Files|*.gif|JPEG Files|*.jpg;*.jpeg|PBM/PGM/PPM files|*.pbm;*.pgm;*.ppm|PCX Files|*.pcx|PNG Files|*.png|TGA files|*.tga|TIFF Files|*.tif;*.tiff|WEBP files|*.webp";
+        const string IMAGE_FILES_DIALOG_FILTER = "BMP Files|*.bmp|GIF Files|*.gif|JPEG Files|*.jpg;*.jpeg;*.jfif|PBM/PGM/PPM files|*.pbm;*.pgm;*.ppm|PCX Files|*.pcx|PNG Files|*.png|TGA files|*.tga|TIFF Files|*.tif;*.tiff|WEBP files|*.webp";
 
         /// <summary>
         /// The file filter for all image files.
         /// </summary>
-        const string ALL_IMAGE_FILES_DIALOG_FILTER = "All Image Files|*.bmp;*.gif;*.jpg;*.jpeg;*.pbm;*.pgm;*.ppm;*.pcx;*.png;*.tga;*.tif;*.tiff;*.webp";
+        const string ALL_IMAGE_FILES_DIALOG_FILTER = "All Image Files|*.bmp;*.gif;*.jpg;*.jpeg;*.jfif;*.pbm;*.pgm;*.ppm;*.pcx;*.png;*.tga;*.tif;*.tiff;*.webp";
 #else
         /// <summary>
         /// The file filter for image files.
         /// </summary>
-        const string IMAGE_FILES_DIALOG_FILTER = "BMP Files|*.bmp|GIF Files|*.gif|JPEG Files|*.jpg;*.jpeg|PBM/PGM/PPM files|*.pbm;*.pgm;*.ppm|PCX Files|*.pcx|PNG Files|*.png|TGA files|*.tga|TIFF Files|*.tif;*.tiff";
+        const string IMAGE_FILES_DIALOG_FILTER = "BMP Files|*.bmp|GIF Files|*.gif|JPEG Files|*.jpg;*.jpeg;*.jfif|PBM/PGM/PPM files|*.pbm;*.pgm;*.ppm|PCX Files|*.pcx|PNG Files|*.png|TGA files|*.tga|TIFF Files|*.tif;*.tiff";
 
         /// <summary>
         /// The file filter for all image files.
         /// </summary>
-        const string ALL_IMAGE_FILES_DIALOG_FILTER = "All Image Files|*.bmp;*.gif;*.jpg;*.jpeg;*.pbm;*.pgm;*.ppm;*.pcx;*.png;*.tga;*.tif;*.tiff";
+        const string ALL_IMAGE_FILES_DIALOG_FILTER = "All Image Files|*.bmp;*.gif;*.jpg;*.jpeg;*.jfif;*.pbm;*.pgm;*.ppm;*.pcx;*.png;*.tga;*.tif;*.tiff;";
 #endif
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace DemosCommonCode.Imaging.Codecs
         /// <summary>
         /// The file filter for JPEG files.
         /// </summary>
-        const string JPEG_FILE_DIALOG_FILTER = "JPEG Files|*.jpg;*.jpeg";
+        const string JPEG_FILE_DIALOG_FILTER = "JPEG Files|*.jpg;*.jpeg;*.jfif";
 
         /// <summary>
         /// The PDF file extensions.
@@ -155,6 +155,15 @@ namespace DemosCommonCode.Imaging.Codecs
         /// The file filter for XLSX files.
         /// </summary>
         const string XLSX_FILE_DIALOG_FILTER = "XLSX files|" + XLSX_FILE_EXTENSIONS;
+
+        /// <summary>
+        /// The XLS file extensions.
+        /// </summary>
+        const string XLS_FILE_EXTENSIONS = "*.xls";
+        /// <summary>
+        /// The file filter for XLSX files.
+        /// </summary>
+        const string XLS_FILE_DIALOG_FILTER = "XLS files|" + XLS_FILE_EXTENSIONS;
 
         /// <summary>
         /// The SVG file extensions.
@@ -456,6 +465,10 @@ namespace DemosCommonCode.Imaging.Codecs
             {
                 filter1 += "|" + XLSX_FILE_DIALOG_FILTER;
                 filter2 += XLSX_FILE_EXTENSIONS + ";";
+                _imageDecoderFilterDefaultIndex++;
+
+                filter1 += "|" + XLS_FILE_DIALOG_FILTER;
+                filter2 += XLS_FILE_EXTENSIONS + ";";
                 _imageDecoderFilterDefaultIndex++;
             }
 

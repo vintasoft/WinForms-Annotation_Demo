@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
@@ -30,14 +30,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Win32.Registry" Version="4.7.0" />
-    <PackageReference Include="System.IO.Packaging" Version="4.7.0" />
-    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.7.0" />
+    <PackageReference Include="Microsoft.Win32.Registry" Version="6.0.0-preview.5.21301.5" />
+    <PackageReference Include="System.IO.Packaging" Version="7.0.0-rc.1.22426.10" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="7.0.0-rc.1.22426.10" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="NHunspell">
-      <HintPath>.\NHunspell\DotNetCore3\NHunspell.dll</HintPath>
+      <HintPath>.\NHunspell\DotNet7\NHunspell.dll</HintPath>
     </Reference>
     <PackageReference Include="Vintasoft.Imaging" Version="12.1.0.1" />
     <PackageReference Include="Vintasoft.Imaging.Annotation" Version="12.1.0.1" />

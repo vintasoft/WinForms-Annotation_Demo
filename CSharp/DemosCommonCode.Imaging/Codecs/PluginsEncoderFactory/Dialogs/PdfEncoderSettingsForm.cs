@@ -53,6 +53,9 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
                  PdfDocumentConformance.PdfA_3a,
                  PdfDocumentConformance.PdfA_3b,
                  PdfDocumentConformance.PdfA_3u,
+                 PdfDocumentConformance.PdfA_4,
+                 PdfDocumentConformance.PdfA_4e,
+                 PdfDocumentConformance.PdfA_4f,
             };
             foreach (PdfDocumentConformance conformance in conformances)
                 conformanceComboBox.Items.Add(ConvertToString(conformance));
@@ -276,6 +279,12 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
                     return "PDF/A-3b";
                 case PdfDocumentConformance.PdfA_3u:
                     return "PDF/A-3u";
+                case PdfDocumentConformance.PdfA_4:
+                    return "PDF/A-4";
+                case PdfDocumentConformance.PdfA_4e:
+                    return "PDF/A-4e";
+                case PdfDocumentConformance.PdfA_4f:
+                    return "PDF/A-4f";
             }
             return null;
         }
@@ -310,6 +319,15 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
 
                 case "PDF/A-3u":
                     return PdfDocumentConformance.PdfA_3u;
+
+                case "PDF/A-4":
+                    return PdfDocumentConformance.PdfA_4;
+
+                case "PDF/A-4e":
+                    return PdfDocumentConformance.PdfA_4e;
+
+                case "PDF/A-4f":
+                    return PdfDocumentConformance.PdfA_4f;
             }
 
             return PdfDocumentConformance.Undefined;

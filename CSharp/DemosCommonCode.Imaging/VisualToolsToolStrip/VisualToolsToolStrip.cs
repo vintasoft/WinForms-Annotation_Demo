@@ -9,6 +9,7 @@ using Vintasoft.Imaging.UI;
 using Vintasoft.Imaging.UI.VisualTools;
 
 using DemosCommonCode.CustomControls;
+using Vintasoft.Imaging;
 
 namespace DemosCommonCode.Imaging
 {
@@ -280,7 +281,7 @@ namespace DemosCommonCode.Imaging
             }
             set
             {
-                if (LicenseManager.CurrentContext.UsageMode == LicenseUsageMode.Designtime)
+                if (DesignMode || ImagingEnvironment.IsInDesignMode)
                 {
                     _imageViewer = value;
                 }

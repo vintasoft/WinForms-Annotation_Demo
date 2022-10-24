@@ -110,15 +110,15 @@ namespace DemosCommonCode.Annotation
                     {
                         // get annotation formatter
 
-                        IFormatter formatter = null;
+                        AnnotationFormatter annotationFormatter = null;
                         if (saveFileDialog.FilterIndex == 1)
-                            formatter = new AnnotationVintasoftBinaryFormatter();
+                            annotationFormatter = new AnnotationVintasoftBinaryFormatter();
                         else if (saveFileDialog.FilterIndex == 2)
-                            formatter = new AnnotationVintasoftXmpFormatter();
+                            annotationFormatter = new AnnotationVintasoftXmpFormatter();
                         else if (saveFileDialog.FilterIndex == 3)
                         {
                             if (MessageBox.Show(
-                                "Important: some data from annotations will be lost. Do you want to continue anyway?",
+                                "Important: Some data in annotations will be lost. Do you want to continue anyway?",
                                 "Warning",
                                 MessageBoxButtons.OKCancel,
                                 MessageBoxIcon.Warning) == DialogResult.Cancel)
@@ -126,13 +126,13 @@ namespace DemosCommonCode.Annotation
                                 return;
                             }
 
-                            formatter = new AnnotationWangFormatter(annotationViewer.Image.Resolution);
+                            annotationFormatter = new AnnotationWangFormatter(annotationViewer.Image.Resolution);
                         }
 
                         // get focused annotation data collection
                         AnnotationDataCollection annotations = annotationViewer.AnnotationDataController[annotationViewer.FocusedIndex];
                         // serialize annotation data to specified stream
-                        formatter.Serialize(fs, annotations);
+                        annotationFormatter.Serialize(fs, annotations);
                     }
                 }
                 catch (Exception ex)

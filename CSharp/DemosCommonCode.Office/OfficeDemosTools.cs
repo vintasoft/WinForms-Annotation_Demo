@@ -163,8 +163,9 @@ namespace DemosCommonCode.Office
 
                 return tempStream;
             }
-#endif
+#else
             return null;
+#endif
         }
 
         #endregion

@@ -80,7 +80,7 @@ namespace DemosCommonCode.Imaging
             }
             set
             {
-                if (LicenseManager.CurrentContext.UsageMode == LicenseUsageMode.Designtime)
+                if (DesignMode || ImagingEnvironment.IsInDesignMode)
                 {
                     _imageViewer = value;
                 }

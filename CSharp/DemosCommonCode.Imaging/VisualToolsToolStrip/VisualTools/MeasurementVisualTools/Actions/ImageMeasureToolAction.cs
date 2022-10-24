@@ -582,16 +582,16 @@ namespace DemosCommonCode.Imaging
                     {
                         using (FileStream fs = new FileStream(saveFileDialog.FileName, FileMode.Create, FileAccess.ReadWrite))
                         {
-                            IFormatter formatter = null;
+                            AnnotationFormatter annotationFormatter = null;
                             if (saveFileDialog.FilterIndex == 1)
-                                formatter = new AnnotationVintasoftBinaryFormatter();
+                                annotationFormatter = new AnnotationVintasoftBinaryFormatter();
                             else if (saveFileDialog.FilterIndex == 2)
-                                formatter = new AnnotationVintasoftXmpFormatter();
+                                annotationFormatter = new AnnotationVintasoftXmpFormatter();
 
                             ImageMeasureTool visualTool = (ImageMeasureTool)VisualTool;
                             AnnotationDataCollection annotations = visualTool.AnnotationViewCollection.DataCollection;
 
-                            formatter.Serialize(fs, annotations);
+                            annotationFormatter.Serialize(fs, annotations);
                         }
                     }
                     catch (Exception ex)

@@ -73,6 +73,12 @@ namespace DemosCommonCode.Imaging
             this.captionPaddingFEditorControl = new DemosCommonCode.CustomControls.PaddingFEditorControl();
             this.captionIsVisibleCheckBox = new System.Windows.Forms.CheckBox();
             this.captionFontDialog = new System.Windows.Forms.FontDialog();
+            this.thumbnailControlGroupBox = new System.Windows.Forms.GroupBox();
+            this.showThumbnailCheckBoxCheckBox = new System.Windows.Forms.CheckBox();
+            this.thumbnailControlAnchorTypeEditor = new DemosCommonCode.CustomControls.AnchorTypeEditorControl();
+            this.thumbnailControlAnchorLabel = new System.Windows.Forms.Label();
+            this.thumbnailControlPaddingGroupBox = new System.Windows.Forms.GroupBox();
+            this.thumbnailControlPaddingFEditorControl = new DemosCommonCode.CustomControls.PaddingFEditorControl();
             this.thumbnailAppearanceGroupBox.SuspendLayout();
             this.thumbnailViewerGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.thumbnailRenderingThreadCountNumericUpDown)).BeginInit();
@@ -80,12 +86,14 @@ namespace DemosCommonCode.Imaging
             this.imagePaddingGroupBox.SuspendLayout();
             this.thumbnailCaptionGroupBox.SuspendLayout();
             this.captionPaddingGroupBox.SuspendLayout();
+            this.thumbnailControlGroupBox.SuspendLayout();
+            this.thumbnailControlPaddingGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonOk
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonOk.Location = new System.Drawing.Point(167, 493);
+            this.buttonOk.Location = new System.Drawing.Point(167, 623);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(81, 23);
             this.buttonOk.TabIndex = 10;
@@ -97,7 +105,7 @@ namespace DemosCommonCode.Imaging
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(261, 493);
+            this.buttonCancel.Location = new System.Drawing.Point(261, 623);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(81, 23);
             this.buttonCancel.TabIndex = 11;
@@ -205,8 +213,7 @@ namespace DemosCommonCode.Imaging
             // 
             // thumbnailAppearanceGroupBox
             // 
-            this.thumbnailAppearanceGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.thumbnailAppearanceGroupBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.thumbnailAppearanceGroupBox.Controls.Add(this.thumbnailAppearanceBorderColorPanelControl);
             this.thumbnailAppearanceGroupBox.Controls.Add(this.thumbnailAppearanceBackColorPanelControl);
             this.thumbnailAppearanceGroupBox.Controls.Add(this.borderStyleValueLabel);
@@ -320,8 +327,7 @@ namespace DemosCommonCode.Imaging
             // 
             // thumbnailViewerGroupBox
             // 
-            this.thumbnailViewerGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.thumbnailViewerGroupBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.thumbnailViewerGroupBox.Controls.Add(this.thumbnailViewerBackColorPanelControl);
             this.thumbnailViewerGroupBox.Controls.Add(this.thumbnailRenderingThreadCountNumericUpDown);
             this.thumbnailViewerGroupBox.Controls.Add(this.thumbnailRenderThreadCountLabel);
@@ -393,7 +399,7 @@ namespace DemosCommonCode.Imaging
             // 
             // thumbnailsGroupBox
             // 
-            this.thumbnailsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.thumbnailsGroupBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.thumbnailsGroupBox.Controls.Add(this.thumbnailSizeComboBox);
             this.thumbnailsGroupBox.Controls.Add(this.sizeLabel);
             this.thumbnailsGroupBox.Controls.Add(this.thumbnailScaleComboBox);
@@ -428,6 +434,7 @@ namespace DemosCommonCode.Imaging
             // 
             // thumbnailCaptionGroupBox
             // 
+            this.thumbnailCaptionGroupBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.thumbnailCaptionGroupBox.Controls.Add(this.captionAnchorTypeEditor);
             this.thumbnailCaptionGroupBox.Controls.Add(this.captionFormatHelpButton);
             this.thumbnailCaptionGroupBox.Controls.Add(this.captionFormatTextBox);
@@ -549,6 +556,7 @@ namespace DemosCommonCode.Imaging
             // 
             // captionIsVisibleCheckBox
             // 
+            this.captionIsVisibleCheckBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.captionIsVisibleCheckBox.AutoSize = true;
             this.captionIsVisibleCheckBox.Checked = true;
             this.captionIsVisibleCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -560,12 +568,79 @@ namespace DemosCommonCode.Imaging
             this.captionIsVisibleCheckBox.UseVisualStyleBackColor = true;
             this.captionIsVisibleCheckBox.CheckedChanged += new System.EventHandler(this.captionIsVisibleCheckBox_CheckedChanged);
             // 
+            // thumbnailControlGroupBox
+            // 
+            this.thumbnailControlGroupBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.thumbnailControlGroupBox.Controls.Add(this.showThumbnailCheckBoxCheckBox);
+            this.thumbnailControlGroupBox.Controls.Add(this.thumbnailControlAnchorTypeEditor);
+            this.thumbnailControlGroupBox.Controls.Add(this.thumbnailControlAnchorLabel);
+            this.thumbnailControlGroupBox.Controls.Add(this.thumbnailControlPaddingGroupBox);
+            this.thumbnailControlGroupBox.Location = new System.Drawing.Point(12, 487);
+            this.thumbnailControlGroupBox.Name = "thumbnailControlGroupBox";
+            this.thumbnailControlGroupBox.Size = new System.Drawing.Size(493, 122);
+            this.thumbnailControlGroupBox.TabIndex = 27;
+            this.thumbnailControlGroupBox.TabStop = false;
+            this.thumbnailControlGroupBox.Text = "Thumbnail Control";
+            // 
+            // showThumbnailCheckBoxCheckBox
+            // 
+            this.showThumbnailCheckBoxCheckBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.showThumbnailCheckBoxCheckBox.AutoSize = true;
+            this.showThumbnailCheckBoxCheckBox.Checked = true;
+            this.showThumbnailCheckBoxCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.showThumbnailCheckBoxCheckBox.Location = new System.Drawing.Point(15, 24);
+            this.showThumbnailCheckBoxCheckBox.Name = "showThumbnailCheckBoxCheckBox";
+            this.showThumbnailCheckBoxCheckBox.Size = new System.Drawing.Size(157, 17);
+            this.showThumbnailCheckBoxCheckBox.TabIndex = 29;
+            this.showThumbnailCheckBoxCheckBox.Text = "Show Thumbnail CheckBox";
+            this.showThumbnailCheckBoxCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // thumbnailControlAnchorTypeEditor
+            // 
+            this.thumbnailControlAnchorTypeEditor.Location = new System.Drawing.Point(116, 48);
+            this.thumbnailControlAnchorTypeEditor.Name = "thumbnailControlAnchorTypeEditor";
+            this.thumbnailControlAnchorTypeEditor.SelectedAnchorType = ((Vintasoft.Imaging.AnchorType)((((Vintasoft.Imaging.AnchorType.Top | Vintasoft.Imaging.AnchorType.Bottom) 
+            | Vintasoft.Imaging.AnchorType.Left) 
+            | Vintasoft.Imaging.AnchorType.Right)));
+            this.thumbnailControlAnchorTypeEditor.Size = new System.Drawing.Size(63, 63);
+            this.thumbnailControlAnchorTypeEditor.TabIndex = 34;
+            // 
+            // thumbnailControlAnchorLabel
+            // 
+            this.thumbnailControlAnchorLabel.AutoSize = true;
+            this.thumbnailControlAnchorLabel.Location = new System.Drawing.Point(12, 71);
+            this.thumbnailControlAnchorLabel.Name = "thumbnailControlAnchorLabel";
+            this.thumbnailControlAnchorLabel.Size = new System.Drawing.Size(77, 13);
+            this.thumbnailControlAnchorLabel.TabIndex = 20;
+            this.thumbnailControlAnchorLabel.Text = "Control Anchor";
+            // 
+            // thumbnailControlPaddingGroupBox
+            // 
+            this.thumbnailControlPaddingGroupBox.Controls.Add(this.thumbnailControlPaddingFEditorControl);
+            this.thumbnailControlPaddingGroupBox.Location = new System.Drawing.Point(268, 14);
+            this.thumbnailControlPaddingGroupBox.Name = "thumbnailControlPaddingGroupBox";
+            this.thumbnailControlPaddingGroupBox.Size = new System.Drawing.Size(210, 102);
+            this.thumbnailControlPaddingGroupBox.TabIndex = 26;
+            this.thumbnailControlPaddingGroupBox.TabStop = false;
+            this.thumbnailControlPaddingGroupBox.Text = "Control Padding";
+            // 
+            // thumbnailControlPaddingFEditorControl
+            // 
+            this.thumbnailControlPaddingFEditorControl.Location = new System.Drawing.Point(44, 19);
+            this.thumbnailControlPaddingFEditorControl.MaximumSize = new System.Drawing.Size(128, 75);
+            this.thumbnailControlPaddingFEditorControl.MinimumSize = new System.Drawing.Size(128, 75);
+            this.thumbnailControlPaddingFEditorControl.Name = "thumbnailControlPaddingFEditorControl";
+            this.thumbnailControlPaddingFEditorControl.PaddingValue = new Vintasoft.Imaging.PaddingF(0F, 0F, 0F, 0F);
+            this.thumbnailControlPaddingFEditorControl.Size = new System.Drawing.Size(128, 75);
+            this.thumbnailControlPaddingFEditorControl.TabIndex = 24;
+            // 
             // ThumbnailViewerSettingsForm
             // 
             this.AcceptButton = this.buttonOk;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(517, 523);
+            this.ClientSize = new System.Drawing.Size(517, 653);
+            this.Controls.Add(this.thumbnailControlGroupBox);
             this.Controls.Add(this.captionIsVisibleCheckBox);
             this.Controls.Add(this.thumbnailCaptionGroupBox);
             this.Controls.Add(this.thumbnailsGroupBox);
@@ -590,6 +665,9 @@ namespace DemosCommonCode.Imaging
             this.thumbnailCaptionGroupBox.ResumeLayout(false);
             this.thumbnailCaptionGroupBox.PerformLayout();
             this.captionPaddingGroupBox.ResumeLayout(false);
+            this.thumbnailControlGroupBox.ResumeLayout(false);
+            this.thumbnailControlGroupBox.PerformLayout();
+            this.thumbnailControlPaddingGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -642,5 +720,11 @@ namespace DemosCommonCode.Imaging
         private System.Windows.Forms.GroupBox imagePaddingGroupBox;
         private System.Windows.Forms.Button captionFormatHelpButton;
         private DemosCommonCode.CustomControls.AnchorTypeEditorControl captionAnchorTypeEditor;
+        private System.Windows.Forms.GroupBox thumbnailControlGroupBox;
+        private CustomControls.AnchorTypeEditorControl thumbnailControlAnchorTypeEditor;
+        private System.Windows.Forms.Label thumbnailControlAnchorLabel;
+        private System.Windows.Forms.GroupBox thumbnailControlPaddingGroupBox;
+        private CustomControls.PaddingFEditorControl thumbnailControlPaddingFEditorControl;
+        private System.Windows.Forms.CheckBox showThumbnailCheckBoxCheckBox;
     }
 }

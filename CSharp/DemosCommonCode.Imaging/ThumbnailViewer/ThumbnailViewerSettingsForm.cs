@@ -233,6 +233,9 @@ namespace DemosCommonCode.Imaging
             captionTextColorPanelControl.Color = _viewer.ThumbnailCaption.TextColor;
             captionFontDialog.Font = _viewer.ThumbnailCaption.Font;
 
+            showThumbnailCheckBoxCheckBox.Checked = _viewer.ShowThumbnailCheckBox;
+            thumbnailControlAnchorTypeEditor.SelectedAnchorType = _viewer.ThumbnailControlAnchor;
+            thumbnailControlPaddingFEditorControl.PaddingValue = _viewer.ThumbnailControlPadding;
         }
 
         /// <summary>
@@ -287,6 +290,10 @@ namespace DemosCommonCode.Imaging
             _viewer.ThumbnailCaption.CaptionFormat = captionFormatTextBox.Text;
             _viewer.ThumbnailCaption.Anchor = captionAnchorTypeEditor.SelectedAnchorType;
             _viewer.ThumbnailCaption.Font = captionFontDialog.Font;
+
+            _viewer.ShowThumbnailCheckBox = showThumbnailCheckBoxCheckBox.Checked;
+            _viewer.ThumbnailControlAnchor = thumbnailControlAnchorTypeEditor.SelectedAnchorType;
+            _viewer.ThumbnailControlPadding = thumbnailControlPaddingFEditorControl.PaddingValue;
 
             return true;
         }

@@ -29,8 +29,6 @@ namespace DemosCommonCode.Spelling
 
             // add English dictionary
             AddEngine(engines, "en_US");
-            // add Russian dictionary
-            AddEngine(engines, "ru_RU");
 
             // if dictionaries are not created
             if (engines.Count == 0)

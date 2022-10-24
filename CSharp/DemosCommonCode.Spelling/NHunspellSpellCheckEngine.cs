@@ -286,13 +286,6 @@ namespace DemosCommonCode.Spelling
                         _availableSymbols.Add((char)ch, false);
                     break;
 
-                case "RU_RU":
-                    for (int ch = (int)'À'; ch <= (int)'ß'; ch++)
-                        _availableSymbols.Add((char)ch, false);
-                    for (int ch = (int)'à'; ch <= (int)'ÿ'; ch++)
-                        _availableSymbols.Add((char)ch, false);
-                    break;
-
                 default:
                     throw new NotImplementedException();
             }
