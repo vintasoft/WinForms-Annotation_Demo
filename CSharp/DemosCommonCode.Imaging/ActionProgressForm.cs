@@ -389,7 +389,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// The cancel button.
         /// </summary>
-        Button _cancelButton;
+        Button _buttonCancel;
 
         /// <summary>
         /// The background worker.
@@ -482,12 +482,12 @@ namespace DemosCommonCode.Imaging
             // create the button for canceling an action
 
             Button buttonCancel = new Button();
-            _cancelButton = buttonCancel;
+            _buttonCancel = buttonCancel;
             buttonCancel.Width = 100;
             buttonCancel.Height = 30;
             buttonCancel.Text = "Cancel";
             buttonCancel.Margin = new Padding(200, 10, 200, 10);
-            buttonCancel.Click += new EventHandler(cancelButton_Click);
+            buttonCancel.Click += new EventHandler(buttonCancel_Click);
             tableLayoutPanel1.Controls.Add(buttonCancel, 0, 2 * levelCount + 1);
 
             this.AutoSize = true;
@@ -570,9 +570,9 @@ namespace DemosCommonCode.Imaging
         #region PRIVATE
 
         /// <summary>
-        /// Handles the Click event of CancelButton object.
+        /// Handles the Click event of ButtonCancel object.
         /// </summary>
-        private void cancelButton_Click(object sender, EventArgs e)
+        private void buttonCancel_Click(object sender, EventArgs e)
         {
             DialogResult result = GetActionDialogResult();
             if (result != DialogResult.None)
@@ -633,7 +633,7 @@ namespace DemosCommonCode.Imaging
                 else
                     text = "Finished.";
             }
-            _cancelButton.Text = "Close";
+            _buttonCancel.Text = "Close";
             for (int i = 0; i < _labels.Length; i++)
                 _labels[i].Text = text;
         }
@@ -654,14 +654,14 @@ namespace DemosCommonCode.Imaging
 
             // waiting for the completion of the task
 
-            _cancelButton.Enabled = false;
+            _buttonCancel.Enabled = false;
             _progressHandler.CancelAction();
             while (_backgroundWorker.IsBusy)
             {
                 Thread.Sleep(1);
                 Application.DoEvents();
             }
-            _cancelButton.Enabled = true;
+            _buttonCancel.Enabled = true;
             for (int i = 0; i < _progressBars.Length; i++)
                 _progressBars[i].Value = 0;
             _logText.AppendText("Canceled.");

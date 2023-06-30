@@ -250,7 +250,7 @@ namespace AnnotationDemo
 
             CloseCurrentFile();
             // set path to demo images folder to filde dialog
-            DemosTools.SetDemoImagesFolder(openFileDialog1);
+            DemosTools.SetTestFilesFolder(openFileDialog1);
 
             // subscribe to the annotation viewer events
             annotationViewer1.KeyPress += new KeyPressEventHandler(annotationViewer1_KeyPress);
@@ -546,8 +546,22 @@ namespace AnnotationDemo
         /// </summary>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // the application form is closing
-            _isFormClosing = true;
+            if (!_isFormClosing)
+            {
+                // the application form is closing
+                _isFormClosing = true;
+
+                // wait to file saving
+                while (IsFileSaving)
+                {
+                    Application.DoEvents();
+                    Thread.Sleep(1);
+                }
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
 
         /// <summary>
@@ -1550,18 +1564,20 @@ namespace AnnotationDemo
                                 deltaY = -(delta + rect.Height - e.Y);
 
                             // get the auto scroll position of annotation viewer
-                            Point autoScrollPosition = new Point(Math.Abs(annotationViewer1.AutoScrollPosition.X), Math.Abs(annotationViewer1.AutoScrollPosition.Y));
+                            PointF autoScrollPosition = new PointF(Math.Abs(annotationViewer1.AutoScrollPositionEx.X), Math.Abs(annotationViewer1.AutoScrollPositionEx.Y));
 
                             // calculate new auto scroll position
-                            if (annotationViewer1.AutoScrollMinSize.Width > 0 && deltaX != 0)
+                            if ((!annotationViewer1.AutoScroll || annotationViewer1.AutoScrollMinSize.Width > 0) && deltaX != 0)
                                 autoScrollPosition.X += deltaX;
-                            if (annotationViewer1.AutoScrollMinSize.Height > 0 && deltaY != 0)
+                            if ((!annotationViewer1.AutoScroll || annotationViewer1.AutoScrollMinSize.Height > 0) && deltaY != 0)
                                 autoScrollPosition.Y += deltaY;
 
                             // if auto scroll position is changed
                             if (autoScrollPosition != annotationViewer1.AutoScrollPosition)
+                            {
                                 // set new auto scroll position
-                                annotationViewer1.AutoScrollPosition = autoScrollPosition;
+                                annotationViewer1.AutoScrollPositionEx = autoScrollPosition;
+                            }
                         }
                     }
                 }

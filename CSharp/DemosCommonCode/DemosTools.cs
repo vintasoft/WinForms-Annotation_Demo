@@ -75,7 +75,7 @@ namespace DemosCommonCode
         /// <param name="value">The value.</param>
         public static string ToString(float? value)
         {
-            if(value.HasValue)
+            if (value.HasValue)
                 return ToString(value.Value);
             return "";
         }
@@ -199,14 +199,26 @@ namespace DemosCommonCode
 
 
         /// <summary>
-        /// Sets the initial image directory.
+        /// Sets the folder with test files as initial folder for the file dialog.
         /// </summary>
-        /// <param name="fileDialog">Dialog box from which the user can select a file.</param>
-        public static void SetDemoImagesFolder(FileDialog fileDialog)
+        /// <param name="fileDialog">The file dialog.</param>
+        public static void SetTestFilesFolder(FileDialog fileDialog)
         {
-            string imagesFolder = FindDemoImagesFolder();
+            string imagesFolder = FindTestFilesFolder();
             if (imagesFolder != "")
                 fileDialog.InitialDirectory = imagesFolder;
+            fileDialog.FileOk += new System.ComponentModel.CancelEventHandler(fileDialog_FileOk);
+        }
+
+        /// <summary>
+        /// Sets the folder with test XLSX files as initial folder for the file dialog.
+        /// </summary>
+        /// <param name="fileDialog">The file dialog.</param>
+        public static void SetTestXlsxFolder(FileDialog fileDialog)
+        {
+            string imagesFolder = FindTestFilesFolder();
+            if (imagesFolder != "")
+                fileDialog.InitialDirectory = Path.Combine(imagesFolder, "Xlsx");
             fileDialog.FileOk += new System.ComponentModel.CancelEventHandler(fileDialog_FileOk);
         }
 
@@ -221,41 +233,40 @@ namespace DemosCommonCode
         }
 
         /// <summary>
-        /// Sets the initial image directory.
+        /// Sets the folder with test files as initial folder for the folder browser dialog.
         /// </summary>
-        /// <param name="folderBrowserDialog">Dialog box from which the user can select a file.</param>
-        public static void SetDemoImagesFolder(FolderBrowserDialog folderBrowserDialog)
+        /// <param name="folderBrowserDialog">The folder browser dialog.</param>
+        public static void SetTestFilesFolder(FolderBrowserDialog folderBrowserDialog)
         {
-            string imagesFolder = FindDemoImagesFolder();
+            string imagesFolder = FindTestFilesFolder();
             if (imagesFolder != "")
                 folderBrowserDialog.SelectedPath = imagesFolder;
         }
 
         /// <summary>
-        /// Returns a full path to the initial image directory.
+        /// Returns a full path to the folder with test files.
         /// </summary>
         /// <returns>
-        /// Full path to the initial image directory,
-        /// or empty string, if directory not found.
+        /// Full path to the folder with test files if folder is found; otherwise, empty string.
         /// </returns>
-        public static string FindDemoImagesFolder()
+        public static string FindTestFilesFolder()
         {
             try
             {
-                // search directories
-                string[] directories = new string[] {
-                    @"..\..\..\Images\",
-                    @"..\..\..\..\Images\",
-                    @"..\..\..\..\..\Images\",
-                    @"..\..\..\..\..\..\..\Images\"
+                // search folders
+                string[] folders = new string[] {
+                    @"..\..\..\TestFiles\",
+                    @"..\..\..\..\TestFiles\",
+                    @"..\..\..\..\..\TestFiles\",
+                    @"..\..\..\..\..\..\..\TestFiles\"
                 };
-                string demoImagesFolder = Path.GetDirectoryName(
+                string demoBinFolder = Path.GetDirectoryName(
                     System.Reflection.Assembly.GetExecutingAssembly().ManifestModule.FullyQualifiedName);
-                foreach (string dir in directories)
+                foreach (string dir in folders)
                 {
-                    string imagesFolder = Path.Combine(demoImagesFolder, dir);
-                    if (Directory.Exists(imagesFolder))
-                        return Path.GetFullPath(imagesFolder);
+                    string testFilesFolder = Path.Combine(demoBinFolder, dir);
+                    if (Directory.Exists(testFilesFolder))
+                        return Path.GetFullPath(testFilesFolder);
                 }
             }
             catch
@@ -433,7 +444,7 @@ namespace DemosCommonCode
             return null;
         }
 
-#endregion
+        #endregion
 
     }
 }

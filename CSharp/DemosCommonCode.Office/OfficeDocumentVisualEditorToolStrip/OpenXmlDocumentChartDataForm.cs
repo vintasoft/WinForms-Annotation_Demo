@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging.Office.OpenXml.Editor;
+using Vintasoft.Imaging.Office.OpenXml.Editor.Docx;
 using Vintasoft.Imaging.Office.OpenXml.UI.VisualTools.UserInteraction;
 
 namespace DemosCommonCode.Office

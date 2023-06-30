@@ -539,7 +539,7 @@ namespace DemosCommonCode.Annotation
         internal void UpdateUI()
         {
             _isUiUpdating = true;
-            if (Comment != null)
+            if (Comment != null && Comment.Source!=null)
             {
                 if (Comment.IsOpen)
                     expandButton.Image = _collapsedImage;

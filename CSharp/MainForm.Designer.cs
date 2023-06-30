@@ -1768,7 +1768,7 @@ namespace AnnotationDemo
             this.viewerToolStrip.AssociatedZoomTrackBar = this.zoomTrackBar;
             this.viewerToolStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.viewerToolStrip.ImageViewer = this.annotationViewer1;
-            this.viewerToolStrip.IsScanEnabled = true;
+            this.viewerToolStrip.ScanButtonEnabled = true;
             this.viewerToolStrip.Location = new System.Drawing.Point(3, 0);
             this.viewerToolStrip.Name = "viewerToolStrip";
             this.viewerToolStrip.PageCount = 0;

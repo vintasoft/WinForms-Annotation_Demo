@@ -508,7 +508,10 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
 
             EncoderSettings.CreateThumbnails = createThumbnailsCheckBox.Checked;
 
-            EncoderSettings.GenerateAnnotationAppearance = annotationsPdfAppearanceCheckBox.Checked;
+            if (CanEditAnnotationSettings)
+            {
+                EncoderSettings.GenerateAnnotationAppearance = annotationsPdfAppearanceCheckBox.Checked;
+            }
 
             EncoderSettings.UpdateMode = (PdfDocumentUpdateMode)updateModeComboBox.SelectedItem;
         }

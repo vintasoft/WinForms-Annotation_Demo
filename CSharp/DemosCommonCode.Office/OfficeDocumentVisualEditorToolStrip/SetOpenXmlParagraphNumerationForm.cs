@@ -8,6 +8,7 @@ using System.IO;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging.Office.OpenXml.Editor;
+using Vintasoft.Imaging.Office.OpenXml.Editor.Docx;
 using Vintasoft.Imaging.Office.OpenXml.UI.VisualTools.UserInteraction;
 
 namespace DemosCommonCode.Office
@@ -150,11 +151,14 @@ namespace DemosCommonCode.Office
         /// </summary>
         private void restartButton_Click(object sender, EventArgs e)
         {
-            DocxDocumentNumbering numbering = (DocxDocumentNumbering)numerationDefinitionsListBox.SelectedItem;
-            numbering = _documentEditor.Numbering.CreateCopy(numbering);
+            if (numerationDefinitionsListBox.SelectedItem != null)
+            {
+                DocxDocumentNumbering numbering = (DocxDocumentNumbering)numerationDefinitionsListBox.SelectedItem;
+                numbering = _documentEditor.Numbering.CreateCopy(numbering);
 
-            numerationDefinitionsListBox.Items.Add(numbering);
-            numerationDefinitionsListBox.SelectedItem = numbering;
+                numerationDefinitionsListBox.Items.Add(numbering);
+                numerationDefinitionsListBox.SelectedItem = numbering;
+            }
         }
 
         #endregion

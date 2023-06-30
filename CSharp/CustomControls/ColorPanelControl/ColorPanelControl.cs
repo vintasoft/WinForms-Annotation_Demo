@@ -75,6 +75,7 @@ namespace DemosCommonCode.CustomControls
             }
         }
 
+        bool _canSetColor = true;
         /// <summary>
         /// Gets or sets a value indicating whether the current color can be changed.
         /// </summary>
@@ -88,10 +89,11 @@ namespace DemosCommonCode.CustomControls
         {
             get
             {
-                return colorButton.Visible;
+                return _canSetColor;
             }
             set
             {
+                _canSetColor = value;
                 colorButton.Visible = value;
 
                 Cursor cursor = Cursors.Default;

@@ -218,7 +218,7 @@ namespace DemosCommonCode
             // 
             // AboutBoxBaseForm
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(469, 374);
             this.Controls.Add(this.decriptionRichTextBox);
             this.Controls.Add(this.nameLabel);

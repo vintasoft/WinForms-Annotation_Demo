@@ -79,6 +79,8 @@ namespace DemosCommonCode.Imaging
             this.thumbnailControlAnchorLabel = new System.Windows.Forms.Label();
             this.thumbnailControlPaddingGroupBox = new System.Windows.Forms.GroupBox();
             this.thumbnailControlPaddingFEditorControl = new DemosCommonCode.CustomControls.PaddingFEditorControl();
+            this.thumbnailsAnchorEditorControl = new DemosCommonCode.CustomControls.AnchorTypeEditorControl();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.thumbnailAppearanceGroupBox.SuspendLayout();
             this.thumbnailViewerGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.thumbnailRenderingThreadCountNumericUpDown)).BeginInit();
@@ -88,6 +90,7 @@ namespace DemosCommonCode.Imaging
             this.captionPaddingGroupBox.SuspendLayout();
             this.thumbnailControlGroupBox.SuspendLayout();
             this.thumbnailControlPaddingGroupBox.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonOk
@@ -123,9 +126,9 @@ namespace DemosCommonCode.Imaging
             "256 x 256",
             "512 x 512",
             "1024 x 1024"});
-            this.thumbnailSizeComboBox.Location = new System.Drawing.Point(116, 17);
+            this.thumbnailSizeComboBox.Location = new System.Drawing.Point(90, 17);
             this.thumbnailSizeComboBox.Name = "thumbnailSizeComboBox";
-            this.thumbnailSizeComboBox.Size = new System.Drawing.Size(129, 21);
+            this.thumbnailSizeComboBox.Size = new System.Drawing.Size(123, 21);
             this.thumbnailSizeComboBox.TabIndex = 12;
             // 
             // sizeLabel
@@ -206,9 +209,9 @@ namespace DemosCommonCode.Imaging
             // 
             this.thumbnailScaleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.thumbnailScaleComboBox.FormattingEnabled = true;
-            this.thumbnailScaleComboBox.Location = new System.Drawing.Point(116, 46);
+            this.thumbnailScaleComboBox.Location = new System.Drawing.Point(90, 46);
             this.thumbnailScaleComboBox.Name = "thumbnailScaleComboBox";
-            this.thumbnailScaleComboBox.Size = new System.Drawing.Size(129, 21);
+            this.thumbnailScaleComboBox.Size = new System.Drawing.Size(123, 21);
             this.thumbnailScaleComboBox.TabIndex = 19;
             // 
             // thumbnailAppearanceGroupBox
@@ -400,6 +403,7 @@ namespace DemosCommonCode.Imaging
             // thumbnailsGroupBox
             // 
             this.thumbnailsGroupBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.thumbnailsGroupBox.Controls.Add(this.groupBox1);
             this.thumbnailsGroupBox.Controls.Add(this.thumbnailSizeComboBox);
             this.thumbnailsGroupBox.Controls.Add(this.sizeLabel);
             this.thumbnailsGroupBox.Controls.Add(this.thumbnailScaleComboBox);
@@ -415,20 +419,19 @@ namespace DemosCommonCode.Imaging
             // imagePaddingGroupBox
             // 
             this.imagePaddingGroupBox.Controls.Add(this.imagePaddingEditorControl);
-            this.imagePaddingGroupBox.Location = new System.Drawing.Point(268, 14);
+            this.imagePaddingGroupBox.Location = new System.Drawing.Point(221, 10);
             this.imagePaddingGroupBox.Name = "imagePaddingGroupBox";
-            this.imagePaddingGroupBox.Size = new System.Drawing.Size(210, 102);
+            this.imagePaddingGroupBox.Size = new System.Drawing.Size(141, 102);
             this.imagePaddingGroupBox.TabIndex = 26;
             this.imagePaddingGroupBox.TabStop = false;
             this.imagePaddingGroupBox.Text = "Image Padding";
             // 
             // imagePaddingEditorControl
             // 
-            this.imagePaddingEditorControl.Location = new System.Drawing.Point(44, 19);
+            this.imagePaddingEditorControl.Location = new System.Drawing.Point(6, 19);
             this.imagePaddingEditorControl.MaximumSize = new System.Drawing.Size(128, 75);
             this.imagePaddingEditorControl.MinimumSize = new System.Drawing.Size(128, 75);
             this.imagePaddingEditorControl.Name = "imagePaddingEditorControl";
-            this.imagePaddingEditorControl.PaddingValue = new Vintasoft.Imaging.PaddingF(0F, 0F, 0F, 0F);
             this.imagePaddingEditorControl.Size = new System.Drawing.Size(128, 75);
             this.imagePaddingEditorControl.TabIndex = 24;
             // 
@@ -550,7 +553,6 @@ namespace DemosCommonCode.Imaging
             this.captionPaddingFEditorControl.MaximumSize = new System.Drawing.Size(128, 75);
             this.captionPaddingFEditorControl.MinimumSize = new System.Drawing.Size(128, 75);
             this.captionPaddingFEditorControl.Name = "captionPaddingFEditorControl";
-            this.captionPaddingFEditorControl.PaddingValue = new Vintasoft.Imaging.PaddingF(0F, 0F, 0F, 0F);
             this.captionPaddingFEditorControl.Size = new System.Drawing.Size(128, 75);
             this.captionPaddingFEditorControl.TabIndex = 28;
             // 
@@ -630,9 +632,28 @@ namespace DemosCommonCode.Imaging
             this.thumbnailControlPaddingFEditorControl.MaximumSize = new System.Drawing.Size(128, 75);
             this.thumbnailControlPaddingFEditorControl.MinimumSize = new System.Drawing.Size(128, 75);
             this.thumbnailControlPaddingFEditorControl.Name = "thumbnailControlPaddingFEditorControl";
-            this.thumbnailControlPaddingFEditorControl.PaddingValue = new Vintasoft.Imaging.PaddingF(0F, 0F, 0F, 0F);
             this.thumbnailControlPaddingFEditorControl.Size = new System.Drawing.Size(128, 75);
             this.thumbnailControlPaddingFEditorControl.TabIndex = 24;
+            // 
+            // thumbnailsAnchorEditorControl
+            // 
+            this.thumbnailsAnchorEditorControl.Location = new System.Drawing.Point(27, 22);
+            this.thumbnailsAnchorEditorControl.Name = "thumbnailsAnchorEditorControl";
+            this.thumbnailsAnchorEditorControl.SelectedAnchorType = ((Vintasoft.Imaging.AnchorType)((((Vintasoft.Imaging.AnchorType.Top | Vintasoft.Imaging.AnchorType.Bottom) 
+            | Vintasoft.Imaging.AnchorType.Left) 
+            | Vintasoft.Imaging.AnchorType.Right)));
+            this.thumbnailsAnchorEditorControl.Size = new System.Drawing.Size(63, 63);
+            this.thumbnailsAnchorEditorControl.TabIndex = 34;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.thumbnailsAnchorEditorControl);
+            this.groupBox1.Location = new System.Drawing.Point(369, 10);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(117, 102);
+            this.groupBox1.TabIndex = 27;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thumbnails Anchor";
             // 
             // ThumbnailViewerSettingsForm
             // 
@@ -668,6 +689,7 @@ namespace DemosCommonCode.Imaging
             this.thumbnailControlGroupBox.ResumeLayout(false);
             this.thumbnailControlGroupBox.PerformLayout();
             this.thumbnailControlPaddingGroupBox.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -726,5 +748,7 @@ namespace DemosCommonCode.Imaging
         private System.Windows.Forms.GroupBox thumbnailControlPaddingGroupBox;
         private CustomControls.PaddingFEditorControl thumbnailControlPaddingFEditorControl;
         private System.Windows.Forms.CheckBox showThumbnailCheckBoxCheckBox;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private CustomControls.AnchorTypeEditorControl thumbnailsAnchorEditorControl;
     }
 }

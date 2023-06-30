@@ -51,9 +51,11 @@ namespace DemosCommonCode.Imaging
             _currentScaleModeMenuItem = normalToolStripMenuItem;
             normalToolStripMenuItem.Checked = true;
 
+            _openButtonEnabled = openButton.Enabled;
             _saveButtonEnabled = saveButton.Enabled;
             _scanButtonEnabled = scanButton.Enabled;
             _printButtonEnabled = printButton.Enabled;
+            _captureFromCameraButtonEnabled = captureFromCameraButton.Enabled;
 
             selectedPageIndexTextBox.KeyPress += new KeyPressEventHandler(selectedPageIndexTextBox_KeyPress);
             zoomValueTextBox.KeyPress += new KeyPressEventHandler(zoomValueTextBox_KeyPress);
@@ -198,6 +200,25 @@ namespace DemosCommonCode.Imaging
             }
         }
 
+        bool _openButtonEnabled;
+        /// <summary>
+        /// Gets or sets a value indicating whether the button for loading of image from is enabled.
+        /// </summary>
+        [Browsable(true)]
+        [DefaultValue(true)]
+        public bool OpenButtonEnabled
+        {
+            get
+            {
+                return _openButtonEnabled;
+            }
+            set
+            {
+                _openButtonEnabled = value;
+                openButton.Enabled = value;
+            }
+        }
+
         bool _canSaveFile = true;
         /// <summary>
         /// Gets or sets a value indicating whether the toolbar has button for saving of image to a file.
@@ -225,6 +246,7 @@ namespace DemosCommonCode.Imaging
         /// Gets or sets a value indicating whether the button for saving of image is enabled.
         /// </summary>
         [Browsable(true)]
+        [DefaultValue(true)]
         public bool SaveButtonEnabled
         {
             get
@@ -260,6 +282,26 @@ namespace DemosCommonCode.Imaging
             }
         }
 
+        bool _scanButtonEnabled;
+        /// <summary>
+        /// Gets or sets a value indicating whether the toolbar has enabled button
+        /// for image acquisition from scanner.
+        /// </summary>
+        [Browsable(false)]
+        [DefaultValue(false)]
+        public bool ScanButtonEnabled
+        {
+            get
+            {
+                return _scanButtonEnabled;
+            }
+            set
+            {
+                _scanButtonEnabled = value;
+
+                scanButton.Enabled = value;
+            }
+        }
 
         bool _canCaptureFromCamera = false;
         /// <summary>
@@ -284,23 +326,24 @@ namespace DemosCommonCode.Imaging
             }
         }
 
-        bool _scanButtonEnabled;
+        bool _captureFromCameraButtonEnabled;
         /// <summary>
         /// Gets or sets a value indicating whether the toolbar has enabled button
         /// for image acquisition from scanner.
         /// </summary>
         [Browsable(false)]
-        public bool IsScanEnabled
+        [DefaultValue(false)]
+        public bool CaptureFromCameraButtonEnabled
         {
             get
             {
-                return _scanButtonEnabled;
+                return _captureFromCameraButtonEnabled;
             }
             set
             {
-                _scanButtonEnabled = value;
+                _captureFromCameraButtonEnabled = value;
 
-                scanButton.Enabled = value;
+                captureFromCameraButton.Enabled = value;
             }
         }
 

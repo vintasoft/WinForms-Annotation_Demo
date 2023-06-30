@@ -224,6 +224,7 @@ namespace DemosCommonCode.Imaging
             thumbnailViewerBackColorPanelControl.Color = _viewer.BackColor;
             thumbnailRenderingThreadCountNumericUpDown.Value = _viewer.ThumbnailRenderingThreadCount;
             imagePaddingEditorControl.PaddingValue = _viewer.ThumbnailImagePadding;
+            thumbnailsAnchorEditorControl.SelectedAnchorType = _viewer.ThumbnailsAnchor;
 
             captionIsVisibleCheckBox.Checked = _viewer.ThumbnailCaption.IsVisible;
 
@@ -275,6 +276,7 @@ namespace DemosCommonCode.Imaging
             _viewer.ThumbnailScale = (ThumbnailScale)thumbnailScaleComboBox.SelectedItem;
             _viewer.BackColor = thumbnailViewerBackColorPanelControl.Color;
             _viewer.ThumbnailRenderingThreadCount = (int)thumbnailRenderingThreadCountNumericUpDown.Value;
+            _viewer.ThumbnailsAnchor = thumbnailsAnchorEditorControl.SelectedAnchorType;
 
             _viewer.ThumbnailAppearance = _normalThumbnailAppearance;
             _viewer.FocusedThumbnailAppearance = _focusedThumbnailAppearance;

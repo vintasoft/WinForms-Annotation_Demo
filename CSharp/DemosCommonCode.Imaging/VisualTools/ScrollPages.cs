@@ -455,9 +455,6 @@ namespace DemosCommonCode.Imaging
             // if focused image is not visible
             if (ImageViewer.ViewerState.ImageVisibleRect == RectangleF.Empty)
             {
-                // get visible images
-                VintasoftImage[] visibleImages = ImageViewer.GetVisibleImages();
-
                 // get central point of image viewer
                 PointF centerPoint = new PointF(ImageViewer.ClientSize.Width / 2.0f, ImageViewer.ClientSize.Height / 2.0f);
 
@@ -466,7 +463,7 @@ namespace DemosCommonCode.Imaging
                 VintasoftImage minDistanceImage = null;
 
                 // for each visible image
-                foreach (VintasoftImage image in visibleImages)
+                foreach (VintasoftImage image in ImageViewer.GetVisibleImages())
                 {
                     // calculate distance between central point and image rectangle
                     float distanceBetweenImageAndPoint = GetDistanceBetweenPointAndImageRect(centerPoint, image);

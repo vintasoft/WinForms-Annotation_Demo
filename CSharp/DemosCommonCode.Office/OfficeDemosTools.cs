@@ -9,6 +9,7 @@ using Vintasoft.Imaging;
 using Vintasoft.Imaging.Codecs.Decoders;
 #if !REMOVE_OFFICE_PLUGIN
 using Vintasoft.Imaging.Office.OpenXml.Editor;
+using Vintasoft.Imaging.Office.OpenXml.Editor.Docx;
 #endif
 using Vintasoft.Imaging.UI;
 

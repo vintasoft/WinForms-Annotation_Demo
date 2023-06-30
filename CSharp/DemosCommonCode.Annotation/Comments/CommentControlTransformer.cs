@@ -1,4 +1,4 @@
-﻿#if !REMOVE_ANNOTATION_PLUGIN
+#if !REMOVE_ANNOTATION_PLUGIN
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -289,8 +289,8 @@ namespace DemosCommonCode.Annotation
                 return;
 
             control.MouseEnter += Control_MouseEnter;
-            control.MouseMove += Сontrol_MouseMove;
-            control.MouseDown += Сontrol_MouseDown;
+            control.MouseMove += Control_MouseMove;
+            control.MouseDown += Control_MouseDown;
             control.MouseUp += Control_MouseUp;
             control.MouseLeave += Control_MouseLeave;
 
@@ -308,8 +308,8 @@ namespace DemosCommonCode.Annotation
                 return;
 
             control.MouseEnter -= Control_MouseEnter;
-            control.MouseMove -= Сontrol_MouseMove;
-            control.MouseDown -= Сontrol_MouseDown;
+            control.MouseMove -= Control_MouseMove;
+            control.MouseDown -= Control_MouseDown;
             control.MouseUp -= Control_MouseUp;
             control.MouseLeave -= Control_MouseLeave;
 
@@ -331,7 +331,7 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// The mouse pointer is moved over the control.
         /// </summary>
-        private void Сontrol_MouseMove(object sender, MouseEventArgs e)
+        private void Control_MouseMove(object sender, MouseEventArgs e)
         {
             Point convertedPoint = ConvertPointFromChildrenControlSpaceToParent(CommentControl, (Control)sender, e.Location);
             DoMouseMove(convertedPoint, CommentControl.Location, e.Button);
@@ -340,7 +340,7 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// The mouse pointer is over the control and a mouse button is pressed.
         /// </summary>
-        private void Сontrol_MouseDown(object sender, MouseEventArgs e)
+        private void Control_MouseDown(object sender, MouseEventArgs e)
         {
             Point convertedPoint = ConvertPointFromChildrenControlSpaceToParent(CommentControl, (Control)sender, e.Location);
             DoMouseDown(convertedPoint, CommentControl.Location, e.Button);
