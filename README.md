@@ -1,4 +1,4 @@
-<h1>VintaSoft WinForms Annotation Demo</h1>
+# VintaSoft WinForms Annotation Demo
 
 The project uses <a href="https://www.vintasoft.com/vsimaging-dotnet-index.html">VintaSoft Imaging .NET SDK</a> and demonstrates how to annotate images and documents in WinForms:
 * Interactively add 20+ predefined annotation types onto JPEG, PNG, TIFF image or PDF page.
@@ -11,7 +11,7 @@ The project uses <a href="https://www.vintasoft.com/vsimaging-dotnet-index.html"
 * Use visual tools for interactive image processing: selection, magnifier, crop, drag-n-drop, zoom, pan, scroll.
 
 
-<h2>Screenshot</h2>
+## Screenshot
 <img src="vintasoft-annotation-demo.png" alt="VintaSoft Annotation Demo">
 
 
