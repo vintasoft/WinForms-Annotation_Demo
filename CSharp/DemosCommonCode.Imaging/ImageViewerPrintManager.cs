@@ -40,12 +40,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// The image viewer.
         /// </summary>
-        ImageViewerBase _imageViewer;
-
-        /// <summary>
-        /// The <see cref="ImagePrintDocument"/>.
-        /// </summary>
-        ImagePrintDocument _printDocument;
+        ImageViewerBase _imageViewer;        
 
         /// <summary>
         /// The <see cref="PrintDialog"/>.
@@ -82,6 +77,24 @@ namespace DemosCommonCode.Imaging
 
             // no margins
             _printDocument.DefaultPageSettings.Margins = new Margins(0, 0, 0, 0);
+        }
+
+        #endregion
+
+
+
+        #region Properties
+
+        ImagePrintDocument _printDocument;
+        /// <summary>
+        /// Gets the <see cref="ImagePrintDocument"/>.
+        /// </summary>
+        public ImagePrintDocument PrintDocument
+        {
+            get
+            {
+                return _printDocument;
+            }
         }
 
         #endregion

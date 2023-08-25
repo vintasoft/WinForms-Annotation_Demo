@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -17,6 +17,7 @@
     <RootNamespace>AnnotationDemo</RootNamespace>
     <StartupObject>AnnotationDemo.Program</StartupObject>
     <ApplicationIcon>App.ico</ApplicationIcon>
+    <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -39,10 +40,8 @@
     <Reference Include="NHunspell">
       <HintPath>.\NHunspell\DotNet7\NHunspell.dll</HintPath>
     </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Vintasoft.Imaging" Version="12.2.6.1" />
+    <PackageReference Include="Vintasoft.Imaging.Gdi" Version="12.2.6.1" />
     <PackageReference Include="Vintasoft.Imaging.Annotation" Version="12.2.6.1" />
     <PackageReference Include="Vintasoft.Imaging.Annotation.Office" Version="12.2.6.1" />
     <PackageReference Include="Vintasoft.Imaging.Annotation.Office.UI" Version="12.2.6.1" />
@@ -51,18 +50,16 @@
     <PackageReference Include="Vintasoft.Imaging.Annotation.UI" Version="12.2.6.1" />
     <PackageReference Include="Vintasoft.Imaging.Dicom" Version="5.2.6.1" />
     <PackageReference Include="Vintasoft.Imaging.DocCleanup" Version="7.2.6.1" />
-    <PackageReference Include="Vintasoft.Imaging.Gdi" Version="12.2.6.1" />
     <PackageReference Include="Vintasoft.Imaging.Jbig2Codec" Version="9.2.6.1" />
     <PackageReference Include="Vintasoft.Imaging.Jpeg2000Codec" Version="8.2.6.1" />
     <PackageReference Include="Vintasoft.Imaging.Office.OpenXml" Version="4.2.6.1" />
     <PackageReference Include="Vintasoft.Imaging.Office.OpenXml.UI" Version="4.2.6.1" />
     <PackageReference Include="Vintasoft.Imaging.Pdf" Version="9.2.6.1" />
     <PackageReference Include="Vintasoft.Imaging.Pdf.Mrc" Version="9.2.6.1" />
-    <PackageReference Include="Vintasoft.Imaging.RawCodec" Version="12.2.6.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf.UI" Version="9.2.6.1" />
     <PackageReference Include="Vintasoft.Imaging.UI" Version="12.2.6.1" />
     <PackageReference Include="Vintasoft.Shared" Version="4.0.0.3" />
   </ItemGroup>
-
   <ItemGroup>
     <Compile Include="CustomControls\AnchorTypeEditorControl.cs">
       <SubType>UserControl</SubType>
@@ -595,6 +592,16 @@
       <SubType>Designer</SubType>
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <None Include="DefaultCMYK.icc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -607,6 +614,14 @@
     <None Include="en_US.dic">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Content Include=".\NHunspell\Hunspellx64.dll">
+      <Link>Hunspellx64.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include=".\NHunspell\Hunspellx86.dll">
+      <Link>Hunspellx86.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="Resources\Charts\Chart_GroupedHistogram.docx">
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Charts\Chart_GroupedHistogramWithAccumulation.docx">
@@ -681,14 +696,17 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Charts\Chart_StickDiagram3DWithAccumulationNormalized.docx">
     </EmbeddedResource>
-    <Content Include=".\NHunspell\Hunspellx64.dll">
-      <Link>Hunspellx64.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include=".\NHunspell\Hunspellx86.dll">
-      <Link>Hunspellx86.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <EmbeddedResource Include="Resources\Charts\Chart_Doughnut.docx">
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
     <EmbeddedResource Include="App.ico" />
     <EmbeddedResource Include="Dialogs\AboutBoxForm.resx">
       <DependentUpon>AboutBoxForm.cs</DependentUpon>
