@@ -12,7 +12,7 @@ This C# project uses <a href="https://www.vintasoft.com/vsimaging-dotnet-index.h
 
 
 ## Screenshot
-<img src="vintasoft-annotation-demo.png" alt="VintaSoft Annotation Demo">
+<img src="vintasoft-annotation-demo.png" title="VintaSoft Annotation Demo">
 
 
 ## Usage
