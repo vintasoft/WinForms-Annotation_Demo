@@ -1035,6 +1035,10 @@ namespace DemosCommonCode.Annotation
             AnnotationData data = null;
             AnnotationView view = null;
 
+#if !REMOVE_OFFICE_PLUGIN
+            Vintasoft.Imaging.Annotation.Office.OfficeAnnotationData officeAnnotation;
+#endif
+
             switch (annotationType)
             {
                 case AnnotationType.Rectangle:
@@ -1124,7 +1128,9 @@ namespace DemosCommonCode.Annotation
                     break;
 
                 case AnnotationType.EmptyDocument:
-                    data = new Vintasoft.Imaging.Annotation.Office.OfficeAnnotationData(DemosResourcesManager.GetResourceAsStream("EmptyDocument.docx"), true);
+                    officeAnnotation = new Vintasoft.Imaging.Annotation.Office.OfficeAnnotationData(DemosResourcesManager.GetResourceAsStream("EmptyDocument.docx"), true);
+                    officeAnnotation.AutoHeight = true;
+                    data = officeAnnotation;
                     break;
 
                 case AnnotationType.Chart:
@@ -1133,7 +1139,7 @@ namespace DemosCommonCode.Annotation
                         Stream documentStream = OfficeDemosTools.SelectChartResource();
                         if (documentStream == null)
                             return null;
-                        Vintasoft.Imaging.Annotation.Office.OfficeAnnotationData officeAnnotation = new Vintasoft.Imaging.Annotation.Office.OfficeAnnotationData(documentStream, true);
+                        officeAnnotation = new Vintasoft.Imaging.Annotation.Office.OfficeAnnotationData(documentStream, true);
                         officeAnnotation.UseGraphicObjectRelativeSize = true;
                         data = officeAnnotation;
                     }
