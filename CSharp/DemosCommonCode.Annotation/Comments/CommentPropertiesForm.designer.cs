@@ -51,16 +51,18 @@ namespace DemosCommonCode.Annotation
             this.advancedTabPage = new System.Windows.Forms.TabPage();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.okButton = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1.SuspendLayout();
             this.commonTabPage.SuspendLayout();
             this.stateHistoryTabPage.SuspendLayout();
             this.advancedTabPage.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.commonTabPage);
             this.tabControl1.Controls.Add(this.stateHistoryTabPage);
@@ -74,22 +76,7 @@ namespace DemosCommonCode.Annotation
             // 
             // commonTabPage
             // 
-            this.commonTabPage.Controls.Add(this.isOpenCheckBox);
-            this.commonTabPage.Controls.Add(this.textBox);
-            this.commonTabPage.Controls.Add(this.label7);
-            this.commonTabPage.Controls.Add(this.creationDateTimeTextBox);
-            this.commonTabPage.Controls.Add(this.modifyDateTimeTextBox);
-            this.commonTabPage.Controls.Add(this.subjectTextBox);
-            this.commonTabPage.Controls.Add(this.userNameTextBox);
-            this.commonTabPage.Controls.Add(this.colorPanelControl);
-            this.commonTabPage.Controls.Add(this.typeComboBox);
-            this.commonTabPage.Controls.Add(this.label6);
-            this.commonTabPage.Controls.Add(this.label5);
-            this.commonTabPage.Controls.Add(this.label4);
-            this.commonTabPage.Controls.Add(this.label3);
-            this.commonTabPage.Controls.Add(this.label2);
-            this.commonTabPage.Controls.Add(this.label1);
-            this.commonTabPage.Controls.Add(this.isLockedCheckBox);
+            this.commonTabPage.Controls.Add(this.tableLayoutPanel1);
             this.commonTabPage.Location = new System.Drawing.Point(4, 22);
             this.commonTabPage.Name = "commonTabPage";
             this.commonTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -100,8 +87,9 @@ namespace DemosCommonCode.Annotation
             // 
             // isOpenCheckBox
             // 
+            this.isOpenCheckBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.isOpenCheckBox.AutoSize = true;
-            this.isOpenCheckBox.Location = new System.Drawing.Point(90, 6);
+            this.isOpenCheckBox.Location = new System.Drawing.Point(84, 5);
             this.isOpenCheckBox.Name = "isOpenCheckBox";
             this.isOpenCheckBox.Size = new System.Drawing.Size(52, 17);
             this.isOpenCheckBox.TabIndex = 19;
@@ -111,23 +99,22 @@ namespace DemosCommonCode.Annotation
             // 
             // textBox
             // 
-            this.textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox.Location = new System.Drawing.Point(89, 185);
+            this.textBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox.Location = new System.Drawing.Point(84, 192);
             this.textBox.Multiline = true;
             this.textBox.Name = "textBox";
             this.textBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox.Size = new System.Drawing.Size(379, 92);
+            this.textBox.Size = new System.Drawing.Size(384, 82);
             this.textBox.TabIndex = 18;
             this.textBox.Text = "<Text>";
             this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 189);
+            this.label7.Location = new System.Drawing.Point(3, 226);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(31, 13);
             this.label7.TabIndex = 17;
@@ -135,12 +122,11 @@ namespace DemosCommonCode.Annotation
             // 
             // creationDateTimeTextBox
             // 
-            this.creationDateTimeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.creationDateTimeTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.creationDateTimeTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.creationDateTimeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.creationDateTimeTextBox.HideSelection = false;
-            this.creationDateTimeTextBox.Location = new System.Drawing.Point(89, 56);
+            this.creationDateTimeTextBox.Location = new System.Drawing.Point(84, 61);
             this.creationDateTimeTextBox.Name = "creationDateTimeTextBox";
             this.creationDateTimeTextBox.ReadOnly = true;
             this.creationDateTimeTextBox.Size = new System.Drawing.Size(379, 13);
@@ -149,12 +135,11 @@ namespace DemosCommonCode.Annotation
             // 
             // modifyDateTimeTextBox
             // 
-            this.modifyDateTimeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.modifyDateTimeTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.modifyDateTimeTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.modifyDateTimeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.modifyDateTimeTextBox.HideSelection = false;
-            this.modifyDateTimeTextBox.Location = new System.Drawing.Point(89, 30);
+            this.modifyDateTimeTextBox.Location = new System.Drawing.Point(84, 34);
             this.modifyDateTimeTextBox.Name = "modifyDateTimeTextBox";
             this.modifyDateTimeTextBox.ReadOnly = true;
             this.modifyDateTimeTextBox.Size = new System.Drawing.Size(379, 13);
@@ -163,59 +148,56 @@ namespace DemosCommonCode.Annotation
             // 
             // subjectTextBox
             // 
-            this.subjectTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.subjectTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.subjectTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.subjectTextBox.HideSelection = false;
-            this.subjectTextBox.Location = new System.Drawing.Point(89, 159);
+            this.subjectTextBox.Location = new System.Drawing.Point(84, 165);
             this.subjectTextBox.Name = "subjectTextBox";
-            this.subjectTextBox.Size = new System.Drawing.Size(379, 20);
+            this.subjectTextBox.Size = new System.Drawing.Size(384, 20);
             this.subjectTextBox.TabIndex = 12;
             this.subjectTextBox.Text = "<Subject>";
             this.subjectTextBox.TextChanged += new System.EventHandler(this.subjectTextBox_TextChanged);
             // 
             // userNameTextBox
             // 
-            this.userNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.userNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.userNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.userNameTextBox.HideSelection = false;
-            this.userNameTextBox.Location = new System.Drawing.Point(89, 133);
+            this.userNameTextBox.Location = new System.Drawing.Point(84, 138);
             this.userNameTextBox.Name = "userNameTextBox";
-            this.userNameTextBox.Size = new System.Drawing.Size(379, 20);
+            this.userNameTextBox.Size = new System.Drawing.Size(384, 20);
             this.userNameTextBox.TabIndex = 11;
             this.userNameTextBox.Text = "<UserName>";
             this.userNameTextBox.TextChanged += new System.EventHandler(this.userNameTextBox_TextChanged);
             // 
             // colorPanelControl
             // 
-            this.colorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.colorPanelControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.colorPanelControl.CanEditAlphaChannel = false;
             this.colorPanelControl.Color = System.Drawing.Color.Transparent;
             this.colorPanelControl.DefaultColor = System.Drawing.Color.Empty;
-            this.colorPanelControl.Location = new System.Drawing.Point(89, 105);
+            this.colorPanelControl.Location = new System.Drawing.Point(84, 111);
             this.colorPanelControl.Name = "colorPanelControl";
-            this.colorPanelControl.Size = new System.Drawing.Size(379, 22);
+            this.colorPanelControl.Size = new System.Drawing.Size(384, 21);
             this.colorPanelControl.TabIndex = 10;
             this.colorPanelControl.ColorChanged += new System.EventHandler(this.colorPanelControl_ColorChanged);
             // 
             // typeComboBox
             // 
-            this.typeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.typeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.typeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.typeComboBox.FormattingEnabled = true;
-            this.typeComboBox.Location = new System.Drawing.Point(89, 78);
+            this.typeComboBox.Location = new System.Drawing.Point(84, 84);
             this.typeComboBox.Name = "typeComboBox";
-            this.typeComboBox.Size = new System.Drawing.Size(379, 21);
+            this.typeComboBox.Size = new System.Drawing.Size(384, 21);
             this.typeComboBox.TabIndex = 9;
             this.typeComboBox.TextChanged += new System.EventHandler(this.typeComboBox_TextChanged);
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 163);
+            this.label6.Location = new System.Drawing.Point(3, 169);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 13);
             this.label6.TabIndex = 7;
@@ -223,8 +205,9 @@ namespace DemosCommonCode.Annotation
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 137);
+            this.label5.Location = new System.Drawing.Point(3, 142);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 13);
             this.label5.TabIndex = 6;
@@ -232,8 +215,9 @@ namespace DemosCommonCode.Annotation
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 110);
+            this.label4.Location = new System.Drawing.Point(3, 115);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 5;
@@ -241,8 +225,9 @@ namespace DemosCommonCode.Annotation
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 82);
+            this.label3.Location = new System.Drawing.Point(3, 88);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 4;
@@ -250,8 +235,9 @@ namespace DemosCommonCode.Annotation
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 56);
+            this.label2.Location = new System.Drawing.Point(3, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 13);
             this.label2.TabIndex = 3;
@@ -259,8 +245,9 @@ namespace DemosCommonCode.Annotation
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 30);
+            this.label1.Location = new System.Drawing.Point(3, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 2;
@@ -268,8 +255,9 @@ namespace DemosCommonCode.Annotation
             // 
             // isLockedCheckBox
             // 
+            this.isLockedCheckBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.isLockedCheckBox.AutoSize = true;
-            this.isLockedCheckBox.Location = new System.Drawing.Point(11, 6);
+            this.isLockedCheckBox.Location = new System.Drawing.Point(3, 5);
             this.isLockedCheckBox.Name = "isLockedCheckBox";
             this.isLockedCheckBox.Size = new System.Drawing.Size(62, 17);
             this.isLockedCheckBox.TabIndex = 0;
@@ -328,6 +316,43 @@ namespace DemosCommonCode.Annotation
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.isLockedCheckBox, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBox, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.isOpenCheckBox, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.subjectTextBox, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.creationDateTimeTextBox, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.userNameTextBox, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.modifyDateTimeTextBox, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.colorPanelControl, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.typeComboBox, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 6);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 8;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(471, 277);
+            this.tableLayoutPanel1.TabIndex = 20;
+            // 
             // CommentPropertiesForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -344,9 +369,10 @@ namespace DemosCommonCode.Annotation
             this.Text = "Comment Properties";
             this.tabControl1.ResumeLayout(false);
             this.commonTabPage.ResumeLayout(false);
-            this.commonTabPage.PerformLayout();
             this.stateHistoryTabPage.ResumeLayout(false);
             this.advancedTabPage.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -376,5 +402,6 @@ namespace DemosCommonCode.Annotation
         private System.Windows.Forms.TextBox textBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox isOpenCheckBox;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

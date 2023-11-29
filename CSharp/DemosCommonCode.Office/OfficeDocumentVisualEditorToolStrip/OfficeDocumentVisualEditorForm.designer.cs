@@ -147,7 +147,6 @@ namespace DemosCommonCode.Office
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Document Editor Toolbox";
-            this.TopMost = true;
             this.officeDocumentStrip.ResumeLayout(false);
             this.officeDocumentStrip.PerformLayout();
             this.ResumeLayout(false);

@@ -33,14 +33,14 @@ namespace AnnotationDemo
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            Vintasoft.Imaging.Utils.WinFormsSystemClipboard winFormsSystemClipboard1 = new Vintasoft.Imaging.Utils.WinFormsSystemClipboard();
-            Vintasoft.Imaging.UI.ThumbnailAppearance thumbnailAppearance1 = new Vintasoft.Imaging.UI.ThumbnailAppearance();
-            Vintasoft.Imaging.UI.ThumbnailAppearance thumbnailAppearance2 = new Vintasoft.Imaging.UI.ThumbnailAppearance();
-            Vintasoft.Imaging.UI.ThumbnailAppearance thumbnailAppearance3 = new Vintasoft.Imaging.UI.ThumbnailAppearance();
-            Vintasoft.Imaging.UI.ThumbnailAppearance thumbnailAppearance4 = new Vintasoft.Imaging.UI.ThumbnailAppearance();
-            Vintasoft.Imaging.UI.ThumbnailAppearance thumbnailAppearance5 = new Vintasoft.Imaging.UI.ThumbnailAppearance();
-            Vintasoft.Imaging.UI.ThumbnailCaption thumbnailCaption1 = new Vintasoft.Imaging.UI.ThumbnailCaption();
-            Vintasoft.Imaging.Codecs.Decoders.RenderingSettings renderingSettings1 = new Vintasoft.Imaging.Codecs.Decoders.RenderingSettings();
+            Vintasoft.Imaging.Utils.WinFormsSystemClipboard winFormsSystemClipboard2 = new Vintasoft.Imaging.Utils.WinFormsSystemClipboard();
+            Vintasoft.Imaging.UI.ThumbnailAppearance thumbnailAppearance6 = new Vintasoft.Imaging.UI.ThumbnailAppearance();
+            Vintasoft.Imaging.UI.ThumbnailAppearance thumbnailAppearance7 = new Vintasoft.Imaging.UI.ThumbnailAppearance();
+            Vintasoft.Imaging.UI.ThumbnailAppearance thumbnailAppearance8 = new Vintasoft.Imaging.UI.ThumbnailAppearance();
+            Vintasoft.Imaging.UI.ThumbnailAppearance thumbnailAppearance9 = new Vintasoft.Imaging.UI.ThumbnailAppearance();
+            Vintasoft.Imaging.UI.ThumbnailAppearance thumbnailAppearance10 = new Vintasoft.Imaging.UI.ThumbnailAppearance();
+            Vintasoft.Imaging.UI.ThumbnailCaption thumbnailCaption2 = new Vintasoft.Imaging.UI.ThumbnailCaption();
+            Vintasoft.Imaging.Codecs.Decoders.RenderingSettings renderingSettings2 = new Vintasoft.Imaging.Codecs.Decoders.RenderingSettings();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -164,11 +164,13 @@ namespace AnnotationDemo
             this.rotateImageWithAnnotationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.burnAnnotationsOnImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cloneImageWithAnnotationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fillAndSignToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fillSignatureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.signDocumentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verifySignaturesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.thumbnailViewer1 = new Vintasoft.Imaging.Annotation.UI.AnnotatedThumbnailViewer();
-            this.annotationViewer1 = new Vintasoft.Imaging.Annotation.UI.AnnotationViewer();
             this.annotationMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cutAnnotationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyAnnotationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -202,7 +204,6 @@ namespace AnnotationDemo
             this.annotationComboBox = new System.Windows.Forms.ComboBox();
             this.commentsTabPage = new System.Windows.Forms.TabPage();
             this.commentsPanel = new System.Windows.Forms.Panel();
-            this.commentsControl1 = new DemosCommonCode.Annotation.AnnotationCommentsControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.actionLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.progressBar1 = new System.Windows.Forms.ToolStripProgressBar();
@@ -214,18 +215,21 @@ namespace AnnotationDemo
             this.zoomTrackBar = new System.Windows.Forms.TrackBar();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.toolStripPanel1 = new System.Windows.Forms.ToolStripPanel();
-            this.viewerToolStrip = new DemosCommonCode.Imaging.ImageViewerToolStrip();
-            this.visualToolsToolStrip1 = new DemosCommonCode.Imaging.VisualToolsToolStrip();
             this.selectionModeToolStrip = new System.Windows.Forms.ToolStrip();
             this.interactionModeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.annotationInteractionModeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
-            this.annotationsToolStrip1 = new DemosCommonCode.Annotation.AnnotationsToolStrip();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.zoomPanel = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.thumbnailViewer1 = new Vintasoft.Imaging.Annotation.UI.AnnotatedThumbnailViewer();
+            this.annotationViewer1 = new Vintasoft.Imaging.Annotation.UI.AnnotationViewer();
+            this.commentsControl1 = new DemosCommonCode.Annotation.AnnotationCommentsControl();
+            this.viewerToolStrip = new DemosCommonCode.Imaging.ImageViewerToolStrip();
+            this.visualToolsToolStrip1 = new DemosCommonCode.Imaging.VisualToolsToolStrip();
+            this.annotationsToolStrip1 = new DemosCommonCode.Annotation.AnnotationsToolStrip();
             this.mainMenu.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -266,6 +270,7 @@ namespace AnnotationDemo
             this.editToolStripMenuItem,
             this.viewToolStripMenuItem,
             this.annotationsToolStripMenuItem,
+            this.fillAndSignToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
@@ -1241,6 +1246,37 @@ namespace AnnotationDemo
             this.cloneImageWithAnnotationsToolStripMenuItem.Text = "Clone Image with Annotations";
             this.cloneImageWithAnnotationsToolStripMenuItem.Click += new System.EventHandler(this.cloneImageWithAnnotationsToolStripMenuItem_Click);
             // 
+            // fillAndSignToolStripMenuItem
+            // 
+            this.fillAndSignToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fillSignatureToolStripMenuItem,
+            this.signDocumentToolStripMenuItem,
+            this.verifySignaturesToolStripMenuItem});
+            this.fillAndSignToolStripMenuItem.Name = "fillAndSignToolStripMenuItem";
+            this.fillAndSignToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
+            this.fillAndSignToolStripMenuItem.Text = "Fill And Sign";
+            // 
+            // fillSignatureToolStripMenuItem
+            // 
+            this.fillSignatureToolStripMenuItem.Name = "fillSignatureToolStripMenuItem";
+            this.fillSignatureToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.fillSignatureToolStripMenuItem.Text = "Fill Signature...";
+            this.fillSignatureToolStripMenuItem.Click += new System.EventHandler(this.fillSignatureToolStripMenuItem_Click);
+            // 
+            // signDocumentToolStripMenuItem
+            // 
+            this.signDocumentToolStripMenuItem.Name = "signDocumentToolStripMenuItem";
+            this.signDocumentToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.signDocumentToolStripMenuItem.Text = "Sign Document...";
+            this.signDocumentToolStripMenuItem.Click += new System.EventHandler(this.signDocumentToolStripMenuItem_Click);
+            // 
+            // verifySignaturesToolStripMenuItem
+            // 
+            this.verifySignaturesToolStripMenuItem.Name = "verifySignaturesToolStripMenuItem";
+            this.verifySignaturesToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.verifySignaturesToolStripMenuItem.Text = "Verify Signatures...";
+            this.verifySignaturesToolStripMenuItem.Click += new System.EventHandler(this.verifySignaturesToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1274,93 +1310,6 @@ namespace AnnotationDemo
             this.splitContainer1.Size = new System.Drawing.Size(740, 429);
             this.splitContainer1.SplitterDistance = 188;
             this.splitContainer1.TabIndex = 1;
-            // 
-            // thumbnailViewer1
-            // 
-            this.thumbnailViewer1.AllowDrop = true;
-            this.thumbnailViewer1.AutoScrollMinSize = new System.Drawing.Size(1, 1);
-            this.thumbnailViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.thumbnailViewer1.Clipboard = winFormsSystemClipboard1;
-            this.thumbnailViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            thumbnailAppearance1.BackColor = System.Drawing.Color.Transparent;
-            thumbnailAppearance1.BorderColor = System.Drawing.Color.Gray;
-            thumbnailAppearance1.BorderStyle = System.Windows.Forms.ButtonBorderStyle.Dotted;
-            thumbnailAppearance1.BorderWidth = 1;
-            this.thumbnailViewer1.FocusedThumbnailAppearance = thumbnailAppearance1;
-            this.thumbnailViewer1.GenerateOnlyVisibleThumbnails = true;
-            thumbnailAppearance2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(186)))), ((int)(((byte)(210)))), ((int)(((byte)(235)))));
-            thumbnailAppearance2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(186)))), ((int)(((byte)(210)))), ((int)(((byte)(235)))));
-            thumbnailAppearance2.BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-            thumbnailAppearance2.BorderWidth = 2;
-            this.thumbnailViewer1.HoveredThumbnailAppearance = thumbnailAppearance2;
-            this.thumbnailViewer1.ImageRotationAngle = 0;
-            this.thumbnailViewer1.Location = new System.Drawing.Point(0, 0);
-            this.thumbnailViewer1.MasterViewer = this.annotationViewer1;
-            this.thumbnailViewer1.Name = "thumbnailViewer1";
-            thumbnailAppearance3.BackColor = System.Drawing.Color.Black;
-            thumbnailAppearance3.BorderColor = System.Drawing.Color.Black;
-            thumbnailAppearance3.BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-            thumbnailAppearance3.BorderWidth = 0;
-            this.thumbnailViewer1.NotReadyThumbnailAppearance = thumbnailAppearance3;
-            thumbnailAppearance4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            thumbnailAppearance4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(222)))), ((int)(((byte)(253)))));
-            thumbnailAppearance4.BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-            thumbnailAppearance4.BorderWidth = 1;
-            this.thumbnailViewer1.SelectedThumbnailAppearance = thumbnailAppearance4;
-            this.thumbnailViewer1.Size = new System.Drawing.Size(188, 429);
-            this.thumbnailViewer1.TabIndex = 0;
-            this.thumbnailViewer1.Text = "thumbnailViewer1";
-            thumbnailAppearance5.BackColor = System.Drawing.Color.Transparent;
-            thumbnailAppearance5.BorderColor = System.Drawing.Color.Transparent;
-            thumbnailAppearance5.BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
-            thumbnailAppearance5.BorderWidth = 1;
-            this.thumbnailViewer1.ThumbnailAppearance = thumbnailAppearance5;
-            thumbnailCaption1.Padding = new Vintasoft.Imaging.PaddingF(0F, 0F, 0F, 0F);
-            thumbnailCaption1.TextColor = System.Drawing.Color.Black;
-            this.thumbnailViewer1.ThumbnailCaption = thumbnailCaption1;
-            this.thumbnailViewer1.ThumbnailContextMenuStrip = this.thumbnailMenu;
-            this.thumbnailViewer1.ThumbnailFlowStyle = Vintasoft.Imaging.UI.ThumbnailFlowStyle.WrappedRows;
-            this.thumbnailViewer1.ThumbnailImagePadding = new Vintasoft.Imaging.PaddingF(0F, 0F, 0F, 0F);
-            this.thumbnailViewer1.ThumbnailMargin = new System.Windows.Forms.Padding(3);
-            this.thumbnailViewer1.ThumbnailRenderingThreadCount = 4;
-            this.thumbnailViewer1.ThumbnailSize = new System.Drawing.Size(100, 100);
-            this.thumbnailViewer1.ThumbnailsLoadingProgress += new System.EventHandler<Vintasoft.Imaging.UI.ThumbnailsLoadingProgressEventArgs>(this.thumbnailViewer1_ThumbnailsLoadingProgress);
-            // 
-            // annotationViewer1
-            // 
-            this.annotationViewer1.AnnotationAuthorContextMenuStrip = this.annotationMenu;
-            this.annotationViewer1.AnnotationBoundingRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.annotationViewer1.AnnotationViewContextMenuStrip = null;
-            this.annotationViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.annotationViewer1.Clipboard = winFormsSystemClipboard1;
-            this.annotationViewer1.ContextMenuStrip = this.annotationViewerMenu;
-            this.annotationViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.annotationViewer1.DisplayMode = Vintasoft.Imaging.UI.ImageViewerDisplayMode.SingleContinuousColumn;
-            this.annotationViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.annotationViewer1.ImageRenderingSettings = renderingSettings1;
-            this.annotationViewer1.ImageRotationAngle = 0;
-            this.annotationViewer1.IsKeyboardNavigationEnabled = true;
-            this.annotationViewer1.IsZoomingEnabled = true;
-            this.annotationViewer1.Location = new System.Drawing.Point(0, 0);
-            this.annotationViewer1.MultipageDisplayMode = Vintasoft.Imaging.UI.ImageViewerMultipageDisplayMode.AllImages;
-            this.annotationViewer1.Name = "annotationViewer1";
-            this.annotationViewer1.RendererCacheSize = 256F;
-            this.annotationViewer1.ShortcutCopy = System.Windows.Forms.Shortcut.None;
-            this.annotationViewer1.ShortcutCut = System.Windows.Forms.Shortcut.None;
-            this.annotationViewer1.ShortcutDelete = System.Windows.Forms.Shortcut.None;
-            this.annotationViewer1.ShortcutInsert = System.Windows.Forms.Shortcut.None;
-            this.annotationViewer1.ShortcutSelectAll = System.Windows.Forms.Shortcut.None;
-            this.annotationViewer1.Size = new System.Drawing.Size(548, 429);
-            this.annotationViewer1.SizeMode = Vintasoft.Imaging.UI.ImageSizeMode.BestFit;
-            this.annotationViewer1.TabIndex = 0;
-            this.annotationViewer1.Text = "annotationViewer1";
-            this.annotationViewer1.FocusedAnnotationViewChanged += new System.EventHandler<Vintasoft.Imaging.Annotation.UI.AnnotationViewChangedEventArgs>(this.annotationViewer1_FocusedAnnotationViewChanged);
-            this.annotationViewer1.AnnotationTransformingStarted += new System.EventHandler<Vintasoft.Imaging.Annotation.UI.VisualTools.AnnotationViewEventArgs>(this.annotationViewer1_AnnotationTransformingStarted);
-            this.annotationViewer1.AnnotationTransformingFinished += new System.EventHandler<Vintasoft.Imaging.Annotation.UI.VisualTools.AnnotationViewEventArgs>(this.annotationViewer1_AnnotationTransformingFinished);
-            this.annotationViewer1.ImageLoading += new System.EventHandler<Vintasoft.Imaging.ImageLoadingEventArgs>(this.annotationViewer1_ImageLoading);
-            this.annotationViewer1.ImageLoadingProgress += new System.EventHandler<Vintasoft.Imaging.ProgressEventArgs>(this.annotationViewer1_ImageLoadingProgress);
-            this.annotationViewer1.ImageLoaded += new System.EventHandler<Vintasoft.Imaging.ImageLoadedEventArgs>(this.annotationViewer1_ImageLoaded);
-            this.annotationViewer1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.annotationViewer1_KeyDown);
             // 
             // annotationMenu
             // 
@@ -1433,7 +1382,7 @@ namespace AnnotationDemo
             this.copyImageToClipboardToolStripMenuItem,
             this.deleteImageToolStripMenuItem});
             this.annotationViewerMenu.Name = "contextMenuStrip1";
-            this.annotationViewerMenu.Size = new System.Drawing.Size(236, 142);
+            this.annotationViewerMenu.Size = new System.Drawing.Size(236, 120);
             this.annotationViewerMenu.Opening += new System.ComponentModel.CancelEventHandler(this.annotationViewerMenu_Opening);
             // 
             // pasteToolStripMenuItem2
@@ -1671,18 +1620,6 @@ namespace AnnotationDemo
             this.commentsPanel.Size = new System.Drawing.Size(192, 397);
             this.commentsPanel.TabIndex = 5;
             // 
-            // commentsControl1
-            // 
-            this.commentsControl1.AnnotationTool = null;
-            this.commentsControl1.CommentTool = null;
-            this.commentsControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.commentsControl1.ImageViewer = null;
-            this.commentsControl1.Location = new System.Drawing.Point(0, 0);
-            this.commentsControl1.MinimumSize = new System.Drawing.Size(190, 180);
-            this.commentsControl1.Name = "commentsControl1";
-            this.commentsControl1.Size = new System.Drawing.Size(192, 397);
-            this.commentsControl1.TabIndex = 5;
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1763,36 +1700,6 @@ namespace AnnotationDemo
             this.toolStripPanel1.RowMargin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.toolStripPanel1.Size = new System.Drawing.Size(951, 50);
             // 
-            // viewerToolStrip
-            // 
-            this.viewerToolStrip.AssociatedZoomTrackBar = this.zoomTrackBar;
-            this.viewerToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.viewerToolStrip.ImageViewer = this.annotationViewer1;
-            this.viewerToolStrip.ScanButtonEnabled = true;
-            this.viewerToolStrip.Location = new System.Drawing.Point(3, 0);
-            this.viewerToolStrip.Name = "viewerToolStrip";
-            this.viewerToolStrip.PageCount = 0;
-            this.viewerToolStrip.PrintButtonEnabled = true;
-            this.viewerToolStrip.SaveButtonEnabled = true;
-            this.viewerToolStrip.Size = new System.Drawing.Size(362, 25);
-            this.viewerToolStrip.TabIndex = 2;
-            this.viewerToolStrip.UseImageViewerImages = true;
-            this.viewerToolStrip.OpenFile += new System.EventHandler(this.viewerToolStrip_OpenFile);
-            this.viewerToolStrip.SaveFile += new System.EventHandler(this.viewerToolStrip_SaveFile);
-            this.viewerToolStrip.Print += new System.EventHandler(this.viewerToolStrip_Print);
-            // 
-            // visualToolsToolStrip1
-            // 
-            this.visualToolsToolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.visualToolsToolStrip1.Enabled = false;
-            this.visualToolsToolStrip1.ImageViewer = null;
-            this.visualToolsToolStrip1.Location = new System.Drawing.Point(520, 0);
-            this.visualToolsToolStrip1.MandatoryVisualTool = null;
-            this.visualToolsToolStrip1.Name = "visualToolsToolStrip1";
-            this.visualToolsToolStrip1.Size = new System.Drawing.Size(35, 25);
-            this.visualToolsToolStrip1.TabIndex = 4;
-            this.visualToolsToolStrip1.VisualToolsMenuItem = this.visualToolsToolStripMenuItem;
-            // 
             // selectionModeToolStrip
             // 
             this.selectionModeToolStrip.Dock = System.Windows.Forms.DockStyle.None;
@@ -1816,17 +1723,6 @@ namespace AnnotationDemo
             this.annotationInteractionModeToolStripComboBox.Name = "annotationInteractionModeToolStripComboBox";
             this.annotationInteractionModeToolStripComboBox.Size = new System.Drawing.Size(121, 25);
             this.annotationInteractionModeToolStripComboBox.SelectedIndexChanged += new System.EventHandler(this.annotationInteractionModeToolStripComboBox_SelectedIndexChanged);
-            // 
-            // annotationsToolStrip1
-            // 
-            this.annotationsToolStrip1.AnnotationViewer = null;
-            this.annotationsToolStrip1.CommentBuilder = null;
-            this.annotationsToolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.annotationsToolStrip1.Location = new System.Drawing.Point(3, 25);
-            this.annotationsToolStrip1.Name = "annotationsToolStrip1";
-            this.annotationsToolStrip1.NeedBuildAnnotationsContinuously = false;
-            this.annotationsToolStrip1.Size = new System.Drawing.Size(794, 25);
-            this.annotationsToolStrip1.TabIndex = 0;
             // 
             // panel1
             // 
@@ -1876,6 +1772,144 @@ namespace AnnotationDemo
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(951, 24);
             this.panel2.TabIndex = 0;
+            // 
+            // thumbnailViewer1
+            // 
+            this.thumbnailViewer1.AllowDrop = true;
+            this.thumbnailViewer1.AutoScrollMinSize = new System.Drawing.Size(1, 1);
+            this.thumbnailViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.thumbnailViewer1.Clipboard = winFormsSystemClipboard2;
+            this.thumbnailViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            thumbnailAppearance6.BackColor = System.Drawing.Color.Transparent;
+            thumbnailAppearance6.BorderColor = System.Drawing.Color.Gray;
+            thumbnailAppearance6.BorderStyle = System.Windows.Forms.ButtonBorderStyle.Dotted;
+            thumbnailAppearance6.BorderWidth = 1;
+            this.thumbnailViewer1.FocusedThumbnailAppearance = thumbnailAppearance6;
+            this.thumbnailViewer1.GenerateOnlyVisibleThumbnails = true;
+            thumbnailAppearance7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(186)))), ((int)(((byte)(210)))), ((int)(((byte)(235)))));
+            thumbnailAppearance7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(186)))), ((int)(((byte)(210)))), ((int)(((byte)(235)))));
+            thumbnailAppearance7.BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+            thumbnailAppearance7.BorderWidth = 2;
+            this.thumbnailViewer1.HoveredThumbnailAppearance = thumbnailAppearance7;
+            this.thumbnailViewer1.ImageRotationAngle = 0;
+            this.thumbnailViewer1.Location = new System.Drawing.Point(0, 0);
+            this.thumbnailViewer1.MasterViewer = this.annotationViewer1;
+            this.thumbnailViewer1.Name = "thumbnailViewer1";
+            thumbnailAppearance8.BackColor = System.Drawing.Color.Black;
+            thumbnailAppearance8.BorderColor = System.Drawing.Color.Black;
+            thumbnailAppearance8.BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+            thumbnailAppearance8.BorderWidth = 0;
+            this.thumbnailViewer1.NotReadyThumbnailAppearance = thumbnailAppearance8;
+            thumbnailAppearance9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            thumbnailAppearance9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(222)))), ((int)(((byte)(253)))));
+            thumbnailAppearance9.BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+            thumbnailAppearance9.BorderWidth = 1;
+            this.thumbnailViewer1.SelectedThumbnailAppearance = thumbnailAppearance9;
+            this.thumbnailViewer1.Size = new System.Drawing.Size(188, 429);
+            this.thumbnailViewer1.TabIndex = 0;
+            this.thumbnailViewer1.Text = "thumbnailViewer1";
+            thumbnailAppearance10.BackColor = System.Drawing.Color.Transparent;
+            thumbnailAppearance10.BorderColor = System.Drawing.Color.Transparent;
+            thumbnailAppearance10.BorderStyle = System.Windows.Forms.ButtonBorderStyle.Solid;
+            thumbnailAppearance10.BorderWidth = 1;
+            this.thumbnailViewer1.ThumbnailAppearance = thumbnailAppearance10;
+            thumbnailCaption2.TextColor = System.Drawing.Color.Black;
+            this.thumbnailViewer1.ThumbnailCaption = thumbnailCaption2;
+            this.thumbnailViewer1.ThumbnailContextMenuStrip = this.thumbnailMenu;
+            this.thumbnailViewer1.ThumbnailFlowStyle = Vintasoft.Imaging.UI.ThumbnailFlowStyle.WrappedRows;
+            this.thumbnailViewer1.ThumbnailMargin = new System.Windows.Forms.Padding(3);
+            this.thumbnailViewer1.ThumbnailRenderingThreadCount = 4;
+            this.thumbnailViewer1.ThumbnailSize = new System.Drawing.Size(100, 100);
+            this.thumbnailViewer1.ThumbnailsLoadingProgress += new System.EventHandler<Vintasoft.Imaging.UI.ThumbnailsLoadingProgressEventArgs>(this.thumbnailViewer1_ThumbnailsLoadingProgress);
+            // 
+            // annotationViewer1
+            // 
+            this.annotationViewer1.AllowMoveSelectedAnnotations = true;
+            this.annotationViewer1.AnnotationAuthorContextMenuStrip = this.annotationMenu;
+            this.annotationViewer1.AnnotationBoundingRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.annotationViewer1.AnnotationViewContextMenuStrip = null;
+            this.annotationViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.annotationViewer1.Clipboard = winFormsSystemClipboard2;
+            this.annotationViewer1.ContextMenuStrip = this.annotationViewerMenu;
+            this.annotationViewer1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.annotationViewer1.DisplayMode = Vintasoft.Imaging.UI.ImageViewerDisplayMode.SingleContinuousColumn;
+            this.annotationViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.annotationViewer1.ImageRenderingSettings = renderingSettings2;
+            this.annotationViewer1.ImageRotationAngle = 0;
+            this.annotationViewer1.IsKeyboardNavigationEnabled = true;
+            this.annotationViewer1.Location = new System.Drawing.Point(0, 0);
+            this.annotationViewer1.MultipageDisplayMode = Vintasoft.Imaging.UI.ImageViewerMultipageDisplayMode.AllImages;
+            this.annotationViewer1.Name = "annotationViewer1";
+            this.annotationViewer1.RendererCacheSize = 256F;
+            this.annotationViewer1.ShortcutCopy = System.Windows.Forms.Shortcut.None;
+            this.annotationViewer1.ShortcutCut = System.Windows.Forms.Shortcut.None;
+            this.annotationViewer1.ShortcutDelete = System.Windows.Forms.Shortcut.None;
+            this.annotationViewer1.ShortcutInsert = System.Windows.Forms.Shortcut.None;
+            this.annotationViewer1.ShortcutSelectAll = System.Windows.Forms.Shortcut.None;
+            this.annotationViewer1.Size = new System.Drawing.Size(548, 429);
+            this.annotationViewer1.SizeMode = Vintasoft.Imaging.UI.ImageSizeMode.BestFit;
+            this.annotationViewer1.TabIndex = 0;
+            this.annotationViewer1.Text = "annotationViewer1";
+            this.annotationViewer1.FocusedAnnotationViewChanged += new System.EventHandler<Vintasoft.Imaging.Annotation.UI.AnnotationViewChangedEventArgs>(this.annotationViewer1_FocusedAnnotationViewChanged);
+            this.annotationViewer1.AnnotationTransformingStarted += new System.EventHandler<Vintasoft.Imaging.Annotation.UI.VisualTools.AnnotationViewEventArgs>(this.annotationViewer1_AnnotationTransformingStarted);
+            this.annotationViewer1.AnnotationTransformingFinished += new System.EventHandler<Vintasoft.Imaging.Annotation.UI.VisualTools.AnnotationViewEventArgs>(this.annotationViewer1_AnnotationTransformingFinished);
+            this.annotationViewer1.ImageLoading += new System.EventHandler<Vintasoft.Imaging.ImageLoadingEventArgs>(this.annotationViewer1_ImageLoading);
+            this.annotationViewer1.ImageLoadingProgress += new System.EventHandler<Vintasoft.Imaging.ProgressEventArgs>(this.annotationViewer1_ImageLoadingProgress);
+            this.annotationViewer1.ImageLoaded += new System.EventHandler<Vintasoft.Imaging.ImageLoadedEventArgs>(this.annotationViewer1_ImageLoaded);
+            this.annotationViewer1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.annotationViewer1_KeyDown);
+            // 
+            // commentsControl1
+            // 
+            this.commentsControl1.AnnotationTool = null;
+            this.commentsControl1.CommentTool = null;
+            this.commentsControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.commentsControl1.ImageViewer = null;
+            this.commentsControl1.Location = new System.Drawing.Point(0, 0);
+            this.commentsControl1.MinimumSize = new System.Drawing.Size(190, 180);
+            this.commentsControl1.Name = "commentsControl1";
+            this.commentsControl1.Size = new System.Drawing.Size(192, 397);
+            this.commentsControl1.TabIndex = 5;
+            // 
+            // viewerToolStrip
+            // 
+            this.viewerToolStrip.AssociatedZoomTrackBar = this.zoomTrackBar;
+            this.viewerToolStrip.CaptureFromCameraButtonEnabled = true;
+            this.viewerToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.viewerToolStrip.ImageViewer = this.annotationViewer1;
+            this.viewerToolStrip.Location = new System.Drawing.Point(3, 0);
+            this.viewerToolStrip.Name = "viewerToolStrip";
+            this.viewerToolStrip.PageCount = 0;
+            this.viewerToolStrip.PrintButtonEnabled = true;
+            this.viewerToolStrip.ScanButtonEnabled = true;
+            this.viewerToolStrip.Size = new System.Drawing.Size(362, 25);
+            this.viewerToolStrip.TabIndex = 2;
+            this.viewerToolStrip.UseImageViewerImages = true;
+            this.viewerToolStrip.OpenFile += new System.EventHandler(this.viewerToolStrip_OpenFile);
+            this.viewerToolStrip.SaveFile += new System.EventHandler(this.viewerToolStrip_SaveFile);
+            this.viewerToolStrip.Print += new System.EventHandler(this.viewerToolStrip_Print);
+            // 
+            // visualToolsToolStrip1
+            // 
+            this.visualToolsToolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.visualToolsToolStrip1.Enabled = false;
+            this.visualToolsToolStrip1.ImageViewer = null;
+            this.visualToolsToolStrip1.Location = new System.Drawing.Point(520, 0);
+            this.visualToolsToolStrip1.MandatoryVisualTool = null;
+            this.visualToolsToolStrip1.Name = "visualToolsToolStrip1";
+            this.visualToolsToolStrip1.Size = new System.Drawing.Size(35, 25);
+            this.visualToolsToolStrip1.TabIndex = 4;
+            this.visualToolsToolStrip1.VisualToolsMenuItem = this.visualToolsToolStripMenuItem;
+            // 
+            // annotationsToolStrip1
+            // 
+            this.annotationsToolStrip1.AnnotationViewer = null;
+            this.annotationsToolStrip1.CommentBuilder = null;
+            this.annotationsToolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.annotationsToolStrip1.Location = new System.Drawing.Point(3, 25);
+            this.annotationsToolStrip1.Name = "annotationsToolStrip1";
+            this.annotationsToolStrip1.NeedBuildAnnotationsContinuously = false;
+            this.annotationsToolStrip1.Size = new System.Drawing.Size(869, 25);
+            this.annotationsToolStrip1.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -2122,5 +2156,9 @@ namespace AnnotationDemo
         private System.Windows.Forms.ToolStripMenuItem deleteAnnotationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator20;
+        private System.Windows.Forms.ToolStripMenuItem fillAndSignToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fillSignatureToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verifySignaturesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem signDocumentToolStripMenuItem;
     }
 }

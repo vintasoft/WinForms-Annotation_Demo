@@ -50,14 +50,19 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.binarizationThresholdLabel = new System.Windows.Forms.Label();
             this.binarizationModeComboBox = new System.Windows.Forms.ComboBox();
             this.stripsAndTilesGroupBox = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.tileHeightLabel = new System.Windows.Forms.Label();
             this.tileHeightNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.useTilesRadioButton = new System.Windows.Forms.RadioButton();
-            this.useStripsRadioButton = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tileWidthLabel = new System.Windows.Forms.Label();
-            this.tileWidthNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.rowsPerStripNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.rowsPerStripLabel = new System.Windows.Forms.Label();
+            this.rowsPerStripNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.tileWidthNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.useStripsRadioButton = new System.Windows.Forms.RadioButton();
+            this.useTilesRadioButton = new System.Windows.Forms.RadioButton();
             this.jpeg2000CompressionRadioButton = new System.Windows.Forms.RadioButton();
             this.lzwCompressionAdvancedSettingsGroupBox = new System.Windows.Forms.GroupBox();
             this.lzwUsePredictorCheckBox = new System.Windows.Forms.CheckBox();
@@ -88,9 +93,14 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.binarizationAdvancedSettingsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.binarizationThresholdNumericUpDown)).BeginInit();
             this.stripsAndTilesGroupBox.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileHeightNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileWidthNumericUpDown)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rowsPerStripNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileWidthNumericUpDown)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.lzwCompressionAdvancedSettingsGroupBox.SuspendLayout();
             this.zipCompressionAdvancedSettingsGroupBox.SuspendLayout();
             this.jpeg2000CompressionAdvancedSettingsGroupBox.SuspendLayout();
@@ -101,11 +111,11 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.fileVersionGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // appendCheckBox
+            // addImagesToExistingFileCheckBox
             // 
             this.addImagesToExistingFileCheckBox.AutoSize = true;
             this.addImagesToExistingFileCheckBox.Location = new System.Drawing.Point(8, 12);
-            this.addImagesToExistingFileCheckBox.Name = "appendCheckBox";
+            this.addImagesToExistingFileCheckBox.Name = "addImagesToExistingFileCheckBox";
             this.addImagesToExistingFileCheckBox.Size = new System.Drawing.Size(163, 17);
             this.addImagesToExistingFileCheckBox.TabIndex = 9;
             this.addImagesToExistingFileCheckBox.Text = "Append to existing document";
@@ -257,7 +267,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(198, 220);
+            this.buttonCancel.Location = new System.Drawing.Point(242, 222);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 12;
@@ -266,7 +276,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(117, 220);
+            this.okButton.Location = new System.Drawing.Point(161, 222);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 11;
@@ -283,7 +293,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.tabControl1.Location = new System.Drawing.Point(8, 35);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(375, 181);
+            this.tabControl1.Size = new System.Drawing.Size(453, 181);
             this.tabControl1.TabIndex = 13;
             // 
             // compressionTabPage
@@ -304,7 +314,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.compressionTabPage.Location = new System.Drawing.Point(4, 22);
             this.compressionTabPage.Name = "compressionTabPage";
             this.compressionTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.compressionTabPage.Size = new System.Drawing.Size(367, 155);
+            this.compressionTabPage.Size = new System.Drawing.Size(445, 155);
             this.compressionTabPage.TabIndex = 0;
             this.compressionTabPage.Text = "Compression";
             this.compressionTabPage.UseVisualStyleBackColor = true;
@@ -348,8 +358,8 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // 
             // binarizationModeComboBox
             // 
-            this.binarizationModeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.binarizationModeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.binarizationModeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.binarizationModeComboBox.FormattingEnabled = true;
             this.binarizationModeComboBox.Location = new System.Drawing.Point(9, 16);
@@ -360,25 +370,68 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // 
             // stripsAndTilesGroupBox
             // 
-            this.stripsAndTilesGroupBox.Controls.Add(this.tileHeightLabel);
-            this.stripsAndTilesGroupBox.Controls.Add(this.tileHeightNumericUpDown);
-            this.stripsAndTilesGroupBox.Controls.Add(this.useTilesRadioButton);
-            this.stripsAndTilesGroupBox.Controls.Add(this.useStripsRadioButton);
-            this.stripsAndTilesGroupBox.Controls.Add(this.tileWidthLabel);
-            this.stripsAndTilesGroupBox.Controls.Add(this.tileWidthNumericUpDown);
-            this.stripsAndTilesGroupBox.Controls.Add(this.rowsPerStripNumericUpDown);
-            this.stripsAndTilesGroupBox.Controls.Add(this.rowsPerStripLabel);
+            this.stripsAndTilesGroupBox.AutoSize = true;
+            this.stripsAndTilesGroupBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.stripsAndTilesGroupBox.Controls.Add(this.tableLayoutPanel3);
             this.stripsAndTilesGroupBox.Location = new System.Drawing.Point(117, 7);
+            this.stripsAndTilesGroupBox.MinimumSize = new System.Drawing.Size(243, 71);
             this.stripsAndTilesGroupBox.Name = "stripsAndTilesGroupBox";
-            this.stripsAndTilesGroupBox.Size = new System.Drawing.Size(243, 71);
+            this.stripsAndTilesGroupBox.Size = new System.Drawing.Size(244, 71);
             this.stripsAndTilesGroupBox.TabIndex = 12;
             this.stripsAndTilesGroupBox.TabStop = false;
             this.stripsAndTilesGroupBox.Text = "Strips and Tiles";
             // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.AutoSize = true;
+            this.tableLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel1, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel2, 0, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(238, 52);
+            this.tableLayoutPanel3.TabIndex = 11;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(77, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(161, 52);
+            this.tableLayoutPanel1.TabIndex = 9;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.panel2.AutoSize = true;
+            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel2.Controls.Add(this.tileHeightLabel);
+            this.panel2.Controls.Add(this.tileHeightNumericUpDown);
+            this.panel2.Location = new System.Drawing.Point(89, 4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(69, 44);
+            this.panel2.TabIndex = 10;
+            // 
             // tileHeightLabel
             // 
             this.tileHeightLabel.AutoSize = true;
-            this.tileHeightLabel.Location = new System.Drawing.Point(170, 21);
+            this.tileHeightLabel.Location = new System.Drawing.Point(3, 5);
             this.tileHeightLabel.Name = "tileHeightLabel";
             this.tileHeightLabel.Size = new System.Drawing.Size(56, 13);
             this.tileHeightLabel.TabIndex = 7;
@@ -392,7 +445,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             0,
             0,
             0});
-            this.tileHeightNumericUpDown.Location = new System.Drawing.Point(173, 37);
+            this.tileHeightNumericUpDown.Location = new System.Drawing.Point(6, 21);
             this.tileHeightNumericUpDown.Maximum = new decimal(new int[] {
             32000,
             0,
@@ -404,39 +457,50 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.tileHeightNumericUpDown.Visible = false;
             this.tileHeightNumericUpDown.ValueChanged += new System.EventHandler(this.tileHeightNumericUpDown_ValueChanged);
             // 
-            // useTilesRadioButton
+            // panel1
             // 
-            this.useTilesRadioButton.AutoSize = true;
-            this.useTilesRadioButton.Location = new System.Drawing.Point(9, 40);
-            this.useTilesRadioButton.Name = "useTilesRadioButton";
-            this.useTilesRadioButton.Size = new System.Drawing.Size(65, 17);
-            this.useTilesRadioButton.TabIndex = 1;
-            this.useTilesRadioButton.Text = "Use tiles";
-            this.useTilesRadioButton.UseVisualStyleBackColor = true;
-            this.useTilesRadioButton.CheckedChanged += new System.EventHandler(this.UpdateUI);
-            // 
-            // useStripsRadioButton
-            // 
-            this.useStripsRadioButton.AutoSize = true;
-            this.useStripsRadioButton.Checked = true;
-            this.useStripsRadioButton.Location = new System.Drawing.Point(9, 19);
-            this.useStripsRadioButton.Name = "useStripsRadioButton";
-            this.useStripsRadioButton.Size = new System.Drawing.Size(71, 17);
-            this.useStripsRadioButton.TabIndex = 0;
-            this.useStripsRadioButton.TabStop = true;
-            this.useStripsRadioButton.Text = "Use strips";
-            this.useStripsRadioButton.UseVisualStyleBackColor = true;
-            this.useStripsRadioButton.CheckedChanged += new System.EventHandler(this.UpdateUI);
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.panel1.AutoSize = true;
+            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel1.Controls.Add(this.tileWidthLabel);
+            this.panel1.Controls.Add(this.rowsPerStripLabel);
+            this.panel1.Controls.Add(this.rowsPerStripNumericUpDown);
+            this.panel1.Controls.Add(this.tileWidthNumericUpDown);
+            this.panel1.Location = new System.Drawing.Point(3, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(80, 44);
+            this.panel1.TabIndex = 8;
             // 
             // tileWidthLabel
             // 
             this.tileWidthLabel.AutoSize = true;
-            this.tileWidthLabel.Location = new System.Drawing.Point(92, 21);
+            this.tileWidthLabel.Location = new System.Drawing.Point(3, 5);
             this.tileWidthLabel.Name = "tileWidthLabel";
             this.tileWidthLabel.Size = new System.Drawing.Size(52, 13);
             this.tileWidthLabel.TabIndex = 4;
             this.tileWidthLabel.Text = "Tile width";
             this.tileWidthLabel.Visible = false;
+            // 
+            // rowsPerStripLabel
+            // 
+            this.rowsPerStripLabel.AutoSize = true;
+            this.rowsPerStripLabel.Location = new System.Drawing.Point(3, 5);
+            this.rowsPerStripLabel.Name = "rowsPerStripLabel";
+            this.rowsPerStripLabel.Size = new System.Drawing.Size(74, 13);
+            this.rowsPerStripLabel.TabIndex = 2;
+            this.rowsPerStripLabel.Text = "Rows per strip";
+            // 
+            // rowsPerStripNumericUpDown
+            // 
+            this.rowsPerStripNumericUpDown.Location = new System.Drawing.Point(6, 21);
+            this.rowsPerStripNumericUpDown.Maximum = new decimal(new int[] {
+            32000,
+            0,
+            0,
+            0});
+            this.rowsPerStripNumericUpDown.Name = "rowsPerStripNumericUpDown";
+            this.rowsPerStripNumericUpDown.Size = new System.Drawing.Size(60, 20);
+            this.rowsPerStripNumericUpDown.TabIndex = 3;
             // 
             // tileWidthNumericUpDown
             // 
@@ -445,7 +509,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             0,
             0,
             0});
-            this.tileWidthNumericUpDown.Location = new System.Drawing.Point(95, 37);
+            this.tileWidthNumericUpDown.Location = new System.Drawing.Point(6, 21);
             this.tileWidthNumericUpDown.Maximum = new decimal(new int[] {
             32000,
             0,
@@ -457,26 +521,48 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.tileWidthNumericUpDown.Visible = false;
             this.tileWidthNumericUpDown.ValueChanged += new System.EventHandler(this.tileWidthNumericUpDown_ValueChanged);
             // 
-            // rowsPerStripNumericUpDown
+            // tableLayoutPanel2
             // 
-            this.rowsPerStripNumericUpDown.Location = new System.Drawing.Point(95, 37);
-            this.rowsPerStripNumericUpDown.Maximum = new decimal(new int[] {
-            32000,
-            0,
-            0,
-            0});
-            this.rowsPerStripNumericUpDown.Name = "rowsPerStripNumericUpDown";
-            this.rowsPerStripNumericUpDown.Size = new System.Drawing.Size(60, 20);
-            this.rowsPerStripNumericUpDown.TabIndex = 3;
+            this.tableLayoutPanel2.AutoSize = true;
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.Controls.Add(this.useStripsRadioButton, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.useTilesRadioButton, 0, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(77, 52);
+            this.tableLayoutPanel2.TabIndex = 10;
             // 
-            // rowsPerStripLabel
+            // useStripsRadioButton
             // 
-            this.rowsPerStripLabel.AutoSize = true;
-            this.rowsPerStripLabel.Location = new System.Drawing.Point(92, 21);
-            this.rowsPerStripLabel.Name = "rowsPerStripLabel";
-            this.rowsPerStripLabel.Size = new System.Drawing.Size(74, 13);
-            this.rowsPerStripLabel.TabIndex = 2;
-            this.rowsPerStripLabel.Text = "Rows per strip";
+            this.useStripsRadioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.useStripsRadioButton.AutoSize = true;
+            this.useStripsRadioButton.Checked = true;
+            this.useStripsRadioButton.Location = new System.Drawing.Point(3, 4);
+            this.useStripsRadioButton.Name = "useStripsRadioButton";
+            this.useStripsRadioButton.Size = new System.Drawing.Size(71, 17);
+            this.useStripsRadioButton.TabIndex = 0;
+            this.useStripsRadioButton.TabStop = true;
+            this.useStripsRadioButton.Text = "Use strips";
+            this.useStripsRadioButton.UseVisualStyleBackColor = true;
+            this.useStripsRadioButton.CheckedChanged += new System.EventHandler(this.UpdateUI);
+            // 
+            // useTilesRadioButton
+            // 
+            this.useTilesRadioButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.useTilesRadioButton.AutoSize = true;
+            this.useTilesRadioButton.Location = new System.Drawing.Point(3, 30);
+            this.useTilesRadioButton.Name = "useTilesRadioButton";
+            this.useTilesRadioButton.Size = new System.Drawing.Size(65, 17);
+            this.useTilesRadioButton.TabIndex = 1;
+            this.useTilesRadioButton.Text = "Use tiles";
+            this.useTilesRadioButton.UseVisualStyleBackColor = true;
+            this.useTilesRadioButton.CheckedChanged += new System.EventHandler(this.UpdateUI);
             // 
             // jpeg2000CompressionRadioButton
             // 
@@ -658,7 +744,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.fileFormatGroupBox.Controls.Add(this.littleEndianRadioButton);
             this.fileFormatGroupBox.Location = new System.Drawing.Point(10, 7);
             this.fileFormatGroupBox.Name = "fileFormatGroupBox";
-            this.fileFormatGroupBox.Size = new System.Drawing.Size(107, 70);
+            this.fileFormatGroupBox.Size = new System.Drawing.Size(125, 70);
             this.fileFormatGroupBox.TabIndex = 3;
             this.fileFormatGroupBox.TabStop = false;
             this.fileFormatGroupBox.Text = "File format";
@@ -689,9 +775,9 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // 
             this.fileVersionGroupBox.Controls.Add(this.bigTiffRadioButton);
             this.fileVersionGroupBox.Controls.Add(this.standardTiffRadioButton);
-            this.fileVersionGroupBox.Location = new System.Drawing.Point(123, 7);
+            this.fileVersionGroupBox.Location = new System.Drawing.Point(141, 7);
             this.fileVersionGroupBox.Name = "fileVersionGroupBox";
-            this.fileVersionGroupBox.Size = new System.Drawing.Size(107, 70);
+            this.fileVersionGroupBox.Size = new System.Drawing.Size(125, 70);
             this.fileVersionGroupBox.TabIndex = 2;
             this.fileVersionGroupBox.TabStop = false;
             this.fileVersionGroupBox.Text = "File version";
@@ -722,7 +808,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(390, 251);
+            this.ClientSize = new System.Drawing.Size(473, 251);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.okButton);
@@ -746,9 +832,19 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             ((System.ComponentModel.ISupportInitialize)(this.binarizationThresholdNumericUpDown)).EndInit();
             this.stripsAndTilesGroupBox.ResumeLayout(false);
             this.stripsAndTilesGroupBox.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileHeightNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileWidthNumericUpDown)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rowsPerStripNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileWidthNumericUpDown)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.lzwCompressionAdvancedSettingsGroupBox.ResumeLayout(false);
             this.lzwCompressionAdvancedSettingsGroupBox.PerformLayout();
             this.zipCompressionAdvancedSettingsGroupBox.ResumeLayout(false);
@@ -822,5 +918,10 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         private System.Windows.Forms.ComboBox binarizationModeComboBox;
         private System.Windows.Forms.NumericUpDown binarizationThresholdNumericUpDown;
         private System.Windows.Forms.Label binarizationThresholdLabel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
     }
 }

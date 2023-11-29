@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+
 using Vintasoft.Imaging.Codecs.Encoders;
 using Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000;
 using Vintasoft.Imaging.ImageProcessing.Info;
@@ -49,8 +50,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
 
         bool _isMrcCompressionOnly = false;
         /// <summary>
-        /// Gets or sets a value that indicates whether PDF document can be compressed
-        /// with MRC compression only.
+        /// Gets or sets a value indicating whether PDF document can be compressed with MRC compression only.
         /// </summary>
         /// <value>
         /// <b>true</b> - PDF document can be compressed with MRC compression only;
@@ -70,6 +70,34 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
                 UpdateUI();
 
                 _isMrcCompressionOnly = value;
+            }
+        }
+
+        bool _allowMrcCompression = true;
+        /// <summary>
+        /// Gets or sets a value indicating whether PDF document can be compressed with MRC compression.
+        /// </summary>
+        /// <value>
+        /// <b>True</b> - PDF document can be compressed with or without MRC compression;
+        /// <b>false</b> - PDF document can be compressed with image compression only.
+        /// </value>
+        public bool AllowMrcCompression
+        {
+            get
+            {
+                return _allowMrcCompression;
+            }
+            set
+            {
+                compressionImageRadioButton.Visible = value;
+                compressionMrcRadioButton.Visible = value;
+
+                if (!value)
+                    compressionImageRadioButton.Checked = true;
+
+                UpdateUI();
+
+                _allowMrcCompression = value;
             }
         }
 

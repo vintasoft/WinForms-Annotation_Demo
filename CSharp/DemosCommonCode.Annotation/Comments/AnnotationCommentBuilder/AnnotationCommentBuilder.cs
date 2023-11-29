@@ -173,8 +173,9 @@ namespace DemosCommonCode.Annotation
             if (focusedImage != null)
             {
                 float x = (float)UnitOfMeasureConverter.ConvertToDeviceIndependentPixels(focusedImage.Width, UnitOfMeasure.Pixels, focusedImage.Resolution.Horizontal);
+                float y = comment.Annotation.GetBoundingBox().Y;
                 comment.BoundingBox = new RectangleF(
-                    x, comment.Annotation.Location.Y,
+                    x, y,
                     AnnotationComment.DefaultCommentSize.Width, AnnotationComment.DefaultCommentSize.Height);
             }
         }

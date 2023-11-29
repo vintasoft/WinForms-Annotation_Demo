@@ -182,9 +182,9 @@ namespace DemosCommonCode.Imaging
             // get old visible point
             PointF centerPoint = new PointF(ImageViewer.ClientSize.Width / 2.0f, ImageViewer.ClientSize.Height / 2.0f);
             // get transform from image space to viewer space
-            AffineMatrix pointTransfrom = ImageViewer.GetTransformFromControlToImage(image);
+            AffineMatrix pointTransform = ImageViewer.GetTransformFromControlToImage(image);
             // transform the point
-            return PointFAffineTransform.TransformPoint(pointTransfrom, centerPoint);
+            return PointFAffineTransform.TransformPoint(pointTransform, centerPoint);
         }
 
         /// <summary>

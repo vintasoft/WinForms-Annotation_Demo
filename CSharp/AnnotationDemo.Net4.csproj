@@ -84,27 +84,28 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <PackageReference Include="Vintasoft.Imaging" Version="12.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Gdi" Version="12.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation" Version="12.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.Office" Version="12.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.Office.UI" Version="12.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf" Version="12.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf.UI" Version="12.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Annotation.UI" Version="12.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Dicom" Version="5.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.DocCleanup" Version="7.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Jbig2Codec" Version="9.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Jpeg2000Codec" Version="8.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml" Version="4.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml.UI" Version="4.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Pdf" Version="9.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Pdf.Mrc" Version="9.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.Pdf.UI" Version="9.2.7.1" />
-    <PackageReference Include="Vintasoft.Imaging.UI" Version="12.2.7.1" />
-    <PackageReference Include="Vintasoft.Shared" Version="4.0.0.3" />
+    <PackageReference Include="Vintasoft.Imaging" Version="12.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Gdi" Version="12.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation" Version="12.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Office" Version="12.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Office.UI" Version="12.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf" Version="12.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.Pdf.UI" Version="12.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Annotation.UI" Version="12.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Dicom" Version="5.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.DocCleanup" Version="7.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Jbig2Codec" Version="9.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Jpeg2000Codec" Version="8.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml" Version="4.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Office.OpenXml.UI" Version="4.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf" Version="9.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf.Mrc" Version="9.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.Pdf.UI" Version="9.3.0.1" />
+    <PackageReference Include="Vintasoft.Imaging.UI" Version="12.3.0.1" />
+    <PackageReference Include="Vintasoft.Shared" Version="4.1.0.1" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomControls\AnchorTypeEditorControl.cs">
@@ -158,8 +159,6 @@
     <Compile Include="DemosCommonCode.Annotation\AnnotationEventHandler\RulerAnnotationPropertyChangedEventHandler.cs">
     </Compile>
     <Compile Include="DemosCommonCode.Annotation\AnnotationIconNameFactory.cs">
-    </Compile>
-    <Compile Include="DemosCommonCode.Annotation\AnnotationInteractionArea\AnnotationInteractionAreaAppearanceManager.cs">
     </Compile>
     <Compile Include="DemosCommonCode.Annotation\AnnotationNameFactory.cs">
     </Compile>
@@ -390,6 +389,12 @@
     <Compile Include="DemosCommonCode.Imaging\SelectImageForm.designer.cs">
       <DependentUpon>SelectImageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ServerSettingsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Imaging\ServerSettingsDialog.designer.cs">
+      <DependentUpon>ServerSettingsDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="DemosCommonCode.Imaging\ThumbnailViewer\ThumbnailAppearanceSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -548,11 +553,55 @@
     </Compile>
     <Compile Include="DemosCommonCode\DemosTools.cs">
     </Compile>
+    <Compile Include="DemosCommonCode.Pdf\Security\DigitalSignatures\Certificates\CertificatePasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Pdf\Security\DigitalSignatures\Certificates\CertificatePasswordForm.designer.cs">
+      <DependentUpon>CertificatePasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Pdf\Security\DigitalSignatures\Certificates\SelectCertificateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Pdf\Security\DigitalSignatures\Certificates\SelectCertificateForm.designer.cs">
+      <DependentUpon>SelectCertificateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Pdf\Security\DigitalSignatures\CreateSignatureAppearanceEventArgs.cs">
+    </Compile>
+    <Compile Include="DemosCommonCode.Pdf\Security\DigitalSignatures\CreateSignatureFieldForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Pdf\Security\DigitalSignatures\CreateSignatureFieldForm.designer.cs">
+      <DependentUpon>CreateSignatureFieldForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemosCommonCode.Pdf\Security\DigitalSignatures\DocumentSignaturesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemosCommonCode.Pdf\Security\DigitalSignatures\DocumentSignaturesForm.designer.cs">
+      <DependentUpon>DocumentSignaturesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\AboutBoxForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\AboutBoxForm.Designer.cs">
       <DependentUpon>AboutBoxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\FillAndSign\AnnotationFontPropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\FillAndSign\AnnotationFontPropertiesForm.Designer.cs">
+      <DependentUpon>AnnotationFontPropertiesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\FillAndSign\FillSignatureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\FillAndSign\FillSignatureForm.Designer.cs">
+      <DependentUpon>FillSignatureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\FillAndSign\AddSignatureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\FillAndSign\AddSignatureForm.Designer.cs">
+      <DependentUpon>AddSignatureForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -562,6 +611,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Resources\CreateAnnotationTemplate_Clear.png" />
+    <Content Include="Resources\CreateAnnotationTemplate_Image.png" />
+    <Content Include="Resources\CreateAnnotationTemplate_Signature.png" />
+    <Content Include="Resources\CreateAnnotationTemplate_Text.png" />
+    <Content Include="Resources\FillAndSign_Add.png" />
+    <Content Include="Resources\FillAndSign_Remove.png" />
+    <Content Include="Resources\FillAndSign_Save.png" />
     <EmbeddedResource Include="CustomControls\AnchorTypeEditorControl.resx">
       <DependentUpon>AnchorTypeEditorControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -610,6 +666,9 @@
     <EmbeddedResource Include="DemosCommonCode.Imaging\SelectImageForm.resx">
       <DependentUpon>SelectImageForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Imaging\ServerSettingsDialog.resx">
+      <DependentUpon>ServerSettingsDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\OfficeDocumentFontPropertiesVisualEditorToolStrip.resx">
       <DependentUpon>OfficeDocumentFontPropertiesVisualEditorToolStrip.cs</DependentUpon>
     </EmbeddedResource>
@@ -633,6 +692,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DemosCommonCode.Office\OfficeDocumentVisualEditorToolStrip\SetOpenXmlParagraphNumerationForm.resx">
       <DependentUpon>SetOpenXmlParagraphNumerationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Pdf\Security\DigitalSignatures\Certificates\CertificatePasswordForm.resx">
+      <DependentUpon>CertificatePasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Pdf\Security\DigitalSignatures\Certificates\SelectCertificateForm.resx">
+      <DependentUpon>SelectCertificateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Pdf\Security\DigitalSignatures\CreateSignatureFieldForm.resx">
+      <DependentUpon>CreateSignatureFieldForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemosCommonCode.Pdf\Security\DigitalSignatures\DocumentSignaturesForm.resx">
+      <DependentUpon>DocumentSignaturesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\FillAndSign\AnnotationFontPropertiesForm.resx">
+      <DependentUpon>AnnotationFontPropertiesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\FillAndSign\FillSignatureForm.resx">
+      <DependentUpon>FillSignatureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\FillAndSign\AddSignatureForm.resx">
+      <DependentUpon>AddSignatureForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <SubType>Designer</SubType>
@@ -1103,13 +1183,4 @@
     <Content Include="directives.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
-  <PropertyGroup>
-  </PropertyGroup>
 </Project>

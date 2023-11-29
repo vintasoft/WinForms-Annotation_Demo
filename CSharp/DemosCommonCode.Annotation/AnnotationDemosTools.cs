@@ -494,45 +494,7 @@ namespace DemosCommonCode.Annotation
                 DemosTools.ShowErrorMessage(ex);
             }
         }
-
-        /// <summary>
-        /// Changes the location of annotation or a group of annotations.
-        /// </summary>
-        /// <param name="locationDelta">The location translate point.</param>
-        /// <param name="annotations">The annotations.</param>
-        /// <param name="source">The source.</param>
-        public static void ChangeAnnotationsLocation(
-            System.Drawing.PointF locationDelta,
-            AnnotationData[] annotations,
-            AnnotationData source)
-        {
-            // for each annotation data in annotations array
-            foreach (AnnotationData data in annotations)
-            {
-                // if annotation is composite
-                if (data is CompositeAnnotationData)
-                {
-                    CompositeAnnotationData compositeData = (CompositeAnnotationData)data;
-                    List<AnnotationData> subAnnotations = new List<AnnotationData>();
-                    foreach (AnnotationData subAnnotation in compositeData)
-                        subAnnotations.Add(subAnnotation);
-
-                    // change location in nested annotations
-                    ChangeAnnotationsLocation(locationDelta, subAnnotations.ToArray(), source);
-                }
-                else
-                {
-                    // if annotation location must be changed
-                    if (data != source)
-                    {
-                        System.Drawing.PointF location = data.Location;
-                        // update location
-                        data.Location = new System.Drawing.PointF(location.X + locationDelta.X, location.Y + locationDelta.Y);
-                    }
-                }
-            }
-        }
-
+      
         /// <summary>
         /// Checks that focused image is present and correct.
         /// </summary>

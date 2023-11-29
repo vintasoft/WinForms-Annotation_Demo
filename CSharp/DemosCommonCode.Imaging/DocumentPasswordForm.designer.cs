@@ -39,35 +39,39 @@ namespace DemosCommonCode.Imaging
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 9);
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(262, 15);
+            this.label1.Size = new System.Drawing.Size(280, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Document is protected. Please enter a password.";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 69);
+            this.label2.Location = new System.Drawing.Point(12, 78);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 15);
+            this.label2.Size = new System.Drawing.Size(83, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Enter password:";
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.passwordTextBox.Location = new System.Drawing.Point(99, 64);
+            this.passwordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.passwordTextBox.Location = new System.Drawing.Point(12, 94);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
-            this.passwordTextBox.Size = new System.Drawing.Size(192, 23);
+            this.passwordTextBox.Size = new System.Drawing.Size(280, 23);
             this.passwordTextBox.TabIndex = 2;
             // 
             // okButton
             // 
+            this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.okButton.Location = new System.Drawing.Point(135, 98);
+            this.okButton.Location = new System.Drawing.Point(136, 136);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 26);
             this.okButton.TabIndex = 3;
@@ -76,8 +80,9 @@ namespace DemosCommonCode.Imaging
             // 
             // buttonCancel
             // 
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(216, 98);
+            this.buttonCancel.Location = new System.Drawing.Point(217, 136);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 26);
             this.buttonCancel.TabIndex = 4;
@@ -87,21 +92,23 @@ namespace DemosCommonCode.Imaging
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 38);
+            this.label3.Location = new System.Drawing.Point(12, 38);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 15);
+            this.label3.Size = new System.Drawing.Size(84, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Authenticate as:";
             // 
             // authenticateTypeComboBox
             // 
+            this.authenticateTypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.authenticateTypeComboBox.FormattingEnabled = true;
             this.authenticateTypeComboBox.Items.AddRange(new object[] {
             "User",
             "Owner"});
-            this.authenticateTypeComboBox.Location = new System.Drawing.Point(99, 35);
+            this.authenticateTypeComboBox.Location = new System.Drawing.Point(12, 54);
             this.authenticateTypeComboBox.Name = "authenticateTypeComboBox";
-            this.authenticateTypeComboBox.Size = new System.Drawing.Size(192, 23);
+            this.authenticateTypeComboBox.Size = new System.Drawing.Size(280, 21);
             this.authenticateTypeComboBox.TabIndex = 6;
             // 
             // DocumentPasswordForm
@@ -109,7 +116,7 @@ namespace DemosCommonCode.Imaging
             this.AcceptButton = this.okButton;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(303, 136);
+            this.ClientSize = new System.Drawing.Size(304, 174);
             this.Controls.Add(this.authenticateTypeComboBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonCancel);

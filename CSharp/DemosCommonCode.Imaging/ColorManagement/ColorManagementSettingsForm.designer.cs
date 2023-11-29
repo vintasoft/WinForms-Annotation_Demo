@@ -57,30 +57,31 @@ namespace DemosCommonCode.Imaging.ColorManagement
             this.blackPointCompensationCheckBox = new System.Windows.Forms.CheckBox();
             this.decodingSettingsGroupBox = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.inputProfilesGroupBox.SuspendLayout();
             this.outputProfilesGroupBox.SuspendLayout();
             this.decodingSettingsGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // inputProfilesGroupBox
             // 
             this.inputProfilesGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.inputProfilesGroupBox.Controls.Add(this.tableLayoutPanel1);
             this.inputProfilesGroupBox.Controls.Add(this.removeInputGrayscaleButton);
             this.inputProfilesGroupBox.Controls.Add(this.removeInputRgbButton);
             this.inputProfilesGroupBox.Controls.Add(this.removeInputCmykButton);
             this.inputProfilesGroupBox.Controls.Add(this.inputGrayscaleTextBox);
-            this.inputProfilesGroupBox.Controls.Add(this.useEmbeddedProfilesCheckBox);
             this.inputProfilesGroupBox.Controls.Add(this.inputRgbTextBox);
             this.inputProfilesGroupBox.Controls.Add(this.inputCmykTextBox);
             this.inputProfilesGroupBox.Controls.Add(this.inputGrayscaleLabel);
             this.inputProfilesGroupBox.Controls.Add(this.inputRgbLabel);
             this.inputProfilesGroupBox.Controls.Add(this.inputCmykLabel);
-            this.inputProfilesGroupBox.Controls.Add(this.setInputProfileButton);
             this.inputProfilesGroupBox.Location = new System.Drawing.Point(6, 19);
             this.inputProfilesGroupBox.Name = "inputProfilesGroupBox";
-            this.inputProfilesGroupBox.Size = new System.Drawing.Size(565, 121);
+            this.inputProfilesGroupBox.Size = new System.Drawing.Size(573, 121);
             this.inputProfilesGroupBox.TabIndex = 0;
             this.inputProfilesGroupBox.TabStop = false;
             this.inputProfilesGroupBox.Text = "Input color profiles (to PCSXYZ)";
@@ -88,7 +89,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
             // removeInputGrayscaleButton
             // 
             this.removeInputGrayscaleButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.removeInputGrayscaleButton.Location = new System.Drawing.Point(539, 95);
+            this.removeInputGrayscaleButton.Location = new System.Drawing.Point(547, 95);
             this.removeInputGrayscaleButton.Name = "removeInputGrayscaleButton";
             this.removeInputGrayscaleButton.Size = new System.Drawing.Size(20, 20);
             this.removeInputGrayscaleButton.TabIndex = 14;
@@ -99,7 +100,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
             // removeInputRgbButton
             // 
             this.removeInputRgbButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.removeInputRgbButton.Location = new System.Drawing.Point(539, 72);
+            this.removeInputRgbButton.Location = new System.Drawing.Point(547, 72);
             this.removeInputRgbButton.Name = "removeInputRgbButton";
             this.removeInputRgbButton.Size = new System.Drawing.Size(20, 20);
             this.removeInputRgbButton.TabIndex = 13;
@@ -110,7 +111,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
             // removeInputCmykButton
             // 
             this.removeInputCmykButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.removeInputCmykButton.Location = new System.Drawing.Point(539, 49);
+            this.removeInputCmykButton.Location = new System.Drawing.Point(547, 49);
             this.removeInputCmykButton.Name = "removeInputCmykButton";
             this.removeInputCmykButton.Size = new System.Drawing.Size(20, 20);
             this.removeInputCmykButton.TabIndex = 12;
@@ -125,15 +126,16 @@ namespace DemosCommonCode.Imaging.ColorManagement
             this.inputGrayscaleTextBox.Location = new System.Drawing.Point(97, 95);
             this.inputGrayscaleTextBox.Name = "inputGrayscaleTextBox";
             this.inputGrayscaleTextBox.ReadOnly = true;
-            this.inputGrayscaleTextBox.Size = new System.Drawing.Size(436, 23);
+            this.inputGrayscaleTextBox.Size = new System.Drawing.Size(444, 20);
             this.inputGrayscaleTextBox.TabIndex = 11;
             // 
             // useEmbeddedProfilesCheckBox
             // 
+            this.useEmbeddedProfilesCheckBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.useEmbeddedProfilesCheckBox.AutoSize = true;
-            this.useEmbeddedProfilesCheckBox.Location = new System.Drawing.Point(264, 24);
+            this.useEmbeddedProfilesCheckBox.Location = new System.Drawing.Point(167, 6);
             this.useEmbeddedProfilesCheckBox.Name = "useEmbeddedProfilesCheckBox";
-            this.useEmbeddedProfilesCheckBox.Size = new System.Drawing.Size(173, 19);
+            this.useEmbeddedProfilesCheckBox.Size = new System.Drawing.Size(155, 17);
             this.useEmbeddedProfilesCheckBox.TabIndex = 5;
             this.useEmbeddedProfilesCheckBox.Text = "Use embedded input profile";
             this.useEmbeddedProfilesCheckBox.UseVisualStyleBackColor = true;
@@ -145,7 +147,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
             this.inputRgbTextBox.Location = new System.Drawing.Point(97, 72);
             this.inputRgbTextBox.Name = "inputRgbTextBox";
             this.inputRgbTextBox.ReadOnly = true;
-            this.inputRgbTextBox.Size = new System.Drawing.Size(436, 23);
+            this.inputRgbTextBox.Size = new System.Drawing.Size(444, 20);
             this.inputRgbTextBox.TabIndex = 10;
             // 
             // inputCmykTextBox
@@ -155,7 +157,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
             this.inputCmykTextBox.Location = new System.Drawing.Point(97, 49);
             this.inputCmykTextBox.Name = "inputCmykTextBox";
             this.inputCmykTextBox.ReadOnly = true;
-            this.inputCmykTextBox.Size = new System.Drawing.Size(436, 23);
+            this.inputCmykTextBox.Size = new System.Drawing.Size(444, 20);
             this.inputCmykTextBox.TabIndex = 9;
             // 
             // inputGrayscaleLabel
@@ -163,7 +165,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
             this.inputGrayscaleLabel.AutoSize = true;
             this.inputGrayscaleLabel.Location = new System.Drawing.Point(7, 98);
             this.inputGrayscaleLabel.Name = "inputGrayscaleLabel";
-            this.inputGrayscaleLabel.Size = new System.Drawing.Size(57, 15);
+            this.inputGrayscaleLabel.Size = new System.Drawing.Size(54, 13);
             this.inputGrayscaleLabel.TabIndex = 8;
             this.inputGrayscaleLabel.Text = "Grayscale";
             // 
@@ -172,7 +174,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
             this.inputRgbLabel.AutoSize = true;
             this.inputRgbLabel.Location = new System.Drawing.Point(7, 75);
             this.inputRgbLabel.Name = "inputRgbLabel";
-            this.inputRgbLabel.Size = new System.Drawing.Size(29, 15);
+            this.inputRgbLabel.Size = new System.Drawing.Size(30, 13);
             this.inputRgbLabel.TabIndex = 7;
             this.inputRgbLabel.Text = "RGB";
             // 
@@ -181,13 +183,15 @@ namespace DemosCommonCode.Imaging.ColorManagement
             this.inputCmykLabel.AutoSize = true;
             this.inputCmykLabel.Location = new System.Drawing.Point(7, 52);
             this.inputCmykLabel.Name = "inputCmykLabel";
-            this.inputCmykLabel.Size = new System.Drawing.Size(40, 15);
+            this.inputCmykLabel.Size = new System.Drawing.Size(37, 13);
             this.inputCmykLabel.TabIndex = 6;
             this.inputCmykLabel.Text = "CMYK";
             // 
             // setInputProfileButton
             // 
-            this.setInputProfileButton.Location = new System.Drawing.Point(97, 20);
+            this.setInputProfileButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.setInputProfileButton.AutoSize = true;
+            this.setInputProfileButton.Location = new System.Drawing.Point(3, 3);
             this.setInputProfileButton.Name = "setInputProfileButton";
             this.setInputProfileButton.Size = new System.Drawing.Size(158, 23);
             this.setInputProfileButton.TabIndex = 4;
@@ -197,8 +201,9 @@ namespace DemosCommonCode.Imaging.ColorManagement
             // 
             // editColorTransformsButton
             // 
-            this.editColorTransformsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.editColorTransformsButton.Location = new System.Drawing.Point(6, 20);
+            this.editColorTransformsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.editColorTransformsButton.AutoSize = true;
+            this.editColorTransformsButton.Location = new System.Drawing.Point(6, 19);
             this.editColorTransformsButton.Name = "editColorTransformsButton";
             this.editColorTransformsButton.Size = new System.Drawing.Size(188, 23);
             this.editColorTransformsButton.TabIndex = 3;
@@ -211,7 +216,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
             this.enableColorManagementCheckBox.AutoSize = true;
             this.enableColorManagementCheckBox.Location = new System.Drawing.Point(9, 6);
             this.enableColorManagementCheckBox.Name = "enableColorManagementCheckBox";
-            this.enableColorManagementCheckBox.Size = new System.Drawing.Size(165, 19);
+            this.enableColorManagementCheckBox.Size = new System.Drawing.Size(149, 17);
             this.enableColorManagementCheckBox.TabIndex = 0;
             this.enableColorManagementCheckBox.Text = "Enable color management";
             this.enableColorManagementCheckBox.UseVisualStyleBackColor = true;
@@ -219,7 +224,8 @@ namespace DemosCommonCode.Imaging.ColorManagement
             // 
             // buttonOk
             // 
-            this.buttonOk.Location = new System.Drawing.Point(221, 348);
+            this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonOk.Location = new System.Drawing.Point(221, 371);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(75, 23);
             this.buttonOk.TabIndex = 1;
@@ -229,8 +235,9 @@ namespace DemosCommonCode.Imaging.ColorManagement
             // 
             // buttonCancel
             // 
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(305, 348);
+            this.buttonCancel.Location = new System.Drawing.Point(305, 371);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 2;
@@ -251,7 +258,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
             this.outputProfilesGroupBox.Controls.Add(this.setOutputProfileButton);
             this.outputProfilesGroupBox.Location = new System.Drawing.Point(6, 146);
             this.outputProfilesGroupBox.Name = "outputProfilesGroupBox";
-            this.outputProfilesGroupBox.Size = new System.Drawing.Size(565, 96);
+            this.outputProfilesGroupBox.Size = new System.Drawing.Size(573, 96);
             this.outputProfilesGroupBox.TabIndex = 12;
             this.outputProfilesGroupBox.TabStop = false;
             this.outputProfilesGroupBox.Text = "Output color profiles (from PCSXYZ)";
@@ -259,7 +266,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
             // removeOutputGrayscaleButton
             // 
             this.removeOutputGrayscaleButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.removeOutputGrayscaleButton.Location = new System.Drawing.Point(539, 69);
+            this.removeOutputGrayscaleButton.Location = new System.Drawing.Point(547, 69);
             this.removeOutputGrayscaleButton.Name = "removeOutputGrayscaleButton";
             this.removeOutputGrayscaleButton.Size = new System.Drawing.Size(20, 20);
             this.removeOutputGrayscaleButton.TabIndex = 16;
@@ -270,7 +277,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
             // removeOutputRgbButton
             // 
             this.removeOutputRgbButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.removeOutputRgbButton.Location = new System.Drawing.Point(539, 46);
+            this.removeOutputRgbButton.Location = new System.Drawing.Point(547, 46);
             this.removeOutputRgbButton.Name = "removeOutputRgbButton";
             this.removeOutputRgbButton.Size = new System.Drawing.Size(20, 20);
             this.removeOutputRgbButton.TabIndex = 15;
@@ -285,7 +292,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
             this.outputGrayscaleTextBox.Location = new System.Drawing.Point(97, 69);
             this.outputGrayscaleTextBox.Name = "outputGrayscaleTextBox";
             this.outputGrayscaleTextBox.ReadOnly = true;
-            this.outputGrayscaleTextBox.Size = new System.Drawing.Size(436, 23);
+            this.outputGrayscaleTextBox.Size = new System.Drawing.Size(444, 20);
             this.outputGrayscaleTextBox.TabIndex = 11;
             // 
             // outputRgbTextBox
@@ -295,7 +302,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
             this.outputRgbTextBox.Location = new System.Drawing.Point(97, 46);
             this.outputRgbTextBox.Name = "outputRgbTextBox";
             this.outputRgbTextBox.ReadOnly = true;
-            this.outputRgbTextBox.Size = new System.Drawing.Size(436, 23);
+            this.outputRgbTextBox.Size = new System.Drawing.Size(444, 20);
             this.outputRgbTextBox.TabIndex = 10;
             // 
             // outputGrayscaleLabel
@@ -303,7 +310,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
             this.outputGrayscaleLabel.AutoSize = true;
             this.outputGrayscaleLabel.Location = new System.Drawing.Point(7, 71);
             this.outputGrayscaleLabel.Name = "outputGrayscaleLabel";
-            this.outputGrayscaleLabel.Size = new System.Drawing.Size(57, 15);
+            this.outputGrayscaleLabel.Size = new System.Drawing.Size(54, 13);
             this.outputGrayscaleLabel.TabIndex = 8;
             this.outputGrayscaleLabel.Text = "Grayscale";
             // 
@@ -312,15 +319,16 @@ namespace DemosCommonCode.Imaging.ColorManagement
             this.outputRgbLabel.AutoSize = true;
             this.outputRgbLabel.Location = new System.Drawing.Point(7, 48);
             this.outputRgbLabel.Name = "outputRgbLabel";
-            this.outputRgbLabel.Size = new System.Drawing.Size(29, 15);
+            this.outputRgbLabel.Size = new System.Drawing.Size(30, 13);
             this.outputRgbLabel.TabIndex = 7;
             this.outputRgbLabel.Text = "RGB";
             // 
             // setOutputProfileButton
             // 
+            this.setOutputProfileButton.AutoSize = true;
             this.setOutputProfileButton.Location = new System.Drawing.Point(96, 19);
             this.setOutputProfileButton.Name = "setOutputProfileButton";
-            this.setOutputProfileButton.Size = new System.Drawing.Size(157, 23);
+            this.setOutputProfileButton.Size = new System.Drawing.Size(159, 23);
             this.setOutputProfileButton.TabIndex = 4;
             this.setOutputProfileButton.Text = "Set output profile...";
             this.setOutputProfileButton.UseVisualStyleBackColor = true;
@@ -330,9 +338,9 @@ namespace DemosCommonCode.Imaging.ColorManagement
             // 
             this.intentComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.intentComboBox.FormattingEnabled = true;
-            this.intentComboBox.Location = new System.Drawing.Point(112, 248);
+            this.intentComboBox.Location = new System.Drawing.Point(14, 272);
             this.intentComboBox.Name = "intentComboBox";
-            this.intentComboBox.Size = new System.Drawing.Size(156, 23);
+            this.intentComboBox.Size = new System.Drawing.Size(158, 21);
             this.intentComboBox.TabIndex = 13;
             // 
             // intentLabel
@@ -340,16 +348,16 @@ namespace DemosCommonCode.Imaging.ColorManagement
             this.intentLabel.AutoSize = true;
             this.intentLabel.Location = new System.Drawing.Point(11, 256);
             this.intentLabel.Name = "intentLabel";
-            this.intentLabel.Size = new System.Drawing.Size(95, 15);
+            this.intentLabel.Size = new System.Drawing.Size(85, 13);
             this.intentLabel.TabIndex = 14;
             this.intentLabel.Text = "Rendering intent";
             // 
             // blackPointCompensationCheckBox
             // 
             this.blackPointCompensationCheckBox.AutoSize = true;
-            this.blackPointCompensationCheckBox.Location = new System.Drawing.Point(14, 282);
+            this.blackPointCompensationCheckBox.Location = new System.Drawing.Point(14, 299);
             this.blackPointCompensationCheckBox.Name = "blackPointCompensationCheckBox";
-            this.blackPointCompensationCheckBox.Size = new System.Drawing.Size(186, 19);
+            this.blackPointCompensationCheckBox.Size = new System.Drawing.Size(169, 17);
             this.blackPointCompensationCheckBox.TabIndex = 15;
             this.blackPointCompensationCheckBox.Text = "Use black point compensation";
             this.blackPointCompensationCheckBox.UseVisualStyleBackColor = true;
@@ -367,7 +375,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
             this.decodingSettingsGroupBox.Enabled = false;
             this.decodingSettingsGroupBox.Location = new System.Drawing.Point(9, 29);
             this.decodingSettingsGroupBox.Name = "decodingSettingsGroupBox";
-            this.decodingSettingsGroupBox.Size = new System.Drawing.Size(577, 312);
+            this.decodingSettingsGroupBox.Size = new System.Drawing.Size(585, 328);
             this.decodingSettingsGroupBox.TabIndex = 16;
             this.decodingSettingsGroupBox.TabStop = false;
             this.decodingSettingsGroupBox.Text = "Color management decode settings";
@@ -375,20 +383,38 @@ namespace DemosCommonCode.Imaging.ColorManagement
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.groupBox1.AutoSize = true;
             this.groupBox1.Controls.Add(this.editColorTransformsButton);
-            this.groupBox1.Location = new System.Drawing.Point(371, 249);
+            this.groupBox1.Location = new System.Drawing.Point(379, 257);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 56);
+            this.groupBox1.Size = new System.Drawing.Size(200, 61);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Advanced settings";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.useEmbeddedProfilesCheckBox, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.setInputProfileButton, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(96, 16);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(471, 30);
+            this.tableLayoutPanel1.TabIndex = 17;
             // 
             // ColorManagementSettingsForm
             // 
             this.AcceptButton = this.buttonOk;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(598, 378);
+            this.ClientSize = new System.Drawing.Size(606, 401);
             this.Controls.Add(this.decodingSettingsGroupBox);
             this.Controls.Add(this.enableColorManagementCheckBox);
             this.Controls.Add(this.buttonCancel);
@@ -406,6 +432,9 @@ namespace DemosCommonCode.Imaging.ColorManagement
             this.decodingSettingsGroupBox.ResumeLayout(false);
             this.decodingSettingsGroupBox.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -442,5 +471,6 @@ namespace DemosCommonCode.Imaging.ColorManagement
         private System.Windows.Forms.Button removeOutputGrayscaleButton;
         private System.Windows.Forms.Button removeOutputRgbButton;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

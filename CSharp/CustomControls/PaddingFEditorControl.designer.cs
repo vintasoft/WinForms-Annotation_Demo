@@ -45,7 +45,7 @@ namespace DemosCommonCode.CustomControls
             // rightNumericUpDown
             // 
             this.rightNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.rightNumericUpDown.Location = new System.Drawing.Point(87, 28);
+            this.rightNumericUpDown.Location = new System.Drawing.Point(87, 27);
             this.rightNumericUpDown.Maximum = new decimal(new int[] {
             9999999,
             0,
@@ -64,7 +64,7 @@ namespace DemosCommonCode.CustomControls
             // bottomNumericUpDown
             // 
             this.bottomNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.bottomNumericUpDown.Location = new System.Drawing.Point(45, 53);
+            this.bottomNumericUpDown.Location = new System.Drawing.Point(45, 51);
             this.bottomNumericUpDown.Maximum = new decimal(new int[] {
             9999999,
             0,
@@ -83,7 +83,7 @@ namespace DemosCommonCode.CustomControls
             // allNumericUpDown
             // 
             this.allNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.allNumericUpDown.Location = new System.Drawing.Point(45, 28);
+            this.allNumericUpDown.Location = new System.Drawing.Point(45, 27);
             this.allNumericUpDown.Maximum = new decimal(new int[] {
             9999999,
             0,
@@ -121,7 +121,7 @@ namespace DemosCommonCode.CustomControls
             // leftNumericUpDown
             // 
             this.leftNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.leftNumericUpDown.Location = new System.Drawing.Point(3, 28);
+            this.leftNumericUpDown.Location = new System.Drawing.Point(3, 27);
             this.leftNumericUpDown.Maximum = new decimal(new int[] {
             9999999,
             0,

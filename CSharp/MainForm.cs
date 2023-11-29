@@ -111,11 +111,6 @@ namespace AnnotationDemo
         List<AnnotationData> _initializedAnnotations = new List<AnnotationData>();
 
         /// <summary>
-        /// Last focused annotation.
-        /// </summary>
-        AnnotationData _focusedAnnotationData = null;
-
-        /// <summary>
         /// Determines that transforming of annotation is started.
         /// </summary>
         bool _isAnnotationTransforming = false;
@@ -166,6 +161,23 @@ namespace AnnotationDemo
         /// </summary>
         CommentVisualTool _commentVisualTool;
 
+        /// <summary>
+        /// The signature-annotations.
+        /// </summary>
+        AnnotationDataCollection _signatureAnnotations = new AnnotationDataCollection();
+
+        /// <summary>
+        /// The index of selected signature-annotation.
+        /// </summary>
+        int _selectedSignatureAnnotationIndex = -1;
+
+#if !REMOVE_PDF_PLUGIN
+        /// <summary>
+        /// The PDF document that is opened in this demo.
+        /// </summary>
+        Vintasoft.Imaging.Pdf.PdfDocument _pdfDocument = null;
+#endif
+
         #endregion
 
 
@@ -214,6 +226,25 @@ namespace AnnotationDemo
             singleContinuousColumnToolStripMenuItem.Tag = ImageViewerDisplayMode.SingleContinuousColumn;
             twoContinuousRowsToolStripMenuItem.Tag = ImageViewerDisplayMode.TwoContinuousRows;
             twoContinuousColumnsToolStripMenuItem.Tag = ImageViewerDisplayMode.TwoContinuousColumns;
+
+            // init "View => Image Scale Mode" menu
+            normalToolStripMenuItem.Tag = ImageSizeMode.Normal;
+            bestFitToolStripMenuItem.Tag = ImageSizeMode.BestFit;
+            fitToWidthToolStripMenuItem.Tag = ImageSizeMode.FitToWidth;
+            fitToHeightToolStripMenuItem.Tag = ImageSizeMode.FitToHeight;
+            pixelToPixelToolStripMenuItem.Tag = ImageSizeMode.PixelToPixel;
+            scaleToolStripMenuItem.Tag = ImageSizeMode.Zoom;
+            scale25ToolStripMenuItem.Tag = 25;
+            scale50ToolStripMenuItem.Tag = 50;
+            scale100ToolStripMenuItem.Tag = 100;
+            scale200ToolStripMenuItem.Tag = 200;
+            scale400ToolStripMenuItem.Tag = 400;
+            _imageScaleModeSelectedMenuItem = bestFitToolStripMenuItem;
+            _imageScaleModeSelectedMenuItem.Checked = true;
+
+#if REMOVE_PDF_PLUGIN
+            fillAndSignToolStripMenuItem.Visible = false;
+#endif
 
             // create comment controllers
             AnnotationCommentController annotationCommentController = new AnnotationCommentController(annotationViewer1.AnnotationDataController);
@@ -287,9 +318,6 @@ namespace AnnotationDemo
             _thumbnailViewerPrintManager = new ImageViewerPrintManager(
                 thumbnailViewer1, _annotatedImagePrintDocument, printDialog1);
 
-            // remember current image scale mode
-            _imageScaleModeSelectedMenuItem = bestFitToolStripMenuItem;
-
             // initialize the annotation interaction mode tool strip
             annotationInteractionModeToolStripComboBox.Items.Add(AnnotationInteractionMode.None);
             annotationInteractionModeToolStripComboBox.Items.Add(AnnotationInteractionMode.View);
@@ -345,6 +373,18 @@ namespace AnnotationDemo
             ZoomVisualToolActionFactory.CreateActions(visualToolsToolStrip1);
             ImageProcessingVisualToolActionFactory.CreateActions(visualToolsToolStrip1);
             CustomVisualToolActionFactory.CreateActions(visualToolsToolStrip1);
+
+            if (File.Exists(AnnotationTemplatesFilePath))
+            {
+                try
+                {
+                    using (Stream stream = File.OpenRead(AnnotationTemplatesFilePath))
+                        _signatureAnnotations.AddFromStream(stream, new Resolution(96, 96));
+                }
+                catch
+                {
+                }
+            }
         }
 
         #endregion
@@ -403,6 +443,17 @@ namespace AnnotationDemo
             }
         }
 
+        /// <summary>
+        /// Gets a path to a file, where annotation templates must be saved.
+        /// </summary>
+        internal string AnnotationTemplatesFilePath
+        {
+            get
+            {
+                return Path.Combine(Application.StartupPath, "AnnotationTemplates.xmp");
+            }
+        }
+
         #endregion
 
 
@@ -410,6 +461,40 @@ namespace AnnotationDemo
         #region Methods
 
         #region PROTECTED
+
+        /// <summary>
+        /// Raises the <see cref="E:Closed" /> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected override void OnClosed(EventArgs e)
+        {
+            try
+            {
+                // if demo contains the annotation templates
+                if (_signatureAnnotations.Count > 0)
+                {
+                    // create stream
+                    using (Stream stream = File.Create(AnnotationTemplatesFilePath))
+                    {
+                        // create the annotation formatter
+                        AnnotationVintasoftXmpFormatter annotationTemplatesFormatter = new AnnotationVintasoftXmpFormatter();
+                        // serialize annotations to a file
+                        annotationTemplatesFormatter.Serialize(stream, _signatureAnnotations);
+                    }
+                }
+                // if demo does not contain the annotation templates
+                else
+                {
+                    // remove file with annotation templates
+                    File.Delete(AnnotationTemplatesFilePath);
+                }
+            }
+            catch
+            {
+            }
+
+            base.OnClosed(e);
+        }
 
         /// <summary>
         /// Processes a command key.
@@ -689,6 +774,7 @@ namespace AnnotationDemo
             SaveImageCollectionToMultipageImageFile(false);
         }
 
+
         /// <summary>
         /// Handles the Click event of CloseToolStripMenuItem object.
         /// </summary>
@@ -944,55 +1030,28 @@ namespace AnnotationDemo
         /// </summary>
         private void imageSizeMode_Click(object sender, EventArgs e)
         {
-            // disable previously checked menu
+            scaleToolStripMenuItem.Checked = false;
             _imageScaleModeSelectedMenuItem.Checked = false;
+            _imageScaleModeSelectedMenuItem = (ToolStripMenuItem)sender;
 
-            //
-            ToolStripMenuItem item = (ToolStripMenuItem)sender;
-            switch (item.Text)
+            // if the menu item sets the ImageSizeMode
+            if (_imageScaleModeSelectedMenuItem.Tag is ImageSizeMode)
             {
-                case "Normal":
-                    annotationViewer1.SizeMode = ImageSizeMode.Normal;
-                    break;
-                case "Best fit":
-                    annotationViewer1.SizeMode = ImageSizeMode.BestFit;
-                    break;
-                case "Fit to width":
-                    annotationViewer1.SizeMode = ImageSizeMode.FitToWidth;
-                    break;
-                case "Fit to height":
-                    annotationViewer1.SizeMode = ImageSizeMode.FitToHeight;
-                    break;
-                case "Pixel to Pixel":
-                    annotationViewer1.SizeMode = ImageSizeMode.PixelToPixel;
-                    break;
-                case "Scale":
-                    annotationViewer1.SizeMode = ImageSizeMode.Zoom;
-                    break;
-                case "25%":
-                    annotationViewer1.SizeMode = ImageSizeMode.Zoom;
-                    annotationViewer1.Zoom = 25;
-                    break;
-                case "50%":
-                    annotationViewer1.SizeMode = ImageSizeMode.Zoom;
-                    annotationViewer1.Zoom = 50;
-                    break;
-                case "100%":
-                    annotationViewer1.SizeMode = ImageSizeMode.Zoom;
-                    annotationViewer1.Zoom = 100;
-                    break;
-                case "200%":
-                    annotationViewer1.SizeMode = ImageSizeMode.Zoom;
-                    annotationViewer1.Zoom = 200;
-                    break;
-                case "400%":
-                    annotationViewer1.SizeMode = ImageSizeMode.Zoom;
-                    annotationViewer1.Zoom = 400;
-                    break;
+                // set size mode
+                annotationViewer1.SizeMode = (ImageSizeMode)_imageScaleModeSelectedMenuItem.Tag;
+                _imageScaleModeSelectedMenuItem.Checked = true;
             }
-
-            _imageScaleModeSelectedMenuItem = item;
-            _imageScaleModeSelectedMenuItem.Checked = true;
+            // if the menu item sets the zoom
+            else
+            {
+                // get zoom value
+                int zoomValue = (int)_imageScaleModeSelectedMenuItem.Tag;
+                // set ImageSizeMode as Zoom
+                annotationViewer1.SizeMode = ImageSizeMode.Zoom;
+                // set zoom value
+                annotationViewer1.Zoom = zoomValue;
+                scaleToolStripMenuItem.Checked = true;
+            }
         }
 
         /// <summary>
@@ -1450,6 +1509,208 @@ namespace AnnotationDemo
         }
 
         #endregion
+
+        #endregion
+
+
+        #region 'Fill and Sign'
+
+        /// <summary>
+        /// Handles the Click event of FillSignatureToolStripMenuItem object.
+        /// </summary>
+        private void fillSignatureToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // create dialog that allows to create and select the signature-annotation
+            using (FillSignatureForm form = new FillSignatureForm(
+                (AnnotationDataCollection)_signatureAnnotations.Clone()))
+            {
+                form.StartPosition = FormStartPosition.CenterParent;
+                form.Owner = this;
+                if (_selectedSignatureAnnotationIndex != -1)
+                    form.SelectedSignatureAnnotationIndex = _selectedSignatureAnnotationIndex;
+
+                // show the dialog
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    // if signature-annotation is selected
+                    if (form.SelectedSignatureAnnotation != null)
+                    {
+                        // build the signature-annotation on image in viewer
+                        annotationViewer1.AddAndBuildAnnotation(form.SelectedSignatureAnnotation);
+                    }
+
+                    // save index of selected signature-annotation
+                    _selectedSignatureAnnotationIndex = form.SelectedSignatureAnnotationIndex;
+
+                    // remove old signature-annotations
+                    _signatureAnnotations.ClearAndDisposeItems();
+                    // save new signature-annotations
+                    _signatureAnnotations.AddRange(form.GetSignatureAnnotations());
+                }
+            }
+        }
+
+        /// <summary>
+        /// Handles the Click event of SignDocumentToolStripMenuItem object.
+        /// </summary>
+        private void signDocumentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+#if !REMOVE_PDF_PLUGIN
+            AnnotationDataController annotationController = annotationViewer1.AnnotationDataController;
+
+            // if signature-annotation does not exist
+            if (!IsSignatureAnnotationExist(annotationController))
+            {
+                MessageBox.Show(
+                    "The signature-annotation is not found." + Environment.NewLine +
+                    "Please select \"Fill and Sign => Fill Signature...\" menu and create a signature-annotation.",
+                    "Sign PDF document", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // create dialog that allows to select the signature-annotation
+            using (AnnotationsInfoForm annotationsInfoDialog =
+                new AnnotationsInfoForm(annotationController, "Signature", true, annotationViewer1.FocusedAnnotationData, false, false, "Select the signature-annotation"))
+            {
+                annotationsInfoDialog.StartPosition = FormStartPosition.CenterParent;
+                annotationsInfoDialog.Owner = this;
+
+                // show the dialog
+                if (annotationsInfoDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // set file filters in file saving dialog
+                    saveFileDialog1.Filter = "PDF Files|*.pdf";
+
+                    // show the save file dialog
+                    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        // create PDF encoder
+                        using (PdfEncoder encoder = new PdfEncoder(true))
+                        {
+                            // if source file is not PDF document
+                            if (string.IsNullOrEmpty(_sourceFilename) || Path.GetExtension(_sourceFilename).ToUpperInvariant() != ".PDF")
+                            {
+                                encoder.Settings.AnnotationsFormat = AnnotationsFormat.VintasoftBinary;
+
+                                // create dialog that allows to set the PDF encoder settings
+                                using (PdfEncoderSettingsForm pdfEncoderSettingsDlg = new PdfEncoderSettingsForm())
+                                {
+                                    pdfEncoderSettingsDlg.AppendExistingDocumentEnabled = File.Exists(saveFileDialog1.FileName);
+                                    pdfEncoderSettingsDlg.CanEditAnnotationSettings = true;
+                                    pdfEncoderSettingsDlg.AllowMrcCompression = false;
+                                    pdfEncoderSettingsDlg.EncoderSettings = encoder.Settings;
+                                    // show the dialog
+                                    if (pdfEncoderSettingsDlg.ShowDialog() != DialogResult.OK)
+                                        return;
+                                }
+                            }
+
+                            // create PDF page signature manager
+                            using (Vintasoft.Imaging.Annotation.Pdf.PdfPageSignatureManager manager =
+                                new Vintasoft.Imaging.Annotation.Pdf.PdfPageSignatureManager(annotationViewer1.AnnotationDataController, encoder))
+                            {
+                                manager.SignatureRequest += PdfPageSignatureManager_SignatureRequest;
+
+                                try
+                                {
+                                    // for each selected annotation
+                                    foreach (AnnotationData signatureAnnotation in annotationsInfoDialog.SelectedAnnotations.Keys)
+                                    {
+                                        // get image that contains annotation
+                                        VintasoftImage image = annotationsInfoDialog.SelectedAnnotations[signatureAnnotation];
+
+                                        // registers signature on image
+                                        manager.RegisterSignatureOnImage(image, signatureAnnotation);
+                                    }
+
+                                    // save PDF document
+                                    annotationViewer1.Images.SaveSync(saveFileDialog1.FileName, encoder);
+
+                                    MessageBox.Show("Document is signed successfully.");
+                                }
+                                catch (Exception exc)
+                                {
+                                    DemosTools.ShowErrorMessage(exc);
+                                }
+                                finally
+                                {
+                                    manager.SignatureRequest -= PdfPageSignatureManager_SignatureRequest;
+
+                                    _sourceFilename = saveFileDialog1.FileName;
+
+                                    UpdateUI();
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+#endif
+        }
+
+        /// <summary>
+        /// Returns a value indicating whether image collection has the signature-annotation.
+        /// </summary>
+        /// <param name="annotationController">The annotation controller.</param>
+        /// <returns>A value indicating whether image collection has the signature-annotation.</returns>
+        private static bool IsSignatureAnnotationExist(AnnotationDataController annotationController)
+        {
+            // for each image in annotation data controller
+            for (int i = 0; i < annotationController.Images.Count; i++)
+            {
+                // get annotation collection for image
+                AnnotationDataCollection annotations = annotationController[i];
+                // for each annotation in annotation collection
+                for (int j = 0; j < annotations.Count; j++)
+                {
+                    AnnotationData annotation = annotations[j];
+                    if (annotation.Intent == "Signature")
+                        return true;
+                }
+            }
+
+            return false;
+        }
+
+#if !REMOVE_PDF_PLUGIN
+        private void PdfPageSignatureManager_SignatureRequest(object sender, SignatureRequestEventArgs e)
+        {
+            // create dialog that allows to perform signing of PDF document
+            using (DemosCommonCode.Pdf.Security.CreateSignatureFieldForm form =
+                new DemosCommonCode.Pdf.Security.CreateSignatureFieldForm(e.SignatureField))
+            {
+                form.CanChangeSignatureAppearance = false;
+                form.StartPosition = FormStartPosition.CenterParent;
+                form.Owner = this;
+
+                // show the dialog
+                form.ShowDialog();
+            }
+        }
+#endif
+
+        /// <summary>
+        /// Handles the Click event of VerifySignaturesToolStripMenuItem object.
+        /// </summary>
+        private void verifySignaturesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+#if !REMOVE_PDF_PLUGIN
+            // create dialog that allows to view information about document signatures and verify signature
+            using (DemosCommonCode.Pdf.Security.DocumentSignaturesForm form =
+                new DemosCommonCode.Pdf.Security.DocumentSignaturesForm(_pdfDocument))
+            {
+                form.StartPosition = FormStartPosition.CenterParent;
+                form.Owner = this;
+
+                // show the dialog
+                form.ShowDialog();
+            }
+#endif
+        }
 
         #endregion
 
@@ -2012,54 +2273,10 @@ namespace AnnotationDemo
             AnnotationViewChangedEventArgs e)
         {
             if (e.OldValue != null)
-            {
-                // get old annotation data
-                AnnotationData currentData = e.OldValue.Data;
-                // while current annotation data is composite
-                while (currentData is CompositeAnnotationData)
-                {
-                    CompositeAnnotationData compositeData = (CompositeAnnotationData)currentData;
-
-                    // if current annotation data is sticky note annotation
-                    if (compositeData is StickyNoteAnnotationData)
-                    {
-                        compositeData.PropertyChanged -= new EventHandler<ObjectPropertyChangedEventArgs>(compositeData_PropertyChanged);
-                    }
-
-                    foreach (AnnotationData data in compositeData)
-                    {
-                        currentData = data;
-                        break;
-                    }
-                }
-                currentData.PropertyChanged -= new EventHandler<ObjectPropertyChangedEventArgs>(FocusedAnnotationData_PropertyChanged);
-            }
+                e.OldValue.Data.PropertyChanged -= new EventHandler<ObjectPropertyChangedEventArgs>(FocusedAnnotationData_PropertyChanged);
 
             if (e.NewValue != null)
-            {
-                // get new annotation data
-                AnnotationData currentData = e.NewValue.Data;
-                // while current annotation data is composite
-                while (currentData is CompositeAnnotationData)
-                {
-                    CompositeAnnotationData compositeData = (CompositeAnnotationData)currentData;
-
-                    // if current annotation data is sticky note annotation
-                    if (compositeData is StickyNoteAnnotationData)
-                    {
-                        compositeData.PropertyChanged += new EventHandler<ObjectPropertyChangedEventArgs>(compositeData_PropertyChanged);
-                    }
-
-                    foreach (AnnotationData data in compositeData)
-                    {
-                        currentData = data;
-                        break;
-                    }
-                }
-                currentData.PropertyChanged += new EventHandler<ObjectPropertyChangedEventArgs>(FocusedAnnotationData_PropertyChanged);
-                // store last focused annotation
-                _focusedAnnotationData = currentData;
-            }
+                e.NewValue.Data.PropertyChanged += new EventHandler<ObjectPropertyChangedEventArgs>(FocusedAnnotationData_PropertyChanged);
         }
 
         /// <summary>
@@ -2257,6 +2474,13 @@ namespace AnnotationDemo
                 _isFileReadOnlyMode = false;
             }
 
+#if !REMOVE_PDF_PLUGIN
+            _pdfDocument = null;
+            Vintasoft.Imaging.Pdf.Tree.PdfPage page = Vintasoft.Imaging.Pdf.PdfDocumentController.GetPageAssociatedWithImage(annotationViewer1.Images[0]);
+            if (page != null)
+                _pdfDocument = page.Document;
+#endif
+
             IsFileSaving = false;
         }
 
@@ -2269,7 +2493,7 @@ namespace AnnotationDemo
             DemosTools.ShowErrorMessage(e.Exception);
         }
 
-        #endregion 
+        #endregion
 
         #endregion
 
@@ -2299,6 +2523,9 @@ namespace AnnotationDemo
             bool isInteractionModeAuthor = annotationViewer1.AnnotationInteractionMode == AnnotationInteractionMode.Author;
             bool isCanUndo = _undoManager.UndoCount > 0 && !annotationViewer1.AnnotationVisualTool.IsFocusedAnnotationBuilding;
             bool isCanRedo = _undoManager.RedoCount > 0 && !annotationViewer1.AnnotationVisualTool.IsFocusedAnnotationBuilding;
+#if !REMOVE_PDF_PLUGIN
+            bool isPdfDocument = _pdfDocument != null && _pdfDocument.InteractiveForm != null;
+#endif
 
             // "File" menu
             fileToolStripMenuItem.Enabled = !isFileOpening && !isFileSaving;
@@ -2307,6 +2534,7 @@ namespace AnnotationDemo
             saveToToolStripMenuItem.Enabled = !isFileEmpty;
             closeToolStripMenuItem.Enabled = isFileLoaded;
             printToolStripMenuItem.Enabled = !isFileEmpty;
+
 
             // "View" menu
             viewerToolStrip.Enabled = !isFileOpening && !isFileSaving;
@@ -2383,6 +2611,11 @@ namespace AnnotationDemo
             cloneImageWithAnnotationsToolStripMenuItem.Enabled = !isFileOpening && !isFileEmpty;
 
             saveToFileToolStripMenuItem.Enabled = !isAnnotationEmpty;
+
+            fillAndSignToolStripMenuItem.Enabled = !isFileOpening && !isFileEmpty && isInteractionModeAuthor;
+#if !REMOVE_PDF_PLUGIN
+            verifySignaturesToolStripMenuItem.Enabled = isPdfDocument;
+#endif
 
             // annotation viewer context menu
             annotationMenu.Enabled = !isFileOpening && !isFileEmpty;
@@ -2855,6 +3088,15 @@ namespace AnnotationDemo
                 Invoke(new CloseCurrentFileDelegate(CloseCurrentFile));
             }
 
+#if !REMOVE_PDF_PLUGIN
+            if (annotationViewer1.Images.Count > 0)
+            {
+                Vintasoft.Imaging.Pdf.Tree.PdfPage page = Vintasoft.Imaging.Pdf.PdfDocumentController.GetPageAssociatedWithImage(annotationViewer1.Images[0]);
+                if (page != null)
+                    _pdfDocument = page.Document;
+            }
+#endif
+
             UseWaitCursor = false;
 
             // update the UI
@@ -2909,6 +3151,9 @@ namespace AnnotationDemo
         private void CloseSource()
         {
             _sourceFilename = null;
+#if !REMOVE_PDF_PLUGIN
+            _pdfDocument = null;
+#endif
         }
 
         #endregion
@@ -2965,69 +3210,13 @@ namespace AnnotationDemo
             object sender,
             ObjectPropertyChangedEventArgs e)
         {
-            // if 'Location' property of several annotations was changed
-            if (e.PropertyName == "Location" && annotationViewer1.SelectedAnnotations.Count > 1)
-            {
-                // get focused annotation
-                AnnotationView focusedView = annotationViewer1.AnnotationVisualTool.FocusedAnnotationView;
-                if (focusedView != null && focusedView.InteractionController != null)
-                {
-                    // get focused interaction area
-                    InteractionArea focusedArea = focusedView.InteractionController.FocusedInteractionArea;
-                    // if annotation is moved
-                    if (focusedArea != null && focusedArea.InteractionName == "Move")
-                    {
-                        // move all selected annotations
-
-                        System.Drawing.PointF oldValue = (System.Drawing.PointF)e.OldValue;
-                        System.Drawing.PointF newValue = (System.Drawing.PointF)e.NewValue;
-                        System.Drawing.PointF locationDelta = new System.Drawing.PointF(newValue.X - oldValue.X, newValue.Y - oldValue.Y);
-                        AnnotationData[] annotations = new AnnotationData[annotationViewer1.SelectedAnnotations.Count];
-                        for (int i = 0; i < annotationViewer1.SelectedAnnotations.Count; i++)
-                            annotations[i] = annotationViewer1.SelectedAnnotations[i].Data;
-                        AnnotationDemosTools.ChangeAnnotationsLocation(locationDelta, annotations, (AnnotationData)sender);
-                    }
-                }
-            }
-            // if comment is changed
-            else if (e.PropertyName == "Comment")
+            if (e.PropertyName == "Comment")
             {
                 // update the UI
                 UpdateUI();
             }
         }
 
-        /// <summary>
-        /// Subscribes to the <see cref="StickyNoteAnnotationData"/> events.
-        /// </summary>
-        private void compositeData_PropertyChanged(object sender, ObjectPropertyChangedEventArgs e)
-        {
-            StickyNoteAnnotationData stickyNote = sender as StickyNoteAnnotationData;
-            // if sticky note annotation property is changed
-            if (stickyNote != null)
-            {
-                // if annotation collapsed type is changed or annotation is collapsed
-                if (e.PropertyName == "CollapsedType" || e.PropertyName == "IsCollapsed")
-                {
-                    // if focused annotation exists
-                    if (_focusedAnnotationData != null)
-                    {
-                        // unsubscribe from  PropertyChanged event of focused annotation
-                        _focusedAnnotationData.PropertyChanged -= new EventHandler<ObjectPropertyChangedEventArgs>(FocusedAnnotationData_PropertyChanged);
-                    }
-
-                    // for each annotation, which is embedded in sticky note annotation
-                    foreach (AnnotationData data in stickyNote)
-                    {
-                        // set annotation as focused annotation
-                        _focusedAnnotationData = data;
-                        // subscribe to the  PropertyChanged event of focused annotation
-                        _focusedAnnotationData.PropertyChanged += new EventHandler<ObjectPropertyChangedEventArgs>(FocusedAnnotationData_PropertyChanged);
-                        break;
-                    }
-                }
-            }
-        }
 
         /// <summary>
         /// Begins initialization of the specified annotation.

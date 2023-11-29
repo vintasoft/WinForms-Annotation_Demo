@@ -85,11 +85,10 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         #region Properties
 
         /// <summary>
-        /// Gets or sets a value that indicates whether PDF document can be compressed
-        /// with MRC compression only.
+        /// Gets or sets a value indicating whether PDF document can be compressed with MRC compression only.
         /// </summary>
         /// <value>
-        /// <b>true</b> - PDF document can be compressed with MRC compression only;
+        /// <b>true</b> - PDF document can be compressed only with MRC compression;
         /// <b>false</b> - PDF document can be compressed with or without MRC compression.
         /// </value>
         public bool IsMrcCompressionOnly
@@ -101,6 +100,25 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             set
             {
                 pdfImageCompressionControl1.IsMrcCompressionOnly = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether PDF document can be compressed with MRC compression.
+        /// </summary>
+        /// <value>
+        /// <b>True</b> - PDF document can be compressed with or without MRC compression;
+        /// <b>false</b> - PDF document can be compressed with image compression only.
+        /// </value>
+        public bool AllowMrcCompression
+        {
+            get
+            {
+                return pdfImageCompressionControl1.AllowMrcCompression;
+            }
+            set
+            {
+                pdfImageCompressionControl1.AllowMrcCompression = value;
             }
         }
 
@@ -163,8 +181,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
 #endif
 
         /// <summary>
-        /// Gets or sets a value that indicates whether the images can be added
-        /// to an existing PDF document.
+        /// Gets or sets a value indicating whether the images can be added to an existing PDF document.
         /// </summary>
         public bool AppendExistingDocument
         {
@@ -179,7 +196,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Gets or sets a value that indicates whether <see cref="AppendExistingDocument"/> is enabled.
+        /// Gets or sets a value indicating whether <see cref="AppendExistingDocument"/> is enabled.
         /// </summary>
         public bool AppendExistingDocumentEnabled
         {
@@ -194,7 +211,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Gets or sets a value that indicates whether the annotation settings can be edited.
+        /// Gets or sets a value indicating whether the annotation settings can be edited.
         /// </summary>
         public bool CanEditAnnotationSettings
         {
@@ -215,7 +232,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Gets or sets a value that indicates whether the image tiles settings can be edited.
+        /// Gets or sets a value indicating whether the image tiles settings can be edited.
         /// </summary>
         public bool CanEditImageTilesSettings
         {
@@ -233,7 +250,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Gets or sets a value that indicates whether PDF annotation appearance should be generated.
+        /// Gets or sets a value indicating whether PDF annotation appearance should be generated.
         /// </summary>
         public bool GeneratePdfAnnotationsAppearence
         {
@@ -254,7 +271,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         #region Methods
 
         #region PUBLIC
-        
+
 #if !REMOVE_PDF_PLUGIN
         /// <summary>
         /// Converts the PdfDocumentConformance to a string.
@@ -610,9 +627,9 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             }
         }
 
-#endregion
+        #endregion
 
-#endregion
+        #endregion
 
     }
 }
