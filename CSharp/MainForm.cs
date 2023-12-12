@@ -1570,7 +1570,7 @@ namespace AnnotationDemo
 
             // create dialog that allows to select the signature-annotation
             using (AnnotationsInfoForm annotationsInfoDialog =
-                new AnnotationsInfoForm(annotationController, "Signature", true, annotationViewer1.FocusedAnnotationData, false, false, "Select the signature-annotation"))
+                new AnnotationsInfoForm(annotationController, "Signature", true, annotationViewer1.FocusedAnnotationData, false, true, "Select the signature-annotation"))
             {
                 annotationsInfoDialog.StartPosition = FormStartPosition.CenterParent;
                 annotationsInfoDialog.Owner = this;

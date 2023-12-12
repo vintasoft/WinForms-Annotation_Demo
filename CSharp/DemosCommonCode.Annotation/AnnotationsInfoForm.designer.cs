@@ -96,7 +96,7 @@ namespace DemosCommonCode.Annotation
             // 
             this.AcceptButton = this.buttonOk;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.buttonOk;
+            this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(605, 346);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOk);
