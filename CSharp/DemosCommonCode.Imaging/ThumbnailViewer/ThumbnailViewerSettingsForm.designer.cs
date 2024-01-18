@@ -138,7 +138,7 @@ namespace DemosCommonCode.Imaging
             // buttonOk
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonOk.Location = new System.Drawing.Point(167, 625);
+            this.buttonOk.Location = new System.Drawing.Point(167, 632);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(81, 23);
             this.buttonOk.TabIndex = 10;
@@ -150,7 +150,7 @@ namespace DemosCommonCode.Imaging
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(261, 625);
+            this.buttonCancel.Location = new System.Drawing.Point(261, 632);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(81, 23);
             this.buttonCancel.TabIndex = 11;
@@ -673,9 +673,7 @@ namespace DemosCommonCode.Imaging
             this.thumbnailCaptionGroupBox.AutoSize = true;
             this.thumbnailCaptionGroupBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.thumbnailCaptionGroupBox.Controls.Add(this.tableLayoutPanel12);
-            this.thumbnailCaptionGroupBox.Controls.Add(this.captionIsVisibleCheckBox);
-            this.thumbnailCaptionGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.thumbnailCaptionGroupBox.Location = new System.Drawing.Point(0, 0);
+            this.thumbnailCaptionGroupBox.Location = new System.Drawing.Point(0, 5);
             this.thumbnailCaptionGroupBox.Name = "thumbnailCaptionGroupBox";
             this.thumbnailCaptionGroupBox.Size = new System.Drawing.Size(547, 172);
             this.thumbnailCaptionGroupBox.TabIndex = 24;
@@ -892,7 +890,7 @@ namespace DemosCommonCode.Imaging
             this.captionIsVisibleCheckBox.AutoSize = true;
             this.captionIsVisibleCheckBox.Checked = true;
             this.captionIsVisibleCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.captionIsVisibleCheckBox.Location = new System.Drawing.Point(6, 0);
+            this.captionIsVisibleCheckBox.Location = new System.Drawing.Point(9, 3);
             this.captionIsVisibleCheckBox.Name = "captionIsVisibleCheckBox";
             this.captionIsVisibleCheckBox.Size = new System.Drawing.Size(114, 17);
             this.captionIsVisibleCheckBox.TabIndex = 0;
@@ -905,7 +903,7 @@ namespace DemosCommonCode.Imaging
             this.thumbnailControlGroupBox.AutoSize = true;
             this.thumbnailControlGroupBox.Controls.Add(this.tableLayoutPanel16);
             this.thumbnailControlGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.thumbnailControlGroupBox.Location = new System.Drawing.Point(3, 486);
+            this.thumbnailControlGroupBox.Location = new System.Drawing.Point(3, 494);
             this.thumbnailControlGroupBox.Name = "thumbnailControlGroupBox";
             this.thumbnailControlGroupBox.Size = new System.Drawing.Size(547, 125);
             this.thumbnailControlGroupBox.TabIndex = 27;
@@ -1084,17 +1082,18 @@ namespace DemosCommonCode.Imaging
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(553, 614);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(553, 622);
             this.tableLayoutPanel2.TabIndex = 29;
             // 
             // panel1
             // 
             this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.captionIsVisibleCheckBox);
             this.panel1.Controls.Add(this.thumbnailCaptionGroupBox);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 308);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(547, 172);
+            this.panel1.Size = new System.Drawing.Size(547, 180);
             this.panel1.TabIndex = 30;
             // 
             // ThumbnailViewerSettingsForm
@@ -1103,7 +1102,7 @@ namespace DemosCommonCode.Imaging
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(553, 655);
+            this.ClientSize = new System.Drawing.Size(553, 662);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOk);

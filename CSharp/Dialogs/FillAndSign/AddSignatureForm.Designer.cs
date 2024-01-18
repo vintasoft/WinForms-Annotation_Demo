@@ -235,6 +235,7 @@ namespace AnnotationDemo
             // 
             // nameLabel
             // 
+            this.nameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.nameLabel.AutoSize = true;
             this.nameLabel.Location = new System.Drawing.Point(12, 432);
             this.nameLabel.Name = "nameLabel";
@@ -244,6 +245,7 @@ namespace AnnotationDemo
             // 
             // nameComboBox
             // 
+            this.nameComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.nameComboBox.FormattingEnabled = true;
             this.nameComboBox.Location = new System.Drawing.Point(57, 429);
             this.nameComboBox.Name = "nameComboBox";
