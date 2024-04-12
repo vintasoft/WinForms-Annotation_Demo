@@ -219,7 +219,7 @@ namespace DemosCommonCode.Office
         #region UI
 
         /// <summary>
-        /// Handles the Click event of ButtonOk object.
+        /// Handles the Click event of buttonOk object.
         /// </summary>
         private void buttonOk_Click(object sender, EventArgs e)
         {
@@ -230,7 +230,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the SelectedIndexChanged event of ChartComboBox object.
+        /// Handles the SelectedIndexChanged event of chartComboBox object.
         /// </summary>
         private void chartComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -245,7 +245,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the TextChanged event of TitleTextBox object.
+        /// Handles the TextChanged event of titleTextBox object.
         /// </summary>
         private void titleTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -257,7 +257,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of AddRowButton object.
+        /// Handles the Click event of addRowButton object.
         /// </summary>
         private void addRowButton_Click(object sender, EventArgs e)
         {
@@ -269,7 +269,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of AddColumnButton object.
+        /// Handles the Click event of addColumnButton object.
         /// </summary>
         private void addColumnButton_Click(object sender, EventArgs e)
         {
@@ -281,7 +281,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of InsertRowButton object.
+        /// Handles the Click event of insertRowButton object.
         /// </summary>
         private void insertRowButton_Click(object sender, EventArgs e)
         {
@@ -293,7 +293,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of RemoveRowButton object.
+        /// Handles the Click event of removeRowButton object.
         /// </summary>
         private void removeRowButton_Click(object sender, EventArgs e)
         {
@@ -306,7 +306,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of InsertColumnButton object.
+        /// Handles the Click event of insertColumnButton object.
         /// </summary>
         private void insertColumnButton_Click(object sender, EventArgs e)
         {
@@ -331,7 +331,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of RemoveColumnButton object.
+        /// Handles the Click event of removeColumnButton object.
         /// </summary>
         private void removeColumnButton_Click(object sender, EventArgs e)
         {
@@ -344,7 +344,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of ClearRowButton object.
+        /// Handles the Click event of clearRowButton object.
         /// </summary>
         private void clearRowButton_Click(object sender, EventArgs e)
         {
@@ -358,7 +358,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of ClearColumnButton object.
+        /// Handles the Click event of clearColumnButton object.
         /// </summary>
         private void clearColumnButton_Click(object sender, EventArgs e)
         {
@@ -372,7 +372,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event of ChartDataGridView object.
+        /// Handles the SelectionChanged event of chartDataGridView object.
         /// </summary>
         private void chartDataGridView_SelectionChanged(object sender, EventArgs e)
         {
@@ -380,7 +380,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the ColorChanged event of SeriesColorPanelControl object.
+        /// Handles the ColorChanged event of seriesColorPanelControl object.
         /// </summary>
         private void seriesColorPanelControl_ColorChanged(object sender, EventArgs e)
         {
@@ -396,7 +396,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the ColorChanged event of MarkerColorPanelControl object.
+        /// Handles the ColorChanged event of markerColorPanelControl object.
         /// </summary>
         private void markerColorPanelControl_ColorChanged(object sender, EventArgs e)
         {
@@ -409,7 +409,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the ColorChanged event of DataPointColorPanelControl object.
+        /// Handles the ColorChanged event of dataPointColorPanelControl object.
         /// </summary>
         private void dataPointColorPanelControl_ColorChanged(object sender, EventArgs e)
         {
@@ -425,7 +425,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the SelectedIndexChanged event of SeriesMarkerStyleComboBox object.
+        /// Handles the SelectedIndexChanged event of seriesMarkerStyleComboBox object.
         /// </summary>
         private void seriesMarkerStyleComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -440,7 +440,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of SeriesMarkerSizeNumericUpDown object.
+        /// Handles the ValueChanged event of seriesMarkerSizeNumericUpDown object.
         /// </summary>
         private void seriesMarkerSizeNumericUpDown_ValueChanged(object sender, EventArgs e)
         {

@@ -280,7 +280,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the EditingDisabled event of VisualEditor object.
+        /// Handles the EditingDisabled event of _visualEditor object.
         /// </summary>
         private void _visualEditor_EditingDisabled(object sender, EventArgs e)
         {
@@ -288,7 +288,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the EditingEnabled event of VisualEditor object.
+        /// Handles the EditingEnabled event of _visualEditor object.
         /// </summary>
         private void _visualEditor_EditingEnabled(object sender, EventArgs e)
         {
@@ -296,7 +296,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the DocumentChanged event of VisualEditor object.
+        /// Handles the DocumentChanged event of _visualEditor object.
         /// </summary>
         private void _visualEditor_DocumentChanged(object sender, EventArgs e)
         {

@@ -121,7 +121,7 @@ namespace DemosCommonCode.CustomControls
         #region Methods
 
         /// <summary>
-        /// Handles the CheckedChanged event of RadioButton object.
+        /// Handles the CheckedChanged event of radioButton object.
         /// </summary>
         private void radioButton_CheckedChanged(object sender, EventArgs e)
         {

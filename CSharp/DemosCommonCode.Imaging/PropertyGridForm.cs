@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace DemosCommonCode.Imaging
@@ -74,6 +74,9 @@ namespace DemosCommonCode.Imaging
 
         #region Methods
 
+        /// <summary>
+        /// Handles the PropertyValueChanged event of propertyGrid object.
+        /// </summary>
         private void propertyGrid_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
         {
             // property value is changed

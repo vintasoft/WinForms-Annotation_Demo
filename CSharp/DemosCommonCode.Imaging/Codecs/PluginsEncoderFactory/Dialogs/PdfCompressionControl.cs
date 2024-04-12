@@ -107,7 +107,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         #region UI
 
         /// <summary>
-        /// Handles the CheckedChanged event of CompressionRadioButton object.
+        /// Handles the CheckedChanged event of compressionRadioButton object.
         /// </summary>
         private void compressionRadioButton_CheckedChanged(object sender, EventArgs e)
         {
@@ -144,7 +144,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of JpegQualityNumericUpDown object.
+        /// Handles the ValueChanged event of jpegQualityNumericUpDown object.
         /// </summary>
         private void jpegQualityNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -155,7 +155,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of JpegGrayscaleCheckBox object.
+        /// Handles the CheckedChanged event of jpegGrayscaleCheckBox object.
         /// </summary>
         private void jpegGrayscaleCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -169,7 +169,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of Jbig2UseGlobalsCheckBox object.
+        /// Handles the CheckedChanged event of jbig2UseGlobalsCheckBox object.
         /// </summary>
         private void jbig2UseGlobalsCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -183,7 +183,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of ZipLevelNumericUpDown object.
+        /// Handles the ValueChanged event of zipLevelNumericUpDown object.
         /// </summary>
         private void zipLevelNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -194,7 +194,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the Click event of Jpeg2000SettingsButton object.
+        /// Handles the Click event of jpeg2000SettingsButton object.
         /// </summary>
         private void jpeg2000SettingsButton_Click(object sender, EventArgs e)
         {
@@ -210,7 +210,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the Click event of Jbig2SettingsButton object.
+        /// Handles the Click event of jbig2SettingsButton object.
         /// </summary>
         private void jbig2SettingsButton_Click(object sender, EventArgs e)
         {
@@ -228,7 +228,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the SelectedIndexChanged event of BinarizationModeComboBox object.
+        /// Handles the SelectedIndexChanged event of binarizationModeComboBox object.
         /// </summary>
         private void binarizationModeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -251,7 +251,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of ThresholdNumericUpDown object.
+        /// Handles the ValueChanged event of thresholdNumericUpDown object.
         /// </summary>
         private void thresholdNumericUpDown_ValueChanged(object sender, EventArgs e)
         {

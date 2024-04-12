@@ -227,7 +227,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of SelectedImageNumericUpDown object.
+        /// Handles the ValueChanged event of selectedImageNumericUpDown object.
         /// </summary>
         private void selectedImageNumericUpDown_ValueChanged(object sender, EventArgs e)
         {

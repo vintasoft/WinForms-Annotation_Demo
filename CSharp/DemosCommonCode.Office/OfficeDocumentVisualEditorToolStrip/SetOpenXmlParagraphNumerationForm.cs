@@ -93,7 +93,7 @@ namespace DemosCommonCode.Office
         #region UI
 
         /// <summary>
-        /// Handles the Click event of ImportButton object.
+        /// Handles the Click event of importButton object.
         /// </summary>
         private void importButton_Click(object sender, EventArgs e)
         {
@@ -112,7 +112,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of ButtonCancel object.
+        /// Handles the Click event of buttonCancel object.
         /// </summary>
         private void buttonCancel_Click(object sender, EventArgs e)
         {
@@ -120,7 +120,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the SelectedIndexChanged event of NumerationDefinitionsListBox object.
+        /// Handles the SelectedIndexChanged event of numerationDefinitionsListBox object.
         /// </summary>
         private void numerationDefinitionsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -129,7 +129,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of ButtonOk object.
+        /// Handles the Click event of buttonOk object.
         /// </summary>
         private void buttonOk_Click(object sender, EventArgs e)
         {
@@ -147,7 +147,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of RestartButton object.
+        /// Handles the Click event of restartButton object.
         /// </summary>
         private void restartButton_Click(object sender, EventArgs e)
         {

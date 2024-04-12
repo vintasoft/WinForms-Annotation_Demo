@@ -119,7 +119,7 @@ namespace AnnotationDemo
         #region UI
 
         /// <summary>
-        /// Handles the ButtonClick event of AddToolStripSplitButton object.
+        /// Handles the ButtonClick event of addToolStripSplitButton object.
         /// </summary>
         private void addToolStripSplitButton_ButtonClick(object sender, EventArgs e)
         {
@@ -127,7 +127,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of AddSignatureToolStripMenuItem object.
+        /// Handles the Click event of addSignatureToolStripMenuItem object.
         /// </summary>
         private void addSignatureToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -141,7 +141,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of AddInitialsToolStripMenuItem object.
+        /// Handles the Click event of addInitialsToolStripMenuItem object.
         /// </summary>
         private void addInitialsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -155,7 +155,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of AddTitleToolStripMenuItem object.
+        /// Handles the Click event of addTitleToolStripMenuItem object.
         /// </summary>
         private void addTitleToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -169,7 +169,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of AddFromFileToolStripMenuItem object.
+        /// Handles the Click event of addFromFileToolStripMenuItem object.
         /// </summary>
         private void addFromFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -187,7 +187,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the ButtonClick event of RemoveToolStripSplitButton object.
+        /// Handles the ButtonClick event of removeToolStripSplitButton object.
         /// </summary>
         private void removeToolStripSplitButton_ButtonClick(object sender, EventArgs e)
         {
@@ -195,7 +195,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of RemoveAllToolStripMenuItem object.
+        /// Handles the Click event of removeAllToolStripMenuItem object.
         /// </summary>
         private void removeAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -203,7 +203,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of SaveToolStripButton object.
+        /// Handles the Click event of saveToolStripButton object.
         /// </summary>
         private void saveToolStripButton_Click(object sender, EventArgs e)
         {
@@ -237,7 +237,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of OkButton object.
+        /// Handles the Click event of okButton object.
         /// </summary>
         private void okButton_Click(object sender, EventArgs e)
         {

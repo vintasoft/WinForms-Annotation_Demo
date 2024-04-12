@@ -109,7 +109,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         #region UI
 
         /// <summary>
-        /// Handles the CheckedChanged event of CompressionLossyCheckBox object.
+        /// Handles the CheckedChanged event of compressionLossyCheckBox object.
         /// </summary>
         private void compressionLossyCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -121,7 +121,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of CheckBoxUseSD object.
+        /// Handles the CheckedChanged event of checkBoxUseSD object.
         /// </summary>
         private void checkBoxUseSD_CheckedChanged(object sender, EventArgs e)
         {
@@ -133,7 +133,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the Click event of ButtonOk object.
+        /// Handles the Click event of buttonOk object.
         /// </summary>
         private void buttonOk_Click(object sender, EventArgs e)
         {
@@ -144,7 +144,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the Click event of ButtonCancel object.
+        /// Handles the Click event of buttonCancel object.
         /// </summary>
         private void buttonCancel_Click(object sender, EventArgs e)
         {

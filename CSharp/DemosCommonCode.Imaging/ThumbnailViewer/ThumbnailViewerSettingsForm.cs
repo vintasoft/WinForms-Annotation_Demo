@@ -103,7 +103,7 @@ namespace DemosCommonCode.Imaging
         #region UI
 
         /// <summary>
-        /// Handles the Click event of ButtonOk object.
+        /// Handles the Click event of buttonOk object.
         /// </summary>
         private void buttonOk_Click(object sender, EventArgs e)
         {
@@ -113,7 +113,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the SelectedIndexChanged event of ThumbnailAppearanceComboBox object.
+        /// Handles the SelectedIndexChanged event of thumbnailAppearanceComboBox object.
         /// </summary>
         private void thumbnailAppearanceComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -122,7 +122,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of EditThumbnailAppearanceButton object.
+        /// Handles the Click event of editThumbnailAppearanceButton object.
         /// </summary>
         private void editThumbnailAppearanceButton_Click(object sender, EventArgs e)
         {
@@ -141,7 +141,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the SelectedIndexChanged event of ThumbnailFlowStyleComboBox object.
+        /// Handles the SelectedIndexChanged event of thumbnailFlowStyleComboBox object.
         /// </summary>
         private void thumbnailFlowStyleComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -157,7 +157,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of CaptionIsVisibleCheckBox object.
+        /// Handles the CheckedChanged event of captionIsVisibleCheckBox object.
         /// </summary>
         private void captionIsVisibleCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -169,7 +169,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of CaptionFontSelectButton object.
+        /// Handles the Click event of captionFontSelectButton object.
         /// </summary>
         private void captionFontSelectButton_Click(object sender, EventArgs e)
         {
@@ -178,7 +178,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of CaptionFormatHelpButton object.
+        /// Handles the Click event of captionFormatHelpButton object.
         /// </summary>
         private void captionFormatHelpButton_Click(object sender, EventArgs e)
         {

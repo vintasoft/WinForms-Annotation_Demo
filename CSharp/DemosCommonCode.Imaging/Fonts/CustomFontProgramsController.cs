@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-
+using System.Runtime.Serialization;
 using Vintasoft.Imaging.Fonts;
 
 
@@ -28,10 +28,28 @@ namespace DemosCommonCode.Imaging
         #region Constructors
 
         /// <summary>
+        /// Initializes the <see cref="CustomFontProgramsController"/> class.
+        /// </summary>
+        static CustomFontProgramsController()
+        {
+            RegisterSerializingType<CustomFontProgramsController>();
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="CustomFontProgramsController"/> class.
         /// </summary>
         public CustomFontProgramsController()
             : base(true, "fonts")
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CustomFontProgramsController"/> class.
+        /// </summary>
+        /// <param name="info">The SerializationInfo to populate with data.</param>
+        /// <param name="context">The destination for this serialization.</param>
+        public CustomFontProgramsController(SerializationInfo info, StreamingContext context)
+            : base(info, context)
         {
         }
 

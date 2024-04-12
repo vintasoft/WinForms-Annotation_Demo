@@ -248,7 +248,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of VisibleOnViewerCheckBox object.
+        /// Handles the CheckedChanged event of visibleOnViewerCheckBox object.
         /// </summary>
         private void visibleOnViewerCheckBox_CheckedChanged(object sender, EventArgs e)
         {

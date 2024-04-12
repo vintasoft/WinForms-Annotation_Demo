@@ -145,7 +145,7 @@ namespace DemosCommonCode.Office
         #region UI
 
         /// <summary>
-        /// Handles the Click event of ButtonOk object.
+        /// Handles the Click event of buttonOk object.
         /// </summary>
         private void buttonOk_Click(object sender, EventArgs e)
         {
@@ -154,7 +154,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of ButtonCancel object.
+        /// Handles the Click event of buttonCancel object.
         /// </summary>
         private void buttonCancel_Click(object sender, EventArgs e)
         {
@@ -162,7 +162,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of SubscriptCheckBox object.
+        /// Handles the CheckedChanged event of subscriptCheckBox object.
         /// </summary>
         private void subscriptCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -171,7 +171,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of SuperscriptCheckBox object.
+        /// Handles the CheckedChanged event of superscriptCheckBox object.
         /// </summary>
         private void superscriptCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -180,7 +180,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of StrikeoutCheckBox object.
+        /// Handles the CheckedChanged event of strikeoutCheckBox object.
         /// </summary>
         private void strikeoutCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -189,7 +189,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of DoubleStrikeoutcheckBox object.
+        /// Handles the CheckedChanged event of doubleStrikeoutcheckBox object.
         /// </summary>
         private void doubleStrikeoutcheckBox_CheckedChanged(object sender, EventArgs e)
         {

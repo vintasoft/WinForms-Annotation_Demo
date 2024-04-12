@@ -134,7 +134,7 @@ namespace DemosCommonCode.Imaging
         #region Methods
 
         /// <summary>
-        /// Handles the Click event of FontButton object.
+        /// Handles the Click event of fontButton object.
         /// </summary>
         private void fontButton_Click(object sender, EventArgs e)
         {
@@ -143,7 +143,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of OkButton object.
+        /// Handles the Click event of okButton object.
         /// </summary>
         private void okButton_Click(object sender, EventArgs e)
         {

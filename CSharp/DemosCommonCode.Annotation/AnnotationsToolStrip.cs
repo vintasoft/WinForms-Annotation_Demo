@@ -430,7 +430,7 @@ namespace DemosCommonCode.Annotation
         #region UI
 
         /// <summary>
-        /// Handles the Click event of BuildAnnotationButton object.
+        /// Handles the Click event of buildAnnotationButton object.
         /// </summary>
         private void buildAnnotationButton_Click(object sender, EventArgs e)
         {
@@ -478,7 +478,7 @@ namespace DemosCommonCode.Annotation
         #region #region Annotation viewer
 
         /// <summary>
-        /// Handles the AnnotationBuildingCanceled event of AnnotationViewer object.
+        /// Handles the AnnotationBuildingCanceled event of annotationViewer object.
         /// </summary>
         private void annotationViewer_AnnotationBuildingCanceled(object sender, AnnotationViewEventArgs e)
         {
@@ -490,7 +490,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the AnnotationBuildingFinished event of AnnotationViewer object.
+        /// Handles the AnnotationBuildingFinished event of annotationViewer object.
         /// </summary>
         private void annotationViewer_AnnotationBuildingFinished(object sender, AnnotationViewEventArgs e)
         {
@@ -563,7 +563,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the AnnotationInteractionModeChanging event of AnnotationViewer object.
+        /// Handles the AnnotationInteractionModeChanging event of annotationViewer object.
         /// </summary>
         private void annotationViewer_AnnotationInteractionModeChanging(
             object sender,
@@ -621,7 +621,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the FocusedIndexChanging event of AnnotationViewer object.
+        /// Handles the FocusedIndexChanging event of annotationViewer object.
         /// </summary>
         private void annotationViewer_FocusedIndexChanging(object sender, FocusedIndexChangedEventArgs e)
         {

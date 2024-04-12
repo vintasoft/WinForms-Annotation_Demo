@@ -190,7 +190,7 @@ namespace DemosCommonCode.CustomControls
         #region UI
 
         /// <summary>
-        /// Handles the Scroll event of ValueTrackBar object.
+        /// Handles the Scroll event of valueTrackBar object.
         /// </summary>
         private void valueTrackBar_Scroll(object sender, EventArgs e)
         {
@@ -201,7 +201,7 @@ namespace DemosCommonCode.CustomControls
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of ValueNumericUpDown object.
+        /// Handles the ValueChanged event of valueNumericUpDown object.
         /// </summary>
         private void valueNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -214,7 +214,7 @@ namespace DemosCommonCode.CustomControls
         }
 
         /// <summary>
-        /// Handles the Click event of ResetButton object.
+        /// Handles the Click event of resetButton object.
         /// </summary>
         private void resetButton_Click(object sender, EventArgs e)
         {

@@ -97,7 +97,7 @@ namespace DemosCommonCode.Imaging
         #region Methods
 
         /// <summary>
-        /// Handles the Click event of OkButton object.
+        /// Handles the Click event of okButton object.
         /// </summary>
         private void okButton_Click(object sender, EventArgs e)
         {
@@ -130,7 +130,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of CompressedVintasoftImageOnDiskRadioButton object.
+        /// Handles the CheckedChanged event of compressedVintasoftImageOnDiskRadioButton object.
         /// </summary>
         private void compressedVintasoftImageOnDiskRadioButton_CheckedChanged(object sender, EventArgs e)
         {
@@ -142,7 +142,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of StorageFolderButton object.
+        /// Handles the Click event of storageFolderButton object.
         /// </summary>
         private void storageFolderButton_Click(object sender, EventArgs e)
         {

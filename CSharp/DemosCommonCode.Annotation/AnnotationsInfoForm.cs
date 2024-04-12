@@ -203,7 +203,7 @@ namespace DemosCommonCode.Annotation
         #region Methods
 
         /// <summary>
-        /// Handles the SelectedIndexChanged event of AnnoInfoListView object.
+        /// Handles the SelectedIndexChanged event of annoInfoListView object.
         /// </summary>
         private void annoInfoListView_SelectedIndexChanged(object sender, System.EventArgs e)
         {

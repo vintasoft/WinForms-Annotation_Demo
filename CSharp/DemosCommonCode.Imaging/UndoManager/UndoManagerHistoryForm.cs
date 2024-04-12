@@ -92,7 +92,7 @@ namespace DemosCommonCode.Imaging
         #region Methods
 
         /// <summary>
-        /// Handles the SelectedIndexChanged event of UndoManagerHistoryListBox object.
+        /// Handles the SelectedIndexChanged event of undoManagerHistoryListBox object.
         /// </summary>
         private void undoManagerHistoryListBox_SelectedIndexChanged(object sender, EventArgs e)
         {

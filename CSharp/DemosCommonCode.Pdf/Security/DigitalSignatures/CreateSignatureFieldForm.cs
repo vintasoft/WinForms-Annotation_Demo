@@ -491,7 +491,7 @@ namespace DemosCommonCode.Pdf.Security
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of AddTimestampCheckBox object.
+        /// Handles the CheckedChanged event of addTimestampCheckBox object.
         /// </summary>
         private void addTimestampCheckBox_CheckedChanged(object sender, EventArgs e)
         {

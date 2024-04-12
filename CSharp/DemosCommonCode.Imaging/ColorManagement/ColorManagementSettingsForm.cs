@@ -136,7 +136,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
         #region UI
 
         /// <summary>
-        /// Handles the Click event of SetInputProfileButton object.
+        /// Handles the Click event of setInputProfileButton object.
         /// </summary>
         private void setInputProfileButton_Click(object sender, EventArgs e)
         {
@@ -186,7 +186,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
         }
 
         /// <summary>
-        /// Handles the Click event of SetOutputProfileButton object.
+        /// Handles the Click event of setOutputProfileButton object.
         /// </summary>
         private void setOutputProfileButton_Click(object sender, EventArgs e)
         {
@@ -229,7 +229,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
         }
 
         /// <summary>
-        /// Handles the Click event of RemoveInputCmykButton object.
+        /// Handles the Click event of removeInputCmykButton object.
         /// </summary>
         private void removeInputCmykButton_Click(object sender, EventArgs e)
         {
@@ -247,7 +247,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
         }
 
         /// <summary>
-        /// Handles the Click event of RemoveInputRgbButton object.
+        /// Handles the Click event of removeInputRgbButton object.
         /// </summary>
         private void removeInputRgbButton_Click(object sender, EventArgs e)
         {
@@ -265,7 +265,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
         }
 
         /// <summary>
-        /// Handles the Click event of RemoveInputGrayscaleButton object.
+        /// Handles the Click event of removeInputGrayscaleButton object.
         /// </summary>
         private void removeInputGrayscaleButton_Click(object sender, EventArgs e)
         {
@@ -283,7 +283,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
         }
 
         /// <summary>
-        /// Handles the Click event of RemoveOutputRgbButton object.
+        /// Handles the Click event of removeOutputRgbButton object.
         /// </summary>
         private void removeOutputRgbButton_Click(object sender, EventArgs e)
         {
@@ -301,7 +301,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
         }
 
         /// <summary>
-        /// Handles the Click event of RemoveOutputGrayscaleButton object.
+        /// Handles the Click event of removeOutputGrayscaleButton object.
         /// </summary>
         private void removeOutputGrayscaleButton_Click(object sender, EventArgs e)
         {
@@ -319,7 +319,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
         }
 
         /// <summary>
-        /// Handles the Click event of EditColorTransformsButton object.
+        /// Handles the Click event of editColorTransformsButton object.
         /// </summary>
         private void editColorTransformsButton_Click(object sender, EventArgs e)
         {
@@ -338,7 +338,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of EnableColorManagementCheckBox object.
+        /// Handles the CheckedChanged event of enableColorManagementCheckBox object.
         /// </summary>
         private void enableColorManagementCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -367,7 +367,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
         }
 
         /// <summary>
-        /// Handles the Click event of ButtonOk object.
+        /// Handles the Click event of buttonOk object.
         /// </summary>
         private void buttonOk_Click(object sender, EventArgs e)
         {
@@ -377,7 +377,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
         }
 
         /// <summary>
-        /// Handles the Click event of ButtonCancel object.
+        /// Handles the Click event of buttonCancel object.
         /// </summary>
         private void buttonCancel_Click(object sender, EventArgs e)
         {

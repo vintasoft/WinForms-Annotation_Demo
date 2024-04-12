@@ -689,7 +689,7 @@ namespace AnnotationDemo
         #region 'File' menu
 
         /// <summary>
-        /// Handles the Click event of OpenToolStripMenuItem object.
+        /// Handles the Click event of openToolStripMenuItem object.
         /// </summary>
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -698,7 +698,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the OpenFile event of ViewerToolStrip object.
+        /// Handles the OpenFile event of viewerToolStrip object.
         /// </summary>
         private void viewerToolStrip_OpenFile(object sender, EventArgs e)
         {
@@ -707,7 +707,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of AddToolStripMenuItem object.
+        /// Handles the Click event of addToolStripMenuItem object.
         /// </summary>
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -739,7 +739,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of SaveCurrentImageToolStripMenuItem object.
+        /// Handles the Click event of saveCurrentImageToolStripMenuItem object.
         /// </summary>
         private void saveCurrentImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -748,7 +748,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of SaveAsToolStripMenuItem object.
+        /// Handles the Click event of saveAsToolStripMenuItem object.
         /// </summary>
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -757,7 +757,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the SaveFile event of ViewerToolStrip object.
+        /// Handles the SaveFile event of viewerToolStrip object.
         /// </summary>
         private void viewerToolStrip_SaveFile(object sender, EventArgs e)
         {
@@ -766,7 +766,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of SaveToolStripMenuItem object.
+        /// Handles the Click event of saveToolStripMenuItem object.
         /// </summary>
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -776,7 +776,7 @@ namespace AnnotationDemo
 
 
         /// <summary>
-        /// Handles the Click event of CloseToolStripMenuItem object.
+        /// Handles the Click event of closeToolStripMenuItem object.
         /// </summary>
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -788,7 +788,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of PrintToolStripMenuItem object.
+        /// Handles the Click event of printToolStripMenuItem object.
         /// </summary>
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -796,7 +796,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Print event of ViewerToolStrip object.
+        /// Handles the Print event of viewerToolStrip object.
         /// </summary>
         private void viewerToolStrip_Print(object sender, EventArgs e)
         {
@@ -804,7 +804,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of ExitToolStripMenuItem object.
+        /// Handles the Click event of exitToolStripMenuItem object.
         /// </summary>
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -818,7 +818,7 @@ namespace AnnotationDemo
         #region 'Edit' menu
 
         /// <summary>
-        /// Handles the Click event of EnableUndoRedoToolStripMenuItem object.
+        /// Handles the Click event of enableUndoRedoToolStripMenuItem object.
         /// </summary>
         private void enableUndoRedoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -841,7 +841,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of UndoToolStripMenuItem object.
+        /// Handles the Click event of undoToolStripMenuItem object.
         /// </summary>
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -854,7 +854,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of RedoToolStripMenuItem object.
+        /// Handles the Click event of redoToolStripMenuItem object.
         /// </summary>
         private void redoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -867,7 +867,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of UndoRedoSettingsToolStripMenuItem object.
+        /// Handles the Click event of undoRedoSettingsToolStripMenuItem object.
         /// </summary>
         private void undoRedoSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -928,7 +928,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of ShowHistoryForDisplayedImagesToolStripMenuItem object.
+        /// Handles the Click event of showHistoryForDisplayedImagesToolStripMenuItem object.
         /// </summary>
         private void showHistoryForDisplayedImagesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -967,7 +967,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of ThumbnailViewerSettingsToolStripMenuItem object.
+        /// Handles the Click event of thumbnailViewerSettingsToolStripMenuItem object.
         /// </summary>
         private void thumbnailViewerSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -979,7 +979,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of BoundAnnotationsToolStripMenuItem object.
+        /// Handles the Click event of boundAnnotationsToolStripMenuItem object.
         /// </summary>
         private void boundAnnotationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -988,7 +988,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of MoveAnnotationsBetweenImagesToolStripMenuItem object.
+        /// Handles the CheckedChanged event of moveAnnotationsBetweenImagesToolStripMenuItem object.
         /// </summary>
         private void moveAnnotationsBetweenImagesToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
         {
@@ -997,7 +997,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of RotateClockwiseToolStripMenuItem object.
+        /// Handles the Click event of rotateClockwiseToolStripMenuItem object.
         /// </summary>
         private void rotateClockwiseToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1005,7 +1005,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of RotateCounterclockwiseToolStripMenuItem object.
+        /// Handles the Click event of rotateCounterclockwiseToolStripMenuItem object.
         /// </summary>
         private void rotateCounterclockwiseToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1013,7 +1013,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of AnnotationViewerSettingsToolStripMenuItem object.
+        /// Handles the Click event of annotationViewerSettingsToolStripMenuItem object.
         /// </summary>
         private void annotationViewerSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1026,7 +1026,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of ImageSizeMode object.
+        /// Handles the Click event of imageSizeMode object.
         /// </summary>
         private void imageSizeMode_Click(object sender, EventArgs e)
         {
@@ -1055,7 +1055,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of ShowEventsLogToolStripMenuItem object.
+        /// Handles the Click event of showEventsLogToolStripMenuItem object.
         /// </summary>
         private void showEventsLogToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1074,7 +1074,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of InteractionPointsAppearanceToolStripMenuItem object.
+        /// Handles the Click event of interactionPointsAppearanceToolStripMenuItem object.
         /// </summary>
         private void interactionPointsAppearanceToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1087,7 +1087,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of ColorManagementToolStripMenuItem object.
+        /// Handles the Click event of colorManagementToolStripMenuItem object.
         /// </summary>
         private void colorManagementToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1096,7 +1096,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of SpellCheckSettingsToolStripMenuItem object.
+        /// Handles the Click event of spellCheckSettingsToolStripMenuItem object.
         /// </summary>
         private void spellCheckSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1111,7 +1111,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of SpellCheckViewSettingsToolStripMenuItem object.
+        /// Handles the Click event of spellCheckViewSettingsToolStripMenuItem object.
         /// </summary>
         private void spellCheckViewSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1129,7 +1129,7 @@ namespace AnnotationDemo
         #region 'Annotation' menu
 
         /// <summary>
-        /// Handles the DropDownOpening event of AnnotationsToolStripMenuItem object.
+        /// Handles the DropDownOpening event of annotationsToolStripMenuItem object.
         /// </summary>
         private void annotationsToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
         {
@@ -1151,7 +1151,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the DropDownClosed event of AnnotationsToolStripMenuItem object.
+        /// Handles the DropDownClosed event of annotationsToolStripMenuItem object.
         /// </summary>
         private void annotationsToolStripMenuItem_DropDownClosed(object sender, EventArgs e)
         {
@@ -1160,7 +1160,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of AnnotationsInfoToolStripMenuItem object.
+        /// Handles the Click event of annotationsInfoToolStripMenuItem object.
         /// </summary>
         private void annotationsInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1172,7 +1172,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of AddAnnotationToolStripMenuItem object.
+        /// Handles the Click event of addAnnotationToolStripMenuItem object.
         /// </summary>
         private void addAnnotationToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1183,7 +1183,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of BuildAnnotationsContinuouslyToolStripMenuItem object.
+        /// Handles the CheckedChanged event of buildAnnotationsContinuouslyToolStripMenuItem object.
         /// </summary>
         private void buildAnnotationsContinuouslyToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
         {
@@ -1194,7 +1194,7 @@ namespace AnnotationDemo
         #region Interaction Mode
 
         /// <summary>
-        /// Handles the Click event of NoneToolStripMenuItem object.
+        /// Handles the Click event of noneToolStripMenuItem object.
         /// </summary>
         private void noneToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1203,7 +1203,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of ViewToolStripMenuItem1 object.
+        /// Handles the Click event of viewToolStripMenuItem1 object.
         /// </summary>
         private void viewToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -1212,7 +1212,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of AuthorToolStripMenuItem object.
+        /// Handles the Click event of authorToolStripMenuItem object.
         /// </summary>
         private void authorToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1226,7 +1226,7 @@ namespace AnnotationDemo
         #region Transformation Mode
 
         /// <summary>
-        /// Handles the Click event of RectangularToolStripMenuItem object.
+        /// Handles the Click event of rectangularToolStripMenuItem object.
         /// </summary>
         private void rectangularToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1236,7 +1236,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of PointsToolStripMenuItem object.
+        /// Handles the Click event of pointsToolStripMenuItem object.
         /// </summary>
         private void pointsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1246,7 +1246,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of RectangularAndPointsToolStripMenuItem object.
+        /// Handles the Click event of rectangularAndPointsToolStripMenuItem object.
         /// </summary>
         private void rectangularAndPointsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1261,7 +1261,7 @@ namespace AnnotationDemo
         #region Load and save annotations
 
         /// <summary>
-        /// Handles the Click event of LoadAnnotationsFromFileToolStripMenuItem object.
+        /// Handles the Click event of loadAnnotationsFromFileToolStripMenuItem object.
         /// </summary>
         private void loadAnnotationsFromFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1274,7 +1274,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of SaveAnnotationsToFileToolStripMenuItem object.
+        /// Handles the Click event of saveAnnotationsToFileToolStripMenuItem object.
         /// </summary>
         private void saveAnnotationsToFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1292,7 +1292,7 @@ namespace AnnotationDemo
         #region UI actions
 
         /// <summary>
-        /// Handles the Click event of CutAnnotationToolStripMenuItem object.
+        /// Handles the Click event of cutAnnotationToolStripMenuItem object.
         /// </summary>
         private void cutAnnotationToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1301,7 +1301,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of CopyAnnotationToolStripMenuItem object.
+        /// Handles the Click event of copyAnnotationToolStripMenuItem object.
         /// </summary>
         private void copyAnnotationToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1310,7 +1310,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of PasteAnnotationToolStripMenuItem object.
+        /// Handles the Click event of pasteAnnotationToolStripMenuItem object.
         /// </summary>
         private void pasteAnnotationToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1319,7 +1319,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of PasteAnnotationInMousePositionToolStripMenuItem object.
+        /// Handles the Click event of pasteAnnotationInMousePositionToolStripMenuItem object.
         /// </summary>
         private void pasteAnnotationInMousePositionToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1329,7 +1329,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of DeleteAnnotationToolStripMenuItem object.
+        /// Handles the Click event of deleteAnnotationToolStripMenuItem object.
         /// </summary>
         private void deleteAnnotationToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1350,7 +1350,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of DeleteAllAnnotationsToolStripMenuItem object.
+        /// Handles the Click event of deleteAllAnnotationsToolStripMenuItem object.
         /// </summary>
         private void deleteAllAnnotationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1362,7 +1362,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of BringToBackToolStripMenuItem object.
+        /// Handles the Click event of bringToBackToolStripMenuItem object.
         /// </summary>
         private void bringToBackToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1377,7 +1377,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of BringToFrontToolStripMenuItem object.
+        /// Handles the Click event of bringToFrontToolStripMenuItem object.
         /// </summary>
         private void bringToFrontToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1392,7 +1392,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of MultiSelectToolStripMenuItem object.
+        /// Handles the Click event of multiSelectToolStripMenuItem object.
         /// </summary>
         private void multiSelectToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1402,7 +1402,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of SelectAllAnnotationsToolStripMenuItem object.
+        /// Handles the Click event of selectAllAnnotationsToolStripMenuItem object.
         /// </summary>
         private void selectAllAnnotationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1411,7 +1411,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of DeselectAllToolStripMenuItem object.
+        /// Handles the Click event of deselectAllToolStripMenuItem object.
         /// </summary>
         private void deselectAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1435,7 +1435,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of GroupSelectedToolStripMenuItem object.
+        /// Handles the Click event of groupSelectedToolStripMenuItem object.
         /// </summary>
         private void groupSelectedToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1444,7 +1444,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of GroupAllToolStripMenuItem object.
+        /// Handles the Click event of groupAllToolStripMenuItem object.
         /// </summary>
         private void groupAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1458,7 +1458,7 @@ namespace AnnotationDemo
         #region Rotate, Burn, Clone
 
         /// <summary>
-        /// Handles the Click event of RotateImageWithAnnotationsToolStripMenuItem object.
+        /// Handles the Click event of rotateImageWithAnnotationsToolStripMenuItem object.
         /// </summary>
         private void rotateImageWithAnnotationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1467,7 +1467,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of BurnAnnotationsOnImageToolStripMenuItem object.
+        /// Handles the Click event of burnAnnotationsOnImageToolStripMenuItem object.
         /// </summary>
         private void burnAnnotationsOnImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1496,7 +1496,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of CloneImageWithAnnotationsToolStripMenuItem object.
+        /// Handles the Click event of cloneImageWithAnnotationsToolStripMenuItem object.
         /// </summary>
         private void cloneImageWithAnnotationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1516,7 +1516,7 @@ namespace AnnotationDemo
         #region 'Fill and Sign'
 
         /// <summary>
-        /// Handles the Click event of FillSignatureToolStripMenuItem object.
+        /// Handles the Click event of fillSignatureToolStripMenuItem object.
         /// </summary>
         private void fillSignatureToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1551,7 +1551,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of SignDocumentToolStripMenuItem object.
+        /// Handles the Click event of signDocumentToolStripMenuItem object.
         /// </summary>
         private void signDocumentToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1677,6 +1677,9 @@ namespace AnnotationDemo
         }
 
 #if !REMOVE_PDF_PLUGIN
+        /// <summary>
+        /// Handles the SignatureRequest event of PdfPageSignatureManager object.
+        /// </summary>
         private void PdfPageSignatureManager_SignatureRequest(object sender, SignatureRequestEventArgs e)
         {
             // create dialog that allows to perform signing of PDF document
@@ -1694,7 +1697,7 @@ namespace AnnotationDemo
 #endif
 
         /// <summary>
-        /// Handles the Click event of VerifySignaturesToolStripMenuItem object.
+        /// Handles the Click event of verifySignaturesToolStripMenuItem object.
         /// </summary>
         private void verifySignaturesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1718,7 +1721,7 @@ namespace AnnotationDemo
         #region 'Help' menu
 
         /// <summary>
-        /// Handles the Click event of AboutToolStripMenuItem object.
+        /// Handles the Click event of aboutToolStripMenuItem object.
         /// </summary>
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1735,7 +1738,7 @@ namespace AnnotationDemo
         #region Context menu
 
         /// <summary>
-        /// Handles the Click event of SaveImageWithAnnotationsToolStripMenuItem object.
+        /// Handles the Click event of saveImageWithAnnotationsToolStripMenuItem object.
         /// </summary>
         private void saveImageWithAnnotationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1744,7 +1747,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of CopyImageToClipboardToolStripMenuItem object.
+        /// Handles the Click event of copyImageToClipboardToolStripMenuItem object.
         /// </summary>
         private void copyImageToClipboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1753,7 +1756,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of DeleteImageToolStripMenuItem object.
+        /// Handles the Click event of deleteImageToolStripMenuItem object.
         /// </summary>
         private void deleteImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1765,7 +1768,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Opening event of AnnotationMenu object.
+        /// Handles the Opening event of annotationMenu object.
         /// </summary>
         private void annotationMenu_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -1776,7 +1779,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Opening event of AnnotationViewerMenu object.
+        /// Handles the Opening event of annotationViewerMenu object.
         /// </summary>
         private void annotationViewerMenu_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -1789,7 +1792,7 @@ namespace AnnotationDemo
         #region Annotation viewer
 
         /// <summary>
-        /// Handles the MouseMove event of AnnotationViewer1 object.
+        /// Handles the MouseMove event of annotationViewer1 object.
         /// </summary>
         private void annotationViewer1_MouseMove(object sender, MouseEventArgs e)
         {
@@ -1849,7 +1852,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the AutoScrollPositionExChanging event of AnnotationViewer1 object.
+        /// Handles the AutoScrollPositionExChanging event of annotationViewer1 object.
         /// </summary>
         private void annotationViewer1_AutoScrollPositionExChanging(object sender, PropertyChangingEventArgs<PointF> e)
         {
@@ -1890,7 +1893,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the VisualToolException event of AnnotationViewer1 object.
+        /// Handles the VisualToolException event of annotationViewer1 object.
         /// </summary>
         private void annotationViewer1_VisualToolException(object sender, ExceptionEventArgs e)
         {
@@ -1899,7 +1902,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the ImageLoading event of AnnotationViewer1 object.
+        /// Handles the ImageLoading event of annotationViewer1 object.
         /// </summary>
         private void annotationViewer1_ImageLoading(object sender, ImageLoadingEventArgs e)
         {
@@ -1911,7 +1914,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the ImageLoadingProgress event of AnnotationViewer1 object.
+        /// Handles the ImageLoadingProgress event of annotationViewer1 object.
         /// </summary>
         private void annotationViewer1_ImageLoadingProgress(object sender, ProgressEventArgs e)
         {
@@ -1925,7 +1928,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the ImageLoaded event of AnnotationViewer1 object.
+        /// Handles the ImageLoaded event of annotationViewer1 object.
         /// </summary>
         private void annotationViewer1_ImageLoaded(object sender, ImageLoadedEventArgs e)
         {
@@ -1961,7 +1964,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the KeyDown event of AnnotationViewer1 object.
+        /// Handles the KeyDown event of annotationViewer1 object.
         /// </summary>
         private void annotationViewer1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -2105,7 +2108,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the KeyPress event of AnnotationViewer1 object.
+        /// Handles the KeyPress event of annotationViewer1 object.
         /// </summary>
         private void annotationViewer1_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -2128,7 +2131,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the AnnotationInteractionModeChanged event of AnnotationViewer1 object.
+        /// Handles the AnnotationInteractionModeChanged event of annotationViewer1 object.
         /// </summary>
         private void annotationViewer1_AnnotationInteractionModeChanged(object sender, AnnotationInteractionModeChangedEventArgs e)
         {
@@ -2160,7 +2163,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the ImageCollectionChanged event of Images property of AnnotationViewer1 object.
+        /// Handles the Images_ImageCollectionChanged event of annotationViewer1 object.
         /// </summary>
         private void annotationViewer1_Images_ImageCollectionChanged(object sender, ImageCollectionChangeEventArgs e)
         {
@@ -2174,7 +2177,7 @@ namespace AnnotationDemo
         #region Thumbnail viewer
 
         /// <summary>
-        /// Handles the ThumbnailsLoadingProgress event of ThumbnailViewer1 object.
+        /// Handles the ThumbnailsLoadingProgress event of thumbnailViewer1 object.
         /// </summary>
         private void thumbnailViewer1_ThumbnailsLoadingProgress(object sender, ThumbnailsLoadingProgressEventArgs e)
         {
@@ -2197,7 +2200,7 @@ namespace AnnotationDemo
         #region Annotations's combobox AND annotation's property grid
 
         /// <summary>
-        /// Handles the DropDown event of AnnotationComboBox object.
+        /// Handles the DropDown event of annotationComboBox object.
         /// </summary>
         private void annotationComboBox_DropDown(object sender, EventArgs e)
         {
@@ -2206,7 +2209,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the SelectedIndexChanged event of AnnotationComboBox object.
+        /// Handles the SelectedIndexChanged event of annotationComboBox object.
         /// </summary>
         private void annotationComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -2218,7 +2221,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the SelectedAnnotationChanged event of AnnotationViewer1 object.
+        /// Handles the SelectedAnnotationChanged event of annotationViewer1 object.
         /// </summary>
         private void annotationViewer1_SelectedAnnotationChanged(object sender, AnnotationViewChangedEventArgs e)
         {
@@ -2246,7 +2249,7 @@ namespace AnnotationDemo
         #region Annotation interaction mode
 
         /// <summary>
-        /// Handles the SelectedIndexChanged event of AnnotationInteractionModeToolStripComboBox object.
+        /// Handles the SelectedIndexChanged event of annotationInteractionModeToolStripComboBox object.
         /// </summary>
         private void annotationInteractionModeToolStripComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -2266,7 +2269,7 @@ namespace AnnotationDemo
         #region Annotation
 
         /// <summary>
-        /// Handles the FocusedAnnotationViewChanged event of AnnotationViewer1 object.
+        /// Handles the FocusedAnnotationViewChanged event of annotationViewer1 object.
         /// </summary>
         private void annotationViewer1_FocusedAnnotationViewChanged(
             object sender,
@@ -2280,7 +2283,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the AnnotationTransformingStarted event of AnnotationViewer1 object.
+        /// Handles the AnnotationTransformingStarted event of annotationViewer1 object.
         /// </summary>
         private void annotationViewer1_AnnotationTransformingStarted(
             object sender,
@@ -2301,7 +2304,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the AnnotationTransformingFinished event of AnnotationViewer1 object.
+        /// Handles the AnnotationTransformingFinished event of annotationViewer1 object.
         /// </summary>
         private void annotationViewer1_AnnotationTransformingFinished(object sender, AnnotationViewEventArgs e)
         {
@@ -2347,7 +2350,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the AnnotationBuildingStarted event of AnnotationViewer1 object.
+        /// Handles the AnnotationBuildingStarted event of annotationViewer1 object.
         /// </summary>
         private void annotationViewer1_AnnotationBuildingStarted(object sender, AnnotationViewEventArgs e)
         {
@@ -2364,7 +2367,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the AnnotationBuildingCanceled event of AnnotationViewer1 object.
+        /// Handles the AnnotationBuildingCanceled event of annotationViewer1 object.
         /// </summary>
         private void annotationViewer1_AnnotationBuildingCanceled(object sender, AnnotationViewEventArgs e)
         {
@@ -2381,7 +2384,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the AnnotationBuildingFinished event of AnnotationViewer1 object.
+        /// Handles the AnnotationBuildingFinished event of annotationViewer1 object.
         /// </summary>
         private void annotationViewer1_AnnotationBuildingFinished(object sender, AnnotationViewEventArgs e)
         {
@@ -2431,7 +2434,7 @@ namespace AnnotationDemo
         #region Annotation undo manager
 
         /// <summary>
-        /// Handles the Click event of AnnotationHistoryToolStripMenuItem object.
+        /// Handles the Click event of annotationHistoryToolStripMenuItem object.
         /// </summary>
         private void annotationHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -2446,7 +2449,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the FormClosed event of HistoryForm object.
+        /// Handles the FormClosed event of historyForm object.
         /// </summary>
         private void historyForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -2461,7 +2464,7 @@ namespace AnnotationDemo
         #region Save image(s)
 
         /// <summary>
-        /// Handles the ImageCollectionSavingFinished event of Images object.
+        /// Handles the ImageCollectionSavingFinished event of images object.
         /// </summary>
         private void images_ImageCollectionSavingFinished(object sender, EventArgs e)
         {

@@ -570,7 +570,7 @@ namespace DemosCommonCode.Imaging
         #region PRIVATE
 
         /// <summary>
-        /// Handles the Click event of ButtonCancel object.
+        /// Handles the Click event of buttonCancel object.
         /// </summary>
         private void buttonCancel_Click(object sender, EventArgs e)
         {

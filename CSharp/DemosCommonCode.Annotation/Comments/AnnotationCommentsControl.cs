@@ -150,7 +150,7 @@ namespace DemosCommonCode.Annotation
         #region UI
 
         /// <summary>
-        /// Handles the Click event of AddNewCommentButton object.
+        /// Handles the Click event of addNewCommentButton object.
         /// </summary>
         private void addNewCommentButton_Click(object sender, EventArgs e)
         {
@@ -165,7 +165,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the Click event of AddCommentToAnnotationButton object.
+        /// Handles the Click event of addCommentToAnnotationButton object.
         /// </summary>
         private void addCommentToAnnotationButton_Click(object sender, EventArgs e)
         {
@@ -180,7 +180,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the Click event of RemoveCommentFromAnnotationButton object.
+        /// Handles the Click event of removeCommentFromAnnotationButton object.
         /// </summary>
         private void removeCommentFromAnnotationButton_Click(object sender, EventArgs e)
         {
@@ -195,7 +195,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the Click event of CloseAllCommentsButton object.
+        /// Handles the Click event of closeAllCommentsButton object.
         /// </summary>
         private void closeAllCommentsButton_Click(object sender, EventArgs e)
         {

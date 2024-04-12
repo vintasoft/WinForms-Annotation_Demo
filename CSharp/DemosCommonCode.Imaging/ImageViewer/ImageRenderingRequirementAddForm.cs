@@ -62,7 +62,7 @@ namespace DemosCommonCode.Imaging
         #region Methods
 
         /// <summary>
-        /// Handles the TextChanged event of ImageSizeComboBox object.
+        /// Handles the TextChanged event of imageSizeComboBox object.
         /// </summary>
         private void imageSizeComboBox_TextChanged(object sender, EventArgs e)
         {
@@ -78,7 +78,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the SelectedIndexChanged event of CodecComboBox object.
+        /// Handles the SelectedIndexChanged event of codecComboBox object.
         /// </summary>
         private void codecComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {

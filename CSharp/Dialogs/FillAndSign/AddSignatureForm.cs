@@ -100,7 +100,7 @@ namespace AnnotationDemo
         #region UI
 
         /// <summary>
-        /// Handles the Click event of FreehandToolStripButton object.
+        /// Handles the Click event of freehandToolStripButton object.
         /// </summary>
         private void freehandToolStripButton_Click(object sender, EventArgs e)
         {
@@ -108,7 +108,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of TextToolStripButton object.
+        /// Handles the Click event of textToolStripButton object.
         /// </summary>
         private void textToolStripButton_Click(object sender, EventArgs e)
         {
@@ -116,7 +116,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of StampToolStripButton object.
+        /// Handles the Click event of stampToolStripButton object.
         /// </summary>
         private void stampToolStripButton_Click(object sender, EventArgs e)
         {
@@ -124,7 +124,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of ImageToolStripButton object.
+        /// Handles the Click event of imageToolStripButton object.
         /// </summary>
         private void imageToolStripButton_Click(object sender, EventArgs e)
         {
@@ -145,7 +145,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of FontToolStripButton object.
+        /// Handles the Click event of fontToolStripButton object.
         /// </summary>
         private void fontToolStripButton_Click(object sender, EventArgs e)
         {
@@ -167,7 +167,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of ClearToolStripButton object.
+        /// Handles the Click event of clearToolStripButton object.
         /// </summary>
         private void clearToolStripButton_Click(object sender, EventArgs e)
         {
@@ -175,7 +175,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of OkButton object.
+        /// Handles the Click event of okButton object.
         /// </summary>
         private void okButton_Click(object sender, EventArgs e)
         {
@@ -208,7 +208,7 @@ namespace AnnotationDemo
         }
 
         /// <summary>
-        /// Handles the Click event of PropertiesToolStripMenuItem object.
+        /// Handles the Click event of propertiesToolStripMenuItem object.
         /// </summary>
         private void propertiesToolStripMenuItem_Click(object sender, EventArgs e)
         {

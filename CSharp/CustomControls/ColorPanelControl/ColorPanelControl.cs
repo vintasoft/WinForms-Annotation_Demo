@@ -404,7 +404,7 @@ namespace DemosCommonCode.CustomControls
         #region UI
 
         /// <summary>
-        /// Handles the Click event of ColorButton object.
+        /// Handles the Click event of colorButton object.
         /// </summary>
         private void colorButton_Click(object sender, EventArgs e)
         {
@@ -413,7 +413,7 @@ namespace DemosCommonCode.CustomControls
         }
 
         /// <summary>
-        /// Handles the MouseClick event of ColorSampleControl object.
+        /// Handles the MouseClick event of colorSampleControl object.
         /// </summary>
         private void colorSampleControl_MouseClick(object sender, MouseEventArgs e)
         {
@@ -424,7 +424,7 @@ namespace DemosCommonCode.CustomControls
         }
 
         /// <summary>
-        /// Handles the MouseDoubleClick event of ColorSampleControl object.
+        /// Handles the MouseDoubleClick event of colorSampleControl object.
         /// </summary>
         private void colorSampleControl_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -435,7 +435,7 @@ namespace DemosCommonCode.CustomControls
         }
 
         /// <summary>
-        /// Handles the Click event of DefaultColorButton object.
+        /// Handles the Click event of defaultColorButton object.
         /// </summary>
         private void defaultColorButton_Click(object sender, EventArgs e)
         {

@@ -172,7 +172,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         #region UI
 
         /// <summary>
-        /// Handles the CheckedChanged event of CompressionRadioButton object.
+        /// Handles the CheckedChanged event of compressionRadioButton object.
         /// </summary>
         private void compressionRadioButton_CheckedChanged(object sender, EventArgs e)
         {
@@ -195,7 +195,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of MrcUseFrontCheckBox object.
+        /// Handles the CheckedChanged event of mrcUseFrontCheckBox object.
         /// </summary>
         private void mrcUseFrontCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -211,7 +211,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of MrcHiQualityMaskCheckBox object.
+        /// Handles the CheckedChanged event of mrcHiQualityMaskCheckBox object.
         /// </summary>
         private void mrcHiQualityMaskCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -227,7 +227,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of MrcHiQualityFrontLayerCheckBox object.
+        /// Handles the CheckedChanged event of mrcHiQualityFrontLayerCheckBox object.
         /// </summary>
         private void mrcHiQualityFrontLayerCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -243,7 +243,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of MrcUseBackgroundLayerCheckBox object.
+        /// Handles the CheckedChanged event of mrcUseBackgroundLayerCheckBox object.
         /// </summary>
         private void mrcUseBackgroundLayerCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -259,7 +259,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of MrcImageSegmentationCheckBox object.
+        /// Handles the CheckedChanged event of mrcImageSegmentationCheckBox object.
         /// </summary>
         private void mrcImageSegmentationCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -284,7 +284,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of MrcNotUseImagesLayerRadioButton object.
+        /// Handles the CheckedChanged event of mrcNotUseImagesLayerRadioButton object.
         /// </summary>
         private void mrcNotUseImagesLayerRadioButton_CheckedChanged(object sender, EventArgs e)
         {
@@ -300,7 +300,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of MrcUseImagesLayerRadioButton object.
+        /// Handles the CheckedChanged event of mrcUseImagesLayerRadioButton object.
         /// </summary>
         private void mrcUseImagesLayerRadioButton_CheckedChanged(object sender, EventArgs e)
         {
@@ -316,7 +316,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the SelectedIndexChanged event of MrcCompressionProfileComboBox object.
+        /// Handles the SelectedIndexChanged event of mrcCompressionProfileComboBox object.
         /// </summary>
         private void mrcCompressionProfileComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -456,7 +456,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the Click event of MrcImageSegmentationSettingsButton object.
+        /// Handles the Click event of mrcImageSegmentationSettingsButton object.
         /// </summary>
         private void mrcImageSegmentationSettingsButton_Click(object sender, EventArgs e)
         {

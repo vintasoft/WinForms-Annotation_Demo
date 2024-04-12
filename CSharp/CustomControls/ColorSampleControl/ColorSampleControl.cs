@@ -122,7 +122,7 @@ namespace DemosCommonCode.CustomControls
         }
 
         /// <summary>
-        /// Handles the MouseClick event of ColorNameLabel object.
+        /// Handles the MouseClick event of colorNameLabel object.
         /// </summary>
         private void colorNameLabel_MouseClick(object sender, MouseEventArgs e)
         {
@@ -130,7 +130,7 @@ namespace DemosCommonCode.CustomControls
         }
 
         /// <summary>
-        /// Handles the MouseDoubleClick event of ColorNameLabel object.
+        /// Handles the MouseDoubleClick event of colorNameLabel object.
         /// </summary>
         private void colorNameLabel_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -138,7 +138,7 @@ namespace DemosCommonCode.CustomControls
         }
 
         /// <summary>
-        /// Handles the MouseClick event of ColorPanel object.
+        /// Handles the MouseClick event of colorPanel object.
         /// </summary>
         private void colorPanel_MouseClick(object sender, MouseEventArgs e)
         {
@@ -146,7 +146,7 @@ namespace DemosCommonCode.CustomControls
         }
 
         /// <summary>
-        /// Handles the MouseDoubleClick event of ColorPanel object.
+        /// Handles the MouseDoubleClick event of colorPanel object.
         /// </summary>
         private void colorPanel_MouseDoubleClick(object sender, MouseEventArgs e)
         {

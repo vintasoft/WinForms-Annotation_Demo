@@ -83,7 +83,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         #region UI
 
         /// <summary>
-        /// Handles the ValueChanged event of CompressionRatioNumericUpDown object.
+        /// Handles the ValueChanged event of compressionRatioNumericUpDown object.
         /// </summary>
         private void compressionRatioNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -92,7 +92,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of WaveletTransformCheckBox object.
+        /// Handles the CheckedChanged event of waveletTransformCheckBox object.
         /// </summary>
         private void waveletTransformCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -106,7 +106,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the Click event of ButtonOk object.
+        /// Handles the Click event of buttonOk object.
         /// </summary>
         private void buttonOk_Click(object sender, EventArgs e)
         {
@@ -123,7 +123,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the Click event of ButtonCancel object.
+        /// Handles the Click event of buttonCancel object.
         /// </summary>
         private void buttonCancel_Click(object sender, EventArgs e)
         {
@@ -131,7 +131,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of LossyCompressionCheckBox object.
+        /// Handles the CheckedChanged event of lossyCompressionCheckBox object.
         /// </summary>
         private void lossyCompressionCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -139,7 +139,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of ImageDataSizeRadioButton object.
+        /// Handles the CheckedChanged event of imageDataSizeRadioButton object.
         /// </summary>
         private void imageDataSizeRadioButton_CheckedChanged(object sender, EventArgs e)
         {
@@ -147,7 +147,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of CompressionRatioRadioButton object.
+        /// Handles the CheckedChanged event of compressionRatioRadioButton object.
         /// </summary>
         private void compressionRatioRadioButton_CheckedChanged(object sender, EventArgs e)
         {
@@ -155,7 +155,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of UseTilesCheckBox object.
+        /// Handles the CheckedChanged event of useTilesCheckBox object.
         /// </summary>
         private void useTilesCheckBox_CheckedChanged(object sender, EventArgs e)
         {

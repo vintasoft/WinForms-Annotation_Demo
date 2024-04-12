@@ -68,7 +68,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
         #region Methods
 
         /// <summary>
-        /// Handles the Click event of DeleteButton object.
+        /// Handles the Click event of deleteButton object.
         /// </summary>
         private void deleteButton_Click(object sender, EventArgs e)
         {
@@ -84,7 +84,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
         }
 
         /// <summary>
-        /// Handles the Click event of CopyToTransformSetButton object.
+        /// Handles the Click event of copyToTransformSetButton object.
         /// </summary>
         private void copyToTransformSetButton_Click(object sender, EventArgs e)
         {

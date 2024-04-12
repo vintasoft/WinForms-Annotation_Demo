@@ -187,7 +187,7 @@ namespace DemosCommonCode.Office
         #region UI
 
         /// <summary>
-        /// Handles the Click event of ChartsButton object.
+        /// Handles the Click event of chartsButton object.
         /// </summary>
         private void chartsButton_Click(object sender, EventArgs e)
         {
@@ -195,7 +195,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of IncreaseContentScaleButton object.
+        /// Handles the Click event of increaseContentScaleButton object.
         /// </summary>
         private void increaseContentScaleButton_Click(object sender, EventArgs e)
         {
@@ -210,7 +210,7 @@ namespace DemosCommonCode.Office
         }
 
         /// <summary>
-        /// Handles the Click event of DecreaseContentScaleButton object.
+        /// Handles the Click event of decreaseContentScaleButton object.
         /// </summary>
         private void decreaseContentScaleButton_Click(object sender, EventArgs e)
         {

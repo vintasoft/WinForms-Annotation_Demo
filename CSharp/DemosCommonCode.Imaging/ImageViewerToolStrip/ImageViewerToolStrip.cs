@@ -20,7 +20,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Available zoom values.
         /// </summary>
-        int[] _zoomValues = new int[] { 1, 5, 10, 25, 50, 75, 100, 125, 150, 200, 400, 600, 800, 1000, 2000, 4000, 8000, 10000 };
+        int[] _zoomValues = new int[] { 1, 5, 10, 25, 50, 75, 100, 125, 150, 200, 400, 600, 800, 1000, 2000, 4000, 8000, 10000, 20000, 50000, 100000 };
 
         /// <summary>
         /// Current scale mode menu item.
@@ -590,7 +590,7 @@ namespace DemosCommonCode.Imaging
         #region Main strip
 
         /// <summary>
-        /// Handles the Click event of OpenButton object.
+        /// Handles the Click event of openButton object.
         /// </summary>
         private void openButton_Click(object sender, EventArgs e)
         {
@@ -610,7 +610,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of SaveButton object.
+        /// Handles the Click event of saveButton object.
         /// </summary>
         private void saveButton_Click(object sender, System.EventArgs e)
         {
@@ -630,7 +630,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of ScanButton object.
+        /// Handles the Click event of scanButton object.
         /// </summary>
         private void scanButton_Click(object sender, System.EventArgs e)
         {
@@ -650,7 +650,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of CaptureFromCameraButton object.
+        /// Handles the Click event of captureFromCameraButton object.
         /// </summary>
         private void captureFromCameraButton_Click(object sender, System.EventArgs e)
         {
@@ -670,7 +670,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of PrintButton object.
+        /// Handles the Click event of printButton object.
         /// </summary>
         private void printButton_Click(object sender, System.EventArgs e)
         {
@@ -695,7 +695,7 @@ namespace DemosCommonCode.Imaging
         #region Navigation
 
         /// <summary>
-        /// Handles the Click event of FirstPageButton object.
+        /// Handles the Click event of firstPageButton object.
         /// </summary>
         private void firstPageButton_Click(object sender, System.EventArgs e)
         {
@@ -704,7 +704,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of PreviousPageButton object.
+        /// Handles the Click event of previousPageButton object.
         /// </summary>
         private void previousPageButton_Click(object sender, System.EventArgs e)
         {
@@ -713,7 +713,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of NextPageButton object.
+        /// Handles the Click event of nextPageButton object.
         /// </summary>
         private void nextPageButton_Click(object sender, System.EventArgs e)
         {
@@ -722,7 +722,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of LastPageButton object.
+        /// Handles the Click event of lastPageButton object.
         /// </summary>
         private void lastPageButton_Click(object sender, System.EventArgs e)
         {
@@ -731,7 +731,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the KeyPress event of TextBoxPages object.
+        /// Handles the KeyPress event of textBoxPages object.
         /// </summary>
         private void textBoxPages_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -758,7 +758,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the KeyPress event of SelectedPageIndexTextBox object.
+        /// Handles the KeyPress event of selectedPageIndexTextBox object.
         /// </summary>
         private void selectedPageIndexTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -768,7 +768,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the LostFocus event of SelectedPageIndexTextBox object.
+        /// Handles the LostFocus event of selectedPageIndexTextBox object.
         /// </summary>
         private void selectedPageIndexTextBox_LostFocus(object sender, System.EventArgs e)
         {
@@ -784,7 +784,7 @@ namespace DemosCommonCode.Imaging
         #region Scale mode
 
         /// <summary>
-        /// Handles the Click event of ZoomOutButton object.
+        /// Handles the Click event of zoomOutButton object.
         /// </summary>
         private void zoomOutButton_Click(object sender, System.EventArgs e)
         {
@@ -810,7 +810,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of ZoomInButton object.
+        /// Handles the Click event of zoomInButton object.
         /// </summary>
         private void zoomInButton_Click(object sender, System.EventArgs e)
         {
@@ -836,7 +836,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the KeyPress event of ZoomTextBox object.
+        /// Handles the KeyPress event of zoomTextBox object.
         /// </summary>
         private void zoomTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -863,7 +863,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the KeyPress event of ZoomValueTextBox object.
+        /// Handles the KeyPress event of zoomValueTextBox object.
         /// </summary>
         private void zoomValueTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -873,7 +873,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the LostFocus event of ZoomValueTextBox object.
+        /// Handles the LostFocus event of zoomValueTextBox object.
         /// </summary>
         private void zoomValueTextBox_LostFocus(object sender, System.EventArgs e)
         {
@@ -961,7 +961,7 @@ namespace DemosCommonCode.Imaging
         #region Zoom trackbar
 
         /// <summary>
-        /// Handles the ValueChanged event of AssociatedZoomTrackBar object.
+        /// Handles the ValueChanged event of associatedZoomTrackBar object.
         /// </summary>
         private void associatedZoomTrackBar_ValueChanged(object sender, EventArgs e)
         {
@@ -973,7 +973,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Scroll event of AssociatedZoomTrackBar object.
+        /// Handles the Scroll event of associatedZoomTrackBar object.
         /// </summary>
         private void associatedZoomTrackBar_Scroll(object sender, EventArgs e)
         {
@@ -988,7 +988,7 @@ namespace DemosCommonCode.Imaging
         #region Image viewer
 
         /// <summary>
-        /// Handles the ImagesChanging event of ImageViewer object.
+        /// Handles the ImagesChanging event of imageViewer object.
         /// </summary>
         private void imageViewer_ImagesChanging(object sender, EventArgs e)
         {
@@ -1001,7 +1001,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the ImagesChanged event of ImageViewer object.
+        /// Handles the ImagesChanged event of imageViewer object.
         /// </summary>
         private void imageViewer_ImagesChanged(object sender, EventArgs e)
         {
@@ -1011,7 +1011,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the FocusedIndexChanged event of ImageViewer object.
+        /// Handles the FocusedIndexChanged event of imageViewer object.
         /// </summary>
         private void imageViewer_FocusedIndexChanged(object sender, FocusedIndexChangedEventArgs e)
         {
@@ -1024,7 +1024,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the ZoomChanged event of ImageViewer object.
+        /// Handles the ZoomChanged event of imageViewer object.
         /// </summary>
         private void imageViewer_ZoomChanged(object sender, ZoomChangedEventArgs e)
         {
@@ -1056,13 +1056,14 @@ namespace DemosCommonCode.Imaging
             // navigation buttons
             if (_canNavigate)
             {
-                firstPageButton.Enabled = isImageLoaded && _isNavigateEnabled && this.SelectedPageIndex > 0;
-                previousPageButton.Enabled = isImageLoaded && _isNavigateEnabled && this.SelectedPageIndex > 0;
-                nextPageButton.Enabled = isImageLoaded && _isNavigateEnabled && this.SelectedPageIndex < (this.PageCount - 1);
-                lastPageButton.Enabled = isImageLoaded && _isNavigateEnabled && this.SelectedPageIndex < (this.PageCount - 1);
+                bool hasPages = PageCount > 0;
+                firstPageButton.Enabled = hasPages && _isNavigateEnabled && this.SelectedPageIndex > 0;
+                previousPageButton.Enabled = hasPages && _isNavigateEnabled && this.SelectedPageIndex > 0;
+                nextPageButton.Enabled = hasPages && _isNavigateEnabled && this.SelectedPageIndex < (this.PageCount - 1);
+                lastPageButton.Enabled = hasPages && _isNavigateEnabled && this.SelectedPageIndex < (this.PageCount - 1);
 
                 selectedPageIndexTextBox.Enabled = isImageLoaded && _isNavigateEnabled && this.PageCount > 1;
-                if (isImageLoaded)
+                if (hasPages)
                     selectedPageIndexTextBox.Text = String.Format("{0}", _selectedPageIndex + 1);
                 else
                     selectedPageIndexTextBox.Text = "";

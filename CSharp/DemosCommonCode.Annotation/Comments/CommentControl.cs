@@ -599,7 +599,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the TextChanged event of TextTextBox object.
+        /// Handles the TextChanged event of textTextBox object.
         /// </summary>
         private void textTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -635,7 +635,7 @@ namespace DemosCommonCode.Annotation
         #region Buttons
 
         /// <summary>
-        /// Handles the Click event of CloseButton object.
+        /// Handles the Click event of closeButton object.
         /// </summary>
         private void closeButton_Click(object sender, EventArgs e)
         {
@@ -648,7 +648,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the Click event of ExpandButton object.
+        /// Handles the Click event of expandButton object.
         /// </summary>
         private void expandButton_Click(object sender, EventArgs e)
         {
@@ -670,7 +670,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the Click event of SettingsButton object.
+        /// Handles the Click event of settingsButton object.
         /// </summary>
         private void settingsButton_Click(object sender, EventArgs e)
         {
@@ -679,7 +679,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the Click event of StateHistoryToolStripMenuItem object.
+        /// Handles the Click event of stateHistoryToolStripMenuItem object.
         /// </summary>
         private void stateHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -695,7 +695,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the Click event of PropertiesToolStripMenuItem object.
+        /// Handles the Click event of propertiesToolStripMenuItem object.
         /// </summary>
         private void propertiesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -713,7 +713,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the Click event of RemoveToolStripMenuItem object.
+        /// Handles the Click event of removeToolStripMenuItem object.
         /// </summary>
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -722,7 +722,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the Click event of ReplyToolStripMenuItem object.
+        /// Handles the Click event of replyToolStripMenuItem object.
         /// </summary>
         private void replyToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -733,7 +733,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the Click event of ExpandAllToolStripMenuItem object.
+        /// Handles the Click event of expandAllToolStripMenuItem object.
         /// </summary>
         private void expandAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -742,7 +742,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the Click event of CollapseRepliesToolStripMenuItem object.
+        /// Handles the Click event of collapseRepliesToolStripMenuItem object.
         /// </summary>
         private void collapseRepliesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -753,7 +753,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the Click event of ResetLocationToolStripMenuItem object.
+        /// Handles the Click event of resetLocationToolStripMenuItem object.
         /// </summary>
         private void resetLocationToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -762,7 +762,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the Click event of CollapseAllButThisToolStripMenuItem object.
+        /// Handles the Click event of collapseAllButThisToolStripMenuItem object.
         /// </summary>
         private void collapseAllButThisToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -789,7 +789,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of ShowStateHistoryToolStripMenuItem object.
+        /// Handles the CheckedChanged event of showStateHistoryToolStripMenuItem object.
         /// </summary>
         private void showStateHistoryToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
         {
@@ -803,7 +803,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the Click event of SetStateToolStripMenuItem object.
+        /// Handles the Click event of setStateToolStripMenuItem object.
         /// </summary>
         private void setStateToolStripMenuItem_Click(object sender, EventArgs e)
         {

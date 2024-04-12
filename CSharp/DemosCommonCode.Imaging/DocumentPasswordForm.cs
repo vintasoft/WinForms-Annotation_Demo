@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging;
@@ -18,7 +19,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Initializes a new instance of the <see cref="DocumentPasswordForm"/> class.
         /// </summary>
-        private DocumentPasswordForm()
+        public DocumentPasswordForm()
         {
             InitializeComponent();
 
@@ -71,6 +72,14 @@ namespace DemosCommonCode.Imaging
         #region PUBLIC
 
         /// <summary>
+        /// Shows the incorrect password message.
+        /// </summary>
+        public void ShowIncorrectPasswordMessage()
+        {
+            MessageBox.Show(string.Format("The '{0}' password is incorrect.", Password), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        /// <summary>
         /// Authenticates the specified document.
         /// </summary>
         /// <param name="decoder">The decoder.</param>
@@ -106,17 +115,17 @@ namespace DemosCommonCode.Imaging
                             // if user is NOT authorized
                             if (!result.IsAuthorized)
                             {
-                                MessageBox.Show(
-                                    string.Format("The {0} password is incorrect.", enterPasswordDialog.authenticateTypeComboBox.Text),
-                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                enterPasswordDialog.ShowIncorrectPasswordMessage();
                             }
                             // if user is authorized
                             else
                             {
                                 if (enterPasswordDialog.authenticateTypeComboBox.Text != result.UserName)
+                                {
                                     MessageBox.Show(
-                                        string.Format("Authorized as: {0}", result.UserName),
+                                        string.Format("Authorized as: '{0}'", result.UserName),
                                         "Authorization Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
                                 break;
                             }
                         }
@@ -130,6 +139,7 @@ namespace DemosCommonCode.Imaging
             }
             return true;
         }
+
 
         /// <summary>
         /// Enables the authentication for specified image viewer.

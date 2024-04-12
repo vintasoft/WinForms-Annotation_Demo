@@ -389,7 +389,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         #region UI
 
         /// <summary>
-        /// Handles the CheckedChanged event of AppendCheckBox object.
+        /// Handles the CheckedChanged event of appendCheckBox object.
         /// </summary>
         private void appendCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -405,7 +405,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the Click event of ButtonCancel object.
+        /// Handles the Click event of buttonCancel object.
         /// </summary>
         private void buttonCancel_Click(object sender, EventArgs e)
         {
@@ -413,7 +413,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the Click event of ButtonOk object.
+        /// Handles the Click event of buttonOk object.
         /// </summary>
         private void buttonOk_Click(object sender, EventArgs e)
         {
@@ -423,7 +423,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of PdfaCheckBox object.
+        /// Handles the CheckedChanged event of pdfaCheckBox object.
         /// </summary>
         private void pdfaCheckBox_CheckedChanged(object sender, EventArgs e)
         {

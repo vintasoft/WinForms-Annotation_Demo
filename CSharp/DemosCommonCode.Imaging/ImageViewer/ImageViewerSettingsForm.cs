@@ -110,7 +110,7 @@ namespace DemosCommonCode.Imaging
         #region UI
 
         /// <summary>
-        /// Handles the Click event of RenderingSettingsButton object.
+        /// Handles the Click event of renderingSettingsButton object.
         /// </summary>
         private void renderingSettingsButton_Click(object sender, EventArgs e)
         {
@@ -126,7 +126,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of ButtonOk object.
+        /// Handles the Click event of buttonOk object.
         /// </summary>
         private void buttonOk_Click(object sender, EventArgs e)
         {
@@ -137,7 +137,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of RenderingRequirementsButton object.
+        /// Handles the Click event of renderingRequirementsButton object.
         /// </summary>
         private void renderingRequirementsButton_Click(object sender, EventArgs e)
         {
@@ -158,7 +158,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of ImageAppearance object.
+        /// Handles the Click event of imageAppearance object.
         /// </summary>
         private void imageAppearance_Click(object sender, EventArgs e)
         {
@@ -177,7 +177,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of FocusedImageAppearance object.
+        /// Handles the Click event of focusedImageAppearance object.
         /// </summary>
         private void focusedImageAppearance_Click(object sender, EventArgs e)
         {
@@ -196,7 +196,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of KeyboardNavigationCheckBox object.
+        /// Handles the CheckedChanged event of keyboardNavigationCheckBox object.
         /// </summary>
         private void keyboardNavigationCheckBox_CheckedChanged(object sender, EventArgs e)
         {

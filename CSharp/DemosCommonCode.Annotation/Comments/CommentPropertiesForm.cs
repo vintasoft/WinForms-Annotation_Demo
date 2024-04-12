@@ -60,7 +60,7 @@ namespace DemosCommonCode.Annotation
         #region UI
 
         /// <summary>
-        /// Handles the SelectedIndexChanged event of TabControl1 object.
+        /// Handles the SelectedIndexChanged event of tabControl1 object.
         /// </summary>
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -77,7 +77,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of IsReadOnlyCheckBox object.
+        /// Handles the CheckedChanged event of isReadOnlyCheckBox object.
         /// </summary>
         private void isReadOnlyCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -94,7 +94,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the CheckedChanged event of OpenCheckBox object.
+        /// Handles the CheckedChanged event of openCheckBox object.
         /// </summary>
         private void openCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -108,7 +108,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the ColorChanged event of ColorPanelControl object.
+        /// Handles the ColorChanged event of colorPanelControl object.
         /// </summary>
         private void colorPanelControl_ColorChanged(object sender, EventArgs e)
         {
@@ -121,7 +121,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the TextChanged event of TypeComboBox object.
+        /// Handles the TextChanged event of typeComboBox object.
         /// </summary>
         private void typeComboBox_TextChanged(object sender, EventArgs e)
         {
@@ -140,7 +140,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the TextChanged event of UserNameTextBox object.
+        /// Handles the TextChanged event of userNameTextBox object.
         /// </summary>
         private void userNameTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -155,7 +155,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the TextChanged event of SubjectTextBox object.
+        /// Handles the TextChanged event of subjectTextBox object.
         /// </summary>
         private void subjectTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -170,7 +170,7 @@ namespace DemosCommonCode.Annotation
         }
 
         /// <summary>
-        /// Handles the TextChanged event of TextBox object.
+        /// Handles the TextChanged event of textBox object.
         /// </summary>
         private void textBox_TextChanged(object sender, EventArgs e)
         {

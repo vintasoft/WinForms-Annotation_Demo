@@ -714,7 +714,9 @@ namespace DemosCommonCode.Imaging
         /// </summary>
         private void visualToolAction_StatusChanged(object sender, EventArgs e)
         {
-            _actionStatusLabel.Text = ((VisualToolAction)sender).Status;
+            string status = ((VisualToolAction)sender).Status;
+            if (_actionStatusLabel.Text != status)
+                _actionStatusLabel.Text = status;
         }
 
         /// <summary>

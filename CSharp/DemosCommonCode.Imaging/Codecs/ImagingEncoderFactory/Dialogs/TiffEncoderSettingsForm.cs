@@ -150,7 +150,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         #region UI
 
         /// <summary>
-        /// Handles the ValueChanged event of TileWidthNumericUpDown object.
+        /// Handles the ValueChanged event of tileWidthNumericUpDown object.
         /// </summary>
         private void tileWidthNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -165,7 +165,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of TileHeightNumericUpDown object.
+        /// Handles the ValueChanged event of tileHeightNumericUpDown object.
         /// </summary>
         private void tileHeightNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -180,7 +180,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the Click event of Jpeg2000SettingsButton object.
+        /// Handles the Click event of jpeg2000SettingsButton object.
         /// </summary>
         private void jpeg2000SettingsButton_Click(object sender, EventArgs e)
         {
@@ -209,7 +209,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the Click event of OkButton object.
+        /// Handles the Click event of okButton object.
         /// </summary>
         private void okButton_Click(object sender, EventArgs e)
         {
@@ -234,7 +234,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         }
 
         /// <summary>
-        /// Handles the SelectedIndexChanged event of BinarizationModeComboBox object.
+        /// Handles the SelectedIndexChanged event of binarizationModeComboBox object.
         /// </summary>
         private void binarizationModeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {

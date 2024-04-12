@@ -79,7 +79,7 @@ namespace DemosCommonCode.Imaging
         #region UI
 
         /// <summary>
-        /// Handles the Click event of ButtonOk object.
+        /// Handles the Click event of buttonOk object.
         /// </summary>
         private void buttonOk_Click(object sender, EventArgs e)
         {
@@ -107,7 +107,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the TextChanged event of ImageSizeComboBox object.
+        /// Handles the TextChanged event of imageSizeComboBox object.
         /// </summary>
         private void imageSizeComboBox_TextChanged(object sender, EventArgs e)
         {
@@ -124,7 +124,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the SelectedIndexChanged event of CodecComboBox object.
+        /// Handles the SelectedIndexChanged event of codecComboBox object.
         /// </summary>
         private void codecComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -132,7 +132,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of RemoveButton object.
+        /// Handles the Click event of removeButton object.
         /// </summary>
         private void removeButton_Click(object sender, EventArgs e)
         {
@@ -151,7 +151,7 @@ namespace DemosCommonCode.Imaging
         }
 
         /// <summary>
-        /// Handles the Click event of AddButton object.
+        /// Handles the Click event of addButton object.
         /// </summary>
         private void addButton_Click(object sender, EventArgs e)
         {

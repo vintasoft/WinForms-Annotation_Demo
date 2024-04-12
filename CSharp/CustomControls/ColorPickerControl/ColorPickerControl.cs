@@ -113,7 +113,7 @@ namespace DemosCommonCode.CustomControls
         #region UI
 
         /// <summary>
-        /// Handles the MouseClick event of ColorSampleControl object.
+        /// Handles the MouseClick event of colorSampleControl object.
         /// </summary>
         private void colorSampleControl_MouseClick(object sender, MouseEventArgs e)
         {
@@ -126,7 +126,7 @@ namespace DemosCommonCode.CustomControls
         }
 
         /// <summary>
-        /// Handles the Leave event of HexValueTextBox object.
+        /// Handles the Leave event of hexValueTextBox object.
         /// </summary>
         private void hexValueTextBox_Leave(object sender, EventArgs e)
         {
@@ -135,7 +135,7 @@ namespace DemosCommonCode.CustomControls
         }
 
         /// <summary>
-        /// Handles the TextChanged event of HexValueTextBox object.
+        /// Handles the TextChanged event of hexValueTextBox object.
         /// </summary>
         private void hexValueTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -151,7 +151,7 @@ namespace DemosCommonCode.CustomControls
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of ChannelValueEditorControl object.
+        /// Handles the ValueChanged event of channelValueEditorControl object.
         /// </summary>
         private void channelValueEditorControl_ValueChanged(object sender, EventArgs e)
         {

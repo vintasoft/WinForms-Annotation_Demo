@@ -76,7 +76,7 @@ namespace DemosCommonCode.CustomControls
         #region UI
 
         /// <summary>
-        /// Handles the ValueChanged event of NumericUpDown object.
+        /// Handles the ValueChanged event of numericUpDown object.
         /// </summary>
         private void numericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -99,7 +99,7 @@ namespace DemosCommonCode.CustomControls
         }
 
         /// <summary>
-        /// Handles the ValueChanged event of AllNumericUpDown object.
+        /// Handles the ValueChanged event of allNumericUpDown object.
         /// </summary>
         private void allNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
