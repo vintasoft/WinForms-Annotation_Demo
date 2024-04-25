@@ -32,7 +32,7 @@ namespace DemosCommonCode.Imaging
             this.codecComboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.imageSizeComboBox = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.sizeTypeLabel = new System.Windows.Forms.Label();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
@@ -94,15 +94,15 @@ namespace DemosCommonCode.Imaging
             this.imageSizeComboBox.TabIndex = 3;
             this.imageSizeComboBox.TextChanged += new System.EventHandler(this.imageSizeComboBox_TextChanged);
             // 
-            // label3
+            // sizeTypeLabel
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(220, 37);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Megapixels";
+            this.sizeTypeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.sizeTypeLabel.AutoSize = true;
+            this.sizeTypeLabel.Location = new System.Drawing.Point(220, 37);
+            this.sizeTypeLabel.Name = "sizeTypeLabel";
+            this.sizeTypeLabel.Size = new System.Drawing.Size(149, 13);
+            this.sizeTypeLabel.TabIndex = 4;
+            this.sizeTypeLabel.Text = "Megapixels";
             // 
             // buttonOk
             // 
@@ -160,7 +160,7 @@ namespace DemosCommonCode.Imaging
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.codecComboBox, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.sizeTypeLabel, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.imageSizeComboBox, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -241,7 +241,7 @@ namespace DemosCommonCode.Imaging
         private System.Windows.Forms.ComboBox codecComboBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox imageSizeComboBox;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label sizeTypeLabel;
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button removeButton;

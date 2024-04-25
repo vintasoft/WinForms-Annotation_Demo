@@ -22,6 +22,11 @@ namespace DemosCommonCode.Imaging
         Dictionary<string, float> _codecNameToImageSizeInMegapixels = new Dictionary<string, float>();
 
         /// <summary>
+        /// Dictionary: codec name => the image size in megabytes.
+        /// </summary>
+        Dictionary<string, float> _codecNameToImageSizeInMegabytes  = new Dictionary<string, float>();
+
+        /// <summary>
         /// The available codec names.
         /// </summary>
         string[] _codecNames = new string[] { "Bmp", "Jpeg", "Jpeg2000", "Tiff", "Png", "Pdf", "Docx", "Xlsx", "Wmf" };
@@ -97,6 +102,14 @@ namespace DemosCommonCode.Imaging
                     else
                         _renderingRequirements.SetRequirement(codec, new ImageSizeRenderingRequirement(_codecNameToImageSizeInMegapixels[codec]));
                 }
+                else if (_codecNameToImageSizeInMegabytes.ContainsKey(codec))
+                {
+                    // if current codec is "TIFF"
+                    if (codec == "Tiff")
+                        _renderingRequirements.SetRequirement(codec, new TiffMemoryUsageRenderingRequirement(_codecNameToImageSizeInMegabytes[codec]));
+                    else
+                        _renderingRequirements.SetRequirement(codec, new MemoryUsageRenderingRequirement(_codecNameToImageSizeInMegabytes[codec]));
+                }
                 else
                 {
                     _renderingRequirements.SetRequirement(codec, null);
@@ -114,8 +127,12 @@ namespace DemosCommonCode.Imaging
             try
             {
                 // update requirement image size for selected codec
-                _codecNameToImageSizeInMegapixels[(string)codecComboBox.SelectedItem] =
-                    float.Parse(imageSizeComboBox.Text, CultureInfo.InvariantCulture);
+                string codecName = (string)codecComboBox.SelectedItem;
+                float value = float.Parse(imageSizeComboBox.Text, CultureInfo.InvariantCulture);
+                if (_codecNameToImageSizeInMegapixels.ContainsKey(codecName))
+                    _codecNameToImageSizeInMegapixels[codecName] = value;
+                if (_codecNameToImageSizeInMegabytes.ContainsKey(codecName))
+                    _codecNameToImageSizeInMegabytes[codecName] = value;
             }
             catch (Exception ex)
             {
@@ -139,11 +156,11 @@ namespace DemosCommonCode.Imaging
             // get selected codec
             string codec = codecComboBox.SelectedItem.ToString();
             // if selected codec contains image size requirement
-            if (_codecNameToImageSizeInMegapixels.ContainsKey(codec))
+            if (_codecNameToImageSizeInMegapixels.ContainsKey(codec) || _codecNameToImageSizeInMegabytes.ContainsKey(codec))
             {
                 // remove image size requirement
-
                 _codecNameToImageSizeInMegapixels.Remove(codec);
+                _codecNameToImageSizeInMegabytes.Remove(codec);
                 codecComboBox.Items.Remove(codec);
                 codecComboBox.SelectedIndex = codecComboBox.Items.Count - 1;
                 UpdateUI();
@@ -170,6 +187,10 @@ namespace DemosCommonCode.Imaging
                     if (_codecNameToImageSizeInMegapixels.ContainsKey(codec))
                     {
                         _codecNameToImageSizeInMegapixels[codec] = value;
+                    }
+                    else if (_codecNameToImageSizeInMegabytes.ContainsKey(codec))
+                    {
+                        _codecNameToImageSizeInMegabytes[codec] = value;
                     }
                     // if rendering requirement must be added
                     else
@@ -209,12 +230,21 @@ namespace DemosCommonCode.Imaging
             for (int i = 0; i < _codecNames.Length; i++)
             {
                 // get image size rendering requirements
-                ImageSizeRenderingRequirement requirement =
+                ImageSizeRenderingRequirement sizeRequirement =
                     _renderingRequirements.GetRequirement(_codecNames[i]) as ImageSizeRenderingRequirement;
-                if (requirement != null)
+                if (sizeRequirement != null)
                 {
                     codecComboBox.Items.Add(_codecNames[i]);
-                    _codecNameToImageSizeInMegapixels.Add(_codecNames[i], requirement.ImageSize);
+                    _codecNameToImageSizeInMegapixels.Add(_codecNames[i], sizeRequirement.ImageSize);
+                }
+
+                // get memory usage rendering requirements
+                MemoryUsageRenderingRequirement memoryRequirement =
+                    _renderingRequirements.GetRequirement(_codecNames[i]) as MemoryUsageRenderingRequirement;
+                if (memoryRequirement != null)
+                {
+                    codecComboBox.Items.Add(_codecNames[i]);
+                    _codecNameToImageSizeInMegabytes.Add(_codecNames[i], memoryRequirement.MemorySize);
                 }
             }
 
@@ -240,8 +270,18 @@ namespace DemosCommonCode.Imaging
         /// </summary>
         private void UpdateImageSizeComboBox()
         {
+            string codecName = (string)codecComboBox.SelectedItem;
             // update image size requirement for selected codec
-            imageSizeComboBox.Text = _codecNameToImageSizeInMegapixels[(string)codecComboBox.SelectedItem].ToString(CultureInfo.InvariantCulture);
+            if (_codecNameToImageSizeInMegapixels.ContainsKey(codecName))
+            {
+                imageSizeComboBox.Text = _codecNameToImageSizeInMegapixels[codecName].ToString(CultureInfo.InvariantCulture);
+                sizeTypeLabel.Text = "Megapixels";
+            }
+            else if (_codecNameToImageSizeInMegabytes.ContainsKey(codecName))
+            {
+                imageSizeComboBox.Text = _codecNameToImageSizeInMegabytes[codecName].ToString(CultureInfo.InvariantCulture);
+                sizeTypeLabel.Text = "Megabytes";
+            }
         }
 
         #endregion
