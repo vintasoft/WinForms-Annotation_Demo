@@ -495,6 +495,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
                 mrcBackgroundCompressionControl.Enabled = _mrcCompressionSettings.CreateBackgroundLayer;
                 mrcImagesCompressionControl.Enabled = _mrcCompressionSettings.CreateImagesLayer;
                 mrcFrontCompressionControl.Enabled = _mrcCompressionSettings.CreateFrontLayer;
+                mrcAddPdfLayersCheckBox.Checked = _mrcCompressionSettings.AddPdfLayers;
             }
             else
             {
@@ -531,6 +532,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
                 _mrcCompressionSettings.MaskCompressionSettings = mrcMaskCompressionControl.CompressionSettings;
                 _mrcCompressionSettings.FrontLayerCompression = mrcFrontCompressionControl.Compression;
                 _mrcCompressionSettings.FrontLayerCompressionSettings = mrcFrontCompressionControl.CompressionSettings;
+                _mrcCompressionSettings.AddPdfLayers = mrcAddPdfLayersCheckBox.Checked;
                 if (mrcImageSegmentationCheckBox.Checked)
                 {
                     if (_mrcCompressionSettings.ImageSegmentation == null)
