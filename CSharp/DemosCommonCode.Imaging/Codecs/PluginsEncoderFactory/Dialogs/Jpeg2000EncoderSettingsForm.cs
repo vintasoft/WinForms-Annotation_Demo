@@ -175,7 +175,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             waveletTransformCheckBox.Checked = _encoderSettings.WaveletLevels > 0;
             qualityLayersNumericUpDown.Value = _encoderSettings.QualityLayers.Length;
             progressionOrderComboBox.SelectedItem = _encoderSettings.ProgressionOrder;
-            useTilesCheckBox.Checked = _encoderSettings.TileWidth != 0 && _encoderSettings.TileHeight != 0;
+            useTilesCheckBox.Checked = _encoderSettings.TileWidth != 0 || _encoderSettings.TileHeight != 0;
             lossyCompressionCheckBox.Checked = _encoderSettings.CompressionType == Jpeg2000CompressionType.Lossy;
             if (useTilesCheckBox.Checked)
             {

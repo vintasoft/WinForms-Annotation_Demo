@@ -2725,16 +2725,8 @@ namespace AnnotationDemo
         /// </summary>
         private void RotateViewClockwise()
         {
-            if (annotationViewer1.ImageRotationAngle != 270)
-            {
-                annotationViewer1.ImageRotationAngle += 90;
-                thumbnailViewer1.ImageRotationAngle += 90;
-            }
-            else
-            {
-                annotationViewer1.ImageRotationAngle = 0;
-                thumbnailViewer1.ImageRotationAngle = 0;
-            }
+            annotationViewer1.RotateViewClockwise();
+            thumbnailViewer1.RotateViewClockwise();
         }
 
         /// <summary>
@@ -2742,16 +2734,8 @@ namespace AnnotationDemo
         /// </summary>
         private void RotateViewCounterClockwise()
         {
-            if (annotationViewer1.ImageRotationAngle != 0)
-            {
-                annotationViewer1.ImageRotationAngle -= 90;
-                thumbnailViewer1.ImageRotationAngle -= 90;
-            }
-            else
-            {
-                annotationViewer1.ImageRotationAngle = 270;
-                thumbnailViewer1.ImageRotationAngle = 270;
-            }
+            annotationViewer1.RotateViewCounterClockwise();
+            thumbnailViewer1.RotateViewCounterClockwise();
         }
 
         #endregion

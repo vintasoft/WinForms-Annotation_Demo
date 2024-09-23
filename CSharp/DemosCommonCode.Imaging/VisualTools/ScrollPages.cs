@@ -326,7 +326,9 @@ namespace DemosCommonCode.Imaging
             // get the scroll point of new focused image
             PointF newFocusedImageScrollPoint;
 
-            switch (ImageViewer.ImageRotationAngle)
+            int imageRotationAngle = ImageViewer.GetImageViewRotationAngle(ImageViewer.Image);
+
+            switch (imageRotationAngle)
             {
                 case 90:
                     newFocusedImageScrollPoint = new PointF(

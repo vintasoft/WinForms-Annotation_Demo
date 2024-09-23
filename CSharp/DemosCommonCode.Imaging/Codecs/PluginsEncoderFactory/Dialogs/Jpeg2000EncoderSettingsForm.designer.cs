@@ -69,7 +69,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(7, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 15);
+            this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Format";
             // 
@@ -79,7 +79,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.formatComboBox.FormattingEnabled = true;
             this.formatComboBox.Location = new System.Drawing.Point(140, 19);
             this.formatComboBox.Name = "formatComboBox";
-            this.formatComboBox.Size = new System.Drawing.Size(121, 23);
+            this.formatComboBox.Size = new System.Drawing.Size(121, 21);
             this.formatComboBox.TabIndex = 1;
             // 
             // label2
@@ -87,7 +87,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(221, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 15);
+            this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Levels";
             // 
@@ -105,7 +105,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             0,
             0});
             this.waveletLevelsNumericUpDown.Name = "waveletLevelsNumericUpDown";
-            this.waveletLevelsNumericUpDown.Size = new System.Drawing.Size(75, 23);
+            this.waveletLevelsNumericUpDown.Size = new System.Drawing.Size(75, 20);
             this.waveletLevelsNumericUpDown.TabIndex = 3;
             this.waveletLevelsNumericUpDown.Value = new decimal(new int[] {
             1,
@@ -118,7 +118,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(7, 45);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 15);
+            this.label3.Size = new System.Drawing.Size(73, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Quality Layers";
             // 
@@ -136,7 +136,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             0,
             0});
             this.qualityLayersNumericUpDown.Name = "qualityLayersNumericUpDown";
-            this.qualityLayersNumericUpDown.Size = new System.Drawing.Size(121, 23);
+            this.qualityLayersNumericUpDown.Size = new System.Drawing.Size(121, 20);
             this.qualityLayersNumericUpDown.TabIndex = 5;
             this.qualityLayersNumericUpDown.Value = new decimal(new int[] {
             1,
@@ -149,7 +149,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(7, 69);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 15);
+            this.label4.Size = new System.Drawing.Size(91, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Progression Order";
             // 
@@ -159,7 +159,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.progressionOrderComboBox.FormattingEnabled = true;
             this.progressionOrderComboBox.Location = new System.Drawing.Point(140, 66);
             this.progressionOrderComboBox.Name = "progressionOrderComboBox";
-            this.progressionOrderComboBox.Size = new System.Drawing.Size(121, 23);
+            this.progressionOrderComboBox.Size = new System.Drawing.Size(121, 21);
             this.progressionOrderComboBox.TabIndex = 7;
             // 
             // useTilesCheckBox
@@ -167,7 +167,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.useTilesCheckBox.AutoSize = true;
             this.useTilesCheckBox.Location = new System.Drawing.Point(10, 93);
             this.useTilesCheckBox.Name = "useTilesCheckBox";
-            this.useTilesCheckBox.Size = new System.Drawing.Size(71, 19);
+            this.useTilesCheckBox.Size = new System.Drawing.Size(70, 17);
             this.useTilesCheckBox.TabIndex = 8;
             this.useTilesCheckBox.Text = "Use Tiles";
             this.useTilesCheckBox.UseVisualStyleBackColor = true;
@@ -181,13 +181,8 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             0,
             0,
             0});
-            this.tileWidthNumericUpDown.Minimum = new decimal(new int[] {
-            32,
-            0,
-            0,
-            0});
             this.tileWidthNumericUpDown.Name = "tileWidthNumericUpDown";
-            this.tileWidthNumericUpDown.Size = new System.Drawing.Size(50, 23);
+            this.tileWidthNumericUpDown.Size = new System.Drawing.Size(50, 20);
             this.tileWidthNumericUpDown.TabIndex = 9;
             this.tileWidthNumericUpDown.Value = new decimal(new int[] {
             512,
@@ -203,13 +198,8 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             0,
             0,
             0});
-            this.tileHeightNumericUpDown.Minimum = new decimal(new int[] {
-            32,
-            0,
-            0,
-            0});
             this.tileHeightNumericUpDown.Name = "tileHeightNumericUpDown";
-            this.tileHeightNumericUpDown.Size = new System.Drawing.Size(50, 23);
+            this.tileHeightNumericUpDown.Size = new System.Drawing.Size(50, 20);
             this.tileHeightNumericUpDown.TabIndex = 10;
             this.tileHeightNumericUpDown.Value = new decimal(new int[] {
             512,
@@ -222,7 +212,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(193, 97);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(14, 15);
+            this.label5.Size = new System.Drawing.Size(14, 13);
             this.label5.TabIndex = 11;
             this.label5.Text = "X";
             // 
@@ -245,7 +235,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.compressionRatioLabel.AutoSize = true;
             this.compressionRatioLabel.Location = new System.Drawing.Point(216, 43);
             this.compressionRatioLabel.Name = "compressionRatioLabel";
-            this.compressionRatioLabel.Size = new System.Drawing.Size(36, 15);
+            this.compressionRatioLabel.Size = new System.Drawing.Size(34, 13);
             this.compressionRatioLabel.TabIndex = 19;
             this.compressionRatioLabel.Text = "(1 : 1)";
             // 
@@ -254,7 +244,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(215, 22);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 15);
+            this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 5;
             this.label7.Text = "KBytes";
             // 
@@ -272,7 +262,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             0,
             0});
             this.compressionRatioNumericUpDown.Name = "compressionRatioNumericUpDown";
-            this.compressionRatioNumericUpDown.Size = new System.Drawing.Size(75, 23);
+            this.compressionRatioNumericUpDown.Size = new System.Drawing.Size(75, 20);
             this.compressionRatioNumericUpDown.TabIndex = 6;
             this.compressionRatioNumericUpDown.Value = new decimal(new int[] {
             1,
@@ -286,7 +276,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.compressionRatioRadioButton.AutoSize = true;
             this.compressionRatioRadioButton.Location = new System.Drawing.Point(4, 41);
             this.compressionRatioRadioButton.Name = "compressionRatioRadioButton";
-            this.compressionRatioRadioButton.Size = new System.Drawing.Size(125, 19);
+            this.compressionRatioRadioButton.Size = new System.Drawing.Size(113, 17);
             this.compressionRatioRadioButton.TabIndex = 18;
             this.compressionRatioRadioButton.TabStop = true;
             this.compressionRatioRadioButton.Text = "Compression Ratio";
@@ -307,7 +297,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             0,
             0});
             this.imageDataSizeNumericUpDown.Name = "imageDataSizeNumericUpDown";
-            this.imageDataSizeNumericUpDown.Size = new System.Drawing.Size(75, 23);
+            this.imageDataSizeNumericUpDown.Size = new System.Drawing.Size(75, 20);
             this.imageDataSizeNumericUpDown.TabIndex = 4;
             this.imageDataSizeNumericUpDown.Value = new decimal(new int[] {
             100,
@@ -320,7 +310,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.imageDataSizeRadioButton.AutoSize = true;
             this.imageDataSizeRadioButton.Location = new System.Drawing.Point(4, 18);
             this.imageDataSizeRadioButton.Name = "imageDataSizeRadioButton";
-            this.imageDataSizeRadioButton.Size = new System.Drawing.Size(108, 19);
+            this.imageDataSizeRadioButton.Size = new System.Drawing.Size(103, 17);
             this.imageDataSizeRadioButton.TabIndex = 16;
             this.imageDataSizeRadioButton.TabStop = true;
             this.imageDataSizeRadioButton.Text = "Image Data Size";
@@ -353,7 +343,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.lossyCompressionCheckBox.AutoSize = true;
             this.lossyCompressionCheckBox.Location = new System.Drawing.Point(10, 42);
             this.lossyCompressionCheckBox.Name = "lossyCompressionCheckBox";
-            this.lossyCompressionCheckBox.Size = new System.Drawing.Size(55, 19);
+            this.lossyCompressionCheckBox.Size = new System.Drawing.Size(53, 17);
             this.lossyCompressionCheckBox.TabIndex = 17;
             this.lossyCompressionCheckBox.Text = "Lossy";
             this.lossyCompressionCheckBox.UseVisualStyleBackColor = true;
@@ -397,7 +387,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.waveletTransformCheckBox.AutoSize = true;
             this.waveletTransformCheckBox.Location = new System.Drawing.Point(10, 19);
             this.waveletTransformCheckBox.Name = "waveletTransformCheckBox";
-            this.waveletTransformCheckBox.Size = new System.Drawing.Size(124, 19);
+            this.waveletTransformCheckBox.Size = new System.Drawing.Size(116, 17);
             this.waveletTransformCheckBox.TabIndex = 18;
             this.waveletTransformCheckBox.Text = "Wavelet Transform";
             this.waveletTransformCheckBox.UseVisualStyleBackColor = true;
