@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging;
@@ -44,6 +45,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// <summary>
         /// Gets or sets PNG encoder settings.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public PngEncoderSettings EncoderSettings
         {
             get
@@ -68,6 +70,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// <value>
         /// <b>True</b> if annotation format must be changed; otherwise, <b>false</b>.
         /// </value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool EditAnnotationSettings
         {
             get

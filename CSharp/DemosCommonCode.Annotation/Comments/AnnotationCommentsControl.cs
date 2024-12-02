@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging.Annotation.Comments;
@@ -50,6 +51,7 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// Gets or sets the image viewer.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public ImageViewer ImageViewer
         {
             get
@@ -66,6 +68,7 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// Gets or sets the PDF annotation tool.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public AnnotationVisualTool AnnotationTool
         {
             get
@@ -101,6 +104,7 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// Gets or sets the comment visual tool.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public CommentVisualTool CommentTool
         {
             get

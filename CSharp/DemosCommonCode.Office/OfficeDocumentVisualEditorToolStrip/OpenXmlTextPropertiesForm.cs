@@ -3,6 +3,7 @@
 #endif
 
 using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging.Office.OpenXml.Editor;
@@ -99,6 +100,7 @@ namespace DemosCommonCode.Office
         /// <summary>
         /// Gets or sets the text properties.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public OpenXmlTextProperties TextProperties
         {
             get

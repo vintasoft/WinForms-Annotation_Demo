@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 #if !REMOVE_ANNOTATION_PLUGIN
@@ -34,6 +35,7 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// Gets or sets the comment that is displayed in control.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public Comment Comment
         {
             get

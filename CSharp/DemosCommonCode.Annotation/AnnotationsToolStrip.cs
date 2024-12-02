@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -293,6 +294,7 @@ namespace DemosCommonCode.Annotation
         /// Gets or sets the <see cref="AnnotationViewer"/>, which is associated with
         /// this <see cref="AnnotationsToolStrip"/>.
         /// </summary>        
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public AnnotationViewer AnnotationViewer
         {
             get
@@ -316,6 +318,7 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// Gets or sets the comment builder.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public AnnotationCommentBuilder CommentBuilder
         {
             get
@@ -332,6 +335,7 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// Gets or sets a value indicating whether the annotations must be built continuously.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public bool NeedBuildAnnotationsContinuously
         {
             get
@@ -591,12 +595,8 @@ namespace DemosCommonCode.Annotation
                 // for each annotation in previous annotation collection
                 foreach (AnnotationView annotationView in e.OldValue)
                 {
-                    // if annotation is link annotation
-                    if (annotationView is LinkAnnotationView)
-                    {
-                        // unsubscribe from the Link annotation events
-                        UnsubscribeFromLinkAnnotationViewEvents((LinkAnnotationView)annotationView);
-                    }
+                    // unsubscribe from the Link annotation events
+                    UnsubscribeFromLinkAnnotationViewEvents(annotationView);
                 }
             }
 
@@ -610,12 +610,8 @@ namespace DemosCommonCode.Annotation
                 // for each annotation in new annotation collection
                 foreach (AnnotationView annotationView in e.NewValue)
                 {
-                    // if annotation is link annotation
-                    if (annotationView is LinkAnnotationView)
-                    {
-                        // subscribe to the Link annotation events
-                        SubscribeToLinkAnnotationViewEvents((LinkAnnotationView)annotationView);
-                    }
+                    // subscribe to the Link annotation events
+                    SubscribeToLinkAnnotationViewEvents(annotationView);
                 }
             }
         }
@@ -656,15 +652,8 @@ namespace DemosCommonCode.Annotation
             {
                 foreach (AnnotationView view in _annotationDataToAnnotationView.Values)
                 {
-                    // get annotation view
-                    LinkAnnotationView linkAnnotationView = view as LinkAnnotationView;
-
-                    // if link annotation view found 
-                    if (linkAnnotationView != null)
-                    {
-                        // unsubscribe from the Link annotation events
-                        UnsubscribeFromLinkAnnotationViewEvents(linkAnnotationView);
-                    }
+                    // unsubscribe from the Link annotation events
+                    UnsubscribeFromLinkAnnotationViewEvents(view);
                 }
 
                 _annotationDataToAnnotationView.Clear();
@@ -677,15 +666,8 @@ namespace DemosCommonCode.Annotation
                     // if annotation dictionary contains annotation data
                     if (_annotationDataToAnnotationView.ContainsKey(e.OldValue))
                     {
-                        // get annotation view
-                        LinkAnnotationView linkAnnotationView = _annotationDataToAnnotationView[e.OldValue] as LinkAnnotationView;
-
-                        // if link annotation view found 
-                        if (linkAnnotationView != null)
-                        {
-                            // unsubscribe from the Link annotation events
-                            UnsubscribeFromLinkAnnotationViewEvents(linkAnnotationView);
-                        }
+                        // unsubscribe from the Link annotation events
+                        UnsubscribeFromLinkAnnotationViewEvents(_annotationDataToAnnotationView[e.OldValue]);
 
                         // remove annotation data from dictionary
                         _annotationDataToAnnotationView.Remove(e.OldValue);
@@ -705,12 +687,8 @@ namespace DemosCommonCode.Annotation
                     // add annotation data in the annotation dictionary
                     _annotationDataToAnnotationView.Add(e.NewValue, annotationView);
 
-                    // if annotation view is a Link annotation
-                    if (annotationView is LinkAnnotationView)
-                    {
-                        // subscribe to the Link annotation events
-                        SubscribeToLinkAnnotationViewEvents((LinkAnnotationView)annotationView);
-                    }
+                    // subscribe to the Link annotation events
+                    SubscribeToLinkAnnotationViewEvents(annotationView);
                 }
             }
         }
@@ -1345,18 +1323,40 @@ namespace DemosCommonCode.Annotation
         /// Subscribes to the link annotation view events.
         /// </summary>
         /// <param name="linkView">The link view.</param>
-        private void SubscribeToLinkAnnotationViewEvents(LinkAnnotationView linkView)
+        private void SubscribeToLinkAnnotationViewEvents(AnnotationView view)
         {
-            linkView.LinkClicked += new EventHandler<AnnotationLinkClickedEventArgs>(OnLinkClicked);
+            if (view != null)
+            {
+                if (view is LinkAnnotationView)
+                {
+                    ((LinkAnnotationView)view).LinkClicked += new EventHandler<AnnotationLinkClickedEventArgs>(OnLinkClicked);
+                }
+                else if (view is CompositeAnnotationView)
+                {
+                    foreach (AnnotationView child in (CompositeAnnotationView)view)
+                        SubscribeToLinkAnnotationViewEvents(child);
+                }
+            }
         }
 
         /// <summary>
         /// Unsubscribes from the link annotation view events.
         /// </summary>
         /// <param name="linkView">The link view.</param>
-        private void UnsubscribeFromLinkAnnotationViewEvents(LinkAnnotationView linkView)
+        private void UnsubscribeFromLinkAnnotationViewEvents(AnnotationView view)
         {
-            linkView.LinkClicked -= OnLinkClicked;
+            if (view != null)
+            {
+                if (view is LinkAnnotationView)
+                {
+                    ((LinkAnnotationView)view).LinkClicked -= OnLinkClicked;
+                }
+                else if (view is CompositeAnnotationView)
+                {
+                    foreach (AnnotationView child in (CompositeAnnotationView)view)
+                        UnsubscribeFromLinkAnnotationViewEvents(child);
+                }
+            }
         }
 
         /// <summary>

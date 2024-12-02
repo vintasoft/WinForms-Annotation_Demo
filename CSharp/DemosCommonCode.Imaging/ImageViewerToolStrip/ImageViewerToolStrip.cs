@@ -74,6 +74,7 @@ namespace DemosCommonCode.Imaging
         /// Gets or sets an image viewer associated with this toolstrip.
         /// </summary>
         [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public ImageViewer ImageViewer
         {
             get
@@ -138,6 +139,7 @@ namespace DemosCommonCode.Imaging
         /// Gets or sets a value indicating whether the toolbar synchronizes with image collection of image viewer.
         /// </summary>
         [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool UseImageViewerImages
         {
             get
@@ -155,6 +157,7 @@ namespace DemosCommonCode.Imaging
         /// Gets or sets a zoom trackbar associated with this toolbar.
         /// </summary>
         [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public TrackBar AssociatedZoomTrackBar
         {
             get
@@ -373,6 +376,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Gets or sets a value indicating whether the button for printing of image is enabled.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public bool PrintButtonEnabled
         {
             get
@@ -526,6 +530,7 @@ namespace DemosCommonCode.Imaging
         /// Gets or sets the image count.
         /// </summary>
         [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int PageCount
         {
             get

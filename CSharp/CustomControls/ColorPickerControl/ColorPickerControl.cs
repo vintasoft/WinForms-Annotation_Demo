@@ -54,6 +54,7 @@ namespace DemosCommonCode.CustomControls
         /// Default value is <b><see cref="Color.White"/></b>.
         /// </value>
         [Description("The current color.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public Color Color
         {
             get

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging.Codecs.Encoders;
@@ -41,6 +42,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// <summary>
         /// Gets or sets the JPEG 2000 Encoder Settings.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Jpeg2000EncoderSettings EncoderSettings
         {
             get

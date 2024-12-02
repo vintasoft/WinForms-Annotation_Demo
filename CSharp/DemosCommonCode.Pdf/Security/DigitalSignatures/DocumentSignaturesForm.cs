@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -103,6 +104,7 @@ namespace DemosCommonCode.Pdf.Security
         /// <summary>
         /// Gets or sets the selected signature field.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public PdfInteractiveFormSignatureField SelectedSignatureField
         {
             get

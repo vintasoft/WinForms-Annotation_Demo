@@ -1,6 +1,7 @@
 ﻿#if !REMOVE_ANNOTATION_PLUGIN
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -206,6 +207,7 @@ namespace DemosCommonCode.Annotation
         /// <value>
         /// Default value is <b>false</b>.
         /// </value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool AutoHeight
         {
             get
@@ -233,6 +235,7 @@ namespace DemosCommonCode.Annotation
         /// <value>
         /// Default value is <b>true</b>.
         /// </value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool CanClose
         {
             get
@@ -261,6 +264,7 @@ namespace DemosCommonCode.Annotation
         /// <value>
         /// Default value is <b>true</b>.
         /// </value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool CanExpand
         {
             get
@@ -289,6 +293,7 @@ namespace DemosCommonCode.Annotation
         /// <value>
         /// Default value is <b>false</b>.
         /// </value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool ShowStateHistory
         {
             get
@@ -314,6 +319,7 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// Gets or sets the comment that is displayed in control.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Comment Comment
         {
             get
@@ -364,6 +370,7 @@ namespace DemosCommonCode.Annotation
         /// <value>
         /// <b>true</b> if the comment is selected; otherwise, <b>false</b>.
         /// </value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool IsCommentSelected
         {
             get

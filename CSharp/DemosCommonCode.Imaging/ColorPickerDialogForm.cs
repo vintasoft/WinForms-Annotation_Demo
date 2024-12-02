@@ -34,6 +34,7 @@ namespace DemosCommonCode.Imaging
         /// Default value is <b><see cref="Color.White"/></b>.
         /// </value>
         [Description("The current color.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public Color Color
         {
             get
@@ -54,6 +55,7 @@ namespace DemosCommonCode.Imaging
         /// </value>
         [Description("A value indicating whether the alpha channel, of color, can be edited.")]
         [DefaultValue(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public bool CanEditAlphaChannel
         {
             get

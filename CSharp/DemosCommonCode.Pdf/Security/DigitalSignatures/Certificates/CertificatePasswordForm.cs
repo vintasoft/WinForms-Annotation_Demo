@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
 
@@ -31,6 +32,7 @@ namespace DemosCommonCode.Pdf.Security
         /// <summary>
         /// Gets or sets the certificate filename.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Filename
         {
             get

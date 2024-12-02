@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging.Codecs.Encoders;
@@ -56,6 +57,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// <b>true</b> - PDF document can be compressed with MRC compression only;
         /// <b>false</b> - PDF document can be compressed with or without MRC compression.
         /// </value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public bool IsMrcCompressionOnly
         {
             get
@@ -81,6 +83,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// <b>True</b> - PDF document can be compressed with or without MRC compression;
         /// <b>false</b> - PDF document can be compressed with image compression only.
         /// </value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool AllowMrcCompression
         {
             get
@@ -105,6 +108,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// <summary>
         /// Gets or sets the PDF compression settings.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public PdfCompression Compression
         {
             get
@@ -120,6 +124,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// <summary>
         /// Gets or sets the PDF compression settings.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public PdfCompressionSettings CompressionSettings
         {
             get
@@ -137,6 +142,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// <summary>
         /// Gets or sets the PDF MRC compression settings.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public PdfMrcCompressionSettings MrcCompressionSettings
         {
             get

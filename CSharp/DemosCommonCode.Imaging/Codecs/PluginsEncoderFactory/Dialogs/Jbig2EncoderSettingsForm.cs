@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging.Codecs.Encoders;
@@ -30,6 +31,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// <summary>
         /// Determines that existing document should be append.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool AppendExistingDocument
         {
             get
@@ -45,6 +47,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// <summary>
         /// Gets or sets a value indicating whether <see cref="AppendExistingDocument"/> is enabled.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool AppendExistingDocumentEnabled
         {
             get
@@ -62,6 +65,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// <summary>
         /// Gets or sets JBIG 2 encoder settings.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Jbig2EncoderSettings EncoderSettings
         {
             get

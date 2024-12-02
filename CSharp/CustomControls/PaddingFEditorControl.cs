@@ -51,6 +51,7 @@ namespace DemosCommonCode.CustomControls
         /// Default value is <b>Vintasoft.Imaging.PaddingF.Empty</b>.
         /// </value>
         [Description("The padding value.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public PaddingF PaddingValue
         {
             get

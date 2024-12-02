@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging.Undo;
@@ -37,6 +38,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Gets or sets the undo manager.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public UndoManager UndoManager
         {
             get
@@ -73,6 +75,7 @@ namespace DemosCommonCode.Imaging
         /// <value>
         /// <b>true</b> if navigate in history is enabled; otherwise, <b>false</b>.
         /// </value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool CanNavigateOnHistory
         {
             get

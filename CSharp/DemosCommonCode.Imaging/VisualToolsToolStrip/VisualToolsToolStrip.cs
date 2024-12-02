@@ -273,6 +273,7 @@ namespace DemosCommonCode.Imaging
         /// </value>
         [Description("The image viewer, which is associated with this toolstrip.")]
         [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public ImageViewer ImageViewer
         {
             get
@@ -335,6 +336,7 @@ namespace DemosCommonCode.Imaging
         /// The mandatory visual tool is always active because is always used in composition with selected visual tool.
         /// </remarks>
         [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public virtual VisualTool MandatoryVisualTool
         {
             get
@@ -368,6 +370,7 @@ namespace DemosCommonCode.Imaging
         /// Default value is <b>null</b>.
         /// </value>
         [Description("The visual tools menu item, which duplicates this toolstrip.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public ToolStripMenuItem VisualToolsMenuItem
         {
             get

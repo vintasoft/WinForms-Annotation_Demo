@@ -41,6 +41,7 @@ namespace DemosCommonCode.Imaging
         /// Default value is <b>null</b>.
         /// </value>
         [Description("Magnifier tool.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public MagnifierTool Magnifier
         {
             get

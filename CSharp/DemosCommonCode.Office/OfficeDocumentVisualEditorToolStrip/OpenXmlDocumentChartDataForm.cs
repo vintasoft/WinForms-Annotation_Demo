@@ -72,6 +72,7 @@ namespace DemosCommonCode.Office
         /// <summary>
         /// Gets or sets the visual editor for Office document.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public OfficeDocumentVisualEditor VisualEditor
         {
             get

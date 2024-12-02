@@ -29,36 +29,6 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// </summary>
         private void InitializeComponent()
         {
-            Vintasoft.Imaging.Pdf.PdfCompressionSettings pdfCompressionSettings1 = new Vintasoft.Imaging.Pdf.PdfCompressionSettings();
-            Vintasoft.Imaging.ImageProcessing.ChangePixelFormatToBlackWhiteCommand changePixelFormatToBlackWhiteCommand1 = new Vintasoft.Imaging.ImageProcessing.ChangePixelFormatToBlackWhiteCommand();
-            Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings jbig2EncoderSettings1 = new Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings();
-            Vintasoft.Imaging.ImageProcessing.ChangePixelFormatToBlackWhiteCommand changePixelFormatToBlackWhiteCommand2 = new Vintasoft.Imaging.ImageProcessing.ChangePixelFormatToBlackWhiteCommand();
-            Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings jpeg2000EncoderSettings1 = new Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings();
-            Vintasoft.Imaging.Codecs.Encoders.JpegEncoderSettings jpegEncoderSettings1 = new Vintasoft.Imaging.Codecs.Encoders.JpegEncoderSettings();
-            Vintasoft.Imaging.Pdf.PdfCompressionSettings pdfCompressionSettings2 = new Vintasoft.Imaging.Pdf.PdfCompressionSettings();
-            Vintasoft.Imaging.ImageProcessing.ChangePixelFormatToBlackWhiteCommand changePixelFormatToBlackWhiteCommand3 = new Vintasoft.Imaging.ImageProcessing.ChangePixelFormatToBlackWhiteCommand();
-            Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings jbig2EncoderSettings2 = new Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings();
-            Vintasoft.Imaging.ImageProcessing.ChangePixelFormatToBlackWhiteCommand changePixelFormatToBlackWhiteCommand4 = new Vintasoft.Imaging.ImageProcessing.ChangePixelFormatToBlackWhiteCommand();
-            Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings jpeg2000EncoderSettings2 = new Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings();
-            Vintasoft.Imaging.Codecs.Encoders.JpegEncoderSettings jpegEncoderSettings2 = new Vintasoft.Imaging.Codecs.Encoders.JpegEncoderSettings();
-            Vintasoft.Imaging.Pdf.PdfCompressionSettings pdfCompressionSettings3 = new Vintasoft.Imaging.Pdf.PdfCompressionSettings();
-            Vintasoft.Imaging.ImageProcessing.ChangePixelFormatToBlackWhiteCommand changePixelFormatToBlackWhiteCommand5 = new Vintasoft.Imaging.ImageProcessing.ChangePixelFormatToBlackWhiteCommand();
-            Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings jbig2EncoderSettings3 = new Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings();
-            Vintasoft.Imaging.ImageProcessing.ChangePixelFormatToBlackWhiteCommand changePixelFormatToBlackWhiteCommand6 = new Vintasoft.Imaging.ImageProcessing.ChangePixelFormatToBlackWhiteCommand();
-            Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings jpeg2000EncoderSettings3 = new Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings();
-            Vintasoft.Imaging.Codecs.Encoders.JpegEncoderSettings jpegEncoderSettings3 = new Vintasoft.Imaging.Codecs.Encoders.JpegEncoderSettings();
-            Vintasoft.Imaging.Pdf.PdfCompressionSettings pdfCompressionSettings4 = new Vintasoft.Imaging.Pdf.PdfCompressionSettings();
-            Vintasoft.Imaging.ImageProcessing.ChangePixelFormatToBlackWhiteCommand changePixelFormatToBlackWhiteCommand7 = new Vintasoft.Imaging.ImageProcessing.ChangePixelFormatToBlackWhiteCommand();
-            Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings jbig2EncoderSettings4 = new Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings();
-            Vintasoft.Imaging.ImageProcessing.ChangePixelFormatToBlackWhiteCommand changePixelFormatToBlackWhiteCommand8 = new Vintasoft.Imaging.ImageProcessing.ChangePixelFormatToBlackWhiteCommand();
-            Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings jpeg2000EncoderSettings4 = new Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings();
-            Vintasoft.Imaging.Codecs.Encoders.JpegEncoderSettings jpegEncoderSettings4 = new Vintasoft.Imaging.Codecs.Encoders.JpegEncoderSettings();
-            Vintasoft.Imaging.Pdf.PdfCompressionSettings pdfCompressionSettings5 = new Vintasoft.Imaging.Pdf.PdfCompressionSettings();
-            Vintasoft.Imaging.ImageProcessing.ChangePixelFormatToBlackWhiteCommand changePixelFormatToBlackWhiteCommand9 = new Vintasoft.Imaging.ImageProcessing.ChangePixelFormatToBlackWhiteCommand();
-            Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings jbig2EncoderSettings5 = new Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings();
-            Vintasoft.Imaging.ImageProcessing.ChangePixelFormatToBlackWhiteCommand changePixelFormatToBlackWhiteCommand10 = new Vintasoft.Imaging.ImageProcessing.ChangePixelFormatToBlackWhiteCommand();
-            Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings jpeg2000EncoderSettings5 = new Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings();
-            Vintasoft.Imaging.Codecs.Encoders.JpegEncoderSettings jpegEncoderSettings5 = new Vintasoft.Imaging.Codecs.Encoders.JpegEncoderSettings();
             this.mrcCompressionProfileComboBox = new System.Windows.Forms.ComboBox();
             this.compressionImageRadioButton = new System.Windows.Forms.RadioButton();
             this.compressionMrcRadioButton = new System.Windows.Forms.RadioButton();
@@ -275,32 +245,6 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // mrcBackgroundCompressionControl
             // 
             this.mrcBackgroundCompressionControl.CanUseAutoCompression = false;
-            changePixelFormatToBlackWhiteCommand1.IsNested = false;
-            changePixelFormatToBlackWhiteCommand1.Results = null;
-            pdfCompressionSettings1.BinarizationCommand = changePixelFormatToBlackWhiteCommand1;
-            changePixelFormatToBlackWhiteCommand2.IsNested = false;
-            changePixelFormatToBlackWhiteCommand2.Results = null;
-            jbig2EncoderSettings1.BinarizationCommand = changePixelFormatToBlackWhiteCommand2;
-            jbig2EncoderSettings1.Inaccuracy = 50;
-            jbig2EncoderSettings1.Lossy = false;
-            jbig2EncoderSettings1.RandomAccessFileOrganization = false;
-            jbig2EncoderSettings1.SymbolDictionarySize = 6500;
-            jbig2EncoderSettings1.UseMmr = false;
-            jbig2EncoderSettings1.UseSymbolDictionary = true;
-            jbig2EncoderSettings1.UseTypicalPrediction = true;
-            pdfCompressionSettings1.Jbig2Settings = jbig2EncoderSettings1;
-            jpeg2000EncoderSettings1.FileSize = ((long)(0));
-            jpeg2000EncoderSettings1.QualityLayers = new double[] {
-        1D};
-            pdfCompressionSettings1.Jpeg2000Settings = jpeg2000EncoderSettings1;
-            jpegEncoderSettings1.GenerateOptimalHuffmanTables = true;
-            jpegEncoderSettings1.IsSubsamplingDisabled = false;
-            jpegEncoderSettings1.QuantizationTables = null;
-            jpegEncoderSettings1.SamplingFactors = null;
-            jpegEncoderSettings1.SaveAsGrayscale = false;
-            jpegEncoderSettings1.ThumbnailSize = new System.Drawing.Size(160, 160);
-            pdfCompressionSettings1.JpegSettings = jpegEncoderSettings1;
-            this.mrcBackgroundCompressionControl.CompressionSettings = pdfCompressionSettings1;
             this.mrcBackgroundCompressionControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mrcBackgroundCompressionControl.Location = new System.Drawing.Point(3, 3);
             this.mrcBackgroundCompressionControl.Name = "mrcBackgroundCompressionControl";
@@ -321,32 +265,6 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // mrcImagesCompressionControl
             // 
             this.mrcImagesCompressionControl.CanUseAutoCompression = false;
-            changePixelFormatToBlackWhiteCommand3.IsNested = false;
-            changePixelFormatToBlackWhiteCommand3.Results = null;
-            pdfCompressionSettings2.BinarizationCommand = changePixelFormatToBlackWhiteCommand3;
-            changePixelFormatToBlackWhiteCommand4.IsNested = false;
-            changePixelFormatToBlackWhiteCommand4.Results = null;
-            jbig2EncoderSettings2.BinarizationCommand = changePixelFormatToBlackWhiteCommand4;
-            jbig2EncoderSettings2.Inaccuracy = 50;
-            jbig2EncoderSettings2.Lossy = false;
-            jbig2EncoderSettings2.RandomAccessFileOrganization = false;
-            jbig2EncoderSettings2.SymbolDictionarySize = 6500;
-            jbig2EncoderSettings2.UseMmr = false;
-            jbig2EncoderSettings2.UseSymbolDictionary = true;
-            jbig2EncoderSettings2.UseTypicalPrediction = true;
-            pdfCompressionSettings2.Jbig2Settings = jbig2EncoderSettings2;
-            jpeg2000EncoderSettings2.FileSize = ((long)(0));
-            jpeg2000EncoderSettings2.QualityLayers = new double[] {
-        1D};
-            pdfCompressionSettings2.Jpeg2000Settings = jpeg2000EncoderSettings2;
-            jpegEncoderSettings2.GenerateOptimalHuffmanTables = true;
-            jpegEncoderSettings2.IsSubsamplingDisabled = false;
-            jpegEncoderSettings2.QuantizationTables = null;
-            jpegEncoderSettings2.SamplingFactors = null;
-            jpegEncoderSettings2.SaveAsGrayscale = false;
-            jpegEncoderSettings2.ThumbnailSize = new System.Drawing.Size(160, 160);
-            pdfCompressionSettings2.JpegSettings = jpegEncoderSettings2;
-            this.mrcImagesCompressionControl.CompressionSettings = pdfCompressionSettings2;
             this.mrcImagesCompressionControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mrcImagesCompressionControl.Location = new System.Drawing.Point(3, 3);
             this.mrcImagesCompressionControl.Name = "mrcImagesCompressionControl";
@@ -366,32 +284,6 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // mrcMaskCompressionControl
             // 
             this.mrcMaskCompressionControl.CanUseAutoCompression = false;
-            changePixelFormatToBlackWhiteCommand5.IsNested = false;
-            changePixelFormatToBlackWhiteCommand5.Results = null;
-            pdfCompressionSettings3.BinarizationCommand = changePixelFormatToBlackWhiteCommand5;
-            changePixelFormatToBlackWhiteCommand6.IsNested = false;
-            changePixelFormatToBlackWhiteCommand6.Results = null;
-            jbig2EncoderSettings3.BinarizationCommand = changePixelFormatToBlackWhiteCommand6;
-            jbig2EncoderSettings3.Inaccuracy = 50;
-            jbig2EncoderSettings3.Lossy = false;
-            jbig2EncoderSettings3.RandomAccessFileOrganization = false;
-            jbig2EncoderSettings3.SymbolDictionarySize = 6500;
-            jbig2EncoderSettings3.UseMmr = false;
-            jbig2EncoderSettings3.UseSymbolDictionary = true;
-            jbig2EncoderSettings3.UseTypicalPrediction = true;
-            pdfCompressionSettings3.Jbig2Settings = jbig2EncoderSettings3;
-            jpeg2000EncoderSettings3.FileSize = ((long)(0));
-            jpeg2000EncoderSettings3.QualityLayers = new double[] {
-        1D};
-            pdfCompressionSettings3.Jpeg2000Settings = jpeg2000EncoderSettings3;
-            jpegEncoderSettings3.GenerateOptimalHuffmanTables = true;
-            jpegEncoderSettings3.IsSubsamplingDisabled = false;
-            jpegEncoderSettings3.QuantizationTables = null;
-            jpegEncoderSettings3.SamplingFactors = null;
-            jpegEncoderSettings3.SaveAsGrayscale = false;
-            jpegEncoderSettings3.ThumbnailSize = new System.Drawing.Size(160, 160);
-            pdfCompressionSettings3.JpegSettings = jpegEncoderSettings3;
-            this.mrcMaskCompressionControl.CompressionSettings = pdfCompressionSettings3;
             this.mrcMaskCompressionControl.Location = new System.Drawing.Point(3, 3);
             this.mrcMaskCompressionControl.Name = "mrcMaskCompressionControl";
             this.mrcMaskCompressionControl.Size = new System.Drawing.Size(361, 144);
@@ -410,32 +302,6 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // mrcFrontCompressionControl
             // 
             this.mrcFrontCompressionControl.CanUseAutoCompression = false;
-            changePixelFormatToBlackWhiteCommand7.IsNested = false;
-            changePixelFormatToBlackWhiteCommand7.Results = null;
-            pdfCompressionSettings4.BinarizationCommand = changePixelFormatToBlackWhiteCommand7;
-            changePixelFormatToBlackWhiteCommand8.IsNested = false;
-            changePixelFormatToBlackWhiteCommand8.Results = null;
-            jbig2EncoderSettings4.BinarizationCommand = changePixelFormatToBlackWhiteCommand8;
-            jbig2EncoderSettings4.Inaccuracy = 50;
-            jbig2EncoderSettings4.Lossy = false;
-            jbig2EncoderSettings4.RandomAccessFileOrganization = false;
-            jbig2EncoderSettings4.SymbolDictionarySize = 6500;
-            jbig2EncoderSettings4.UseMmr = false;
-            jbig2EncoderSettings4.UseSymbolDictionary = true;
-            jbig2EncoderSettings4.UseTypicalPrediction = true;
-            pdfCompressionSettings4.Jbig2Settings = jbig2EncoderSettings4;
-            jpeg2000EncoderSettings4.FileSize = ((long)(0));
-            jpeg2000EncoderSettings4.QualityLayers = new double[] {
-        1D};
-            pdfCompressionSettings4.Jpeg2000Settings = jpeg2000EncoderSettings4;
-            jpegEncoderSettings4.GenerateOptimalHuffmanTables = true;
-            jpegEncoderSettings4.IsSubsamplingDisabled = false;
-            jpegEncoderSettings4.QuantizationTables = null;
-            jpegEncoderSettings4.SamplingFactors = null;
-            jpegEncoderSettings4.SaveAsGrayscale = false;
-            jpegEncoderSettings4.ThumbnailSize = new System.Drawing.Size(160, 160);
-            pdfCompressionSettings4.JpegSettings = jpegEncoderSettings4;
-            this.mrcFrontCompressionControl.CompressionSettings = pdfCompressionSettings4;
             this.mrcFrontCompressionControl.Location = new System.Drawing.Point(3, 3);
             this.mrcFrontCompressionControl.Name = "mrcFrontCompressionControl";
             this.mrcFrontCompressionControl.Size = new System.Drawing.Size(361, 144);
@@ -443,32 +309,6 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // 
             // pdfCompressionControl
             // 
-            changePixelFormatToBlackWhiteCommand9.IsNested = false;
-            changePixelFormatToBlackWhiteCommand9.Results = null;
-            pdfCompressionSettings5.BinarizationCommand = changePixelFormatToBlackWhiteCommand9;
-            changePixelFormatToBlackWhiteCommand10.IsNested = false;
-            changePixelFormatToBlackWhiteCommand10.Results = null;
-            jbig2EncoderSettings5.BinarizationCommand = changePixelFormatToBlackWhiteCommand10;
-            jbig2EncoderSettings5.Inaccuracy = 50;
-            jbig2EncoderSettings5.Lossy = false;
-            jbig2EncoderSettings5.RandomAccessFileOrganization = false;
-            jbig2EncoderSettings5.SymbolDictionarySize = 6500;
-            jbig2EncoderSettings5.UseMmr = false;
-            jbig2EncoderSettings5.UseSymbolDictionary = true;
-            jbig2EncoderSettings5.UseTypicalPrediction = true;
-            pdfCompressionSettings5.Jbig2Settings = jbig2EncoderSettings5;
-            jpeg2000EncoderSettings5.FileSize = ((long)(0));
-            jpeg2000EncoderSettings5.QualityLayers = new double[] {
-        1D};
-            pdfCompressionSettings5.Jpeg2000Settings = jpeg2000EncoderSettings5;
-            jpegEncoderSettings5.GenerateOptimalHuffmanTables = true;
-            jpegEncoderSettings5.IsSubsamplingDisabled = false;
-            jpegEncoderSettings5.QuantizationTables = null;
-            jpegEncoderSettings5.SamplingFactors = null;
-            jpegEncoderSettings5.SaveAsGrayscale = false;
-            jpegEncoderSettings5.ThumbnailSize = new System.Drawing.Size(160, 160);
-            pdfCompressionSettings5.JpegSettings = jpegEncoderSettings5;
-            this.pdfCompressionControl.CompressionSettings = pdfCompressionSettings5;
             this.pdfCompressionControl.Location = new System.Drawing.Point(13, 48);
             this.pdfCompressionControl.Name = "pdfCompressionControl";
             this.pdfCompressionControl.Size = new System.Drawing.Size(364, 166);

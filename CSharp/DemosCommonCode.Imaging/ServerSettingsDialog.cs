@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace DemosCommonCode.Imaging
@@ -28,6 +29,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Gets a server URL.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string ServerUrl
         {
             get
@@ -43,6 +45,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Gets a user name.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string ServerUserName
         {
             get
@@ -58,6 +61,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Gets a user name.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string ServerPassword
         {
             get

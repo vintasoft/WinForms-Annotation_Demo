@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
 
@@ -36,6 +36,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Gets or sets the filename of document.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Filename
         {
             get

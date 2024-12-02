@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging;
@@ -89,6 +90,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// Gets or sets a value indicating whether multipage settings can be edited.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool CanEditMultipageSettings
         {
             get

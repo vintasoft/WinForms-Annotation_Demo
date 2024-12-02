@@ -34,6 +34,7 @@ namespace DemosCommonCode.CustomControls
         /// Gets or sets name of the value.
         /// </summary>
         [Description("Name of the value.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public string ValueName 
         {
             get
@@ -52,6 +53,7 @@ namespace DemosCommonCode.CustomControls
         /// Gets or sets the unit of measure of the value.
         /// </summary>
         [Description("Unit of measure of the value.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public string ValueUnitOfMeasure 
         {
             get

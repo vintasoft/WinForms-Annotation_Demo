@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging;
@@ -33,6 +34,7 @@ namespace DemosCommonCode.CustomControls
         /// <value>
         /// The type of the selected AnchorType property.
         /// </value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public AnchorType SelectedAnchorType
         {
             get

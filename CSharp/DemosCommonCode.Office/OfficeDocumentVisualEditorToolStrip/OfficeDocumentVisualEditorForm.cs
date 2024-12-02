@@ -70,6 +70,7 @@ namespace DemosCommonCode.Office
         /// <summary>
         /// Gets or sets the offset from owner form.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Point LocationOffsetFromOwnerForm
         {
             get

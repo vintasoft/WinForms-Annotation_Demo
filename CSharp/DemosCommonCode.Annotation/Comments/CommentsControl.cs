@@ -43,6 +43,7 @@ namespace DemosCommonCode.Annotation
         /// <summary>
         /// Gets or sets the image viewer.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public ImageViewer ImageViewer
         {
             get

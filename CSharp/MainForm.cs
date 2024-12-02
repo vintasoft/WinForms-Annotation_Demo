@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Threading;
@@ -401,6 +402,7 @@ namespace AnnotationDemo
         /// <b>True</b> - the file is opening;
         /// <b>false</b> - the file is NOT opening.
         /// </value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal bool IsFileOpening
         {
             get
@@ -426,6 +428,7 @@ namespace AnnotationDemo
         /// <b>True</b> - the file is saving;
         /// <b>false</b> - the file is NOT saving.
         /// </value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal bool IsFileSaving
         {
             get

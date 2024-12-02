@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 using DemosCommonCode;
@@ -80,6 +81,7 @@ namespace AnnotationDemo
         /// <summary>
         /// Gets or sets the index of selected signature-annotation.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int SelectedSignatureAnnotationIndex
         {
             get

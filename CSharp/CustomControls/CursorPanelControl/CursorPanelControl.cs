@@ -91,6 +91,7 @@ namespace DemosCommonCode.CustomControls
         /// Default value is <b>null</b>.
         /// </value>
         [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Cursor SelectedCursor
         {
             get

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -41,6 +42,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// <summary>
         /// Gets or sets TIFF encoder settings.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public TiffEncoderSettings EncoderSettings
         {
             get
@@ -68,6 +70,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// <b>True</b> - encoder can add images to the existing TIFF file;
         /// <b>false</b> - encoder can NOT add images to the existing TIFF file.
         /// </value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool CanAddImagesToExistingFile
         {
             get
@@ -87,6 +90,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// <b>True</b> - encoder must add images to the existing TIFF file;
         /// <b>false</b> - encoder must delete the existing TIFF file if necessary, create new TIFF file and add images to the new TIFF file.
         /// </value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool AddImagesToExistingFile
         {
             get
@@ -105,6 +109,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         /// <value>
         /// <b>True</b> if annotation format must be changed; otherwise, <b>false</b>.
         /// </value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool EditAnnotationSettings
         {
             get

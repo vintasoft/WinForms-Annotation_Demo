@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
 using Vintasoft.Imaging;
@@ -73,6 +74,7 @@ namespace DemosCommonCode.Imaging.ColorManagement
         /// <summary>
         /// Gets or sets a color management decode settings.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ColorManagementDecodeSettings ColorManagementSettings
         {
             get

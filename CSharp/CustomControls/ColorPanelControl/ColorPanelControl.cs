@@ -42,6 +42,7 @@ namespace DemosCommonCode.CustomControls
         /// Default value is <b>Color.Transparent</b>.
         /// </value>
         [Description("The current color.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public Color Color
         {
             get
@@ -204,6 +205,7 @@ namespace DemosCommonCode.CustomControls
         /// Default value is <b>Color.Empty</b>.
         /// </value>
         [Description("The default color.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public Color DefaultColor
         {
             get

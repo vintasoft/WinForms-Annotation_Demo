@@ -98,6 +98,7 @@ namespace DemosCommonCode.CustomControls
         /// </summary>
         [Browsable(true)]
         [Description("Indicates whether the CheckedToolStripSplitButton is pressed in or not pressed in.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public bool Checked
         {
             get
@@ -124,6 +125,7 @@ namespace DemosCommonCode.CustomControls
         /// </value>
         [Browsable(true)]
         [Description("Indicates whether the button must be checked on click.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public bool CheckOnClick
         {
             get

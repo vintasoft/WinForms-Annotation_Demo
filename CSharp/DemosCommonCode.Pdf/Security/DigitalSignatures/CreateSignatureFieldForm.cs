@@ -3,6 +3,7 @@
 #endif
 
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
 using System.Security.Cryptography.X509Certificates;
@@ -133,6 +134,7 @@ namespace DemosCommonCode.Pdf.Security
         /// <value>
         /// <b>True</b> if this form can change signature appearance; otherwise, <b>false</b>.
         /// </value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool CanChangeSignatureAppearance
         {
             get

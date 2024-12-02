@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging.UI.VisualTools.UserInteraction;
@@ -33,6 +34,7 @@ namespace DemosCommonCode.Imaging
         /// <value>
         /// Default value is <b>null</b>.
         /// </value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public InteractionAreaAppearanceManager InteractionAreaSettings
         {
             get
