@@ -208,10 +208,10 @@ namespace DemosCommonCode.Annotation
 
                         // get annotation data
                         GroupAnnotationData groupAnnotationData = (GroupAnnotationData)groupAnnotationView.Data;
-                        // remove group annotation from annotation data collection
-                        annotationViewer.AnnotationDataCollection.Remove(groupAnnotationData);
                         // add group annotation items to annotation data collection
                         annotationViewer.AnnotationDataCollection.AddRange(groupAnnotationData.Items.ToArray());
+                        // remove group annotation from annotation data collection
+                        annotationViewer.AnnotationDataCollection.Remove(groupAnnotationData);
                         // if the annotation viewer allows multiple selection of annotations
                         if (annotationViewer.AnnotationMultiSelect)
                         {
