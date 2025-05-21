@@ -101,7 +101,7 @@ namespace DemosCommonCode.Office
             e.LayoutSettings.PageCount = 1;
 
             // specify that relative size of graphics object must be used
-            e.LayoutSettings.UseGraphicObjectReleativeSize = true;
+            e.LayoutSettings.UseGraphicObjectRelativeSize = true;
 
             // set the page size to 70x70mm
             e.LayoutSettings.PageLayoutSettings = new PageLayoutSettings(ImageSize.FromMillimeters(70, 70, new Resolution(96)));

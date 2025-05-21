@@ -61,6 +61,8 @@ namespace DemosCommonCode.Annotation
                     result = "Angle";
                 else if (type == typeof(ArcAnnotationData))
                     result = "Arc";
+                else if (type == typeof(InkAnnotationData))
+                    result = "Inc";
                 else if (type == typeof(TriangleAnnotationData))
                     result = "Triangle";
                 else if (type == typeof(MarkAnnotationData))

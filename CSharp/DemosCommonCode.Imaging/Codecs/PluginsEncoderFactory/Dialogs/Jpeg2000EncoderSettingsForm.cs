@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
-
+using Vintasoft.Imaging;
 using Vintasoft.Imaging.Codecs.Encoders;
 using Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000;
 
@@ -21,7 +21,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         public Jpeg2000EncoderSettingsForm()
         {
             InitializeComponent();
-            
+
             formatComboBox.Items.Add(Jpeg2000FileFormat.Jp2File);
             formatComboBox.Items.Add(Jpeg2000FileFormat.Codestream);
 
@@ -30,6 +30,8 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             progressionOrderComboBox.Items.Add(ProgressionOrder.PCRL);
             progressionOrderComboBox.Items.Add(ProgressionOrder.RLCP);
             progressionOrderComboBox.Items.Add(ProgressionOrder.RPCL);
+
+            EditAnnotationSettings = false;
         }
 
         #endregion
@@ -55,6 +57,31 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
                     value = new Jpeg2000EncoderSettings();
                 _encoderSettings = value;
                 UpdateUI();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the annotation format must be changed.
+        /// </summary>
+        /// <value>
+        /// <b>True</b> if annotation format must be changed; otherwise, <b>false</b>.
+        /// </value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public bool EditAnnotationSettings
+        {
+            get
+            {
+                return tabControl1.TabPages.Contains(annotationsTabPage);
+            }
+            set
+            {
+                if (EditAnnotationSettings != value)
+                {
+                    if (value)
+                        tabControl1.TabPages.Add(annotationsTabPage);
+                    else
+                        tabControl1.TabPages.Remove(annotationsTabPage);
+                }
             }
         }
 
@@ -191,6 +218,9 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
                 imageDataSizeRadioButton.Checked = true;
 
             UpdateEnabledState();
+
+            annotationsBinaryCheckBox.Checked = (EncoderSettings.AnnotationsFormat & AnnotationsFormat.VintasoftBinary) != 0;
+            annotationXmpCheckBox.Checked = (EncoderSettings.AnnotationsFormat & AnnotationsFormat.VintasoftXmp) != 0;
         }
 
         /// <summary>
@@ -244,6 +274,15 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
                     _encoderSettings.FileSize = 0;
                     _encoderSettings.CompressionRatio = (double)compressionRatioNumericUpDown.Value;
                 }
+            }
+
+            if (EditAnnotationSettings)
+            {
+                EncoderSettings.AnnotationsFormat = AnnotationsFormat.None;
+                if (annotationsBinaryCheckBox.Checked)
+                    EncoderSettings.AnnotationsFormat |= AnnotationsFormat.VintasoftBinary;
+                if (annotationXmpCheckBox.Checked)
+                    EncoderSettings.AnnotationsFormat |= AnnotationsFormat.VintasoftXmp;
             }
         }
 

@@ -21,6 +21,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         public JpegEncoderSettingsForm()
         {
             InitializeComponent();
+
             EditAnnotationSettings = false;
 
         } 

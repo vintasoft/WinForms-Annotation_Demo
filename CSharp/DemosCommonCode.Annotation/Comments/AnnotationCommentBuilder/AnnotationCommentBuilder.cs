@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 
 using Vintasoft.Imaging;
@@ -74,7 +74,7 @@ namespace DemosCommonCode.Annotation
         {
             // get comment annotation image
             VintasoftImage image = DemosResourcesManager.GetResourceAsImage(
-                "DemosCommonCode.Annotation.Comments.AnnotationCommentBuilder.CommentIcon.png");
+                "DemosCommonCode.Annotation.Comments.AnnotationCommentBuilder.CommentIcon.svg");
 
             // create comment annotation data
             EmbeddedImageAnnotationData annotationData = new EmbeddedImageAnnotationData(image);
@@ -83,6 +83,7 @@ namespace DemosCommonCode.Annotation
                 (float)UnitOfMeasureConverter.ConvertToDeviceIndependentPixels(image.Width, UnitOfMeasure.Pixels, resolution.Horizontal),
                 (float)UnitOfMeasureConverter.ConvertToDeviceIndependentPixels(image.Height, UnitOfMeasure.Pixels, resolution.Vertical));
             annotationData.Border = false;
+            annotationData.MaintainAspectRatio = true;
 
             // create comment
             annotationData.Comment = new AnnotationComment(Color.Yellow, Environment.UserName);

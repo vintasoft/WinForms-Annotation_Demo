@@ -220,6 +220,11 @@ namespace DemosCommonCode.Annotation
         Arc,
 
         /// <summary>
+        /// The ink annotation.
+        /// </summary>
+        Ink,
+
+        /// <summary>
         /// The arc annotation with arrow.
         /// </summary>
         ArcWithArrow,

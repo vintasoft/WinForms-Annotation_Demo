@@ -107,8 +107,8 @@
                 case AnnotationType.CloudLinesWithInterpolation:
                     return "Cloud Lines with interpolation";
 
-                case AnnotationType.FreehandLines:
-                    return "Freehand lines";
+                case AnnotationType.Ink:
+                    return "Ink";
 
                 case AnnotationType.Polygon:
                     return "Polygon";

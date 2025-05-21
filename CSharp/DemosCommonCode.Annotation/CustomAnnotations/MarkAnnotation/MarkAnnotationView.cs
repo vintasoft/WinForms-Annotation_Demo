@@ -104,9 +104,10 @@ namespace DemosCommonCode.Annotation
         /// Indicates whether the specified point is contained within the annotation.
         /// </summary>
         /// <param name="point">Point in image space.</param>
+        /// <param name="ignoreContainmentCheckDistance">A value indicating whether value of <see cref="AnnotationView.ContainmentCheckDistance"/> property must be ignored.</param>
         /// <returns><b>true</b> if the specified point is contained within the annotation;
         /// otherwise, <b>false</b>.</returns>
-        public override bool IsPointOnFigure(PointF point)
+        public override bool IsPointOnFigure(PointF point, bool ignoreContainmentCheckDistance)
         {
             using (IGraphicsPath path = ((MarkAnnotationRenderer)Renderer).GetAsGraphicsPath(DrawingFactory.Default))
             {

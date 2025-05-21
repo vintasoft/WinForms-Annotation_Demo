@@ -4,6 +4,7 @@
 
 using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging.Office.OpenXml.Editor;
@@ -66,7 +67,7 @@ namespace DemosCommonCode.Office
 
                 _paragraphProperties = value;
                 _intalParagraphProperties = value.Clone();
-                
+
                 UpdateUI();
             }
         }
@@ -125,7 +126,7 @@ namespace DemosCommonCode.Office
         {
             textJustificationComboBox.SelectedItem = _paragraphProperties.Justification;
 
-            fillColorPanel.Color = _paragraphProperties.FillColor.Value;
+            fillColorPanel.Color = _paragraphProperties.FillColor ?? Color.Empty;
 
             firstLineIndentationComboBox.Text = DemosTools.ToString(_paragraphProperties.FirstLineIndentation);
 
@@ -139,13 +140,13 @@ namespace DemosCommonCode.Office
 
             spacingAfterComboBox.Text = DemosTools.ToString(_paragraphProperties.SpacingAfterParagraph);
 
-            keepLinesCheckBox.Checked = _paragraphProperties.KeepLines.Value;
+            keepLinesCheckBox.Checked = _paragraphProperties.KeepLines ?? false;
 
-            keepNextCheckBox.Checked = _paragraphProperties.KeepNext.Value;
+            keepNextCheckBox.Checked = _paragraphProperties.KeepNext ?? false;
 
-            pageBreakBeforeCheckBox.Checked = _paragraphProperties.PageBreakBefore.Value;
+            pageBreakBeforeCheckBox.Checked = _paragraphProperties.PageBreakBefore ?? false;
 
-            widowControlCheckBox.Checked = _paragraphProperties.WidowControl.Value;
+            widowControlCheckBox.Checked = _paragraphProperties.WidowControl ?? true;
         }
 
         /// <summary>
@@ -155,7 +156,10 @@ namespace DemosCommonCode.Office
         {
             _paragraphProperties.Justification = (OpenXmlParagraphJustification)textJustificationComboBox.SelectedItem;
 
-            _paragraphProperties.FillColor = fillColorPanel.Color;
+            if (fillColorPanel.Color.IsEmpty)
+                _paragraphProperties.FillColor = null;
+            else
+                _paragraphProperties.FillColor = fillColorPanel.Color;
 
             float value;
 

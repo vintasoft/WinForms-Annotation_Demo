@@ -53,6 +53,11 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.waveletTransformCheckBox = new System.Windows.Forms.CheckBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.compressionTabPage = new System.Windows.Forms.TabPage();
+            this.annotationsTabPage = new System.Windows.Forms.TabPage();
+            this.annotationXmpCheckBox = new System.Windows.Forms.CheckBox();
+            this.annotationsBinaryCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.waveletLevelsNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qualityLayersNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileWidthNumericUpDown)).BeginInit();
@@ -62,6 +67,9 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             ((System.ComponentModel.ISupportInitialize)(this.imageDataSizeNumericUpDown)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.compressionTabPage.SuspendLayout();
+            this.annotationsTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -319,7 +327,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // 
             // buttonOk
             // 
-            this.buttonOk.Location = new System.Drawing.Point(67, 264);
+            this.buttonOk.Location = new System.Drawing.Point(62, 296);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(75, 23);
             this.buttonOk.TabIndex = 15;
@@ -330,7 +338,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(148, 264);
+            this.buttonCancel.Location = new System.Drawing.Point(143, 296);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 16;
@@ -361,7 +369,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.groupBox1.Controls.Add(this.tileHeightNumericUpDown);
             this.groupBox1.Controls.Add(this.useTilesCheckBox);
             this.groupBox1.Controls.Add(this.tileWidthNumericUpDown);
-            this.groupBox1.Location = new System.Drawing.Point(8, 8);
+            this.groupBox1.Location = new System.Drawing.Point(7, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(274, 124);
             this.groupBox1.TabIndex = 18;
@@ -375,7 +383,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.waveletLevelsNumericUpDown);
             this.groupBox2.Controls.Add(this.lossyGroupBox);
-            this.groupBox2.Location = new System.Drawing.Point(8, 138);
+            this.groupBox2.Location = new System.Drawing.Point(7, 133);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(274, 120);
             this.groupBox2.TabIndex = 19;
@@ -393,14 +401,68 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.waveletTransformCheckBox.UseVisualStyleBackColor = true;
             this.waveletTransformCheckBox.CheckedChanged += new System.EventHandler(this.waveletTransformCheckBox_CheckedChanged);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.compressionTabPage);
+            this.tabControl1.Controls.Add(this.annotationsTabPage);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(297, 290);
+            this.tabControl1.TabIndex = 20;
+            // 
+            // compressionTabPage
+            // 
+            this.compressionTabPage.Controls.Add(this.groupBox1);
+            this.compressionTabPage.Controls.Add(this.groupBox2);
+            this.compressionTabPage.Location = new System.Drawing.Point(4, 22);
+            this.compressionTabPage.Name = "compressionTabPage";
+            this.compressionTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.compressionTabPage.Size = new System.Drawing.Size(289, 264);
+            this.compressionTabPage.TabIndex = 0;
+            this.compressionTabPage.Text = "Compression";
+            this.compressionTabPage.UseVisualStyleBackColor = true;
+            // 
+            // annotationsTabPage
+            // 
+            this.annotationsTabPage.Controls.Add(this.annotationXmpCheckBox);
+            this.annotationsTabPage.Controls.Add(this.annotationsBinaryCheckBox);
+            this.annotationsTabPage.Location = new System.Drawing.Point(4, 22);
+            this.annotationsTabPage.Name = "annotationsTabPage";
+            this.annotationsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.annotationsTabPage.Size = new System.Drawing.Size(833, 378);
+            this.annotationsTabPage.TabIndex = 1;
+            this.annotationsTabPage.Text = "Annotations Format";
+            this.annotationsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // annotationXmpCheckBox
+            // 
+            this.annotationXmpCheckBox.AutoSize = true;
+            this.annotationXmpCheckBox.Location = new System.Drawing.Point(8, 31);
+            this.annotationXmpCheckBox.Name = "annotationXmpCheckBox";
+            this.annotationXmpCheckBox.Size = new System.Drawing.Size(93, 17);
+            this.annotationXmpCheckBox.TabIndex = 12;
+            this.annotationXmpCheckBox.Text = "Vintasoft XMP";
+            this.annotationXmpCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // annotationsBinaryCheckBox
+            // 
+            this.annotationsBinaryCheckBox.AutoSize = true;
+            this.annotationsBinaryCheckBox.Location = new System.Drawing.Point(8, 8);
+            this.annotationsBinaryCheckBox.Name = "annotationsBinaryCheckBox";
+            this.annotationsBinaryCheckBox.Size = new System.Drawing.Size(99, 17);
+            this.annotationsBinaryCheckBox.TabIndex = 11;
+            this.annotationsBinaryCheckBox.Text = "Vintasoft Binary";
+            this.annotationsBinaryCheckBox.UseVisualStyleBackColor = true;
+            // 
             // Jpeg2000EncoderSettingsForm
             // 
             this.AcceptButton = this.buttonOk;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(288, 293);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(297, 328);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOk);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -422,6 +484,10 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.compressionTabPage.ResumeLayout(false);
+            this.annotationsTabPage.ResumeLayout(false);
+            this.annotationsTabPage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -453,5 +519,10 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label compressionRatioLabel;
         private System.Windows.Forms.CheckBox waveletTransformCheckBox;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage compressionTabPage;
+        private System.Windows.Forms.TabPage annotationsTabPage;
+        private System.Windows.Forms.CheckBox annotationXmpCheckBox;
+        private System.Windows.Forms.CheckBox annotationsBinaryCheckBox;
     }
 }

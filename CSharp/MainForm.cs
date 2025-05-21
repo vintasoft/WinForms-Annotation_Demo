@@ -323,6 +323,8 @@ namespace AnnotationDemo
             annotationInteractionModeToolStripComboBox.Items.Add(AnnotationInteractionMode.None);
             annotationInteractionModeToolStripComboBox.Items.Add(AnnotationInteractionMode.View);
             annotationInteractionModeToolStripComboBox.Items.Add(AnnotationInteractionMode.Author);
+            annotationInteractionModeToolStripComboBox.Items.Add(AnnotationInteractionMode.AnnotationEraser);
+            annotationInteractionModeToolStripComboBox.Items.Add(AnnotationInteractionMode.PencilEraser);
             // set interaction mode to the Author 
             annotationInteractionModeToolStripComboBox.SelectedItem = AnnotationInteractionMode.Author;
 
@@ -573,7 +575,7 @@ namespace AnnotationDemo
             _toolStripMenuItemToAnnotationType.Add(lineToolStripMenuItem, AnnotationType.Line);
             _toolStripMenuItemToAnnotationType.Add(linesToolStripMenuItem, AnnotationType.Lines);
             _toolStripMenuItemToAnnotationType.Add(linesWithInterpolationToolStripMenuItem, AnnotationType.LinesWithInterpolation);
-            _toolStripMenuItemToAnnotationType.Add(freehandLinesToolStripMenuItem, AnnotationType.FreehandLines);
+            _toolStripMenuItemToAnnotationType.Add(inkToolStripMenuItem, AnnotationType.Ink);
             _toolStripMenuItemToAnnotationType.Add(polygonToolStripMenuItem, AnnotationType.Polygon);
             _toolStripMenuItemToAnnotationType.Add(polygonWithInterpolationToolStripMenuItem, AnnotationType.PolygonWithInterpolation);
             _toolStripMenuItemToAnnotationType.Add(freehandPolygonToolStripMenuItem, AnnotationType.FreehandPolygon);
@@ -1221,6 +1223,24 @@ namespace AnnotationDemo
         {
             // set the "Author" annotation interaction mode for annotation viewer
             annotationViewer1.AnnotationInteractionMode = AnnotationInteractionMode.Author;
+        }
+
+        /// <summary>
+        /// Handles the Click event of annotationEraserToolStripMenuItem object.
+        /// </summary>
+        private void annotationEraserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // set the "Annotation eraser" annotation interaction mode for annotation viewer
+            annotationViewer1.AnnotationInteractionMode = AnnotationInteractionMode.AnnotationEraser;
+        }
+
+        /// <summary>
+        /// Handles the Click event of pencilEraserToolStripMenuItem object.
+        /// </summary>
+        private void pencilEraserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // set the "Pencil eraser" annotation interaction mode for annotation viewer
+            annotationViewer1.AnnotationInteractionMode = AnnotationInteractionMode.PencilEraser;
         }
 
         #endregion
@@ -2141,6 +2161,8 @@ namespace AnnotationDemo
             annotationInteractionModeNoneToolStripMenuItem.Checked = false;
             annotationInteractionModeViewToolStripMenuItem.Checked = false;
             annotationInteractionModeAuthorToolStripMenuItem.Checked = false;
+            annotationInteractionModeAnnotationEraserToolStripMenuItem.Checked = false;
+            annotationInteractionModePencilEraserToolStripMenuItem.Checked = false;
 
             AnnotationInteractionMode annotationInteractionMode = e.NewValue;
             switch (annotationInteractionMode)
@@ -2155,6 +2177,14 @@ namespace AnnotationDemo
 
                 case AnnotationInteractionMode.Author:
                     annotationInteractionModeAuthorToolStripMenuItem.Checked = true;
+                    break;
+
+                case AnnotationInteractionMode.AnnotationEraser:
+                    annotationInteractionModeAnnotationEraserToolStripMenuItem.Checked = true;
+                    break;
+
+                case AnnotationInteractionMode.PencilEraser:
+                    annotationInteractionModePencilEraserToolStripMenuItem.Checked = true;
                     break;
             }
 
@@ -3616,6 +3646,29 @@ namespace AnnotationDemo
                     }
 
                     return jpegEncoder;
+
+#if !REMOVE_JPEG2000_PLUGIN
+                case ".JP2":
+                case ".J2K":
+                case ".J2C":
+                case ".JPC":
+                    Jpeg2000Encoder jpeg2000Encoder = new Jpeg2000Encoder();
+
+                    if (showSettingsDialog)
+                    {
+                        jpeg2000Encoder.Settings.AnnotationsFormat = AnnotationsFormat.VintasoftBinary;
+
+                        using (Jpeg2000EncoderSettingsForm jpeg2000EncoderSettingsDlg = new Jpeg2000EncoderSettingsForm())
+                        {
+                            jpeg2000EncoderSettingsDlg.EditAnnotationSettings = true;
+                            jpeg2000EncoderSettingsDlg.EncoderSettings = jpeg2000Encoder.Settings;
+                            if (jpeg2000EncoderSettingsDlg.ShowDialog() != DialogResult.OK)
+                                throw new Exception("Saving canceled.");
+                        }
+                    }
+
+                    return jpeg2000Encoder;
+#endif
 
                 case ".PNG":
                     PngEncoder pngEncoder = new PngEncoder();

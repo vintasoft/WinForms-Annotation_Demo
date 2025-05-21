@@ -4,6 +4,7 @@
 
 using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging.Office.OpenXml.Editor;
@@ -214,11 +215,11 @@ namespace DemosCommonCode.Office
 
             fontSizeComboBox.Text = DemosTools.ToString(_textProperties.FontSize);
 
-            if (_textProperties.IsBold.Value && _textProperties.IsItalic.Value)
+            if (_textProperties.IsBold == true && _textProperties.IsItalic == true)
                 fontStyleListBox.SelectedIndex = 3;
-            else if (_textProperties.IsItalic.Value)
+            else if (_textProperties.IsItalic == true)
                 fontStyleListBox.SelectedIndex = 2;
-            else if (_textProperties.IsBold.Value)
+            else if (_textProperties.IsBold == true)
                 fontStyleListBox.SelectedIndex = 1;
             else
                 fontStyleListBox.SelectedIndex = 0;
@@ -228,16 +229,16 @@ namespace DemosCommonCode.Office
             else if (_textProperties.VerticalAlignment == OpenXmlTextVerticalPositionType.Superscript)
                 superscriptCheckBox.Checked = true;
 
-            if (_textProperties.IsStrike.Value)
+            if (_textProperties.IsStrike == true)
                 strikeoutCheckBox.Checked = true;
-            else if (_textProperties.IsDoubleStrike.Value)
+            else if (_textProperties.IsDoubleStrike == true)
                 doubleStrikeoutcheckBox.Checked = true;
 
-            fontColorPanel.Color = _textProperties.Color.Value;
+            fontColorPanel.Color = _textProperties.Color ?? Color.Empty;
 
             underlineComboBox.SelectedItem = _textProperties.Underline;
 
-            underlineColorPanel.Color = _textProperties.UnderlineColor.Value;
+            underlineColorPanel.Color = _textProperties.UnderlineColor ?? Color.Empty;
 
             textHighlightComboBox.SelectedItem = _textProperties.Highlight;
 
@@ -291,11 +292,17 @@ namespace DemosCommonCode.Office
 
                 _textProperties.IsDoubleStrike = doubleStrikeoutcheckBox.Checked;
 
-                _textProperties.Color = fontColorPanel.Color;
+                if (fontColorPanel.Color.IsEmpty)
+                    _textProperties.Color = null;
+                else
+                    _textProperties.Color = fontColorPanel.Color;
 
                 _textProperties.Underline = (OpenXmlTextUnderlineType)underlineComboBox.SelectedItem;
 
-                _textProperties.UnderlineColor = underlineColorPanel.Color;
+                if (underlineColorPanel.Color.IsEmpty)
+                    _textProperties.UnderlineColor = null;
+                else
+                    _textProperties.UnderlineColor = underlineColorPanel.Color;
 
                 _textProperties.Highlight = (OpenXmlTextHighlightType)textHighlightComboBox.SelectedItem;
 

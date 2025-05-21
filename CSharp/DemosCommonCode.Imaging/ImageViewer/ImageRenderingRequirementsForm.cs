@@ -29,7 +29,7 @@ namespace DemosCommonCode.Imaging
         /// <summary>
         /// The available codec names.
         /// </summary>
-        string[] _codecNames = new string[] { "Bmp", "Jpeg", "Jpeg2000", "Tiff", "Png", "Pdf", "Docx", "Xlsx", "Wmf" };
+        string[] _codecNames = new string[] { "Bmp", "Jpeg", "Jpeg2000", "Tiff", "Png", "Pdf", "Psd", "Svg", "Docx", "Xlsx", "Wmf", "Emf" };
 
         #endregion
 
