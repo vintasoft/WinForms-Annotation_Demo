@@ -1,9 +1,6 @@
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Runtime.Serialization;
 using Vintasoft.Imaging.Fonts;
-
 
 namespace DemosCommonCode.Imaging
 {
@@ -42,7 +39,7 @@ namespace DemosCommonCode.Imaging
             : base(true, "fonts")
         {
         }
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomFontProgramsController"/> class.
         /// </summary>
@@ -90,7 +87,7 @@ namespace DemosCommonCode.Imaging
             Default = new CustomFontProgramsController();
         }
 
-   
+
 #if NETCORE
         /// <summary>
         /// Returns the dictionary, which contains information ("full font name" => "font file path") about all fonts installed in system.
@@ -124,7 +121,7 @@ namespace DemosCommonCode.Imaging
                 string systemFontsDirectory = "";
                 try
                 {
-                    systemFontsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Fonts);
+                    systemFontsDirectory = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Fonts);
                 }
                 catch
                 {
@@ -135,13 +132,13 @@ namespace DemosCommonCode.Imaging
                 {
                     string fontFilename = (string)fontsRegistry.GetValue(fullFontName);
 
-                    string fontExt = Path.GetExtension(fontFilename).ToUpperInvariant();
+                    string fontExt = System.IO.Path.GetExtension(fontFilename).ToUpperInvariant();
                     if (fontExt != ".TTF" && fontExt != ".TTC")
                         continue;
 
-                    if (string.IsNullOrEmpty(Path.GetDirectoryName(fontFilename)))
+                    if (string.IsNullOrEmpty(System.IO.Path.GetDirectoryName(fontFilename)))
                     {
-                        fontFilename = Path.Combine(systemFontsDirectory, fontFilename);
+                        fontFilename = System.IO.Path.Combine(systemFontsDirectory, fontFilename);
                     }
 
                     string fontName = fullFontName.Replace("(TrueType)", "").Trim();

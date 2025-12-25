@@ -10,6 +10,7 @@ using Vintasoft.Imaging.UI.VisualTools;
 
 using DemosCommonCode.CustomControls;
 using Vintasoft.Imaging;
+using Vintasoft.Imaging.UI.WinForms.Controls;
 
 namespace DemosCommonCode.Imaging
 {

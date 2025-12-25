@@ -66,7 +66,7 @@ namespace DemosCommonCode.Imaging
             {
                 colorPickerControl1.CanEditAlphaChannel = value;
             }
-        } 
+        }
 
         #endregion
 

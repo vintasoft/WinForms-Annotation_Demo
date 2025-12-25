@@ -14,6 +14,7 @@ using Vintasoft.Imaging.ImageProcessing;
 using Vintasoft.Imaging.UI;
 using Vintasoft.Imaging.UI.VisualTools;
 using Vintasoft.Imaging.UI.VisualTools.UserInteraction;
+using Vintasoft.Imaging.UI.WinForms.Controls;
 
 using DemosCommonCode.CustomControls;
 using DemosCommonCode.Imaging.Codecs;
