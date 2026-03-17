@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using Vintasoft.Imaging;
 using Vintasoft.Imaging.Annotation;
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// A form that allows to view the annotation information and select annotations.

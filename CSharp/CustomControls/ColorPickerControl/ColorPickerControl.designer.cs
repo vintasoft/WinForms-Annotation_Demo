@@ -1,5 +1,5 @@
-
-namespace DemosCommonCode.CustomControls
+﻿
+namespace CommonCode.CustomControls
 {
     partial class ColorPickerControl
     {
@@ -30,11 +30,11 @@ namespace DemosCommonCode.CustomControls
         private void InitializeComponent()
         {
             this.lockRgbCheckBox = new System.Windows.Forms.CheckBox();
-            this.colorSampleControl = new DemosCommonCode.CustomControls.ColorSampleControl();
-            this.channelRedValueEditorControl = new DemosCommonCode.CustomControls.ValueEditorControl();
-            this.channelGreenValueEditorControl = new DemosCommonCode.CustomControls.ValueEditorControl();
-            this.channelBlueValueEditorControl = new DemosCommonCode.CustomControls.ValueEditorControl();
-            this.channelAlphaValueEditorControl = new DemosCommonCode.CustomControls.ValueEditorControl();
+            this.colorSampleControl = new CommonCode.CustomControls.ColorSampleControl();
+            this.channelRedValueEditorControl = new CommonCode.CustomControls.ValueEditorControl();
+            this.channelGreenValueEditorControl = new CommonCode.CustomControls.ValueEditorControl();
+            this.channelBlueValueEditorControl = new CommonCode.CustomControls.ValueEditorControl();
+            this.channelAlphaValueEditorControl = new CommonCode.CustomControls.ValueEditorControl();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.hexValueTextBox = new System.Windows.Forms.TextBox();
             this.hexValueLabel = new System.Windows.Forms.Label();

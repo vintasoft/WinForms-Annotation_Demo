@@ -1,4 +1,4 @@
-﻿namespace DemosCommonCode
+﻿namespace CommonCode
 {
     /// <summary>
     /// Contains collection of constants and helper-algorithms with comments for demo applications.

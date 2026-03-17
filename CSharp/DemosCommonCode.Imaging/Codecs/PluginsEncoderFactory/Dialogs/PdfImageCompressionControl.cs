@@ -9,7 +9,7 @@ using Vintasoft.Imaging.ImageProcessing.Info;
 using Vintasoft.Imaging.Pdf;
 #endif
 
-namespace DemosCommonCode.Imaging.Codecs.Dialogs
+namespace CommonCode.Imaging.Codecs.Dialogs
 {
     /// <summary>
     /// A control that allows to view and edit the PDF image compression.

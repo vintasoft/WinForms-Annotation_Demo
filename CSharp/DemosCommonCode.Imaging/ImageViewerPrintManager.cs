@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing.Printing;
 using System.Windows.Forms;
 
@@ -7,7 +7,7 @@ using Vintasoft.Imaging.Codecs.Decoders;
 using Vintasoft.Imaging.Print;
 using Vintasoft.Imaging.UI;
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// Represents a print manager of an image viewer.

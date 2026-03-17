@@ -1,4 +1,4 @@
-namespace DemosCommonCode.CustomControls
+﻿namespace CommonCode.CustomControls
 {
     partial class ValueEditorControl
     {

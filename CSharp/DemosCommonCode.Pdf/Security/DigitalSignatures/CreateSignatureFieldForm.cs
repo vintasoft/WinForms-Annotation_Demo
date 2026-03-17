@@ -13,9 +13,9 @@ using Vintasoft.Imaging.Pdf;
 using Vintasoft.Imaging.Pdf.Tree.DigitalSignatures;
 using Vintasoft.Imaging.Pdf.Tree.InteractiveForms;
 
-using DemosCommonCode.Imaging;
+using CommonCode.Imaging;
 
-namespace DemosCommonCode.Pdf.Security
+namespace CommonCode.Pdf.Security
 {
     /// <summary>
     /// A form that allows to create new signature field or use existing signature field AND

@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using Vintasoft.Imaging.Spelling;
 
 
-namespace DemosCommonCode.Spelling
+namespace CommonCode.Spelling
 {
     /// <summary>
     /// A form that allows to view and edit settings of <see cref="SpellCheckManager"/>.

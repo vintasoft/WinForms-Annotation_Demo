@@ -1,5 +1,5 @@
-
-namespace DemosCommonCode.Office
+﻿
+namespace CommonCode.Office
 {
     partial class SetOpenXmlParagraphNumerationForm
     {

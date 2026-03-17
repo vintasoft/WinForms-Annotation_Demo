@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
-namespace DemosCommonCode.Pdf.Security
+namespace CommonCode.Pdf.Security
 {
     /// <summary>
     /// A form that allows to select the X509 Certificate from list.

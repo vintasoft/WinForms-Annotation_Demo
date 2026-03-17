@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using Vintasoft.Imaging.UI.VisualTools.UserInteraction;
 
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// A form that allows to view and edit InteractionAreaAppearanceManager settings.

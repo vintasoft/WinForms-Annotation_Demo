@@ -1,4 +1,4 @@
-﻿namespace DemosCommonCode
+﻿namespace CommonCode
 {
     /// <summary>
     /// Loads the Vintasoft.Imaging.Jpeg2000Codec assembly.

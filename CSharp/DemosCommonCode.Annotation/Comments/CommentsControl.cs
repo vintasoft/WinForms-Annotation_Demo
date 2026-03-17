@@ -13,7 +13,7 @@ using Vintasoft.Imaging.Annotation.UI.VisualTools;
 using Vintasoft.Imaging.Annotation.UI.Comments;
 #endif
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// Represents a user control that displays comments of focused page of image viewer.

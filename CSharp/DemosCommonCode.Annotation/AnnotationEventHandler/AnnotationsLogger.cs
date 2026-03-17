@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Text;
@@ -10,7 +10,7 @@ using Vintasoft.Imaging.Annotation.UI;
 using Vintasoft.Imaging.Annotation.UI.VisualTools;
 using Vintasoft.Imaging.UI.VisualTools.UserInteraction;
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// Class that handles all events of annotation and annotation collection.

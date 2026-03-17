@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using Vintasoft.Imaging.Annotation.Comments;
 #endif
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// Represents the control that allows to display a comment state history.

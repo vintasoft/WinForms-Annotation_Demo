@@ -1,4 +1,4 @@
-namespace DemosCommonCode.Imaging
+﻿namespace CommonCode.Imaging
 {
     partial class SpellCheckManagerViewSettingsForm
     {
@@ -31,7 +31,7 @@ namespace DemosCommonCode.Imaging
             Vintasoft.Imaging.UI.VisualTools.UserInteraction.InteractionAreaAppearanceManager interactionAreaAppearanceManager7 = new Vintasoft.Imaging.UI.VisualTools.UserInteraction.InteractionAreaAppearanceManager();
             this.okButton = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.spellCheckManagerViewSettingsControl1 = new DemosCommonCode.Imaging.SpellCheckManagerViewSettingsControl();
+            this.spellCheckManagerViewSettingsControl1 = new CommonCode.Imaging.SpellCheckManagerViewSettingsControl();
             this.SuspendLayout();
             // 
             // okButton
@@ -110,7 +110,7 @@ namespace DemosCommonCode.Imaging
 
         #endregion
 
-        private global::DemosCommonCode.Imaging.SpellCheckManagerViewSettingsControl spellCheckManagerViewSettingsControl1;
+        private global::CommonCode.Imaging.SpellCheckManagerViewSettingsControl spellCheckManagerViewSettingsControl1;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button buttonCancel;
     }

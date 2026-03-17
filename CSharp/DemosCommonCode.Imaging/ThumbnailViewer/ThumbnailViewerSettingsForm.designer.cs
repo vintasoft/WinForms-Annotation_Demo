@@ -1,4 +1,4 @@
-namespace DemosCommonCode.Imaging
+﻿namespace CommonCode.Imaging
 {
     partial class ThumbnailViewerSettingsForm
     {
@@ -45,16 +45,16 @@ namespace DemosCommonCode.Imaging
             this.borderStyleValueLabel = new System.Windows.Forms.Label();
             this.backColorLabel = new System.Windows.Forms.Label();
             this.borderWidthValueLabel = new System.Windows.Forms.Label();
-            this.thumbnailAppearanceBackColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
+            this.thumbnailAppearanceBackColorPanelControl = new CommonCode.CustomControls.ColorPanelControl();
             this.borderWidthLabel = new System.Windows.Forms.Label();
             this.borderColorLabel = new System.Windows.Forms.Label();
             this.editThumbnailAppearanceButton = new System.Windows.Forms.Button();
-            this.thumbnailAppearanceBorderColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
+            this.thumbnailAppearanceBorderColorPanelControl = new CommonCode.CustomControls.ColorPanelControl();
             this.borderStyleLabel = new System.Windows.Forms.Label();
             this.thumbnailViewerGroupBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.thumbnailViewerBackColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
+            this.thumbnailViewerBackColorPanelControl = new CommonCode.CustomControls.ColorPanelControl();
             this.thumbnailViewerBackColorLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             this.thumbnailRenderThreadCountLabel = new System.Windows.Forms.Label();
@@ -64,10 +64,10 @@ namespace DemosCommonCode.Imaging
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.thumbnailsAnchorEditorControl = new DemosCommonCode.CustomControls.AnchorTypeEditorControl();
+            this.thumbnailsAnchorEditorControl = new CommonCode.CustomControls.AnchorTypeEditorControl();
             this.imagePaddingGroupBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.imagePaddingEditorControl = new DemosCommonCode.CustomControls.PaddingFEditorControl();
+            this.imagePaddingEditorControl = new CommonCode.CustomControls.PaddingFEditorControl();
             this.thumbnailViewerBackColorDialog = new System.Windows.Forms.ColorDialog();
             this.thumbnailCaptionGroupBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
@@ -79,13 +79,13 @@ namespace DemosCommonCode.Imaging
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.captionAnchorLable = new System.Windows.Forms.Label();
             this.captionTextColorLabel = new System.Windows.Forms.Label();
-            this.captionAnchorTypeEditor = new DemosCommonCode.CustomControls.AnchorTypeEditorControl();
+            this.captionAnchorTypeEditor = new CommonCode.CustomControls.AnchorTypeEditorControl();
             this.captionFontSelectButton = new System.Windows.Forms.Button();
             this.captionFontlabel = new System.Windows.Forms.Label();
-            this.captionTextColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
+            this.captionTextColorPanelControl = new CommonCode.CustomControls.ColorPanelControl();
             this.captionPaddingGroupBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
-            this.captionPaddingFEditorControl = new DemosCommonCode.CustomControls.PaddingFEditorControl();
+            this.captionPaddingFEditorControl = new CommonCode.CustomControls.PaddingFEditorControl();
             this.captionIsVisibleCheckBox = new System.Windows.Forms.CheckBox();
             this.captionFontDialog = new System.Windows.Forms.FontDialog();
             this.thumbnailControlGroupBox = new System.Windows.Forms.GroupBox();
@@ -93,12 +93,12 @@ namespace DemosCommonCode.Imaging
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
-            this.thumbnailControlAnchorTypeEditor = new DemosCommonCode.CustomControls.AnchorTypeEditorControl();
+            this.thumbnailControlAnchorTypeEditor = new CommonCode.CustomControls.AnchorTypeEditorControl();
             this.thumbnailControlAnchorLabel = new System.Windows.Forms.Label();
             this.showThumbnailCheckBoxCheckBox = new System.Windows.Forms.CheckBox();
             this.thumbnailControlPaddingGroupBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
-            this.thumbnailControlPaddingFEditorControl = new DemosCommonCode.CustomControls.PaddingFEditorControl();
+            this.thumbnailControlPaddingFEditorControl = new CommonCode.CustomControls.PaddingFEditorControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -1221,17 +1221,17 @@ namespace DemosCommonCode.Imaging
         private System.Windows.Forms.ColorDialog thumbnailViewerBackColorDialog;
         private System.Windows.Forms.NumericUpDown thumbnailRenderingThreadCountNumericUpDown;
         private System.Windows.Forms.Label thumbnailRenderThreadCountLabel;
-        private DemosCommonCode.CustomControls.ColorPanelControl thumbnailViewerBackColorPanelControl;
-        private DemosCommonCode.CustomControls.ColorPanelControl thumbnailAppearanceBackColorPanelControl;
-        private DemosCommonCode.CustomControls.ColorPanelControl thumbnailAppearanceBorderColorPanelControl;
-        private DemosCommonCode.CustomControls.PaddingFEditorControl imagePaddingEditorControl;
+        private CommonCode.CustomControls.ColorPanelControl thumbnailViewerBackColorPanelControl;
+        private CommonCode.CustomControls.ColorPanelControl thumbnailAppearanceBackColorPanelControl;
+        private CommonCode.CustomControls.ColorPanelControl thumbnailAppearanceBorderColorPanelControl;
+        private CommonCode.CustomControls.PaddingFEditorControl imagePaddingEditorControl;
         private System.Windows.Forms.GroupBox thumbnailCaptionGroupBox;
         private System.Windows.Forms.CheckBox captionIsVisibleCheckBox;
         private System.Windows.Forms.Label captionFormatLabel;
         private System.Windows.Forms.Label captionAnchorLable;
-        private DemosCommonCode.CustomControls.ColorPanelControl captionTextColorPanelControl;
+        private CommonCode.CustomControls.ColorPanelControl captionTextColorPanelControl;
         private System.Windows.Forms.Label captionTextColorLabel;
-        private DemosCommonCode.CustomControls.PaddingFEditorControl captionPaddingFEditorControl;
+        private CommonCode.CustomControls.PaddingFEditorControl captionPaddingFEditorControl;
         private System.Windows.Forms.TextBox captionFormatTextBox;
         private System.Windows.Forms.Label captionFontlabel;
         private System.Windows.Forms.Button captionFontSelectButton;
@@ -1239,7 +1239,7 @@ namespace DemosCommonCode.Imaging
         private System.Windows.Forms.GroupBox captionPaddingGroupBox;
         private System.Windows.Forms.GroupBox imagePaddingGroupBox;
         private System.Windows.Forms.Button captionFormatHelpButton;
-        private DemosCommonCode.CustomControls.AnchorTypeEditorControl captionAnchorTypeEditor;
+        private CommonCode.CustomControls.AnchorTypeEditorControl captionAnchorTypeEditor;
         private System.Windows.Forms.GroupBox thumbnailControlGroupBox;
         private CustomControls.AnchorTypeEditorControl thumbnailControlAnchorTypeEditor;
         private System.Windows.Forms.Label thumbnailControlAnchorLabel;

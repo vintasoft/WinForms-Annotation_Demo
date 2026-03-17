@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-using DemosCommonCode;
+using CommonCode;
 
 using Vintasoft.Imaging.Annotation;
 using Vintasoft.Imaging.Annotation.UI;

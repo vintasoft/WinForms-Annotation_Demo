@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using Vintasoft.Imaging.Annotation.Comments;
 #endif
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// Represents a form that allows to display comment properties.

@@ -4,7 +4,7 @@
 using Vintasoft.Imaging.Annotation.Comments;
 #endif
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// Represents a form that allows to display a comment state history.

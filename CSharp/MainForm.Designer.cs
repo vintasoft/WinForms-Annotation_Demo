@@ -1,6 +1,6 @@
-using Vintasoft.Imaging.Annotation;
+﻿using Vintasoft.Imaging.Annotation;
 using Vintasoft.Imaging;
-using DemosCommonCode.Annotation;
+using CommonCode.Annotation;
 
 namespace AnnotationDemo
 {
@@ -206,7 +206,7 @@ namespace AnnotationDemo
             this.annotationComboBox = new System.Windows.Forms.ComboBox();
             this.commentsTabPage = new System.Windows.Forms.TabPage();
             this.commentsPanel = new System.Windows.Forms.Panel();
-            this.commentsControl1 = new DemosCommonCode.Annotation.AnnotationCommentsControl();
+            this.commentsControl1 = new CommonCode.Annotation.AnnotationCommentsControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.actionLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.progressBar1 = new System.Windows.Forms.ToolStripProgressBar();
@@ -218,12 +218,12 @@ namespace AnnotationDemo
             this.zoomTrackBar = new System.Windows.Forms.TrackBar();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.toolStripPanel1 = new System.Windows.Forms.ToolStripPanel();
-            this.viewerToolStrip = new DemosCommonCode.Imaging.ImageViewerToolStrip();
-            this.visualToolsToolStrip1 = new DemosCommonCode.Imaging.VisualToolsToolStrip();
+            this.viewerToolStrip = new CommonCode.Imaging.ImageViewerToolStrip();
+            this.visualToolsToolStrip1 = new CommonCode.Imaging.VisualToolsToolStrip();
             this.selectionModeToolStrip = new System.Windows.Forms.ToolStrip();
             this.interactionModeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.annotationInteractionModeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
-            this.annotationsToolStrip1 = new DemosCommonCode.Annotation.AnnotationsToolStrip();
+            this.annotationsToolStrip1 = new CommonCode.Annotation.AnnotationsToolStrip();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.zoomPanel = new System.Windows.Forms.Panel();
@@ -2048,7 +2048,7 @@ namespace AnnotationDemo
         private System.Windows.Forms.Panel zoomPanel;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel2;
-        private DemosCommonCode.Imaging.ImageViewerToolStrip viewerToolStrip;
+        private CommonCode.Imaging.ImageViewerToolStrip viewerToolStrip;
         private System.Windows.Forms.ToolStrip selectionModeToolStrip;
         private System.Windows.Forms.ToolStripLabel interactionModeToolStripLabel;
         private System.Windows.Forms.ToolStripComboBox annotationInteractionModeToolStripComboBox;
@@ -2142,7 +2142,7 @@ namespace AnnotationDemo
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator17;
         private System.Windows.Forms.ToolStripMenuItem spellCheckSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem spellCheckViewSettingsToolStripMenuItem;
-        private DemosCommonCode.Imaging.VisualToolsToolStrip visualToolsToolStrip1;
+        private CommonCode.Imaging.VisualToolsToolStrip visualToolsToolStrip1;
         private System.Windows.Forms.ToolStripMenuItem visualToolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator19;

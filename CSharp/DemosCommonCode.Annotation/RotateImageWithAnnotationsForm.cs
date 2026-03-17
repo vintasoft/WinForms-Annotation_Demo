@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using Vintasoft.Imaging;
 using Vintasoft.Imaging.ImageProcessing;
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// A form that allows to view and change settings for annotation rotation operation.

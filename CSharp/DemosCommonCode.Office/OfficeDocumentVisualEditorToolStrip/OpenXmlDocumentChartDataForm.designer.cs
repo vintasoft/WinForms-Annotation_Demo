@@ -1,5 +1,5 @@
-
-namespace DemosCommonCode.Office
+﻿
+namespace CommonCode.Office
 {
     partial class OpenXmlDocumentChartDataForm
     {
@@ -48,9 +48,9 @@ namespace DemosCommonCode.Office
             this.dataPointColorLabel = new System.Windows.Forms.Label();
             this.seriesMarkerStyleLabel = new System.Windows.Forms.Label();
             this.seriesMarkerStyleComboBox = new System.Windows.Forms.ComboBox();
-            this.dataPointColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
-            this.markerColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
-            this.seriesColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
+            this.dataPointColorPanelControl = new CommonCode.CustomControls.ColorPanelControl();
+            this.markerColorPanelControl = new CommonCode.CustomControls.ColorPanelControl();
+            this.seriesColorPanelControl = new CommonCode.CustomControls.ColorPanelControl();
             this.seriesMarkerSizeLabel = new System.Windows.Forms.Label();
             this.seriesMarkerSizeNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();

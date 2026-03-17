@@ -2,7 +2,7 @@
 
 using Vintasoft.Imaging.Annotation;
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// Provides the ability to create the annotation comment type for annotation.

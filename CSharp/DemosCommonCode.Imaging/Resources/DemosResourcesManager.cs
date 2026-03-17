@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using Vintasoft.Imaging;
 
 
-namespace DemosCommonCode
+namespace CommonCode
 {
     /// <summary>
     /// Provides access to the resources of this demo.

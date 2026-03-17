@@ -1,4 +1,4 @@
-namespace DemosCommonCode.Annotation
+﻿namespace CommonCode.Annotation
 {
     /// <summary>
     /// Specifies the available types of mark annotation.

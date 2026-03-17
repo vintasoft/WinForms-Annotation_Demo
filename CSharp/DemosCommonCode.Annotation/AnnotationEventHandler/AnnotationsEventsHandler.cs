@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging;
@@ -6,7 +6,7 @@ using Vintasoft.Imaging;
 using Vintasoft.Imaging.Annotation;
 using Vintasoft.Imaging.Annotation.UI;
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// Class that handles all events of annotation and annotation collection.

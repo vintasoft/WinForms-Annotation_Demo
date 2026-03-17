@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 
 using Vintasoft.Imaging.Annotation.Formatters;
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// Allows user to control the annotation loading process and select the annotation to load.

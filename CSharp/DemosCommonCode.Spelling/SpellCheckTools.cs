@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Vintasoft.Imaging.Spelling;
 
 
-namespace DemosCommonCode.Spelling
+namespace CommonCode.Spelling
 {
     /// <summary>
     /// Contains collection of helper-algorithms for spell checking.

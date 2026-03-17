@@ -3,7 +3,7 @@
 using Vintasoft.Imaging.UI.VisualTools;
 
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// Stores information about a <see cref="MagnifierTool"/> action.

@@ -6,7 +6,7 @@ using Vintasoft.Imaging;
 using Vintasoft.Imaging.UI.VisualTools;
 
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// Stores information about an action of <see cref="VisualTool"/>.

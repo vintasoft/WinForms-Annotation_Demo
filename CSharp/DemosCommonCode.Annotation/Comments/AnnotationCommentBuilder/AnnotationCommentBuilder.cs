@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 
 using Vintasoft.Imaging;
@@ -9,7 +9,7 @@ using Vintasoft.Imaging.Annotation.UI.VisualTools;
 using Vintasoft.Imaging.UI.VisualTools.UserInteraction;
 using Vintasoft.Imaging.Utils;
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// Contains algorithms, which allow to create annotation with comments.

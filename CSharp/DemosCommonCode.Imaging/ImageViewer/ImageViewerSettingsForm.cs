@@ -7,7 +7,7 @@ using Vintasoft.Imaging.ImageRendering;
 using Vintasoft.Imaging.Codecs.Decoders;
 using Vintasoft.Imaging.UI;
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// A form that allows to view and change settings of the image viewer.

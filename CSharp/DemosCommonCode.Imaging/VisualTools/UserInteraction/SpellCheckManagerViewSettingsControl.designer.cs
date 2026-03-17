@@ -1,4 +1,4 @@
-namespace DemosCommonCode.Imaging
+﻿namespace CommonCode.Imaging
 {
     partial class SpellCheckManagerViewSettingsControl
     {
@@ -32,7 +32,7 @@ namespace DemosCommonCode.Imaging
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label35 = new System.Windows.Forms.Label();
             this.spellCheckManagerSuggestMenuEnabledCheckBox = new System.Windows.Forms.CheckBox();
-            this.spellCheckMnagerUnderlineColorColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
+            this.spellCheckMnagerUnderlineColorColorPanelControl = new CommonCode.CustomControls.ColorPanelControl();
             this.spellCheckManagerUnderlineTypeComboBox = new System.Windows.Forms.ComboBox();
             this.label37 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
@@ -181,7 +181,7 @@ namespace DemosCommonCode.Imaging
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.NumericUpDown spellCheckManagerUnderlineThicknessNumericUpDown;
         private System.Windows.Forms.Label label35;
-        private DemosCommonCode.CustomControls.ColorPanelControl spellCheckMnagerUnderlineColorColorPanelControl;
+        private CommonCode.CustomControls.ColorPanelControl spellCheckMnagerUnderlineColorColorPanelControl;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

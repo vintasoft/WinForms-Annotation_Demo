@@ -1,4 +1,4 @@
-using System.Drawing;
+﻿using System.Drawing;
 
 using Vintasoft.Imaging;
 
@@ -6,7 +6,7 @@ using Vintasoft.Imaging.Annotation;
 using Vintasoft.Imaging.Annotation.Rendering;
 using Vintasoft.Imaging.Drawing;
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// Determines how to render the mark annotation.

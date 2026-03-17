@@ -1,5 +1,5 @@
-
-namespace DemosCommonCode.Office
+﻿
+namespace CommonCode.Office
 {
     partial class OfficeDocumentVisualEditorForm
     {
@@ -34,9 +34,9 @@ namespace DemosCommonCode.Office
             this.chartsButton = new System.Windows.Forms.ToolStripButton();
             this.increaseContentScaleButton = new System.Windows.Forms.ToolStripButton();
             this.decreaseContentScaleButton = new System.Windows.Forms.ToolStripButton();
-            this.fontPropertiesVisualEditorToolStrip = new DemosCommonCode.Office.OfficeDocumentFontPropertiesVisualEditorToolStrip();
-            this.paragraphPropertiesVisualEditorToolStrip = new DemosCommonCode.Office.OfficeDocumentParagraphPropertiesVisualEditorToolStrip();
-            this.textPropertiesVisualEditorToolStrip = new DemosCommonCode.Office.OfficeDocumentTextPropertiesVisualEditorToolStrip();
+            this.fontPropertiesVisualEditorToolStrip = new CommonCode.Office.OfficeDocumentFontPropertiesVisualEditorToolStrip();
+            this.paragraphPropertiesVisualEditorToolStrip = new CommonCode.Office.OfficeDocumentParagraphPropertiesVisualEditorToolStrip();
+            this.textPropertiesVisualEditorToolStrip = new CommonCode.Office.OfficeDocumentTextPropertiesVisualEditorToolStrip();
             this.officeDocumentStrip.SuspendLayout();
             this.SuspendLayout();
             // 

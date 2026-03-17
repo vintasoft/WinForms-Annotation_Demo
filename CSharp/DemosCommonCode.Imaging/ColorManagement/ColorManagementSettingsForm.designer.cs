@@ -1,4 +1,4 @@
-namespace DemosCommonCode.Imaging.ColorManagement
+﻿namespace CommonCode.Imaging.ColorManagement
 {
     partial class ColorManagementSettingsForm
     {

@@ -11,7 +11,7 @@ using Vintasoft.Imaging.Office.OpenXml.Editor;
 using Vintasoft.Imaging.Office.OpenXml.Editor.Docx;
 using Vintasoft.Imaging.Office.OpenXml.UI.VisualTools.UserInteraction;
 
-namespace DemosCommonCode.Office
+namespace CommonCode.Office
 {
     /// <summary>
     /// A form that allows to set numbering of focused paragraph(s).

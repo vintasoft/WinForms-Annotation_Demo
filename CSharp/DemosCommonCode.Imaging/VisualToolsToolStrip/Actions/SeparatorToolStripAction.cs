@@ -1,4 +1,4 @@
-﻿namespace DemosCommonCode.Imaging
+﻿namespace CommonCode.Imaging
 {
     /// <summary>
     /// Stores information about a <see cref="System.Windows.Forms.ToolStripSeparator"/> action.

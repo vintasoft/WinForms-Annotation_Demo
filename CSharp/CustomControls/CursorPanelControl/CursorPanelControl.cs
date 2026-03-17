@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using Vintasoft.Imaging.UI.VisualTools;
 
 
-namespace DemosCommonCode.CustomControls
+namespace CommonCode.CustomControls
 {
     /// <summary>
     /// A panel that allows to show the selected cursor and change the selected cursor.

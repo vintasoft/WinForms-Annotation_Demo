@@ -1,4 +1,4 @@
-namespace AnnotationDemo
+﻿namespace AnnotationDemo
 {
     partial class AnnotationFontPropertiesForm
     {
@@ -39,7 +39,7 @@ namespace AnnotationDemo
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.fontColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
+            this.fontColorPanelControl = new CommonCode.CustomControls.ColorPanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.fontSizeNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -220,6 +220,6 @@ namespace AnnotationDemo
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Label label3;
-        private DemosCommonCode.CustomControls.ColorPanelControl fontColorPanelControl;
+        private CommonCode.CustomControls.ColorPanelControl fontColorPanelControl;
     }
 }

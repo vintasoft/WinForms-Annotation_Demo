@@ -1,4 +1,4 @@
-using System.IO;
+﻿using System.IO;
 using System.Windows.Forms;
 
 using Vintasoft.Imaging.Codecs.Decoders;
@@ -6,7 +6,7 @@ using Vintasoft.Imaging.ColorManagement;
 using Vintasoft.Imaging.ColorManagement.Icc;
 using Vintasoft.Imaging.UI;
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// Helps to initialize the color management settings.

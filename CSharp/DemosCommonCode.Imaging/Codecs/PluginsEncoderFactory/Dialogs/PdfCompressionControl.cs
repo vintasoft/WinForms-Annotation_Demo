@@ -8,7 +8,7 @@ using Vintasoft.Imaging.Pdf;
 using Vintasoft.Imaging.Codecs.Encoders;
 using Vintasoft.Imaging.ImageProcessing;
 
-namespace DemosCommonCode.Imaging.Codecs.Dialogs
+namespace CommonCode.Imaging.Codecs.Dialogs
 {
     /// <summary>
     /// A control that allows to edit the PDF compression settings.

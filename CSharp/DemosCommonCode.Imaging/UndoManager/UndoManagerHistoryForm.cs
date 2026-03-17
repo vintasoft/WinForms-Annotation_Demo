@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using Vintasoft.Imaging.Undo;
 
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// A form that shows an action list of undo manager.

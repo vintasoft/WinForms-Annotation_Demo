@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 using Vintasoft.Imaging;
 
-namespace DemosCommonCode.CustomControls
+namespace CommonCode.CustomControls
 {
     /// <summary>
     /// A control that allows to change value of <see cref="AnchorType"/> type.

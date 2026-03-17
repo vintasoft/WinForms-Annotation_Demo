@@ -1,4 +1,4 @@
-namespace DemosCommonCode.CustomControls
+﻿namespace CommonCode.CustomControls
 {
     partial class ColorPanelControl
     {
@@ -32,7 +32,7 @@ namespace DemosCommonCode.CustomControls
             this.colorButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.defaultColorButton = new System.Windows.Forms.Button();
-            this.colorSampleControl = new DemosCommonCode.CustomControls.ColorSampleControl();
+            this.colorSampleControl = new CommonCode.CustomControls.ColorSampleControl();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();

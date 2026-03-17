@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// Provides data for the <see cref="ImageViewerToolStrip.PageIndexChanged"/> event.

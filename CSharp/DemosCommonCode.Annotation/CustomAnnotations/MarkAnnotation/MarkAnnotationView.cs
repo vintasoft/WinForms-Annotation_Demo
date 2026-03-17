@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -10,7 +10,7 @@ using Vintasoft.Imaging.Annotation.UI.VisualTools.UserInteraction;
 using Vintasoft.Imaging.Drawing;
 using Vintasoft.Imaging.UI.VisualTools.UserInteraction;
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// Class that determines how to display the annotation that displays a mark

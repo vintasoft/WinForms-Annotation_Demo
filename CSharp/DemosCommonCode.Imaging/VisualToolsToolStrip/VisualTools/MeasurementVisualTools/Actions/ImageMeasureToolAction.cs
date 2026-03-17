@@ -12,7 +12,7 @@ using Vintasoft.Imaging.Annotation.Formatters;
 using Vintasoft.Imaging.Annotation.Measurements;
 using Vintasoft.Imaging.Annotation.UI;
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// Stores information about a <see cref="ImageMeasureTool"/> action.

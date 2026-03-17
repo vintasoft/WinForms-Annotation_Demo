@@ -21,7 +21,7 @@ using Vintasoft.Imaging.Pdf.Tree.Annotations;
 #endif
 using Vintasoft.Imaging.Undo;
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// Contains collection of helper-algorithms for demo applications with annotations.

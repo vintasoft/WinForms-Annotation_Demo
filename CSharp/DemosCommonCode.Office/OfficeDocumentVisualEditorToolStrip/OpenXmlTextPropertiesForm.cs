@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 using Vintasoft.Imaging.Office.OpenXml.Editor;
 
-namespace DemosCommonCode.Office
+namespace CommonCode.Office
 {
     /// <summary>
     /// A form that allows to view and edit the text properties.

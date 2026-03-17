@@ -1,4 +1,4 @@
-namespace DemosCommonCode.Imaging.Codecs.Dialogs
+﻿namespace CommonCode.Imaging.Codecs.Dialogs
 {
     partial class PdfEncoderSettingsForm
     {
@@ -62,7 +62,7 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.updateModeComboBox = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.conformanceComboBox = new System.Windows.Forms.ComboBox();
-            this.pdfImageCompressionControl1 = new DemosCommonCode.Imaging.Codecs.Dialogs.PdfImageCompressionControl();
+            this.pdfImageCompressionControl1 = new CommonCode.Imaging.Codecs.Dialogs.PdfImageCompressionControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();

@@ -9,7 +9,7 @@ using Vintasoft.Imaging.ImageProcessing.Color;
 using Vintasoft.Imaging.ImageProcessing.Effects;
 using Vintasoft.Imaging.UI.VisualTools;
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// A form that allows to edit magnifier tool settings.

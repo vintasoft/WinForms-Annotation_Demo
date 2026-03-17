@@ -3,7 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-using DemosCommonCode.Imaging;
+using CommonCode.Imaging;
 
 using Vintasoft.Imaging;
 using Vintasoft.Imaging.Codecs.Decoders;
@@ -13,7 +13,7 @@ using Vintasoft.Imaging.Office.OpenXml.Editor.Docx;
 #endif
 using Vintasoft.Imaging.UI;
 
-namespace DemosCommonCode.Office
+namespace CommonCode.Office
 {
     /// <summary>
     /// Contains collection of helper-algorithms for demo applications, which use VintaSoft Office .NET Plugin.

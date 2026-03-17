@@ -1,4 +1,4 @@
-﻿namespace DemosCommonCode
+﻿namespace CommonCode
 {
     /// <summary>
     /// Loads the Vintasoft.Imaging.Annotation.Pdf assembly.

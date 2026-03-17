@@ -1,9 +1,9 @@
-using System.Drawing;
+﻿using System.Drawing;
 
 using Vintasoft.Imaging.UI;
 using Vintasoft.Imaging.UI.VisualTools.UserInteraction;
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// Represents rounded interaction point for vertices of triangle annotation.

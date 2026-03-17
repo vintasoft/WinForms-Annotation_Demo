@@ -1,4 +1,4 @@
-﻿namespace DemosCommonCode.Annotation
+﻿namespace CommonCode.Annotation
 {
     /// <summary>
     /// Provides the ability to create the annotation icon name for annotation type.

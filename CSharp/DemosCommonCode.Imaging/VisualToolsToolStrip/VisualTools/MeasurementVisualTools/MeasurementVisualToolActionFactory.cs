@@ -4,7 +4,7 @@
 using Vintasoft.Imaging.Annotation.Measurements;
 #endif
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// Creates visual tool action, which allows to enable/disable visual tool <see cref="ImageMeasureTool"/> in image viewer, and adds action to the toolstrip.

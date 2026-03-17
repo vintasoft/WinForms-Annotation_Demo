@@ -12,7 +12,7 @@ using Vintasoft.Imaging.Text;
 using Vintasoft.Imaging.UI.VisualTools.UserInteraction;
 using Vintasoft.Imaging.Utils;
 
-namespace DemosCommonCode.Office
+namespace CommonCode.Office
 {
     /// <summary>
     /// A toolstrip that allows to edit paragraph properties of Office document using <see cref="OfficeDocumentVisualEditor"/>.

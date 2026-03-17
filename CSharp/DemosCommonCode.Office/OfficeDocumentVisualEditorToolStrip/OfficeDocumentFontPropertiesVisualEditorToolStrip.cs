@@ -11,7 +11,7 @@ using Vintasoft.Imaging.Office.OpenXml.UI.VisualTools.UserInteraction;
 using Vintasoft.Imaging.Text;
 using Vintasoft.Imaging.UI.VisualTools.UserInteraction;
 
-namespace DemosCommonCode.Office
+namespace CommonCode.Office
 {
     /// <summary>
     /// A toolstrip that allows to edit font properties of Office document using <see cref="OfficeDocumentVisualEditor"/>.

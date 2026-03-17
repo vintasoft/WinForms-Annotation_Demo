@@ -1,4 +1,4 @@
-namespace DemosCommonCode.Imaging
+﻿namespace CommonCode.Imaging
 {
     partial class ImageViewerSettingsForm
     {
@@ -95,9 +95,9 @@ namespace DemosCommonCode.Imaging
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.imageAnchorTypeEditor = new DemosCommonCode.CustomControls.AnchorTypeEditorControl();
-            this.backgroundColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
-            this.focusPointAnchorTypeEditor = new DemosCommonCode.CustomControls.AnchorTypeEditorControl();
+            this.imageAnchorTypeEditor = new CommonCode.CustomControls.AnchorTypeEditorControl();
+            this.backgroundColorPanelControl = new CommonCode.CustomControls.ColorPanelControl();
+            this.focusPointAnchorTypeEditor = new CommonCode.CustomControls.AnchorTypeEditorControl();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1221,7 +1221,7 @@ namespace DemosCommonCode.Imaging
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TrackBar vectorRenderingQualityFactorTrackBar;
         private System.Windows.Forms.Label label13;
-        private DemosCommonCode.CustomControls.ColorPanelControl backgroundColorPanelControl;
+        private CommonCode.CustomControls.ColorPanelControl backgroundColorPanelControl;
         private System.Windows.Forms.GroupBox imagesDisplayModeGroupBox;
         private System.Windows.Forms.CheckBox useImageAppearancesInSinglepageModeCheckBox;
         private System.Windows.Forms.NumericUpDown imagesPaddingNumericUpDown;
@@ -1243,8 +1243,8 @@ namespace DemosCommonCode.Imaging
         private System.Windows.Forms.CheckBox keyboardNavigationCheckBox;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.NumericUpDown keyboardNavigationZoomStepNumericUpDown;
-        private DemosCommonCode.CustomControls.AnchorTypeEditorControl imageAnchorTypeEditor;
-        private DemosCommonCode.CustomControls.AnchorTypeEditorControl focusPointAnchorTypeEditor;
+        private CommonCode.CustomControls.AnchorTypeEditorControl imageAnchorTypeEditor;
+        private CommonCode.CustomControls.AnchorTypeEditorControl focusPointAnchorTypeEditor;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;

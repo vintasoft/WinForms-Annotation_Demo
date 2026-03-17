@@ -10,7 +10,7 @@ using Vintasoft.Imaging.Office.OpenXml.Editor.Docx;
 using Vintasoft.Imaging.Office.OpenXml.UI.VisualTools.UserInteraction;
 using Vintasoft.Imaging.UI.VisualTools.UserInteraction;
 
-namespace DemosCommonCode.Office
+namespace CommonCode.Office
 {
     /// <summary>
     /// A form that allows to edit Office document.

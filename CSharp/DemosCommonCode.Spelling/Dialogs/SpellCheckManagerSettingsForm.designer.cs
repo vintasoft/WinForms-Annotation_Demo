@@ -1,4 +1,4 @@
-namespace DemosCommonCode.Spelling
+﻿namespace CommonCode.Spelling
 {
     partial class SpellCheckManagerSettingsForm
     {

@@ -1,6 +1,6 @@
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     partial class ImageViewerToolStrip
     {

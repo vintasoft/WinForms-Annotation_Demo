@@ -1,5 +1,5 @@
-
-namespace DemosCommonCode.Office
+﻿
+namespace CommonCode.Office
 {
     partial class OpenXmlParagraphPropertiesForm
     {
@@ -50,7 +50,7 @@ namespace DemosCommonCode.Office
             this.label7 = new System.Windows.Forms.Label();
             this.spacingBeforeComboBox = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.fillColorPanel = new DemosCommonCode.CustomControls.ColorPanelControl();
+            this.fillColorPanel = new CommonCode.CustomControls.ColorPanelControl();
             this.keepLinesCheckBox = new System.Windows.Forms.CheckBox();
             this.keepNextCheckBox = new System.Windows.Forms.CheckBox();
             this.widowControlCheckBox = new System.Windows.Forms.CheckBox();

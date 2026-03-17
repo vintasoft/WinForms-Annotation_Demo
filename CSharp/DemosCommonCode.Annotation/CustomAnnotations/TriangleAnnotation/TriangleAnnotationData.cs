@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
 using Vintasoft.Imaging.Annotation;
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// Class that holds information about the annotation that displays a triangle.

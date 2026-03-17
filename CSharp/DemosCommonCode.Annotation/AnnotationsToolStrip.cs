@@ -16,11 +16,11 @@ using Vintasoft.Imaging.UI.VisualTools;
 using Vintasoft.Imaging.UI.VisualTools.UserInteraction;
 using Vintasoft.Imaging.UI.WinForms.Controls;
 
-using DemosCommonCode.CustomControls;
-using DemosCommonCode.Imaging.Codecs;
-using DemosCommonCode.Imaging;
+using CommonCode.CustomControls;
+using CommonCode.Imaging.Codecs;
+using CommonCode.Imaging;
 #if !REMOVE_OFFICE_PLUGIN
-using DemosCommonCode.Office;
+using CommonCode.Office;
 #endif
 using Vintasoft.Imaging.Codecs.Decoders;
 
@@ -29,7 +29,7 @@ using Vintasoft.Imaging.Office.OpenXml.UI.VisualTools.UserInteraction;
 using Vintasoft.Imaging.Office.OpenXml.Editor;
 #endif
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// A Windows toolbar that allows to add annotations to an image in viewer.

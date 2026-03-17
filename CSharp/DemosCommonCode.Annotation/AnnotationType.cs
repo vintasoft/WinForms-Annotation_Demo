@@ -1,5 +1,5 @@
 ﻿
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// Specifies available types of annotations, which can be built.

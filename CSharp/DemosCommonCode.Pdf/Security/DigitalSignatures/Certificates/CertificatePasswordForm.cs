@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
 
-namespace DemosCommonCode.Pdf.Security
+namespace CommonCode.Pdf.Security
 {
     /// <summary>
     /// A form that allows to input password for opening the certificate with private key.

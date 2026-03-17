@@ -1,4 +1,4 @@
-namespace DemosCommonCode.Annotation
+﻿namespace CommonCode.Annotation
 {
     partial class AnnotationCommentsControl
     {
@@ -28,7 +28,7 @@ namespace DemosCommonCode.Annotation
         /// </summary>
         private void InitializeComponent()
         {
-            this.commentsControl1 = new DemosCommonCode.Annotation.CommentsControl();
+            this.commentsControl1 = new CommonCode.Annotation.CommentsControl();
             this.addNewCommentButton = new System.Windows.Forms.Button();
             this.removeCommentFromAnnotationButton = new System.Windows.Forms.Button();
             this.closeAllCommentsButton = new System.Windows.Forms.Button();

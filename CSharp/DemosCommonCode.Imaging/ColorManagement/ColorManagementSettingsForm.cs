@@ -8,7 +8,7 @@ using Vintasoft.Imaging.ColorManagement;
 using Vintasoft.Imaging.ColorManagement.Icc;
 using Vintasoft.Imaging.UI;
 
-namespace DemosCommonCode.Imaging.ColorManagement
+namespace CommonCode.Imaging.ColorManagement
 {
     /// <summary>
     /// A form that allows to view and edit the color management decode settings.

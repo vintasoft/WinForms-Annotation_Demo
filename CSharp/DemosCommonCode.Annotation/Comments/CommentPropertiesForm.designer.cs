@@ -1,4 +1,4 @@
-namespace DemosCommonCode.Annotation
+﻿namespace CommonCode.Annotation
 {
     partial class CommentPropertiesForm
     {
@@ -37,7 +37,7 @@ namespace DemosCommonCode.Annotation
             this.modifyDateTimeTextBox = new System.Windows.Forms.TextBox();
             this.subjectTextBox = new System.Windows.Forms.TextBox();
             this.userNameTextBox = new System.Windows.Forms.TextBox();
-            this.colorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
+            this.colorPanelControl = new CommonCode.CustomControls.ColorPanelControl();
             this.typeComboBox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -47,7 +47,7 @@ namespace DemosCommonCode.Annotation
             this.label1 = new System.Windows.Forms.Label();
             this.isLockedCheckBox = new System.Windows.Forms.CheckBox();
             this.stateHistoryTabPage = new System.Windows.Forms.TabPage();
-            this.commentStateHistoryControl1 = new DemosCommonCode.Annotation.CommentStateHistoryControl();
+            this.commentStateHistoryControl1 = new CommonCode.Annotation.CommentStateHistoryControl();
             this.advancedTabPage = new System.Windows.Forms.TabPage();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.okButton = new System.Windows.Forms.Button();

@@ -7,7 +7,7 @@ using Vintasoft.Imaging;
 using Vintasoft.Imaging.UI;
 
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// Toolbar for image viewer.

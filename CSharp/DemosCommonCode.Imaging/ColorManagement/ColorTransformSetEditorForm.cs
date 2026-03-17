@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 using Vintasoft.Imaging.ColorManagement;
 
-namespace DemosCommonCode.Imaging.ColorManagement
+namespace CommonCode.Imaging.ColorManagement
 {
     /// <summary>
     /// A form that allows to view and edit the color transformation set.

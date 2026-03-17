@@ -1,4 +1,4 @@
-namespace DemosCommonCode.Pdf.Security
+﻿namespace CommonCode.Pdf.Security
 {
     partial class CertificatePasswordForm
     {

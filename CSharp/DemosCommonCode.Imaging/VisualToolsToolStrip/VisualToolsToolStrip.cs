@@ -8,11 +8,11 @@ using System.Windows.Forms;
 using Vintasoft.Imaging.UI;
 using Vintasoft.Imaging.UI.VisualTools;
 
-using DemosCommonCode.CustomControls;
+using CommonCode.CustomControls;
 using Vintasoft.Imaging;
 using Vintasoft.Imaging.UI.WinForms.Controls;
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// A tool strip that shows buttons, which allow to enable/disable visual tools in image viewer.

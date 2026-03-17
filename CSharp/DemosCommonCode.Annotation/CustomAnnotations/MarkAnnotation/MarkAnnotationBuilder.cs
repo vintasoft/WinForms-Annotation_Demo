@@ -1,8 +1,8 @@
-using System.Drawing;
+﻿using System.Drawing;
 
 using Vintasoft.Imaging.UI.VisualTools.UserInteraction;
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// Interaction controller that builds a mark annotation.

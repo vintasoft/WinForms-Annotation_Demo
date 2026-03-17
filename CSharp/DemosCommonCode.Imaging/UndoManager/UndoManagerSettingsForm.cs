@@ -6,7 +6,7 @@ using Vintasoft.Data;
 using Vintasoft.Imaging.Undo;
 
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// A form that allows to view and edit settings of undo manager.

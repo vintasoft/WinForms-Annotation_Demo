@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -6,7 +6,7 @@ using System.Text;
 using Vintasoft.Imaging.Spelling;
 
 
-namespace DemosCommonCode.Spelling
+namespace CommonCode.Spelling
 {
     /// <summary>
     /// Represents the "Hunspell" spell check engine.

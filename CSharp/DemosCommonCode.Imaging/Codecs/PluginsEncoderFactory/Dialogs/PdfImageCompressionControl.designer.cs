@@ -1,5 +1,5 @@
-
-namespace DemosCommonCode.Imaging.Codecs.Dialogs
+﻿
+namespace CommonCode.Imaging.Codecs.Dialogs
 {
     partial class PdfImageCompressionControl
     {
@@ -44,14 +44,14 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
             this.mrcHiQualityMaskCheckBox = new System.Windows.Forms.CheckBox();
             this.mrcUseFrontCheckBox = new System.Windows.Forms.CheckBox();
             this.mrcBackgroundTabPage = new System.Windows.Forms.TabPage();
-            this.mrcBackgroundCompressionControl = new DemosCommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl();
+            this.mrcBackgroundCompressionControl = new CommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl();
             this.mrcImagesTabPage = new System.Windows.Forms.TabPage();
-            this.mrcImagesCompressionControl = new DemosCommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl();
+            this.mrcImagesCompressionControl = new CommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl();
             this.mrcMaskTabPage = new System.Windows.Forms.TabPage();
-            this.mrcMaskCompressionControl = new DemosCommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl();
+            this.mrcMaskCompressionControl = new CommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl();
             this.mrcFrontTabPage = new System.Windows.Forms.TabPage();
-            this.mrcFrontCompressionControl = new DemosCommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl();
-            this.pdfCompressionControl = new DemosCommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl();
+            this.mrcFrontCompressionControl = new CommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl();
+            this.pdfCompressionControl = new CommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl();
             this.mrcAddPdfLayersCheckBox = new System.Windows.Forms.CheckBox();
             this.mrcCompressionSettingsGroupBox.SuspendLayout();
             this.mrcTabControl.SuspendLayout();
@@ -364,14 +364,14 @@ namespace DemosCommonCode.Imaging.Codecs.Dialogs
         private System.Windows.Forms.CheckBox mrcHiQualityMaskCheckBox;
         private System.Windows.Forms.CheckBox mrcUseFrontCheckBox;
         private System.Windows.Forms.TabPage mrcBackgroundTabPage;
-        private global::DemosCommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl mrcBackgroundCompressionControl;
+        private global::CommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl mrcBackgroundCompressionControl;
         private System.Windows.Forms.TabPage mrcImagesTabPage;
-        private global::DemosCommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl mrcImagesCompressionControl;
+        private global::CommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl mrcImagesCompressionControl;
         private System.Windows.Forms.TabPage mrcMaskTabPage;
-        private global::DemosCommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl mrcMaskCompressionControl;
+        private global::CommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl mrcMaskCompressionControl;
         private System.Windows.Forms.TabPage mrcFrontTabPage;
-        private global::DemosCommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl mrcFrontCompressionControl;
-        private global::DemosCommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl pdfCompressionControl;
+        private global::CommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl mrcFrontCompressionControl;
+        private global::CommonCode.Imaging.Codecs.Dialogs.PdfCompressionControl pdfCompressionControl;
         private System.Windows.Forms.CheckBox mrcAddPdfLayersCheckBox;
     }
 }

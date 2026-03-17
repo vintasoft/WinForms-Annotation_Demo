@@ -5,7 +5,7 @@ using Vintasoft.Imaging.Annotation;
 using Vintasoft.Imaging.Annotation.TypeEditors;
 #endif
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// Allows to register the ability to edit properries of <see cref="AnnotationFontEditor"/> in property grid.

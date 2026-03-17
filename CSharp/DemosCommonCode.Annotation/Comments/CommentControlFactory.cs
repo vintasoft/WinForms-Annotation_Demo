@@ -2,7 +2,7 @@
 using Vintasoft.Imaging.Annotation.Comments;
 using Vintasoft.Imaging.Annotation.UI.Comments;
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// Represents a factory that allows to create comment controls.

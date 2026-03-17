@@ -8,7 +8,7 @@ using Vintasoft.Imaging.Annotation.UI.Comments;
 using Vintasoft.Imaging.Annotation.UI.VisualTools;
 using Vintasoft.Imaging.UI;
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// Represents a user control that displays annotation comments of focused page in image viewer.

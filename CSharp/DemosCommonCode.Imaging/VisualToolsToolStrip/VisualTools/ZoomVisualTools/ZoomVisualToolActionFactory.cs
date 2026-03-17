@@ -3,7 +3,7 @@
 using Vintasoft.Imaging.UI.VisualTools;
 
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// Creates visual tool action, which allows to enable/disable visual tool <see cref="MagnifierTool"/> in image viewer, and adds action to the toolstrip.

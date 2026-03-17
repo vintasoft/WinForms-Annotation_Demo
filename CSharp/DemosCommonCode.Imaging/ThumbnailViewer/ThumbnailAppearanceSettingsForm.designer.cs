@@ -1,4 +1,4 @@
-namespace DemosCommonCode.Imaging
+﻿namespace CommonCode.Imaging
 {
     partial class ThumbnailAppearanceSettingsForm
     {
@@ -37,8 +37,8 @@ namespace DemosCommonCode.Imaging
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.backColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
-            this.borderColorPanelControl = new DemosCommonCode.CustomControls.ColorPanelControl();
+            this.backColorPanelControl = new CommonCode.CustomControls.ColorPanelControl();
+            this.borderColorPanelControl = new CommonCode.CustomControls.ColorPanelControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.borderWidthNumericUpDown)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -220,8 +220,8 @@ namespace DemosCommonCode.Imaging
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private DemosCommonCode.CustomControls.ColorPanelControl borderColorPanelControl;
-        private DemosCommonCode.CustomControls.ColorPanelControl backColorPanelControl;
+        private CommonCode.CustomControls.ColorPanelControl borderColorPanelControl;
+        private CommonCode.CustomControls.ColorPanelControl backColorPanelControl;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

@@ -30,13 +30,14 @@ using Vintasoft.Imaging.Annotation.UI;
 using Vintasoft.Imaging.Annotation.UI.Comments;
 using Vintasoft.Imaging.Annotation.UI.VisualTools;
 
-using DemosCommonCode;
-using DemosCommonCode.Annotation;
-using DemosCommonCode.Imaging;
-using DemosCommonCode.Imaging.Codecs;
-using DemosCommonCode.Imaging.Codecs.Dialogs;
-using DemosCommonCode.Imaging.ColorManagement;
-using DemosCommonCode.Spelling;
+using CommonCode;
+using CommonCode.Annotation;
+using CommonCode.Imaging;
+using CommonCode.Imaging.Codecs;
+using CommonCode.Imaging.Codecs.Dialogs;
+using CommonCode.Imaging.ColorManagement;
+using CommonCode.Spelling;
+using CommonCode.Office;
 
 namespace AnnotationDemo
 {
@@ -208,7 +209,7 @@ namespace AnnotationDemo
 #if !REMOVE_OFFICE_PLUGIN
             AnnotationOfficeUIAssembly.Init();
 
-            DemosCommonCode.Office.OfficeDocumentVisualEditorForm documentVisualEditorForm = new DemosCommonCode.Office.OfficeDocumentVisualEditorForm();
+            OfficeDocumentVisualEditorForm documentVisualEditorForm = new OfficeDocumentVisualEditorForm();
             documentVisualEditorForm.Owner = this;
             documentVisualEditorForm.AddVisualTool(annotationViewer1.AnnotationVisualTool);
 #endif
@@ -1706,8 +1707,8 @@ namespace AnnotationDemo
         private void PdfPageSignatureManager_SignatureRequest(object sender, SignatureRequestEventArgs e)
         {
             // create dialog that allows to perform signing of PDF document
-            using (DemosCommonCode.Pdf.Security.CreateSignatureFieldForm form =
-                new DemosCommonCode.Pdf.Security.CreateSignatureFieldForm(e.SignatureField))
+            using (CommonCode.Pdf.Security.CreateSignatureFieldForm form =
+                new CommonCode.Pdf.Security.CreateSignatureFieldForm(e.SignatureField))
             {
                 form.CanChangeSignatureAppearance = false;
                 form.StartPosition = FormStartPosition.CenterParent;
@@ -1726,8 +1727,8 @@ namespace AnnotationDemo
         {
 #if !REMOVE_PDF_PLUGIN
             // create dialog that allows to view information about document signatures and verify signature
-            using (DemosCommonCode.Pdf.Security.DocumentSignaturesForm form =
-                new DemosCommonCode.Pdf.Security.DocumentSignaturesForm(_pdfDocument))
+            using (CommonCode.Pdf.Security.DocumentSignaturesForm form =
+                new CommonCode.Pdf.Security.DocumentSignaturesForm(_pdfDocument))
             {
                 form.StartPosition = FormStartPosition.CenterParent;
                 form.Owner = this;

@@ -1,4 +1,4 @@
-#if !REMOVE_ANNOTATION_PLUGIN
+﻿#if !REMOVE_ANNOTATION_PLUGIN
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using Vintasoft.Imaging;
 using Vintasoft.Imaging.UI;
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// Represents an interaction transformer that transforms <see cref="CommentControl"/>.

@@ -6,7 +6,7 @@ using Vintasoft.Imaging;
 using Vintasoft.Imaging.UI;
 
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// A form that allows to select image of image collection.

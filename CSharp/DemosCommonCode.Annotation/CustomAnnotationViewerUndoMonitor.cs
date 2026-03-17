@@ -4,7 +4,7 @@ using Vintasoft.Imaging.Annotation.UI.VisualTools;
 using Vintasoft.Imaging.Undo;
 
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// The undo monitor that monitors the <see cref="AnnotationViewer"/> object and

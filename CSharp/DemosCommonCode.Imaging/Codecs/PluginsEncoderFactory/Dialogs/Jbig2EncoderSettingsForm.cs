@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 using Vintasoft.Imaging.Codecs.Encoders;
 
-namespace DemosCommonCode.Imaging.Codecs.Dialogs
+namespace CommonCode.Imaging.Codecs.Dialogs
 {
     /// <summary>
     /// A form that allows to view and edit the JBIG2 encoder settings.

@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 using System.Drawing;
 
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// Contains collection of helper-algorithms for annotations.

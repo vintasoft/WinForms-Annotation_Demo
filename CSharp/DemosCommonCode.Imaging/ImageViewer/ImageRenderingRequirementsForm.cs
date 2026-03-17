@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using Vintasoft.Imaging.ImageRendering;
 
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// A form that allows to view and edit the image rendering requirements.

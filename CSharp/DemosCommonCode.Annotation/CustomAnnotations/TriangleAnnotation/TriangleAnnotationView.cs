@@ -1,10 +1,10 @@
-using System.Drawing;
+﻿using System.Drawing;
 
 using Vintasoft.Imaging.Annotation;
 using Vintasoft.Imaging.Annotation.UI;
 using Vintasoft.Imaging.Annotation.UI.VisualTools.UserInteraction;
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// Class that determines how to display the annotation that displays a triangle

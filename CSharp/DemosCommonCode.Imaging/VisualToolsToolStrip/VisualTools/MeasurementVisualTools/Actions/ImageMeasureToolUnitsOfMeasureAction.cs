@@ -2,7 +2,7 @@
 
 using Vintasoft.Imaging;
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// Stores information about a <see cref="UnitOfMeasure"/> action.

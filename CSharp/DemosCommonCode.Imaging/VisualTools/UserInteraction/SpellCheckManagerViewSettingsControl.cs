@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using Vintasoft.Imaging.Spelling.UI;
 using Vintasoft.Imaging.UI.VisualTools.UserInteraction;
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// A control that allows to view and edit the view settings of spell check manager.

@@ -10,7 +10,7 @@ using Vintasoft.Imaging.Annotation.Comments;
 using Vintasoft.Imaging.Annotation.UI.Comments;
 using Vintasoft.Imaging.UI;
 
-namespace DemosCommonCode.Annotation
+namespace CommonCode.Annotation
 {
     /// <summary>
     /// Represents a control that allows to display a comment in image viewer.

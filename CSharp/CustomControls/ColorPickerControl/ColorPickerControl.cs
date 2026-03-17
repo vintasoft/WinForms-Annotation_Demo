@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 
-namespace DemosCommonCode.CustomControls
+namespace CommonCode.CustomControls
 {
     /// <summary>
     /// A panel that allows to show the selected color and change the selected color.

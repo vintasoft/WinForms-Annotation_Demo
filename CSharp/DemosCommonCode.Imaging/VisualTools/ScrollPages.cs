@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
@@ -7,7 +7,7 @@ using Vintasoft.Imaging;
 using Vintasoft.Imaging.UI.VisualTools;
 using Vintasoft.Imaging.Utils;
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// The visual tool that allows to scroll the pages in the image viewer.

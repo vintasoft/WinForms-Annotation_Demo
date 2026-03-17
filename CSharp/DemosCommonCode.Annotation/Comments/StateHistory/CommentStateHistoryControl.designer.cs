@@ -1,4 +1,4 @@
-﻿namespace DemosCommonCode.Annotation
+﻿namespace CommonCode.Annotation
 {
     partial class CommentStateHistoryControl
     {

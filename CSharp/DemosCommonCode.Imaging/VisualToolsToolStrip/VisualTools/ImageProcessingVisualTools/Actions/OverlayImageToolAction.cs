@@ -5,10 +5,10 @@ using System.Windows.Forms;
 using Vintasoft.Imaging;
 using Vintasoft.Imaging.UI.VisualTools;
 
-using DemosCommonCode.Imaging.Codecs;
+using CommonCode.Imaging.Codecs;
 
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// Stores information about a <see cref="OverlayImageTool"/> action.

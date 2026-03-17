@@ -5,8 +5,9 @@ using Vintasoft.Imaging;
 using Vintasoft.Imaging.Annotation;
 using Vintasoft.Imaging.Annotation.UI;
 
-using DemosCommonCode;
-using DemosCommonCode.Imaging;
+using CommonCode;
+using CommonCode.Imaging;
+using CommonCode.Imaging.Codecs;
 
 
 namespace AnnotationDemo
@@ -49,7 +50,7 @@ namespace AnnotationDemo
             Text = string.Format("Create {0} Template", category);
 
             // set the filter for open file dialog
-            DemosCommonCode.Imaging.Codecs.CodecsFileFilters.SetOpenFileDialogFilter(openFileDialog1);
+            CodecsFileFilters.SetOpenFileDialogFilter(openFileDialog1);
 
             // create the build manager for annotation templates
             _buildManager = new AnnotationTemplateBuildManager(annotationViewer1, templateManager);

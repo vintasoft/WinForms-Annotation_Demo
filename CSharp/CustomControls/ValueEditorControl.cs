@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Forms;
 
-namespace DemosCommonCode.CustomControls
+namespace CommonCode.CustomControls
 {
     /// <summary>
     /// A control that allows to edit value in image processing configuration form.

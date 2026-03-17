@@ -3,7 +3,7 @@
 using Vintasoft.Imaging.UI.VisualTools;
 
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// Creates visual tool actions, which allow to enable/disable visual tools (<see cref="RectangularSelectionTool"/> and <see cref="CustomSelectionTool"/>)

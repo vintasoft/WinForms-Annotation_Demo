@@ -1,5 +1,5 @@
-
-namespace DemosCommonCode.Office
+﻿
+namespace CommonCode.Office
 {
     partial class OpenXmlTextPropertiesForm
     {
@@ -48,8 +48,8 @@ namespace DemosCommonCode.Office
             this.label6 = new System.Windows.Forms.Label();
             this.characterSpacingComboBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.underlineColorPanel = new DemosCommonCode.CustomControls.ColorPanelControl();
-            this.fontColorPanel = new DemosCommonCode.CustomControls.ColorPanelControl();
+            this.underlineColorPanel = new CommonCode.CustomControls.ColorPanelControl();
+            this.fontColorPanel = new CommonCode.CustomControls.ColorPanelControl();
             this.textHighlightComboBox = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();

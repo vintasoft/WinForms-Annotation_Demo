@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 using Vintasoft.Imaging.Utils;
 
-namespace DemosCommonCode.Imaging
+namespace CommonCode.Imaging
 {
     /// <summary>
     /// A form that executes a method in a background thread and shows the execution progress.
