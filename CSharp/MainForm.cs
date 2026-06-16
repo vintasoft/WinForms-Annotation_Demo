@@ -187,15 +187,10 @@ namespace AnnotationDemo
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MainForm"/> class.
+        /// Initializes the <see cref="MainForm"/> class.
         /// </summary>
-        public MainForm()
+        static MainForm()
         {
-            // register the evaluation license for VintaSoft Imaging .NET SDK
-            Vintasoft.Imaging.ImagingGlobalSettings.Register("REG_USER", "REG_EMAIL", "EXPIRATION_DATE", "REG_CODE");
-
-            InitializeComponent();
-
             // load assemblies
             Jbig2AssemblyLoader.Load();
             Jpeg2000AssemblyLoader.Load();
@@ -208,14 +203,27 @@ namespace AnnotationDemo
 
 #if !REMOVE_OFFICE_PLUGIN
             AnnotationOfficeUIAssembly.Init();
-
-            OfficeDocumentVisualEditorForm documentVisualEditorForm = new OfficeDocumentVisualEditorForm();
-            documentVisualEditorForm.Owner = this;
-            documentVisualEditorForm.AddVisualTool(annotationViewer1.AnnotationVisualTool);
 #endif
 
             // set CustomFontProgramsController for all opened documents
             CustomFontProgramsController.SetDefaultFontProgramsController();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainForm"/> class.
+        /// </summary>
+        public MainForm()
+        {
+            // register the evaluation license for VintaSoft Imaging .NET SDK
+            Vintasoft.Imaging.ImagingGlobalSettings.Register("REG_USER", "REG_EMAIL", "EXPIRATION_DATE", "REG_CODE");
+
+            InitializeComponent();
+
+#if !REMOVE_OFFICE_PLUGIN
+            OfficeDocumentVisualEditorForm documentVisualEditorForm = new OfficeDocumentVisualEditorForm();
+            documentVisualEditorForm.Owner = this;
+            documentVisualEditorForm.AddVisualTool(annotationViewer1.AnnotationVisualTool);
+#endif
 
             annotationViewer1.AnnotationVisualTool.ChangeFocusedItemBeforeInteraction = true;
 

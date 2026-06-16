@@ -50,12 +50,12 @@ namespace CommonCode.Annotation
                 typeName = typeName.Remove(0, 3);
 
             if (typeName == "AnnotationDemo.TriangleAnnotationData")
-                typeName = "DemosCommonCode.Annotation.TriangleAnnotationData";
+                typeName = "CommonCode.Annotation.TriangleAnnotationData";
 
             if (typeName == "AnnotationDemo.MarkAnnotationData")
-                typeName = "DemosCommonCode.Annotation.MarkAnnotationData";
+                typeName = "CommonCode.Annotation.MarkAnnotationData";
 
-            if (typeName.StartsWith("WpfDemosCommonCode"))
+            if (typeName.StartsWith("WpfCommonCode"))
                 typeName = typeName.Remove(0, 3);
 
             return base.BindToType(assemblyName, typeName);
